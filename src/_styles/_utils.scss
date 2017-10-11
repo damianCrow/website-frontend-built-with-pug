@@ -1,0 +1,413 @@
+//==============================================================================
+// Collections of mixins and functions shared to all SASS files.
+//
+// - strip-units, em, rem
+// - background-image
+// - clearfix
+// - decimal-round, decimal-ceil, decimal-floor
+// - selectd, unselectable, transparent-tap
+// - quantity queries
+// - triangle
+// - show-hidden, hidden-shown
+//
+//==============================================================================
+
+// Strips the unit from a number.
+//
+// @param {Number (With Unit)} $value
+//
+// @example scss - Usage
+//   $dimension: strip-units(10em);
+//
+// @example css - CSS Output
+//   $dimension: 10;
+//
+// @return {Number (Unitless)}
+
+@function strip-units($value) {
+  @return ($value / ($value * 0 + 1));
+}
+
+// Convert pixels to ems
+// eg. for a relational value of 12px write em(12) when the parent is 16px
+// if the parent is another value say 24px write em(12, 24)
+
+@function em($pxval, $base: $base-size) {
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+  @return ($pxval / $base) * 1em;
+}
+
+
+// Convert pixels to rems
+// eg. for a relational value of 12px write rem(12)
+// Assumes $base-size is the font-size of <html>
+
+@function rem($pxval) {
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+
+  $base: $base-size;
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+  @return ($pxval / $base) * 1rem;
+}
+
+// Mixin to include a background image without having to define repeat, position etc.
+// Example usage:
+//
+// @include background-image('test.png');
+// or
+// @include background-image('test.png', $repeat: repeat);
+@mixin background-image($image, $size: auto, $position: center, $repeat: no-repeat, $fallback-color: null) {
+  @if ($fallback-color) {
+    background-color: $fallback-color;
+  }
+  background-image: url($image-folder-path + '/' + $image);
+  background-position: $position;
+  background-repeat: $repeat;
+  background-size: $size;
+}
+
+// Forces the size of a container with floating children to be not none.
+@mixin clearfix {
+  &::after {
+    display: table;
+
+    clear: both;
+
+    content: '';
+  }
+}
+
+// _decimal.scss | MIT License | gist.github.com/terkel/4373420
+
+// Round a number to specified digits.
+//
+// @param  {Number} $number A number to round
+// @param  {Number} [$digits:0] Digits to output
+// @param  {String} [$mode:round] (round|ceil|floor) How to round a number
+// @return {Number} A rounded number
+// @example
+//     decimal-round(0.333)    => 0
+//     decimal-round(0.333, 1) => 0.3
+//     decimal-round(0.333, 2) => 0.33
+//     decimal-round(0.666)    => 1
+//     decimal-round(0.666, 1) => 0.7
+//     decimal-round(0.666, 2) => 0.67
+//
+@function decimal-round($number, $digits: 0, $mode: round) {
+  $n: 1;
+  // $number must be a number
+  @if type-of($number) != number {
+    @warn '#{$number} is not a number.';
+    @return $number;
+  }
+  // $digits must be a unitless number
+  @if type-of($digits) != number {
+    @warn '#{$digits} is not a number.';
+    @return $number;
+  } @else if not unitless($digits) {
+    @warn '#{$digits} has a unit.';
+    @return $number;
+  }
+  @for $i from 1 through $digits {
+    $n: $n * 10;
+  }
+  @if $mode == round {
+    @return round($number * $n) / $n;
+  } @else if $mode == ceil {
+    @return ceil($number * $n) / $n;
+  } @else if $mode == floor {
+    @return floor($number * $n) / $n;
+  } @else {
+    @warn '#{$mode} is undefined keyword.';
+    @return $number;
+  }
+}
+
+// Ceil a number to specified digits.
+//
+// @param  {Number} $number A number to round
+// @param  {Number} [$digits:0] Digits to output
+// @return {Number} A ceiled number
+// @example
+//     decimal-ceil(0.333)    => 1
+//     decimal-ceil(0.333, 1) => 0.4
+//     decimal-ceil(0.333, 2) => 0.34
+//     decimal-ceil(0.666)    => 1
+//     decimal-ceil(0.666, 1) => 0.7
+//     decimal-ceil(0.666, 2) => 0.67
+//
+@function decimal-ceil($number, $digits: 0) {
+  @return decimal-round($number, $digits, ceil);
+}
+
+// Floor a number to specified digits.
+//
+// @param  {Number} $number A number to round
+// @param  {Number} [$digits:0] Digits to output
+// @return {Number} A floored number
+// @example
+//     decimal-floor(0.333)    => 0
+//     decimal-floor(0.333, 1) => 0.3
+//     decimal-floor(0.333, 2) => 0.33
+//     decimal-floor(0.666)    => 0
+//     decimal-floor(0.666, 1) => 0.6
+//     decimal-floor(0.666, 2) => 0.66
+//
+@function decimal-floor($number, $digits: 0) {
+  @return decimal-round($number, $digits, floor);
+}
+
+@mixin selected {
+  &:selectable { @content; }
+}
+
+@mixin unselectable {
+  user-select: none;
+}
+
+@mixin transparent-tap {
+  @include unselectable();
+  -webkit-tap-highlight-color: transparent;
+}
+
+//============================================================
+// Quantity Queries
+// http://quantityqueries.com/
+//============================================================
+
+@function str-last-index($string, $needle) {
+  @if type-of($string) != 'string' {
+    @warn '`str-last-index` function expecting a string for $string; #{type-of($string)} given.';
+    @return false;
+  }
+
+  @if type-of($needle) != 'string' {
+    @warn '`str-last-index` function expecting a string for $needle; #{type-of($needle)} given.';
+    @return false;
+  }
+
+  $index: str-index($string, $needle);
+  $result: $index;
+
+  @if $index {
+    @for $i from $index + str-length($needle) through str-length($string) {
+      @if str-slice($string, $i, $i + str-length($needle) - 1) == $needle {
+        $result: $i;
+      }
+    }
+  }
+
+  @return $result;
+}
+
+// function to split out the deepest selector, so sibling selector will work when using quantity mixins within nested selectors
+@function get-deepest-selector($selector) {
+  $index: str-last-index($selector, ' ');
+
+  @if $index {
+    $selector: str-slice($selector, $index);
+  }
+
+  @return $selector;
+}
+
+@mixin quantity-min($min) {
+  $selector: get-deepest-selector(#{&});
+
+  &:nth-last-child(n+#{$min}), &:nth-last-child(n+#{$min}) ~ #{$selector} {
+    @content;
+  }
+}
+
+@mixin quantity-max($max) {
+  $selector: get-deepest-selector(#{&});
+
+  &:nth-last-child(-n+#{$max}):first-child, &:nth-last-child(-n+#{$max}):first-child ~ #{$selector} {
+    @content;
+  }
+}
+
+@mixin quantity-clamp($min, $max) {
+  $selector: get-deepest-selector(#{&});
+
+  &:nth-last-child(n+#{$min}):nth-last-child(-n+#{$max}):first-child, &:nth-last-child(n+#{$min}):nth-last-child(-n+#{$max}):first-child ~ #{$selector} {
+    @content;
+  }
+}
+
+
+//==============================================================================
+// Multi line ellipsis
+//==============================================================================
+@mixin multiline-ellipsis($line-height: 1.3, $line-count: 7, $bg-color: white) {
+  display: block;
+  display: -webkit-box;
+  line-height: $line-height;
+
+  -webkit-line-clamp: $line-count;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+//==============================================================================
+// Triangle
+//==============================================================================
+
+@mixin triangle($size, $color, $direction) {
+  $width: nth($size, 1);
+  $height: nth($size, length($size));
+  $foreground-color: nth($color, 1);
+  $background-color: if(length($color) == 2, nth($color, 2), transparent);
+  height: 0;
+  width: 0;
+
+  @if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left) {
+    $width: $width / 2;
+    $height: if(length($size) > 1, $height, $height / 2);
+
+    @if $direction == up {
+      border-right: $width solid $background-color;
+      border-bottom: $height solid $foreground-color;
+      border-left: $width solid $background-color;
+    } @else if $direction == right {
+      border-top: $width solid $background-color;
+      border-bottom: $width solid $background-color;
+      border-left: $height solid $foreground-color;
+    } @else if $direction == down {
+      border-top: $height solid $foreground-color;
+      border-right: $width solid $background-color;
+      border-left: $width solid $background-color;
+    } @else if $direction == left {
+      border-top: $width solid $background-color;
+      border-right: $height solid $foreground-color;
+      border-bottom: $width solid $background-color;
+    }
+  } @else if ($direction == up-right) or ($direction == up-left) {
+    border-top: $height solid $foreground-color;
+
+    @if $direction == up-right {
+      border-left: $width solid $background-color;
+    } @else if $direction == up-left {
+      border-right: $width solid $background-color;
+    }
+  } @else if ($direction == down-right) or ($direction == down-left) {
+    border-bottom: $height solid $foreground-color;
+
+    @if $direction == down-right {
+      border-left: $width solid $background-color;
+    } @else if $direction == down-left {
+      border-right: $width solid $background-color;
+    }
+  } @else if ($direction == inset-up) {
+    border-color: $background-color $background-color $foreground-color;
+    border-style: solid;
+    border-width: $height $width;
+  } @else if ($direction == inset-down) {
+    border-color: $foreground-color $background-color $background-color;
+    border-style: solid;
+    border-width: $height $width;
+  } @else if ($direction == inset-right) {
+    border-color: $background-color $background-color $foreground-color;
+    border-style: solid;
+    border-width: $width $height;
+  } @else if ($direction == inset-left) {
+    border-color: $background-color $foreground-color;
+    border-style: solid;
+    border-width: $width $height;
+  }
+}
+
+//==============================================================================
+// Show-hide elements from a certain media-query
+// (either using display or visibility)
+//==============================================================================
+
+@mixin shown-hidden($mq, $display-value: block, $toggle-visibility: false) {
+  @if $toggle-visibility {
+    visibility: visible;
+
+    @media #{$mq} {
+      visibility: hidden;
+    }
+  } @else {
+    display: $display-value;
+
+    @media #{$mq} {
+      display: none;
+    }
+  }
+}
+
+@mixin hidden-shown($mq, $display-value: block, $toggle-visibility: false) {
+  @if $toggle-visibility {
+    visibility: hidden;
+
+    @media #{$mq} {
+      visibility: visible;
+    }
+  } @else {
+    display: none;
+
+    @media #{$mq} {
+      display: $display-value;
+    }
+  }
+}
+
+//============================================================
+// Z-indexes
+//============================================================
+
+@function my-z($list, $element) {
+  $z-index: index($list, $element);
+  @if $z-index {
+    @return $z-index;
+  }
+  @warn 'There is no item "#{$element}" in this list; choose one of: #{$list}';
+  @return null;
+}
+
+//============================================================
+// CSS mixins
+//============================================================
+@function map-to-properties($map) {
+  $props: '';
+  @each $prop, $value in $map {
+    $props: $props + $prop + ': ' + $value + ';';
+	}
+  @return unquote('{' + $props + '}');
+}
+
+@mixin css-mixin($name, $properties) {
+  @if type-of($properties) == map {
+    #{$name}: map-to-properties($properties);
+  } @else {
+    #{$name}: #{$properties};
+  }
+}
+
+
+//============================================================
+// Math
+//============================================================
+
+/// Clamp `$number` between `$min` and `$max`
+/// @param {Number} $number - Number to clamp
+/// @param {Number} $min - Minimum value
+/// @param {Number} $max - Maximum value
+/// @return {Number}
+@function clamp($number, $min, $max) {
+  @return min(max($number, $min), $max);
+}

@@ -1,0 +1,103 @@
+// close-button styles
+.close-button {
+  $root: &;
+  $button-width: 120px;
+
+  background: transparent;
+  border: 0;
+  border-radius: 0% 50% 50% 0%;
+  cursor: pointer;
+  display: flex;
+  height: 40px;
+  margin: 0;
+  opacity: 1;
+  outline: none;
+  overflow: visible;
+  padding: 10px;
+  transition: visibility 1s, opacity 1s;
+  width: $button-width;
+
+  &::before,
+  &::after {
+    backface-visibility: hidden;
+    background: palette(gray, white);
+    content: '';
+    height: 40px;
+    position: absolute;
+    top: 0;
+    width: 20px;
+    will-change: transform;
+  }
+
+  &::before {
+    backface-visibility: hidden;
+    border-radius: 20px 0% 0% 20px;
+    right: 50%;
+    transform-origin: center right;
+    transition: transform 500ms cubic-bezier(.86, 0, .07, 1) 250ms;
+    will-change: transform;
+  }
+
+  &::after {
+    border-radius: 0 20px 20px 0;
+    left: 50%;
+    top: 0;
+  }
+
+  $message-width: 80px;
+
+  &__message {
+    @extend %typography-button;
+    align-items: center;
+    backface-visibility: hidden;
+    background: palette(gray, white);
+    display: flex;
+    height: 100%;
+    position: absolute;
+    right: 50%;
+    top: 0;
+    transform: scaleX(0);
+    transform-origin: center right;
+    transition: transform 500ms cubic-bezier(.86, 0, .07, 1) 250ms;
+    width: $message-width;
+    will-change: transform;
+
+    > span {
+      opacity: 0;
+      transition: opacity 250ms ease-in;
+    }
+  }
+
+  &--active-message,
+  &:hover {
+
+    &::before {
+      transform: translate(#{0 - ($message-width - 2)}, 0);
+      transition: transform 500ms cubic-bezier(.86, 0, .07, 1);
+    }
+
+    #{$root}__message {
+      transform: scale(1, 1);
+      transition: transform 500ms cubic-bezier(.86, 0, .07, 1);
+
+      > span {
+        opacity: 1;
+        transition: opacity 250ms ease-out 500ms;
+      }
+    }
+  }
+
+  &--show-message {
+    opacity: 1;
+  }
+
+  > svg {
+    height: 20px;
+    width: 20px;
+    z-index: 1;
+
+    path {
+      fill: palette(gray, black);
+    }
+  }
+}

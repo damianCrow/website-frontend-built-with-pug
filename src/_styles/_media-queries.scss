@@ -1,0 +1,110 @@
+//==============================================================================
+// Adaptive layout breakpoints, available to all SASS files.
+// https://www.google.com/design/spec/layout/adaptive-ui.html
+//==============================================================================
+
+
+// One level of content hierarchy
+$thresh--xsmall-1:  320;
+$thresh--xsmall-2:  360;
+$thresh--xsmall-3:  400;
+$thresh--xsmall-4:  480;
+$thresh--xsmall-5:  600;
+
+// Two levels of content hierarchy
+$thresh--small-1:   720;
+$thresh--small-2:   860;
+$thresh--small-3:   960;
+$thresh--medium-1: 1024;
+$thresh--medium-2: 1280;
+$thresh--large-1:  1360px;
+
+// Max width for the layout
+// (white space around, or show additional level of content)
+$thresh--large-2:  1600;
+$thresh--large-3:  1920;
+
+
+// Composes a media query.
+//
+// @param {Number (Unitless)} $min-width
+// @param {Number (Unitless)} $max-width
+// @param {String} $orientation
+// @param {String} $max-aspect-ratio
+//
+// @example scss - Usage
+//   $mq-range: mq(0, 360, 'portrait', '4/3');
+//   @media #{$mq-range};
+//
+// @example css - CSS Output
+//   @media all and (min-width: 0px) and (max-width: 360px) and
+//       (orientation: portrait) and (max-aspect-ratio: 4/3)
+//
+// @return {String}
+@function mq($min-width, $max-width, $orientation, $max-aspect-ratio) {
+  $prefix: 'all';
+  $minw: '';
+  $maxw: '';
+  $or: '';
+  $max-ar: '';
+
+  @if $min-width {
+    $minw: ' and (min-width: #{strip-units($min-width)}px)';
+  }
+  @if $max-width {
+    $maxw: ' and (max-width: #{strip-units($max-width)}px)';
+  }
+  @if $orientation {
+    $or: ' and (orientation: #{$orientation})';
+  }
+  @if $max-aspect-ratio {
+    $max-ar: ' and (max-aspect-ratio: #{$max-aspect-ratio})';
+  }
+  @return $prefix + $minw + $maxw + $or + $max-ar;
+}
+
+
+// Specific range MQs
+//==============================================================================
+
+// Handheld portrait
+$mq-mobile-small-only:            mq(0, $thresh--xsmall-2, 'portrait', null);
+$mq-mobile-medium-only:           mq($thresh--xsmall-2 + 1, $thresh--xsmall-3, 'portrait', null);
+$mq-mobile-large-only:            mq($thresh--xsmall-3 + 1, $thresh--xsmall-4, 'portrait', null);
+$mq-mobile-xlarge-only:           mq($thresh--xsmall-4 + 1, $thresh--xsmall-5, 'portrait', null);
+$mq-tablet-small-only:            mq($thresh--xsmall-5 + 1, $thresh--small-1, 'portrait', null);
+$mq-tablet-large-only:            mq($thresh--small-1 + 1, $thresh--small-2, 'portrait', null);
+// Handheld landscape
+$mq-mobile-small-landscape-only:  mq(0, $thresh--xsmall-5, 'landscape', null);
+$mq-mobile-medium-landscape-only: mq($thresh--xsmall-5 + 1, $thresh--small-1, 'landscape', null);
+$mq-mobile-large-landscape-only:  mq($thresh--small-1 + 1, $thresh--small-3, 'landscape', null);
+$mq-tablet-small-landscape-only:  mq($thresh--small-3 + 1, $thresh--medium-1, 'landscape', null);
+$mq-tablet-large-landscape-only:  mq($thresh--medium-1 + 1, $thresh--medium-2, 'landscape', null);
+
+$mq-all-mobiles-only:             mq(0, $thresh--small-3, null, null);
+// Desktop
+$mq-desktop-xsmall-only:          mq($thresh--small-2 + 1, $thresh--small-3, null, null);
+$mq-desktop-small-only:           mq($thresh--small-3 + 1, $thresh--medium-2, null, null);
+$mq-desktop-medium-only:          mq($thresh--medium-2 + 1, $thresh--large-1, null, null);
+$mq-desktop-large-only:           mq($thresh--large-1 + 1, $thresh--large-2, null, null);
+$mq-desktop-xlarge-only:          mq($thresh--large-2 + 1, $thresh--large-3, null, null);
+
+
+// Mobile-first MQs
+//==============================================================================
+
+$mq-mobile-medium-up:             mq($thresh--xsmall-2 + 1, null, null, null);
+$mq-mobile-large-up:              mq($thresh--xsmall-3 + 1, null, null, null);
+$mq-mobile-xlarge-up:             mq($thresh--xsmall-4 + 1, null, null, null);
+$mq-tablet-small-up:              mq($thresh--xsmall-5 + 1, null, null, null);
+$mq-tablet-large-up:              mq($thresh--small-1 + 1, null, null, null);
+$mq-desktop-xsmall-up:            mq($thresh--small-2 + 1, null, null, null);
+$mq-desktop-small-up:             mq($thresh--small-3 + 1, null, null, null);
+$mq-desktop-medium-up:            mq($thresh--medium-2 + 1, null, null, null);
+$mq-desktop-large-up:             mq($thresh--large-1 + 1, null, null, null);
+$mq-desktop-xlarge-up:            mq($thresh--large-2 + 1, null, null, null);
+$mq-desktop-xxlarge-up:           mq($thresh--large-3 + 1, null, null, null);
+
+// Mobile-first MQs
+//==============================================================================
+$mq-retina: '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)';

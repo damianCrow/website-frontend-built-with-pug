@@ -1,0 +1,16 @@
+include ../atoms/mini-flag/mini-flag
+
+mixin third-nav(spec)
+  header.third-nav
+    h1.third-nav__title
+      +mini-flag({flag: 'usa'})(class='third-nav__title-flag')
+      span New York 
+      span.ePrix ePRIX
+    .third-nav__select-race
+      span Select
+        .ePrix ePRIX
+      +burger()(burgerId='hub-burger' burgerClass='burger--side burger--show-all')
+
+      //- svg.third-nav__menu-icon(viewbox='0 0 15 13', xmlns='http://www.w3.org/2000/svg')
+      //-   g
+      //-     path(d='M0,5h15v3H0V5z M0,13h11.948v-3H0V13z M0,3h9.092V0H0V3z')

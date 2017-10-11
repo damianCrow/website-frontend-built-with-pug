@@ -1,0 +1,78 @@
+//==============================================================================
+// Palette of colours available to every SASS file.
+// The palette() function can be used to retrieve color values using their name.
+//==============================================================================
+
+
+// Base
+$_base-colors: (
+  black: #000,
+  gray: (
+    white:           #fff,
+    light-1:         #ebeeef,
+    light-2:         #efebe9,
+    gray-1:          #797979,
+    gray-2:          #ccccc2,
+    gray-3:          #7f7d6e,
+    gray-4:          #4a4a4a,
+    gray-5:          #383838,
+    base:            #5c5c5c,
+    black:           #000,
+  ),
+
+  blue: (
+    base:             #13d4c8,
+    medium:           #448aff,
+    light-1:          #1d96b8,
+    light-2:          #80cbc4,
+    light-3:          #b3e5fc,
+    light-4:          #e0f6fe
+  ),
+  teal: (
+    base:             #13d4c8,
+  ),
+  yellow: (
+    base:             #ffd500,
+    light-1:          #fdfdf4,
+    light-2:          #efefe6,
+    light-3:          #ffe082,
+    medium-1:         #ffd500,
+    medium-2:         #ffdb29,
+
+  ),
+
+  footer: (
+    social:           #454545,
+    legal:            #3f4040,
+  )
+);
+
+$app-colors: $_base-colors;
+
+// Font weights.
+@mixin brand-gradient() {
+  $brand-gradient: linear-gradient(45deg, rgba(#ffe900, 0.8) 10%, rgba(#009fff, 0.8) 100%);
+}
+
+@function -brand-gradient($opacityVal: 0.8) {
+  @return linear-gradient(45deg, rgba(#ffe900, $opacityVal) 10%, rgba(#009fff, $opacityVal) 100%);
+}
+
+
+
+// Get a color from the $app-colors palette defined in _colors.scss
+//
+// @param {String} $palette
+// @param {String} $tone
+//
+// @example scss - Usage
+//   color: palette(social, gplus);
+//
+// @example css - CSS Output
+//   color: #dc4437;
+//
+// @return {String}
+//
+@function palette($palette, $tone) {
+  @return map-get(map-get($app-colors, $palette), $tone);
+}

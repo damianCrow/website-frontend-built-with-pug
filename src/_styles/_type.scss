@@ -1,0 +1,368 @@
+//==============================================================================
+// Base typography rules and mixins, available to all SASS files.
+//
+// - font-family settings
+// - font-sizes palette
+// - font-weight mixins
+// - responsive font-size mixin
+// - utility functions: ellipsis, image-replacement
+//
+//==============================================================================
+
+// Font families.
+$font-arial:          Arial, sans-serif;
+$font-helvetica:      Helvetica;
+$blue-sky:            'BlueSkyStandard', $font-helvetica, $font-arial;
+// $blue-sky-bold:       'blue-sky-Bold', $font-helvetica, $font-arial;
+// $blue-sky-light:      'blue-sky-Light', $font-helvetica, $font-arial;
+// $blue-sky-medium:      'blue-sky-Medium', $font-helvetica, $font-arial;
+
+$primary-font-family: $blue-sky;
+$secondary-font-family: 'Open Sans' Helvetica, Arial, sans-serif;
+$tertiary-font-family: Arial, sans-serif;
+
+// Font weight variables.
+$font-weight-thin: 200;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Font size variables.
+$font-size-x-small: 12;
+$font-size-small: 14;
+$font-size-regular: 16;
+$font-size-large: 21;
+$font-size-x-large: 32;
+$font-size-xx-large: 50;
+$font-size-xxx-large: 80;
+
+
+// Font weights.
+@mixin font-weight-bold {
+  font-weight: $font-weight-bold;
+}
+
+@mixin font-weight-bold {
+  font-weight: $font-weight-bold;
+}
+
+@mixin font-weight-medium {
+  font-weight: $font-weight-medium;
+}
+
+@mixin font-weight-normal {
+  font-weight: $font-weight-normal;
+}
+
+@mixin font-weight-thin {
+  font-weight: $font-weight-thin;
+}
+
+
+// Font sizes
+@mixin font-size-x-small {
+  font-size: rem($font-size-x-small);
+}
+
+@mixin font-size-small {
+  font-size: rem($font-size-small);
+}
+
+@mixin font-size-regular {
+  font-size: rem($font-size-regular);
+}
+
+@mixin font-size-large {
+  font-size: rem($font-size-large);
+}
+
+@mixin font-size-x-large {
+  font-size: rem($font-size-x-large);
+}
+
+@mixin font-size-xx-large {
+  font-size: rem($font-size-xx-large);
+}
+
+@mixin font-size-xxx-large {
+  font-size: rem($font-size-xxx-large);
+}
+
+
+
+// Pass font sizes to set a responsive size, e.g:
+// @include responsive-font-size($mobile: $font-size-small, $desktop: $font-size-large);
+@mixin responsive-font-size($mobile: null, $phablet: null, $tablet: null, $desktop: null, $desktop-large: null) {
+  @if ($mobile) {
+    font-size: rem($mobile);
+  }
+
+  @if ($phablet) {
+    @media #{$mq-tablet-small-up} {
+      font-size: rem($phablet);
+    }
+  }
+
+  @if ($tablet) {
+    @media #{$mq-tablet-large-up} {
+      font-size: rem($tablet);
+    }
+  }
+
+  @if ($desktop) {
+    @media #{$mq-desktop-small-up} {
+      font-size: rem($desktop);
+    }
+  }
+
+  @if ($desktop-large) {
+    @media #{$mq-desktop-large-up} {
+      font-size: rem($desktop-large);
+    }
+  }
+}
+
+
+// Utils
+
+// Add an ellipsis to overflowing text
+@mixin ellipsis($width: 100%) {
+  display: inline-block;
+  max-width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+
+@mixin image-replacement {
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+
+
+// Classes to be extended.
+
+%blue-sky-medium {
+  font-family: $blue-sky;
+  font-weight: normal;
+  line-height: 1.75;
+}
+
+// %blue-sky-book {
+//   font-family: $blue-sky;
+//   font-weight: normal;
+//   line-height: 1.5;
+//   letter-spacing: .025rem;
+// }
+
+%blue-sky-bold {
+  @include font-weight-bold;
+  font-family: $blue-sky;
+}
+
+%blue-sky-light {
+  font-family: $blue-sky;
+  font-weight: lighter;
+  letter-spacing: rem(2px);
+  line-height: 1.5;
+}
+
+
+// Font categorys
+%typography-header {
+  @extend %blue-sky-bold;
+
+  @include responsive-font-size(
+    $mobile: $font-size-large,
+    $desktop: $font-size-x-large
+  );
+
+  color: palette(gray, white);
+  letter-spacing: rem(6px);
+  margin-bottom: .5rem;
+  margin-top: .5rem;
+  text-transform: uppercase;
+  // text-decoration: underline;
+}
+
+
+%typography-featured-figures {
+  // TODO: Needs to be condensed font.p
+  @extend %blue-sky-bold;
+
+  @include responsive-font-size(
+    $mobile: $font-size-large,
+    $desktop: $font-size-x-large,
+    $desktop-large: $font-size-xx-large
+  );
+
+  color: palette(gray, white);
+  letter-spacing: rem(6px);
+  margin-bottom: .5rem;
+  margin-top: .5rem;
+  text-transform: uppercase;
+  // text-decoration: underline;
+}
+
+%typography-title {
+  @extend %blue-sky-bold;
+  @include responsive-font-size(
+    $mobile: $font-size-regular,
+    $desktop: $font-size-large
+  );
+  color: palette(gray, white);
+  letter-spacing: rem(6px);
+  line-height: 1.5;
+  margin-bottom: .5rem;
+  margin-top: .5rem;
+  text-transform: uppercase;
+}
+
+// %typography-subtitle {
+//   @extend %font-roboto-medium;
+//   @include font-size-regular();
+// }
+
+%typography-body {
+  @extend %blue-sky-medium;
+  @include font-size-regular;
+}
+
+%typography-massive-feature {
+  @extend %blue-sky-light;
+
+  @include responsive-font-size(
+    $mobile: $font-size-x-large,
+    $phablet: $font-size-xx-large,
+    $desktop: $font-size-xxx-large
+  );
+}
+
+%typography-feature {
+  @extend %blue-sky-light;
+
+  @include responsive-font-size(
+    $mobile: $font-size-large,
+    $phablet: $font-size-x-large,
+    $desktop: $font-size-xx-large
+  );
+}
+
+%typography-small-feature {
+  @extend %blue-sky-bold;
+  text-transform: uppercase;
+  letter-spacing: rem(3px);
+
+  @include responsive-font-size(
+    $mobile: $font-size-regular,
+    $desktop: $font-size-regular
+  );
+}
+
+%typography-button {
+  @extend %blue-sky-bold;
+  @include font-size-x-small;
+  letter-spacing: rem(2px);
+  text-transform: uppercase;
+}
+
+%typography-small {
+  @extend %blue-sky-light;
+  @include font-size-x-small;
+  text-transform: uppercase;
+  letter-spacing: rem(3px);
+  // line-height: 2;
+}
+
+%typography-header-prefix {
+  @extend %blue-sky-light;
+  @include responsive-font-size(
+    $phablet: $font-size-x-small,
+    $desktop: $font-size-regular
+  );
+  letter-spacing: rem(2px);
+  text-transform: uppercase;
+}
+
+%typography-publish-date {
+  @extend %blue-sky-light;
+  @include responsive-font-size(
+    $desktop: $font-size-x-small
+  );
+  color: palette(gray, gray-2);
+  letter-spacing: rem(2px);
+  text-transform: uppercase;
+}
+
+%responsive-nav {
+  @extend %blue-sky-bold;
+  @include responsive-font-size(
+    $mobile: $font-size-x-large,
+    $phablet: $font-size-x-large,
+    $desktop: $font-size-x-small
+  );
+}
+
+
+
+
+
+
+// $letter-spacing: 0.1rem;
+
+// // Fonts
+// @mixin blue-sky-book {
+//   color: #fff;
+
+//   font-family: 'blue-sky-Book', sans-serif;
+// }
+
+// @mixin blue-sky-bold {
+//   color: #fff;
+//   letter-spacing: 0.1rem;
+//   font-family: 'blue-sky-Bold', sans-serif;
+// }
+
+// // Header 1
+// @mixin main-header-text {
+//   @include blue-sky-bold();
+//   @include font-size-xxx-large();
+//   text-transform: uppercase;
+//   margin-top: 0.75rem;
+//   margin-bottom: 0.75rem;
+// }
+
+// // Header 2
+// @mixin sub-header-text {
+//   @include blue-sky-bold();
+//   @include font-size-x-large();
+//   text-transform: uppercase;
+//   text-align: center;
+// }
+
+// // Body copy 1
+// @mixin body-copy {
+//   @include blue-sky-book();
+//   // Default font-size
+// }
+
+// // Body copy 2
+// @mixin body-copy-featured {
+//   @include blue-sky-book();
+//   @include font-size-xx-large();
+// }
+
+// // Navigation
+// @mixin navigation-copy {
+//   @include blue-sky-book();
+//   @include font-size-small();
+// }
+
+// // Small
+// @mixin featured-text {
+//   @include blue-sky-book();
+//   @include font-size-small();
+// }

@@ -1,0 +1,39 @@
+$localFontsPath: '../fonts/';
+
+@font-face {
+  $font-name: 'BlueSkyStandard-Regular';
+  font-family: 'BlueSkyStandard';
+  src: url( $localFontsPath + $font-name + '.eot');
+  src:
+      url( $localFontsPath + $font-name + '.woff') format('woff'),
+      url( $localFontsPath + $font-name + '.svg#' + $font-name) format('svg'),
+      url( $localFontsPath + $font-name + '.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  $font-name: 'BlueSkyStandard-Bold';
+  font-family: 'BlueSkyStandard';
+  src: url( $localFontsPath + $font-name + '.eot');
+  src:
+      // url( $localFontsPath + $font-name + '.woff2') format('woff2'),
+      url( $localFontsPath + $font-name + '.woff') format('woff'),
+      url( $localFontsPath + $font-name + '.svg#' + $font-name) format('svg'),
+      url( $localFontsPath + $font-name + '.eot?#iefix') format('embedded-opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  $font-name: 'BlueSkyStandard-Light';
+  font-family: 'BlueSkyStandard';
+  src: url( $localFontsPath + $font-name + '.eot');
+  src:
+      // url( $localFontsPath + $font-name + '.woff2') format('woff2'),
+      url( $localFontsPath + $font-name + '.woff') format('woff'),
+      url( $localFontsPath + $font-name + '.svg#' + $font-name) format('svg'),
+      url( $localFontsPath + $font-name + '.eot?#iefix') format('embedded-opentype');
+  font-weight: lighter;
+  font-style: normal;
+}

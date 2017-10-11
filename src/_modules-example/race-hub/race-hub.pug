@@ -1,0 +1,71 @@
+include ../countdown/countdown
+include ../track/track
+include ../fan-boost-open/fan-boost-open
+include ../carousel/carousel
+
+
+mixin race-option(race, roundNumber, date) 
+  li.race-selector__race(class!='race-selector__race--' + race.replace(/\s+/g, '-').toLowerCase())
+    .race-selector__race-content
+      span.race-selector__round= 'Round ' + roundNumber
+      span.race-selector__location= race + ' ePrix'
+      time(datetime=date).race-selector__date= date
+
+mixin race-hub()
+  +third-nav
+  +side-nav
+    ul.race-selector 
+      +race-option('Monaco', '5', '13.05.17')
+      +race-option('Paris', '6', '20.05.17')
+      +race-option('Berlin', '7 - 8', '10.06.17 & 11.06.17')
+      +race-option('New York', '9 - 10', '15.07.17 & 16.07.17')
+      +race-option('Monaco', '9 - 10', '15.07.17 & 16.07.17')
+      +race-option('Monaco', '9 - 10', '15.07.17 & 16.07.17')
+      +race-option('Monaco', '9 - 10', '15.07.17 & 16.07.17')
+  .race-hub__contents
+    section.race-hub__stats
+      .race-hub__stat-blocks
+        figure.race-hub__stat.race-hub__stat--turns
+          figcaption Turns
+          span.race-hub__stat-figure 14
+        figure.race-hub__stat.race-hub__stat--laps
+          figcaption Laps
+          span.race-hub__stat-figure 49
+      +track
+
+    section.race-hub__features
+      +countdown({noButton: true})
+      //- .race-hub__trailer
+      //- .race-hub__report
+      //-   .race-hub__report-image
+      //-     img(src='images/paris-report.jpg')
+      //-   div.race-hub__report-details
+      //-     span.race-hub__report-title NextEV NIO Formula-e Team: Paris ePrix Report
+      //-     time(datetime='2017-5-22') 22 May 2017
+      //-     +button()(class='rounded-button--left rounded-button--teal', href='#race-hub' pageLink='true')
+      //-       |View Report
+      .race-hub__stat-gallery
+        figure.race-hub__stat.race-hub__stat--length
+          figcaption Length
+          span.race-hub__stat-figure 1.92
+          span.race-hub__stat-prefix KM
+        //- .race-hub__feature-image
+        //-   +button()(href='#race-hub' pageLink='true')
+        //-     |View Race Gallery
+        .race-hub__television
+          .race-hub__title Television<br> Schedule
+          +button()(class='rounded-button--teal rounded-button--sink' href='http://www.fiaformulae.com/en/championship/tv-schedule/' target='_blank')
+            |How to Watch
+
+    section.race-hub__other
+      +carousel()(class='race-hub__fact-container')
+        .race-hub__fact.race-hub__fact--nyc-1
+          span Did you know?
+          span France is the second largest producer and consumer of renewable energy in the EU.
+        .race-hub__fact.race-hub__fact--nyc-2
+          span Pellentesque semper tortor enim?
+          span nec aliquam urna gravida at. Integer nec vulputate lectus, quis sollicitudin libero.
+        .race-hub__fact.race-hub__fact--nyc-3
+          span Nulla pretium enim odio?
+          span Pellentesque ac ante mattis, facilisis felis quis, posuere ante. Cras pulvinar bibendum nibh.
+      +fan-boost-open

@@ -1,0 +1,31 @@
+include ../standings/standings
+include ../button/button
+
+
+mixin landing(config = {type: 'side-columns'})
+  article#landing.landing.site-contents__full.site-contents__full--between(class!=attributes.class)
+    section.landing__hero(class!='landing__hero--' + config.type)
+      if config.type === 'side-columns'
+        .landing__intro
+          h1
+            span.landing__title-prefix
+              span Race 
+              span Preview:
+            br
+            span.landing__location
+              span New 
+              span York 
+              span.landing__leave-case ePRIX
+          p.landing__sub-text Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          +button()(class='rounded-button--left landing__button', href='#race-hub' pageLink='true')
+            |Explore Racehub
+      else if config.type === 'full'
+        .landing__intro
+          h1
+            span.landing__title-prefix
+              span Born 
+              span to 
+            br
+            span.landing__location
+              span Redefine
+    block

@@ -1,0 +1,77 @@
+// countdown styles
+.countdown {
+  $root: &;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, .45), rgba(0, 0, 0, .45)), url('../images/new-york.jpg');
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex: 1 0 250px;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+
+  @media #{$mq-desktop-small-up} {
+    flex: 1;
+  }
+
+  &__num {
+    @extend %typography-featured-figures;
+    width: 33.3333333%;
+    position: relative;
+
+    &::after {
+      content: ':';
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-left: 90%;
+    }
+
+    &:last-child {
+
+      &::after {
+        content: '';
+      }
+    }
+  }
+
+  &__labels {
+    display: flex;
+  }
+
+  &__label {
+    @extend %typography-header-prefix;
+    flex: 1;
+  }
+
+  &__prefix {
+    margin: 1rem;
+  }
+
+  &__time {
+    display: flex;
+    flex-direction: column-reverse;
+    min-width: 200px;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    @media #{$mq-desktop-small-up} {
+      min-width: 275px;
+    }
+
+    > tbody {
+      width: 100%;
+      display: table;
+    }
+  }
+
+  &--dip {
+    #{$root}__prefix {
+      @media #{$mq-desktop-small-up} {
+        margin-top: 5rem;
+      }
+    }
+  }
+
+}
