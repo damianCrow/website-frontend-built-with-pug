@@ -1,14 +1,14 @@
 // Normalize Styles
-@import 'node_modules/normalize.css/normalize';
-@import 'node_modules/gridlex/src/gridlex';
-@import 'vars';
-@import 'utils';
-@import 'colors';
-@import 'media-queries';
-@import 'fonts';
-@import 'type';
-@import 'defaults';
-
+@import "node_modules/normalize.css/normalize";
+@import "node_modules/gridlex/src/gridlex";
+@import "vars";
+@import "utils";
+@import "colors";
+@import "media-queries";
+@import "gridlex-vars";
+@import "fonts";
+@import "type";
+@import "defaults";
 
 $header-height: 60px;
 $mobile-header-height: 50px;
