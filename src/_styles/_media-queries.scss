@@ -92,7 +92,7 @@ $mq-desktop-large-only:           mq($thresh--large-1 + 1, $thresh--large-2, nul
 
 // Mobile-first MQs
 //==============================================================================
-
+$mq-mobile-small-up:              mq($thresh--xsmall-1 + 1, null, null, null);
 $mq-mobile-medium-up:             mq($thresh--xsmall-2 + 1, null, null, null);
 $mq-mobile-large-up:              mq($thresh--xsmall-3 + 1, null, null, null);
 $mq-mobile-xlarge-up:             mq($thresh--xsmall-4 + 1, null, null, null);

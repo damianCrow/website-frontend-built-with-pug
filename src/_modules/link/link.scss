@@ -1,0 +1,19 @@
+// link styles
+
+// unvisited link
+a.link {
+  color: palette(gray, text);
+  text-decoration: none;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+// mouse over link
+a:hover {
+  color: palette(gold, metalic);
+}
+
+// selected link
+a:active {
+  color: palette(gold, metalic);
+}
