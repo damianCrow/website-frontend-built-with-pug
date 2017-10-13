@@ -6,7 +6,6 @@
 
 // Base
 $_base-colors: (
-  black: #000,
   gray: (
     white:           #fff,
     warm:            #706d6b,
@@ -14,6 +13,7 @@ $_base-colors: (
     text:            #d6d1cb,
     base:            #5c5c5c,
     black:           #000,
+    medium:          #6f6d6b,
   ),
   brown: (
     base:             #2c2a28,
@@ -22,6 +22,10 @@ $_base-colors: (
   gold: (
     process:          #a59466,
     metalic:          #8c7f58,
+  ),
+  green: (
+    light:            #388573,
+    dark:             #327767,
   )
 );
 

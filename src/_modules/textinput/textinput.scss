@@ -1,0 +1,16 @@
+input {
+  height: 45px;
+
+  &.medium {
+    width: calc(100% - (15% + 24px));
+  }
+
+  &.short {
+    width: 15%;
+    margin: 0 4px;
+  }
+
+  &.error {
+    border-color: red;
+  }
+}
