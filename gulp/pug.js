@@ -1,17 +1,15 @@
-'use strict';
-
-import fs from 'fs';
-import path from 'path';
-import foldero from 'foldero';
-import pug from 'pug';
-import yaml from 'js-yaml';
+import fs from 'fs'
+import path from 'path'
+import foldero from 'foldero'
+import pug from 'pug'
+import yaml from 'js-yaml'
 
 export default function(gulp, plugins, args, config, taskTarget, browserSync) {
   let dirs = config.directories;
   let dest = path.join(taskTarget);
   let dataPath = path.join(dirs.source, dirs.data);
 
-  // pug template compile
+  // Pug template compile
   gulp.task('pug', () => {
     let siteData = {};
     if (fs.existsSync(dataPath)) {

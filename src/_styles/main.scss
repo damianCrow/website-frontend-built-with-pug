@@ -1,151 +1,52 @@
 // Normalize Styles
-@import 'node_modules/normalize.css/normalize';
-@import 'node_modules/gridlex/src/gridlex';
-@import 'vars';
-@import 'utils';
-@import 'colors';
-@import 'media-queries';
-@import 'fonts';
-@import 'type';
-@import 'defaults';
+@import "node_modules/normalize.css/normalize";
+@import "vars";
+@import "utils";
+@import "colors";
+@import "media-queries";
+@import "fonts";
+@import "type";
+@import "defaults";
 
+@import '../_modules/button/button';
+@import '../_modules/textinput/textinput';
 
-$header-height: 60px;
-$mobile-header-height: 50px;
-$header-logo-space: 185px;
-
-$main-text: #fff;
-$highlight-faded: #262626;
-$main-colour: #000;
-$accent-colour: #13d4c8;
-$text-blue: #fff;
-
-$data-blue: #00263c;
-$data-foreground-blue: lighten($data-blue, 10%);
-
-body {
-  &.lock {
-    overflow: hidden;
-  }
-}
-
-.prototype-message {
-  // background-image: linear-gradient(to right, #50b849, #fdf042);
-  background-color: darkgrey;
-  opacity: .65;
-  padding: .5rem 3rem;
-  position: fixed;
-  right: 0;
-  transform: rotate(45deg) translate(5rem, -2rem) scale(.75);
-  z-index: 1000;
-
-  > span {
-    display: block;
-    text-align: center;
-
-    &:first-child {
-      font-weight: bold;
-      letter-spacing: rem(4px);
-      margin-bottom: .25rem;
-      text-transform: uppercase;
-    }
-  }
-
-  @media #{$mq-desktop-small-up} {
-    transform: rotate(45deg) translate(5rem, -1rem);
-  }
-}
-
-main {
+.form_wrapper {
   display: flex;
-  height: 100%;
-  padding-top: $mobile-header-height;
-  width: 100%;
+  position: relative;
+  background-color: palette(brown, dark);
+  flex-direction: column;
+  padding: 40px $primary-gutter;
+  font-weight: 100;
 
-  @media #{$mq-desktop-small-up} {
-    padding-top: $header-height;
+  &__header {
+    color: palette(gold, metalic);
+    margin: 0;
   }
 
-}
-
-.ePrix {
-  @extend %typography-header-prefix;
-  font-weight: bold;
-  margin-left: .25rem;
-  margin-right: .25rem;
-  text-transform: none;
-}
-
-.prefix {
-  @extend %typography-header-prefix;
-}
-
-.site-contents {
-  height: 100%;
-  width: 100%;
-
-  > section,
-  > article {
-    h1 {
-      // @extend %typography-header;
-    }
-
-    &:nth-child(odd) {
-      background-color: palette(gray, light-1);
-    }
-
-    &:nth-child(even) {
-      background-color: palette(gray, gray-1);
-    }
-  }
-
-  &__full {
-    align-items: stretch;
+  &__inputwrap {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    min-height: calc(100vh - #{$mobile-header-height});
-    width: 100%;
+    padding: 10px 0;
 
-    @media #{$mq-desktop-small-up} {
-      flex-direction: row;
-      height: calc(100vh - #{$header-height});
-      min-height: auto;
+    &--double {
+      display: flex;
     }
 
-    &--between {
-      // @media #{$mq-desktop-small-up} {
-      //   margin-bottom: $header-height;
-      // }
+    label {
+      color: palette(gold, metalic);
+    }
+
+    span {
+      color: palette(gray, medium);
+      font-size: 25px;
+      line-height: 40px;
+      width: $primary-gutter;
     }
   }
+
+  button {
+    margin-top: 30px;
+  }
 }
-
-.full-spread {
-  height: 100%;
-  position: relative;
-}
-
-// @import '../_modules/atoms/mini-flag/mini-flag';
-// @import '../_modules/close-button/close-button';
-// @import '../_modules/button/button';
-
-// @import '../_modules/header/header';
-// @import '../_modules/nav/nav';
-// @import '../_modules/burger/burger';
-// @import '../_modules/sub-nav/sub-nav';
-// @import '../_modules/third-nav/third-nav';
-// @import '../_modules/side-nav/side-nav';
-
-// @import '../_modules/carousel/carousel';
-
-// @import '../_modules/landing/landing';
-// @import '../_modules/countdown/countdown';
-// @import '../_modules/standings/standings';
-// @import '../_modules/fan-boost-open/fan-boost-open';
-
-// @import '../_modules/race-hub/race-hub';
-// @import '../_modules/track/track';
-// @import '../_modules/car/car';
-// @import '../_modules/team/team';
 

@@ -1,0 +1,12 @@
+a.icon {
+	color: palette(gray, black);
+  display: flex;
+  flex-direction: column;
+  
+  span {
+		width: 20px;
+	  height: 20px;
+	  display: flex;
+	  background-size: cover;
+	}
+}

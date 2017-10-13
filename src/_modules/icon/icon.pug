@@ -1,0 +1,12 @@
+mixin icon(spec)
+  - spec = spec || {}
+  - spec.class = spec.class || ''
+  - spec.text = spec.text || ''
+  - spec.image = spec.image || ''
+
+  a.icon(class=spec.class)&attributes(attributes)
+    if block
+      block
+    else
+      != spec.text
+    span.icon()(style={'background-image':'url(' + spec.image + ')'})

@@ -22,9 +22,8 @@ html {
 
 html,
 body {
-  background-color: black;
-  // height: 100%;
   margin: 0;
+  padding-bottom: 0;
 }
 
 body {
@@ -35,7 +34,7 @@ body {
 
   color: palette(gray, white);
 
-  background: palette(gray, black);
+  background: palette(gray, gray);
 
   padding: 0;
   margin: 0;

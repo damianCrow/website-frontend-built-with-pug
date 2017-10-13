@@ -17,12 +17,12 @@ $thresh--small-2:   860;
 $thresh--small-3:   960;
 $thresh--medium-1: 1024;
 $thresh--medium-2: 1280;
-$thresh--large-1:  1360px;
+$thresh--large-1:  1360;
 
 // Max width for the layout
 // (white space around, or show additional level of content)
-$thresh--large-2:  1600;
-$thresh--large-3:  1920;
+$thresh--large-2:  1440;
+// $thresh--large-3:  1440;
 
 
 // Composes a media query.
@@ -87,12 +87,12 @@ $mq-desktop-xsmall-only:          mq($thresh--small-2 + 1, $thresh--small-3, nul
 $mq-desktop-small-only:           mq($thresh--small-3 + 1, $thresh--medium-2, null, null);
 $mq-desktop-medium-only:          mq($thresh--medium-2 + 1, $thresh--large-1, null, null);
 $mq-desktop-large-only:           mq($thresh--large-1 + 1, $thresh--large-2, null, null);
-$mq-desktop-xlarge-only:          mq($thresh--large-2 + 1, $thresh--large-3, null, null);
+// $mq-desktop-xlarge-only:          mq($thresh--large-2 + 1, $thresh--large-3, null, null);
 
 
 // Mobile-first MQs
 //==============================================================================
-
+$mq-mobile-small-up:              mq($thresh--xsmall-1 + 1, null, null, null);
 $mq-mobile-medium-up:             mq($thresh--xsmall-2 + 1, null, null, null);
 $mq-mobile-large-up:              mq($thresh--xsmall-3 + 1, null, null, null);
 $mq-mobile-xlarge-up:             mq($thresh--xsmall-4 + 1, null, null, null);
@@ -103,7 +103,7 @@ $mq-desktop-small-up:             mq($thresh--small-3 + 1, null, null, null);
 $mq-desktop-medium-up:            mq($thresh--medium-2 + 1, null, null, null);
 $mq-desktop-large-up:             mq($thresh--large-1 + 1, null, null, null);
 $mq-desktop-xlarge-up:            mq($thresh--large-2 + 1, null, null, null);
-$mq-desktop-xxlarge-up:           mq($thresh--large-3 + 1, null, null, null);
+// $mq-desktop-xxlarge-up:           mq($thresh--large-3 + 1, null, null, null);
 
 // Mobile-first MQs
 //==============================================================================

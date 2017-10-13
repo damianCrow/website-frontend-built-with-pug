@@ -1,15 +1,25 @@
 extends _layouts/base
-
-include _modules/link/link
+include _modules/button/button
+include _modules/textinput/textinput
 
 block content
-  .container
-    .yeogurt-info
-      h1 Welcome to Yeogurt!
-      p.
-        Take a look at the
-        #[+link({text: 'documentation'})(href='https://github.com/larsonjj/generator-yeogurt#yeogurt-generator---')]
-        and start mixing up something awesome.
-      p
-        img.logo(src="images/yeogurt-swirl.png", width="75px")
-  code.version v2.0.0
+	.form_wrapper
+		h4.form_wrapper__header Contact Us
+		p.form_wrapper__text We offer financial institutions to a state of the art services platform to allow the best trading experience possible. Contact our support team for more information.
+		form.form_wrapper__form(action="")
+			.form_wrapper__inputwrap
+				+textinput({text: 'Company:', type: 'text', name: 'title'})
+			.form_wrapper__inputwrap
+				+textinput({text: 'First Name:', type: 'text', name: 'firstName'})
+			.form_wrapper__inputwrap
+				+textinput({text: 'Surname:', type: 'text', name: 'surname'})
+			.form_wrapper__inputwrap
+				+textinput({text: 'Email:', type: 'email', name: 'email'})
+			.form_wrapper__inputwrap
+				label Telephone:
+				div.form_wrapper__inputwrap--double
+					span +
+					+textinput({class: 'short', type: 'text'})
+					+textinput({class: 'medium', type: 'text'})
+			+button()(class="green" href="" type="submit" ) 
+				|Learn More

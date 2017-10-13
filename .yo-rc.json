@@ -2,7 +2,7 @@
   "generator-yeogurt": {
     "config": {
       "projectName": "BP-Prime",
-      "htmlOption": "jade",
+      "htmlOption": "pug",
       "jsPreprocessor": "es6",
       "cssOption": "sass",
       "sassSyntax": "scss",

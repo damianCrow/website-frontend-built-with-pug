@@ -1,0 +1,4 @@
+mixin textinput(opts)
+	label(for=opts.name || '') 
+		!= opts.text
+	input(class=opts.class || '', type=opts.type, name=opts.name)&attributes(attributes)
