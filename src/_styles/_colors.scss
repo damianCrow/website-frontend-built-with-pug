@@ -33,7 +33,7 @@ $app-colors: $_base-colors;
 
 // Font weights.
 @mixin brand-gradient() {
-  $brand-gradient: linear-gradient(45deg, rgba(#ffe900, 0.8) 10%, rgba(#009fff, 0.8) 100%);
+  $brand-gradient: linear-gradient(45deg, rgba(#ffe900, .8) 10%, rgba(#009fff, .8) 100%);
 }
 
 @function -brand-gradient($opacityVal: 0.8) {
