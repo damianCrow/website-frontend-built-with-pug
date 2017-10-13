@@ -8,6 +8,25 @@
 @import "type";
 @import "defaults";
 
+$header-height: 175px;
+$mobile-header-height: 50px;
+$header-logo-space: 185px;
+
+// $main-text: #fff;
+// $highlight-faded: #262626;
+// $main-colour: #000;
+// $accent-colour: #13d4c8;
+// $text-blue: #fff;
+
+$data-blue: #00263c;
+$data-foreground-blue: lighten($data-blue, 10%);
+
+body {
+  &.lock {
+    overflow: hidden;
+  }
+}
+
 .footer {
   background-color: palette(brown, base);
   display: flex;
@@ -102,23 +121,28 @@
       background-color: palette(brown, dark);
       position: relative;
       padding: $primary-gutter;
+    }
 
-      p {
-        flex: 1;
-        margin: 0 $primary-gutter;
+    p {
+      flex: 1;
+      margin: 0 $primary-gutter;
 
-        @media #{$mq-tablet-small-up} {
-          margin: 0 calc(8.333333333% + 1rem);
-        }
+      @media #{$mq-tablet-small-up} {
+        margin: 0 calc(8.333333333% + 1rem);
       }
     }
+  }
 
-    .link {
-      color: palette(gold, metalic);
-      text-decoration: underline;
-    }
+  .link {
+    color: palette(gold, metalic);
+    text-decoration: underline;
   }
 }
-
+@import "../_modules/header/header";
+@import "../_modules/menu/menu";
+@import "../_modules/logo/logo";
+@import "../_modules/burger/burger";
+@import '../_modules/nav/nav';
+@import '../_modules/language-selector/language-selector';
 @import '../_modules/link/link';
 @import '../_modules/icon/icon';

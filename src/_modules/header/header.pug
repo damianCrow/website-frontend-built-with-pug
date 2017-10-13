@@ -1,0 +1,14 @@
+include ../logo/logo
+include ../burger/burger
+include ../menu/menu
+
+mixin header(spec)
+  header.main-header
+    .main-header__logo-container
+      +logo()
+    .main-header__burger
+      +burger()(burgerId='main-burger' burgerClass='burger--side')
+    +menu()
+
+    if block
+      block

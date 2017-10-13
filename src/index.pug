@@ -2,7 +2,13 @@ extends _layouts/base
 include _modules/link/link
 include _modules/icon/icon
 
+include _modules/header/header
+include _modules/link/link
+
 block content
+  +header()
+  .article
+    p Content goes here
 	.footer
 		.footer__columns
 			.footer__wrapper.footer__wrapper--hide-small
