@@ -1,21 +1,19 @@
 // link styles
 
 // unvisited link
-a:link {
-    color: #ff0000;
-}
-
-// visited link
-a:visited {
-    color: #00ff00;
+a.link {
+  color: palette(gray, text);
+  text-decoration: none;
+  text-transform: capitalize;
+  cursor: pointer;
 }
 
 // mouse over link
 a:hover {
-    color: #ff00ff;
+  color: palette(gold, metalic);
 }
 
 // selected link
 a:active {
-    color: #0000ff;
+  color: palette(gold, metalic);
 }
