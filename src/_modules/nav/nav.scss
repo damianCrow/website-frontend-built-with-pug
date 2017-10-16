@@ -1,80 +1,136 @@
 // nav styles
 
 .main-nav {
-  // background: palette(brown, dark);
-  // height: 100%;
-  // opacity: 0;
-  // padding: $mobile-header-height $gl-gutter $gl-gutter;
-  // pointer-events: none;
-  // position: fixed;
-  // right: 0;
-  // top: 0;
-  // transform: translateX(100%);
-  // transition: transform 500ms $timing-function-fast-out-slow-in;
-  // width: 100%;
+  position: absolute;
+  left: 0;
 
-  // @media #{$mq-desktop-small-up} {
-  //   opacity: 1;
-  //   padding-top: $header-height;
-  //   width: 350px;
-  // }
+  width: 100%;
+  // padding: 0 $primary-gutter;
 
-  // &--active {
-  //   opacity: 1;
-  //   pointer-events: auto;
-  //   transform: translateX(0);
-  // }
+  $root: &;
 
   &__list {
-    align-items: flex-start;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    justify-content: flex-start;
-    list-style: none;
-    margin: 0;
-    padding: 0 $half-gutter;
+
+    // TODO: Get this to work with 'strict', aka with 'size'.
+    contain: layout style paint;
+    // contain: strict;
+
     width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0 ($primary-gutter + $half-gutter);
+
+    list-style: none;
+
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 
   &__item {
-    border-top: 1px solid palette(gray, warm);
-    cursor: pointer;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+
     width: 100%;
+    // background: palette(brown, dark);
+
+    cursor: pointer;
+    // closing 
+    transition: transform 500ms $timing-function-fast-out-slow-in 250ms;
+
+    border-top: 1px solid palette(gray, warm);
 
     &:last-child {
       border-bottom: 1px solid palette(gray, warm);
     }
 
-    > a {
-      @extend %typography-nav-section;
-      cursor: pointer;
-      box-sizing: border-box;
-      display: block;
-      padding: $half-gutter 0;
-      position: relative;
-      text-decoration: none;
+    &--sub-item {
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
 
-      // &::after {
-      //   background: $accent-colour;
-      //   bottom: -10px;
-      //   content: '';
-      //   display: block;
-      //   height: 2px;
-      //   opacity: 0;
-      //   position: absolute;
-      //   transform: translateY(5px);
-      //   transition: transform 250ms ease-out, opacity 100ms linear;
-      //   width: 100%;
-      // }
+    &--sub-nav-item {
+      #{$root}__link {
+        &:after {
+          position: relative;
 
-      &:hover,
-      &.active {
-        &::after {
-          opacity: 1;
-          transform: translateY(0);
+          display: inline-block;
+
+          width: .45em;
+          height: .45em;
+          margin-right: $primary-gutter;
+          margin-left: auto;
+
+          content: '';
+          transform: rotate(-225deg);
+          vertical-align: top;
+
+          border-width: .05em .05em 0 0;
+          border-style: solid;
+          border-color: palette(gray, warm);
+
+          align-self: center;
+        }        
+      }
+    }
+
+    &--active-sub-nav {
+      // opening
+      transition: transform 500ms $timing-function-fast-out-slow-in;
+      #{$root}__link {
+        span {
+          transform: translateX(1rem);
+
+          @extend %typography-open-nav-section;
         }
       }
+      #{$root}__sub-nav {
+        // opening
+        transition: opacity 500ms $timing-function-fast-out-slow-in 500ms;
+
+        opacity: 1;
+      }
+    }
+  }
+
+  &__sub-nav {
+    margin: 0 -#{$primary-gutter + $half-gutter};
+    padding: 0 #{$primary-gutter + $half-gutter};
+    // closing
+
+    transition: opacity 250ms $timing-function-fast-out-slow-in;
+
+    opacity: 0;
+    background-color: palette(brown, base);
+  }
+
+  &__link {
+    position: relative;
+
+    display: flex;
+
+    box-sizing: border-box;
+    padding: $half-gutter 0;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    span {
+      @extend %typography-nav-section;
+    }
+
+  }
+
+  &__sub-link {
+    padding: $primary-gutter;
+
+    span {
+      @extend %typography-title-v-one;
+
     }
   }
 }
