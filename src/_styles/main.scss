@@ -1,15 +1,12 @@
 // Normalize Styles
-@import "node_modules/normalize.css/normalize";
-@import "vars";
-@import "utils";
-@import "colors";
-@import "media-queries";
-@import "fonts";
-@import "type";
-@import "defaults";
-
-@import '../_modules/button/button';
-@import '../_modules/textinput/textinput';
+@import 'node_modules/normalize.css/normalize';
+@import 'vars';
+@import 'utils';
+@import 'colors';
+@import 'media-queries';
+@import 'fonts';
+@import 'type';
+@import 'defaults';
 
 .form_wrapper {
   display: flex;
@@ -50,3 +47,23 @@
   }
 }
 
+// $main-text: #fff;
+// $highlight-faded: #262626;
+// $main-colour: #000;
+// $accent-colour: #13d4c8;
+// $text-blue: #fff;
+
+$data-blue: #00263c;
+$data-foreground-blue: lighten($data-blue, 10%);
+
+body {
+  &.lock {
+    overflow: hidden;
+  }
+}
+
+@import '../_modules/button/button';
+@import '../_modules/textinput/textinput';
+@import '../_modules/link/link';
+@import '../_modules/icon/icon';
+@import '../_modules/footer/footer';

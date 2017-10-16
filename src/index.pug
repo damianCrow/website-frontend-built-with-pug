@@ -1,25 +1,7 @@
 extends _layouts/base
-include _modules/button/button
-include _modules/textinput/textinput
+include _modules/footer/footer
 
 block content
-	.form_wrapper
-		h4.form_wrapper__header Contact Us
-		p.form_wrapper__text We offer financial institutions to a state of the art services platform to allow the best trading experience possible. Contact our support team for more information.
-		form.form_wrapper__form(action="")
-			.form_wrapper__inputwrap
-				+textinput({text: 'Company:', type: 'text', name: 'title'})
-			.form_wrapper__inputwrap
-				+textinput({text: 'First Name:', type: 'text', name: 'firstName'})
-			.form_wrapper__inputwrap
-				+textinput({text: 'Surname:', type: 'text', name: 'surname'})
-			.form_wrapper__inputwrap
-				+textinput({text: 'Email:', type: 'email', name: 'email'})
-			.form_wrapper__inputwrap
-				label Telephone:
-				div.form_wrapper__inputwrap--double
-					span +
-					+textinput({class: 'short', type: 'text'})
-					+textinput({class: 'medium', type: 'text'})
-			+button()(class="green" href="" type="submit" ) 
-				|Learn More
+  article
+    p Content goes here
+  +footer()
