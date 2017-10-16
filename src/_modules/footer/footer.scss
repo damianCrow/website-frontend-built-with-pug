@@ -1,6 +1,6 @@
-.main-footer {
+.footer {
   position: relative;
-
+  max-width: $max;
   display: flex;
   flex-direction: column;
 
@@ -16,10 +16,7 @@
 
   &__columns {
     position: relative;
-
     display: flex;
-
-    max-width: $max;
     width: 100%;
     margin: 0 auto;
     padding-top: $primary-gutter;
@@ -29,6 +26,10 @@
     @media #{$mq-tablet-small-up} {
       margin: 0 auto;
       padding-top: 50px;
+    }
+
+    @media #{$mq-tablet-small-up} {
+      padding: 0 calc(8.333333333% + 1rem);
     }
   }
 
@@ -92,47 +93,37 @@
 
   &__box {
     position: relative;
-
     flex: 1;
-
     margin: $primary-gutter;
-
     border: 1px solid palette(gold, metalic);
-
     max-width: $max;
-    width: 100%;
-    margin: 0 auto;
 
     @media #{$mq-tablet-small-up} {
-      margin: 2rem auto;
+      margin: 1rem calc(8.333333333% + 2rem);
     }
 
     p {
       flex: 1;
-
-      margin: 0 $primary-gutter;
       padding: 0 $primary-gutter;
-
-      @media #{$mq-tablet-small-up} {
-        margin: 0 calc(8.333333333% + 1rem);
-      }
     }
 
     &--dark {
       border: none;
       background-color: palette(brown, dark);
+      @media #{$mq-tablet-small-up} {
+        padding: 0 calc(8.333333333% + 1rem);
+      }
 
       p {
         max-width: $max;
-        padding: $primary-gutter;
+        padding: $primary-gutter 2rem;
         margin: 0 auto;
       }
     }
   }
 
-  .link {
+  .underlined {
     text-decoration: underline;
-
     color: palette(gold, metalic);
   }
 }

@@ -148,27 +148,27 @@ $font-size-xxx-large: 80;
 %mukta-light {
   font-family: $mukta;
   font-weight: lighter;
-  letter-spacing: .3em;
+  letter-spacing: $mukta-spacing;
   line-height: 1.2;
 }
 
 %mukta-medium {
   font-family: $mukta;
   font-weight: normal;
-  letter-spacing: .3em;
+  letter-spacing: $mukta-spacing;
   line-height: 1.2;
 }
 
 %financier-regular {
   font-family: $financier;
   font-weight: normal;
-  line-height: 1.75;
+  // line-height: 1.75;
 }
 
 %financier-bold {
   font-family: $financier;
   font-weight: bold;
-  line-height: 1.75;
+  // line-height: 1.75;
 }
 
 // %blue-sky-bold {
@@ -244,7 +244,7 @@ $font-size-xxx-large: 80;
 %typography-title-v-two {
   @extend %financier-regular;
 
-  @include font-size-small;
+  @include font-size-regular;
 
   color: palette(gold, metalic);
 }

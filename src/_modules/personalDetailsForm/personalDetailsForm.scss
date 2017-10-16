@@ -1,0 +1,95 @@
+@import '../_modules/button/button';
+@import '../_modules/textinput/textinput';
+
+.personal_form {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  padding: 40px $primary-gutter;
+  font-weight: 100;
+
+  &__radios {
+    flex: 2.5;
+    display: flex;
+    transform: translateY(14px);
+
+    .radiowrap {
+      flex: 2;
+      color: palette(brown, base);
+    }
+  }
+
+  &__text {
+    color: palette(brown, base);
+  }
+
+  &__header {
+    color: palette(gold, metalic);
+    margin: 0;
+    @extend %typography-section-title;
+  }
+
+  &__dropdownwrap {
+    flex: 2.5;
+    display: flex;
+    transform: translateY(14px);
+
+    .dropdown {
+      flex: 0.5;
+    }
+  }
+
+  &__inputwrap {
+    display: flex;
+    padding: 10px 0;
+    position: relative;
+
+    .error-message {
+      position: absolute;
+      right: 0;
+      top: 75px;
+      color: palette(red, error);
+    }
+
+    &--double {
+      flex: 2.5;
+    }
+
+    .label {
+      color: palette(gold, metalic);
+      flex: 1;
+      @extend %typography-title-v-two;
+
+      &--telephone {
+        flex: 0.9;
+      }
+    }
+
+    input:not([type="radio"]) {
+      flex: 2.5;
+      transform: translateY(14px);
+
+      &.short {
+        margin-left: 0;
+      }
+
+      &.medium {
+        width: calc(100% - (15% + 9px));
+      }
+    }
+
+    span {
+      color: palette(gray, medium);
+      font-size: 25px;
+      height: 45px;
+      line-height: 47px;
+      transform: translateY(14px);
+      flex: 0.1;
+    }
+  }
+
+  button {
+    margin-top: 30px;
+    float: right;
+  }
+}

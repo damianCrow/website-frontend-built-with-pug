@@ -8,6 +8,21 @@
 @import 'type';
 @import 'defaults';
 
+@import '../_modules/button/button';
+@import '../_modules/textinput/textinput';
+// @import '../_modules/header/header';
+// @import '../_modules/menu/menu';
+// @import '../_modules/logo/logo';
+// @import '../_modules/burger/burger';
+// @import '../_modules/nav/nav';
+// @import '../_modules/language-selector/language-selector';
+@import '../_modules/link/link';
+@import '../_modules/icon/icon';
+@import '../_modules/footer/footer';
+@import '../_modules/radiobutton/radiobutton';
+@import '../_modules/dropdown/dropdown';
+@import '../_modules/personalDetailsForm/personalDetailsForm';
+
 .form_wrapper {
   display: flex;
   position: relative;
@@ -62,15 +77,3 @@ body {
   }
 }
 
-@import '../_modules/button/button';
-@import '../_modules/textinput/textinput';
-@import '../_modules/header/header';
-@import '../_modules/menu/menu';
-@import '../_modules/logo/logo';
-@import '../_modules/burger/burger';
-@import '../_modules/nav/nav';
-@import '../_modules/language-selector/language-selector';
-@import '../_modules/link/link';
-@import '../_modules/icon/icon';
-@import '../_modules/footer/footer';
->>>>>>> Stashed changes

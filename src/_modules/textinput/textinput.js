@@ -1,13 +1,17 @@
 export default class TextInput {
   constructor() {
   	this.emailInput = document.querySelector('input[type="email"]')
-  	this.emailInput.addEventListener('focusout', () => {
-  		if(!this.validateEmail(this.emailInput.value)) {
-  			this.emailInput.classList.add('error')
-  		} else {
-  			this.emailInput.classList.remove('error')
-  		}
-  	})
+    if(this.emailInput) {
+    	this.emailInput.addEventListener('focusout', () => {
+    		if(!this.validateEmail(this.emailInput.value)) {
+    			this.emailInput.classList.add('error')
+          this.emailInput.insertAdjacentHTML('afterEnd', '<b class="error-message">Invalid '+this.emailInput.parentNode.childNodes[1].innerHTML.replace(':', '')+'!</b>');
+    		} else {
+    			this.emailInput.classList.remove('error')
+          this.emailInput.parentNode.removeChild(this.emailInput.nextSibling)
+    		}
+    	})
+    }
   }
 
   validateEmail(email) {

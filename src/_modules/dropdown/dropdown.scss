@@ -1,0 +1,9 @@
+.dropdown {
+  height: 45px;
+  appearance: textfield;
+  padding-left: $primary-gutter;
+  color: palette(brown, base);
+  position: relative;
+  background: palette(gray, input) url('../../images/bp-prime-arrow.svg') no-repeat 97% center;
+  background-size: 16px;
+}

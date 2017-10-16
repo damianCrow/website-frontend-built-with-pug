@@ -14,6 +14,7 @@ $_base-colors: (
     base:            #5c5c5c,
     black:           #000,
     medium:          #6f6d6b,
+    input:           #fafafa,
   ),
   brown: (
     base:             #2c2a28,
@@ -26,6 +27,9 @@ $_base-colors: (
   green: (
     light:            #388573,
     dark:             #327767,
+  ),
+  red: (
+    error:            #ab313d,
   )
 );
 
