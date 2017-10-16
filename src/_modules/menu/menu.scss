@@ -1,30 +1,38 @@
 // nav styles
 
 .main-menu {
-  background: palette(brown, dark);
+  position: fixed;
+  top: 0;
+  right: 0;
+
   display: flex;
   flex-direction: column;
-  height: 100%;
-  opacity: 0;
-  padding: $mobile-header-height $gl-gutter $gl-gutter;
-  pointer-events: none;
-  position: fixed;
-  right: 0;
-  top: 0;
-  transform: translateX(100%);
-  transition: transform 500ms $timing-function-fast-out-slow-in;
+
   width: 100%;
+  height: 100%;
+  padding: $mobile-header-height $primary-gutter $primary-gutter;
+
+  transition: transform 500ms $timing-function-fast-out-slow-in;
+  transform: translateX(100%);
+  pointer-events: none;
+
+  opacity: 0;
+  background: palette(brown, dark);
+
+  z-index: 10;
 
   @media #{$mq-desktop-small-up} {
-    opacity: 1;
-    padding-top: $header-height;
     width: 350px;
+    padding-top: $header-height;
+
+    opacity: 1;
   }
 
   &--active {
-    opacity: 1;
-    pointer-events: auto;
     transform: translateX(0);
+    pointer-events: auto;
+
+    opacity: 1;
   }
 }
 

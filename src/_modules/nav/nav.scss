@@ -33,14 +33,13 @@
     justify-content: flex-start;
     list-style: none;
     margin: 0;
-    padding: 0 $gutter;
+    padding: 0 $half-gutter;
     width: 100%;
   }
 
   &__item {
     border-top: 1px solid palette(gray, warm);
     cursor: pointer;
-    text-transform: uppercase;
     width: 100%;
 
     &:last-child {
@@ -48,10 +47,11 @@
     }
 
     > a {
-      @extend %responsive-nav;
+      @extend %typography-nav-section;
+      cursor: pointer;
       box-sizing: border-box;
       display: block;
-      padding: $gl-gutter 0;
+      padding: $half-gutter 0;
       position: relative;
       text-decoration: none;
 

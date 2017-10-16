@@ -6,12 +6,12 @@ $burger-height: 3px;
   display: flex;
   width: 100%;
   list-style: none;
-  padding: $gutter;
+  padding: $primary-gutter;
   margin-top: auto;
 
 
   &__option {
-    padding: 0 $gutter;
+    padding: 0 $primary-gutter;
     border-left: 1px solid white;
     &:first-child {
       border-left: 0;
