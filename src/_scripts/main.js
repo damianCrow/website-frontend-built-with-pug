@@ -8,7 +8,7 @@ import Menu from '../_modules/menu/menu'
 // import Countdown from '../_modules/countdown/countdown'
 // import SideNav from '../_modules/side-nav/side-nav'
 // import PageControls from '../_modules/page-controls/page-controls'
-// import Carousel from '../_modules/carousel/carousel'
+import TextInput from '../_modules/textinput/textinput'
 
 // function protoMessage() {
 //   document.querySelector('.prototype-message').addEventListener('click', (e) => {
@@ -48,7 +48,7 @@ class Main {
     // this.subMenuScrollTo()
 
     // protoMessage()
-
+    this.textInput = new TextInput()
     this.initSections()
   }
 

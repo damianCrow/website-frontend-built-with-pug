@@ -1,0 +1,43 @@
+include ../link/link
+include ../icon/icon
+
+mixin footer(spec)
+  footer.main-footer
+    .main-footer__columns
+      .main-footer__wrapper.main-footer__wrapper--hide-small
+        +link({text: 'about'})(href="" class="main-footer__link")
+        +link({text: 'private'})(href="" class="main-footer__link")
+        +link({text: 'institutional'})(href="" class="main-footer__link")
+        +link({text: 'insight'})(href="" class="main-footer__link")
+        +link({text: 'contact'})(href="" class="main-footer__link")
+      .main-footer__wrapper.main-footer__wrapper--hide-small
+        +link({text: 'privacy Policy'})(href="" class="main-footer__link")
+        +link({text: 'regulations & licencing'})(href="" class="main-footer__link")
+        +link({text: 'terms & Conditions'})(href="" class="main-footer__link")
+        +link({text: 'risk Notice'})(href="" class="main-footer__link")
+        +link({text: 'site Map'})(href="" class="main-footer__link")
+      .main-footer__wrapper
+        span.main-footer__title BP Prime
+        span.main-footer__text Address line 1
+        span.main-footer__text Address line 2
+        span.main-footer__text Address line 3
+        span.main-footer__text Post Code
+        span.main-footer__text Country
+      .main-footer__wrapper
+        span.main-footer__title Office
+        span.main-footer__text +44 (0) 066645 776
+        span.main-footer__title Email
+        span.main-footer__text test@test.com
+      .main-footer__wrapper.main-footer__wrapper--break
+        span.main-footer__title Follow BP Prime
+        .main-footer__icon_wrap
+          +icon({image: "'/images/facebook.svg'"})(href="")
+          +icon({image: "'/images/twitter.svg'"})(href="")
+          +icon({image: "'/images/google.svg'"})(href="")
+          +icon({image: "'/images/linkedin.svg'"})(href="")
+    .main-footer__rows
+      .main-footer__box
+        small As with all investing, Your capital is at risk. FX and CFDs are leveraged products that can result in losses exceeding your deposit. They are not suitable for everyone so please ensure you fully understand the risks involved. 
+          +link({text: 'Learn more'})(href="")
+      .main-footer__box.main-footer__box--dark
+        small Copyright © 2017 BP Prime. BP Prime is a trading name of Black Pearl Securities Limited (Company number 08823678). Black Pearl Securities Limited is authorized and regulated by the Financial Conduct Authority, Financial Services Register Number 688456. Registered office address: 36 Whitefriars Street, London, EC4Y 8BQ. United Kingdom

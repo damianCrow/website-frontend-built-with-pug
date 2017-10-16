@@ -31,14 +31,13 @@ body {
   @include font-weight-normal;
   @include font-size-regular();
 
-  font-family: $primary-font-family;
-
   color: palette(gray, pale);
-
-  padding: 0;
+  font-family: $primary-font-family;
   margin: 0;
-
   min-height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 
   // Remove 300ms delay on Windows Mobile.
   // Ref: http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away

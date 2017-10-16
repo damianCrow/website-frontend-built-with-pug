@@ -1,16 +1,51 @@
 // Normalize Styles
-@import "node_modules/normalize.css/normalize";
-@import "vars";
-@import "utils";
-@import "colors";
-@import "media-queries";
-@import "fonts";
-@import "type";
-@import "defaults";
+@import 'node_modules/normalize.css/normalize';
+@import 'vars';
+@import 'utils';
+@import 'colors';
+@import 'media-queries';
+@import 'fonts';
+@import 'type';
+@import 'defaults';
 
-$header-height: 175px;
-$mobile-header-height: 50px;
-$header-logo-space: 185px;
+.form_wrapper {
+  display: flex;
+  position: relative;
+  background-color: palette(brown, dark);
+  flex-direction: column;
+  padding: 40px $primary-gutter;
+  font-weight: 100;
+
+  &__header {
+    color: palette(gold, metalic);
+    margin: 0;
+  }
+
+  &__inputwrap {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+
+    &--double {
+      display: flex;
+    }
+
+    label {
+      color: palette(gold, metalic);
+    }
+
+    span {
+      color: palette(gray, medium);
+      font-size: 25px;
+      line-height: 40px;
+      width: $primary-gutter;
+    }
+  }
+
+  button {
+    margin-top: 30px;
+  }
+}
 
 // $main-text: #fff;
 // $highlight-faded: #262626;
@@ -27,122 +62,15 @@ body {
   }
 }
 
-.footer {
-  background-color: palette(brown, base);
-  display: flex;
-  flex-direction: column;
-  font-size: 12px;
-  font-family: 'Mukta', sans-serif;
-  color: palette(gray, text);
-  font-weight: 100;
-  max-width: $max;
-  position: relative;
-  letter-spacing: $mukta-spacing;
-
-  &__columns {
-    display: flex;
-    position: relative;
-    flex-wrap: wrap;
-    margin: 0;
-    padding-top: $primary-gutter;
-
-    @media #{$mq-tablet-small-up} {
-      margin: 0 8.333333333%;
-      padding-top: 50px;
-    }
-  }
-
-  &__title {
-  	color: palette(gold, metalic);
-  }
-
-  &__text, &__link {
-  	padding: 4px 0;
-  }
-
-  &__wrapper {
-    flex-direction: column;
-    flex: 1;
-    padding: 0 $primary-gutter;
-    display: flex;
-
-    &--hide-small {
-      display: none;
-
-      @media #{$mq-desktop-xsmall-up} {
-        display: flex;
-      }
-    }
-
-    &--break {
-      flex: 1 0 100%;
-      padding-top: $primary-gutter;
-
-      @media #{$mq-tablet-small-up} {
-        flex: 1;
-        padding-top: 0;
-      }
-    }
-  }
-
-  &__icon_wrap {
-  	padding: 4px 0;
-  	display: flex;
-  	flex-direction: row;
-
-  	.icon span {
-  		margin-right: 15px;
-  		background-color: palette(gray, text);
-  		border-radius: 3px;
-  	}
-	}
-
-  &__rows {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__box {
-    border: 1px solid palette(gold, metalic);
-    flex: 1;
-    position: relative;
-    margin: $primary-gutter;
-    
-    @media #{$mq-tablet-small-up} {
-      margin: 2rem calc(8.333333333% + 1rem);
-    }
-
-    p {
-      padding: 0 $primary-gutter;
-    }
-
-    &--dark {
-      background-color: palette(brown, dark);
-      position: relative;
-      padding: $primary-gutter;
-    }
-
-    p {
-      flex: 1;
-      margin: 0 $primary-gutter;
-
-      @media #{$mq-tablet-small-up} {
-        margin: 0 calc(8.333333333% + 1rem);
-      }
-    }
-  }
-
-  .link {
-    color: palette(gold, metalic);
-    text-decoration: underline;
-  }
-}
-@import "../_modules/header/header";
-@import "../_modules/menu/menu";
-@import "../_modules/logo/logo";
-@import "../_modules/burger/burger";
+@import '../_modules/button/button';
+@import '../_modules/textinput/textinput';
+@import '../_modules/header/header';
+@import '../_modules/menu/menu';
+@import '../_modules/logo/logo';
+@import '../_modules/burger/burger';
 @import '../_modules/nav/nav';
 @import '../_modules/language-selector/language-selector';
 @import '../_modules/link/link';
 @import '../_modules/icon/icon';
+@import '../_modules/footer/footer';
+>>>>>>> Stashed changes

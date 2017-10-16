@@ -1,0 +1,22 @@
+button {
+  align-self: center;
+  border: none;  
+  color: palette(gray, white);
+  cursor: pointer;
+  display: inline-block;
+  padding: 14px 45px;
+  text-align: center;
+  text-decoration: none;
+
+  &::after {}
+
+  &:hover {}
+
+  &.green {
+    background-color: palette(green, light);
+  }
+
+  &.large {
+    padding: 30px 35px;
+  }
+}
