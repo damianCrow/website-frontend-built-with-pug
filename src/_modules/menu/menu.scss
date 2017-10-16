@@ -9,7 +9,7 @@
   flex-direction: column;
 
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding: $mobile-header-height $primary-gutter $primary-gutter;
 
   transition: transform 500ms $timing-function-fast-out-slow-in;
