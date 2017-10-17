@@ -246,14 +246,8 @@ $font-size-xxx-large: 80;
 %typography-title-v-two {
   color: palette(gold, metalic);
 
-<<<<<<< HEAD
-  @include font-size-regular;
-
-  color: palette(gold, metalic);
-=======
   @extend %financier-regular;
-  @include font-size-small;
->>>>>>> 7fe043ac9c9f2381a9c2dbc1d43ba87f01878372
+  @include font-size-regular;
 }
 
 
