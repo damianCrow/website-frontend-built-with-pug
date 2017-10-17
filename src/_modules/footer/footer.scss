@@ -1,10 +1,11 @@
 .footer {
   position: relative;
-  max-width: $max;
+
   display: flex;
   flex-direction: column;
 
-  margin-top: auto;
+  max-width: $max;
+  margin: auto auto 0;
 
   letter-spacing: $mukta-spacing;
 
@@ -12,14 +13,17 @@
 
   &__columns {
     position: relative;
+
     display: flex;
+
     width: 100%;
     margin: 0 auto;
     padding-top: $primary-gutter;
+
     flex-wrap: wrap;
 
     @media #{$mq-tablet-small-up} {
-      padding: 30px calc(8.333333333% + 1rem) 0 calc(8.333333333% + 1rem);
+      padding: 30px calc(8.333333333% + 1rem) calc(8.333333333% + 1rem);
     }
   }
 
@@ -28,8 +32,15 @@
   }
 
   &__link {
-    @extend %typography-small-section-link;
-    &--hightlighted {
+    transition: $color-transistion;
+
+    @extend %typography-small-section-plain-link;
+
+    &:hover {
+      @extend %typography-active-small-section-plain-link;
+    }
+
+    &--highlighted {
       @extend %typography-small-section-link;
     }
   }
@@ -41,6 +52,9 @@
   &__text,
   &__link {
     padding: 4px 0;
+    &--highlighted {
+      padding: 0;
+    }
   }
 
   &__wrapper {
@@ -94,35 +108,42 @@
 
   &__box {
     position: relative;
+
     flex: 1;
-    margin: $primary-gutter;
-    border: 1px solid palette(gold, metalic);
+
     max-width: $max;
+    margin: $primary-gutter;
+
+    border: 1px solid palette(gold, metalic);
 
     @media #{$mq-tablet-small-up} {
       margin: 1rem calc(8.333333333% + #{$primary-gutter * 2});
     }
 
-    p {
-      @extend %typography-small-section-text;
+    small {
       flex: 1;
+
       padding: 0 $primary-gutter;
+
+      @extend %typography-small-section-text;
     }
 
     &--dark {
+      margin: 0;
+
       border: none;
       background-color: palette(brown, dark);
-      margin: 0;
 
       @media #{$mq-tablet-small-up} {
         padding: 0 calc(8.333333333% + #{$half-gutter * 2});
       }
 
-      p {
-        @extend %typography-small-section-text;
+      small {
         max-width: $max;
-        padding: $primary-gutter;
         margin: 0 auto;
+        padding: $primary-gutter;
+
+        @extend %typography-small-section-text;
       }
     }
   }
