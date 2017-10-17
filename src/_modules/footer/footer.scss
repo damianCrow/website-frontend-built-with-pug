@@ -112,10 +112,10 @@
     &--dark {
       border: none;
       background-color: palette(brown, dark);
+      margin: 0;
 
       @media #{$mq-tablet-small-up} {
         padding: 0 calc(8.333333333% + #{$half-gutter * 2});
-        margin: 0;
       }
 
       p {
