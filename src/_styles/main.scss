@@ -47,12 +47,6 @@
   }
 }
 
-// $main-text: #fff;
-// $highlight-faded: #262626;
-// $main-colour: #000;
-// $accent-colour: #13d4c8;
-// $text-blue: #fff;
-
 $data-blue: #00263c;
 $data-foreground-blue: lighten($data-blue, 10%);
 
@@ -73,3 +67,6 @@ body {
 @import '../_modules/link/link';
 @import '../_modules/icon/icon';
 @import '../_modules/footer/footer';
+@import '../_modules/radiobutton/radiobutton';
+@import '../_modules/dropdown/dropdown';
+@import '../_modules/personalDetailsForm/personalDetailsForm';

@@ -1,0 +1,5 @@
+mixin radiobutton(sped)
+  .radiowrap
+    input.radiowrap__radio(class!=attributes.class, name!=attributes.name, value!=sped.text, type="radio")
+    label.radiowrap__label 
+      != sped.text
