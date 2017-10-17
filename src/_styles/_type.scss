@@ -215,7 +215,6 @@ $font-size-xxx-large: 80;
   );
 }
 
-
 %typography-section-title {
   color: palette(gold, metalic);
 
@@ -246,14 +245,8 @@ $font-size-xxx-large: 80;
 %typography-title-v-two {
   color: palette(gold, metalic);
 
-<<<<<<< HEAD
-  @include font-size-regular;
-
-  color: palette(gold, metalic);
-=======
   @extend %financier-regular;
-  @include font-size-small;
->>>>>>> 7fe043ac9c9f2381a9c2dbc1d43ba87f01878372
+  @include font-size-regular;
 }
 
 
@@ -297,6 +290,41 @@ $font-size-xxx-large: 80;
   @extend %financier-bold;
   @include font-size-large;
 }
+
+%typography-small-section-label {
+  color: palette(gold, metalic);
+
+  @extend %mukta-light;
+  @include font-size-small;
+}
+
+%typography-small-section-text {
+  color: palette(gray, pale);
+
+  @extend %mukta-light;
+  @include font-size-small;
+}
+
+%typography-small-section-link {
+  color: palette(gray, pale);
+  text-decoration: none;
+  cursor: pointer;
+
+  @extend %mukta-light;
+  @extend %text-state-transitions;
+  @include font-size-small;
+
+  &:hover,
+  &:active {
+    color: palette(gold, metalic);
+    text-decoration: underline;
+  }
+}
+
+%typography-small-section-link-highlighted {
+  @extend %typography-small-section-link;
+}
+
 
 // %typography-massive-feature {
 //   @extend %blue-sky-light;
