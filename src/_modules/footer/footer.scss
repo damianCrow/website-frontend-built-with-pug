@@ -1,29 +1,27 @@
 .footer {
   position: relative;
-
+  max-width: $max;
   display: flex;
   flex-direction: column;
 
-  max-width: $max;
   margin: auto auto 0;
 
   letter-spacing: $mukta-spacing;
 
   background-color: palette(brown, base);
 
+  $root: &;
+
   &__columns {
     position: relative;
-
     display: flex;
-
     width: 100%;
     margin: 0 auto;
     padding-top: $primary-gutter;
-
     flex-wrap: wrap;
 
     @media #{$mq-tablet-small-up} {
-      padding: 30px calc(8.333333333% + 1rem) calc(8.333333333% + 1rem);
+      padding: 30px calc(8.333333333% + 1rem) 0 calc(8.333333333% + 1rem);
     }
   }
 
@@ -32,9 +30,8 @@
   }
 
   &__link {
-    transition: $color-transistion;
-
     @extend %typography-small-section-plain-link;
+    transition: $color-transistion;
 
     &:hover {
       @extend %typography-active-small-section-plain-link;
@@ -108,43 +105,38 @@
 
   &__box {
     position: relative;
-
     flex: 1;
-
-    max-width: $max;
     margin: $primary-gutter;
-
     border: 1px solid palette(gold, metalic);
+    max-width: $max;
 
     @media #{$mq-tablet-small-up} {
       margin: 1rem calc(8.333333333% + #{$primary-gutter * 2});
     }
 
-    small {
-      flex: 1;
-
-      padding: 0 $primary-gutter;
-
-      @extend %typography-small-section-text;
-    }
-
     &--dark {
-      margin: 0;
-
       border: none;
       background-color: palette(brown, dark);
+      margin: 0;
 
       @media #{$mq-tablet-small-up} {
         padding: 0 calc(8.333333333% + #{$half-gutter * 2});
       }
 
-      small {
-        max-width: $max;
-        margin: 0 auto;
-        padding: $primary-gutter;
-
+      #{$root}__legal {
         @extend %typography-small-section-text;
+        max-width: $max;
+        padding: $primary-gutter;
+        margin: 0 auto;
+        display: block;
       }
     }
+  }
+
+  &__legal {
+    @extend %typography-small-section-text;
+    flex: 1;
+    padding: 0 $primary-gutter;
+    display: block;
   }
 }

@@ -63,6 +63,12 @@ h3 {
   @include font-size-large;
 }
 
+small {
+  // emulateing default paragraph styles
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 .text-body-small {
   @include font-size-small;
 }
