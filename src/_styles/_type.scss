@@ -37,6 +37,8 @@ $font-size-x-large: 32;
 $font-size-xx-large: 50;
 $font-size-xxx-large: 80;
 
+$color-transistion: color 250ms $timing-function-ease-out-quint;
+
 
 // Font weights.
 @mixin font-weight-bold {
@@ -146,9 +148,9 @@ $font-size-xxx-large: 80;
 }
 
 // WORK IN PROGRESS
-%text-state-transitions {
-  transition: transform 325ms $timing-function-ease-out-quint, color 250ms $timing-function-ease-out-quint 125ms;
-}
+// %text-state-transitions {
+//   transition: transform 325ms $timing-function-ease-out-quint, color 250ms $timing-function-ease-out-quint 125ms;
+// }
 
 // Classes to be extended.
 
@@ -178,22 +180,8 @@ $font-size-xxx-large: 80;
   // line-height: 1.75;
 }
 
-// %blue-sky-bold {
-//   @include font-weight-bold;
-//   font-family: $blue-sky;
-// }
 
 // Font categorys
-// %typography-header {
-//   @extend %blue-sky-bold;
-
-//   @include responsive-font-size(
-//     $mobile: $font-size-large,
-//     $desktop: $font-size-x-large
-//   );
-
-//   color: palette(gray, pale);
-// }
 
 %typography-banner-title {
   color: palette(gold, metalic);
@@ -271,17 +259,12 @@ $font-size-xxx-large: 80;
   @include font-size-regular;
 }
 
+// *Nav*
 %typography-nav-section {
   color: palette(gray, pale);
 
   @extend %financier-regular;
-  @extend %text-state-transitions;
   @include font-size-large;
-
-  &:hover,
-  &:active {
-    color: palette(gold, metalic);
-  }
 }
 
 %typography-open-nav-section {
@@ -291,6 +274,7 @@ $font-size-xxx-large: 80;
   @include font-size-large;
 }
 
+// *small text including footer*
 %typography-small-section-label {
   color: palette(gold, metalic);
 
@@ -308,156 +292,57 @@ $font-size-xxx-large: 80;
 %typography-small-section-link {
   color: palette(gray, pale);
   text-decoration: none;
+  border-bottom: 1px solid palette(gray, pale);
   cursor: pointer;
 
   @extend %mukta-light;
-  @extend %text-state-transitions;
   @include font-size-small;
-
-  &:hover,
-  &:active {
-    color: palette(gold, metalic);
-    text-decoration: underline;
-  }
 }
 
-%typography-small-section-link-highlighted {
-  @extend %typography-small-section-link;
+%typography-active-small-section-link {
+  color: palette(gold, metalic);
+  text-decoration: none;
+  border-bottom: 1px solid palette(gold, metalic);
+  cursor: pointer;
+
+  @extend %mukta-light;
+  // @extend %text-state-transitions;
+  @include font-size-small;
 }
 
+%typography-small-section-plain-link {
+  color: palette(gray, pale);
+  text-decoration: none;
+  cursor: pointer;
 
-// %typography-massive-feature {
-//   @extend %blue-sky-light;
+  @extend %mukta-light;
+  @include font-size-small;
+}
 
-//   @include responsive-font-size(
-//     $mobile: $font-size-x-large,
-//     $phablet: $font-size-xx-large,
-//     $desktop: $font-size-xxx-large
-//   );
-// }
+%typography-active-small-section-plain-link {
+  color: palette(gold, metalic);
+  text-decoration: none;
+  cursor: pointer;
 
-// %typography-feature {
-//   @extend %blue-sky-light;
+  @extend %mukta-light;
+  @include font-size-small;
+}
 
-//   @include responsive-font-size(
-//     $mobile: $font-size-large,
-//     $phablet: $font-size-x-large,
-//     $desktop: $font-size-xx-large
-//   );
-// }
+%typography-rectangle-button {
+  color: palette(gold, metalic);
+  text-decoration: none;
+  cursor: pointer;
 
-// %typography-small-feature {
-//   @extend %blue-sky-bold;
-//   text-transform: uppercase;
-//   letter-spacing: rem(3px);
+  @extend %mukta-light;
+  @include font-size-small;
+}
 
-//   @include responsive-font-size(
-//     $mobile: $font-size-regular,
-//     $desktop: $font-size-regular
-//   );
-// }
+%typography-active-rectangle-button {
+  color: palette(gray, pale);
+  text-decoration: none;
+  cursor: pointer;
 
-// %typography-button {
-//   @extend %blue-sky-bold;
-//   @include font-size-x-small;
-//   letter-spacing: rem(2px);
-//   text-transform: uppercase;
-// }
+  @extend %mukta-light;
+  @include font-size-small;
+}
 
-// %typography-small {
-//   @extend %blue-sky-light;
-//   @include font-size-x-small;
-//   text-transform: uppercase;
-//   letter-spacing: rem(3px);
-//   // line-height: 2;
-// }
-
-// %typography-header-prefix {
-//   @extend %blue-sky-light;
-//   @include responsive-font-size(
-//     $phablet: $font-size-x-small,
-//     $desktop: $font-size-regular
-//   );
-//   letter-spacing: rem(2px);
-//   text-transform: uppercase;
-// }
-
-// %typography-publish-date {
-//   @extend %blue-sky-light;
-//   @include responsive-font-size(
-//     $desktop: $font-size-x-small
-//   );
-//   color: palette(gray, gray-2);
-//   letter-spacing: rem(2px);
-//   text-transform: uppercase;
-// }
-
-// %responsive-nav {
-//   @extend %blue-sky-bold;
-//   @include responsive-font-size(
-//     $mobile: $font-size-x-large,
-//     $phablet: $font-size-x-large,
-//     $desktop: $font-size-x-small
-//   );
-// }
-
-
-
-
-
-
-// $letter-spacing: 0.1rem;
-
-// // Fonts
-// @mixin blue-sky-book {
-//   color: #fff;
-
-//   font-family: 'blue-sky-Book', sans-serif;
-// }
-
-// @mixin blue-sky-bold {
-//   color: #fff;
-//   letter-spacing: 0.1rem;
-//   font-family: 'blue-sky-Bold', sans-serif;
-// }
-
-// // Header 1
-// @mixin main-header-text {
-//   @include blue-sky-bold();
-//   @include font-size-xxx-large();
-//   text-transform: uppercase;
-//   margin-top: 0.75rem;
-//   margin-bottom: 0.75rem;
-// }
-
-// // Header 2
-// @mixin sub-header-text {
-//   @include blue-sky-bold();
-//   @include font-size-x-large();
-//   text-transform: uppercase;
-//   text-align: center;
-// }
-
-// // Body copy 1
-// @mixin body-copy {
-//   @include blue-sky-book();
-//   // Default font-size
-// }
-
-// // Body copy 2
-// @mixin body-copy-featured {
-//   @include blue-sky-book();
-//   @include font-size-xx-large();
-// }
-
-// // Navigation
-// @mixin navigation-copy {
-//   @include blue-sky-book();
-//   @include font-size-small();
-// }
-
-// // Small
-// @mixin featured-text {
-//   @include blue-sky-book();
-//   @include font-size-small();
-// }
