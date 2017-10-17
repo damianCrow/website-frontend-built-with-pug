@@ -121,6 +121,7 @@
 
     span {
       @extend %typography-nav-section;
+      transition: transform 325ms $timing-function-ease-out-quint, $color-transistion 125ms;
     }
 
   }

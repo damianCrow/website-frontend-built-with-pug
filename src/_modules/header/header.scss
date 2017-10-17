@@ -33,13 +33,13 @@
   &__logo-container {
     display: flex;
     height: 100%;
-    // width: $header-logo-space;
+    width: calc(100px + #{$half-gutter * 2});
+    padding: $half-gutter;
     z-index: 1;
     position: absolute;
     left: 0;
     right: 0;
     margin: auto;
-    padding: rem(10) 2.5rem;
   }
 
   &--unstick {

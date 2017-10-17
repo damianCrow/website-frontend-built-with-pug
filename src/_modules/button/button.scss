@@ -3,18 +3,19 @@
 
   padding: $half-gutter $double-gutter;
 
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-
-  color: palette(gray, white);
   border: 1px solid palette(gold, process);
 
   align-self: center;
-  @extend %typography-title-v-one;
+  @extend %typography-rectangle-button;
+  transition: $color-transistion, border 250ms $timing-function-ease-out-quint;
+
   &::after {}
 
-  &:hover {}
+  &:hover {
+    border: 1px solid palette(gray, pale);
+    // background: palette(gray, pale);
+    @extend %typography-active-rectangle-button;
+  }
 
   &.green {
     background-color: palette(green, light);

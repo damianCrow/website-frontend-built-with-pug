@@ -41,8 +41,22 @@ $burger-height: 3px;
 
     border-left: 1px solid white;
 
+    > a {
+      @extend %typography-small-section-link;
+      transition: $color-transistion;
+      &:hover {
+        @extend %typography-active-small-section-link;
+      }
+    }
+
     &--active {
-      
+      > a {
+        @extend %typography-active-small-section-link;
+        
+        &:hover {
+          @extend %typography-active-small-section-link;
+        }
+      }
     }
 
     &:first-child {
