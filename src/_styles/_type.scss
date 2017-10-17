@@ -215,7 +215,6 @@ $font-size-xxx-large: 80;
   );
 }
 
-
 %typography-section-title {
   color: palette(gold, metalic);
 
@@ -291,6 +290,41 @@ $font-size-xxx-large: 80;
   @extend %financier-bold;
   @include font-size-large;
 }
+
+%typography-small-section-label {
+  color: palette(gold, metalic);
+
+  @extend %mukta-light;
+  @include font-size-small;
+}
+
+%typography-small-section-text {
+  color: palette(gray, pale);
+
+  @extend %mukta-light;
+  @include font-size-small;
+}
+
+%typography-small-section-link {
+  color: palette(gray, pale);
+  text-decoration: none;
+  cursor: pointer;
+
+  @extend %mukta-light;
+  @extend %text-state-transitions;
+  @include font-size-small;
+
+  &:hover,
+  &:active {
+    color: palette(gold, metalic);
+    text-decoration: underline;
+  }
+}
+
+%typography-small-section-link-highlighted {
+  @extend %typography-small-section-link;
+}
+
 
 // %typography-massive-feature {
 //   @extend %blue-sky-light;
