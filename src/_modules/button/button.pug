@@ -1,3 +1,7 @@
-mixin button(sped)
-  button(class!=attributes.class, type!=attributes.type)
-    block
+mixin button(link)
+  if link
+    a.button(class!=attributes.class, type!=attributes.type)
+      block
+  else
+    button.button(class!=attributes.class, type!=attributes.type)
+      block

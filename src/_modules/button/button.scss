@@ -1,13 +1,17 @@
-button {
-  align-self: center;
-  border: none;  
-  color: palette(gray, white);
+.button {
+  display: inline-flex;
+
+  padding: $half-gutter $double-gutter;
+
   cursor: pointer;
-  display: inline-block;
-  padding: 14px 45px;
   text-align: center;
   text-decoration: none;
 
+  color: palette(gray, white);
+  border: 1px solid palette(gold, process);
+
+  align-self: center;
+  @extend %typography-title-v-one;
   &::after {}
 
   &:hover {}
