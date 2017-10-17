@@ -20,16 +20,10 @@
     width: 100%;
     margin: 0 auto;
     padding-top: $primary-gutter;
-
     flex-wrap: wrap;
 
     @media #{$mq-tablet-small-up} {
-      margin: 0 auto;
-      padding-top: 50px;
-    }
-
-    @media #{$mq-tablet-small-up} {
-      padding: 0 calc(8.333333333% + 1rem);
+      padding: 30px calc(8.333333333% + 1rem) 0 calc(8.333333333% + 1rem);
     }
   }
 

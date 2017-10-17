@@ -1,6 +1,6 @@
 mixin dropdown(options)
   select.dropdown()&attributes(attributes)
-    option(value="" disabled selected) Select your option
+    option(value="" disabled selected) Select option
     each item, index in options
       - value = options[index]
       option(value!=value) #{item}

@@ -15,11 +15,11 @@ $font-helvetica: Helvetica;
 $mukta: "Mukta", $font-helvetica, $font-arial;
 
 $font-times: Times, serif;
-$font-times-new-roman: "Times New Roman";
+$font-times-new-roman: 'Times New Roman';
 $financier: "Financier", $font-times-new-roman, $font-times;
 
 $primary-font-family: $mukta;
-$secondary-font-family: "Open Sans" Helvetica, Arial, sans-serif;
+$secondary-font-family: "Open Sans", Helvetica, Arial, sans-serif;
 $tertiary-font-family: Arial, sans-serif;
 
 // Font weight variables.
@@ -129,34 +129,41 @@ $font-size-xxx-large: 80;
 // Add an ellipsis to overflowing text
 @mixin ellipsis($width: 100%) {
   display: inline-block;
-  max-width: $width;
   overflow: hidden;
-  text-overflow: ellipsis;
+
+  max-width: $width;
+
   white-space: nowrap;
+  text-overflow: ellipsis;
   word-wrap: normal;
 }
 
 @mixin image-replacement {
   overflow: hidden;
-  text-indent: 100%;
+
   white-space: nowrap;
+  text-indent: 100%;
 }
 
+// WORK IN PROGRESS
+%text-state-transitions {
+  transition: transform 325ms $timing-function-ease-out-quint, color 250ms $timing-function-ease-out-quint 125ms;
+}
 
 // Classes to be extended.
 
 %mukta-light {
+  letter-spacing: $mukta-spacing;
   font-family: $mukta;
   font-weight: lighter;
   letter-spacing: $mukta-spacing;
-  line-height: 1.2;
 }
 
 %mukta-medium {
+  letter-spacing: $mukta-spacing;
   font-family: $mukta;
   font-weight: normal;
   letter-spacing: $mukta-spacing;
-  line-height: 1.2;
 }
 
 %financier-regular {
@@ -189,102 +196,106 @@ $font-size-xxx-large: 80;
 // }
 
 %typography-banner-title {
-  @extend %financier-bold;
+  color: palette(gold, metalic);
 
+  @extend %financier-bold;
   @include responsive-font-size(
     $mobile: $font-size-x-large,
     $desktop: $font-size-xx-large
   );
-
-  color: palette(gold, metalic);
 }
 
 %typography-banner-subtitle {
-  @extend %mukta-light;
+  color: palette(gray, pale);
 
+  @extend %mukta-light;
   @include responsive-font-size(
     $mobile: $font-size-large,
     $desktop: $font-size-large
   );
-
-  color: palette(gray, pale);
 }
 
 
 %typography-section-title {
-  @extend %financier-bold;
-
-  @include font-size-large;
-
   color: palette(gold, metalic);
+
+  @extend %financier-bold;
+  @include font-size-large;
 }
 
 %typography-section-top-title {
-  @extend %financier-bold;
-
-  @include font-size-x-large;
-
   color: palette(gold, metalic);
+
+  @extend %financier-bold;
+  @include font-size-x-large;
 }
 
 
 // ASK DESIGNER FOR PROPER NAME
 %typography-title-v-one {
-  @extend %mukta-medium;
+  color: palette(gray, medium);
 
+  @extend %mukta-medium;
   @include responsive-font-size(
     $mobile: $font-size-regular,
-    $desktop: $font-size-large
+    $desktop: $font-size-regular
   );
-
-  color: palette(gray, pale);
 }
 
 // ASK DESIGNER FOR PROPER NAME
 %typography-title-v-two {
-  @extend %financier-regular;
+  color: palette(gold, metalic);
 
+<<<<<<< HEAD
   @include font-size-regular;
 
   color: palette(gold, metalic);
+=======
+  @extend %financier-regular;
+  @include font-size-small;
+>>>>>>> 7fe043ac9c9f2381a9c2dbc1d43ba87f01878372
 }
 
 
 %typography-body {
+  color: palette(gray, pale);
+
   @extend %mukta-light;
   @include font-size-regular;
-
-  color: palette(gray, pale);
 }
 
 %typography-list-label {
+  color: palette(gray, pale);
+
   @extend %mukta-light;
   @include font-size-regular;
-
-  color: palette(gray, pale);
 }
 
 %typography-list-value {
+  color: palette(gray, pale);
+
   @extend %mukta-light;
   @include font-size-regular;
-
-  color: palette(gray, pale);
 }
 
 %typography-nav-section {
-  @extend %financier-regular;
+  color: palette(gray, pale);
 
+  @extend %financier-regular;
+  @extend %text-state-transitions;
   @include font-size-large;
 
-  color: palette(gray, pale);
+  &:hover,
+  &:active {
+    color: palette(gold, metalic);
+  }
 }
 
 %typography-open-nav-section {
-  @extend %financier-bold;
-
-  @include font-size-large;
-
   color: palette(gold, metalic);
+
+  @extend %financier-bold;
+  @include font-size-large;
 }
 
 // %typography-massive-feature {
