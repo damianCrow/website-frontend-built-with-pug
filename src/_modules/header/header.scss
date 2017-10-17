@@ -1,24 +1,48 @@
 // header styles
 .main-header {
-  $root: &;
-  box-sizing: border-box;
-  height: $mobile-header-height;
-  justify-content: space-between;
-  margin: 0 auto;
   position: relative;
-  width: 100%;
 
-  @media #{$mq-desktop-small-up} {
-    height: $header-height;
+  box-sizing: border-box;
+  width: 100%;
+  height: $condensed-header-height;
+  margin: 0 auto;
+
+  $root: &;
+  justify-content: space-between;
+
+  &--expanded {
+    #{$root}__container {
+      background-color: transparent;
+    }
+
+    @media #{$mq-desktop-small-up} {
+      height: $header-height;
+    }
+  }
+
+  &__login {
+    display: none;
+    @media #{$mq-desktop-small-up} {
+      display: flex;
+    } 
   }
 
   &__container {
-    max-width: #{$thresh--large-2}px;
-    align-items: center;
-    display: flex;
-    margin: 0 auto;
     position: relative;
+
+    display: flex;
+    overflow: hidden;
+
+    max-width: #{$thresh--large-2}px;
     height: 100%;
+    margin: 0 auto;
+
+    background-color: palette(gray, white);
+
+    align-items: center;
+
+    // Just above the menu.
+    z-index: 11;
 
     @media #{$mq-desktop-small-up} {
       padding: rem(10) 2.5rem;
@@ -27,27 +51,34 @@
 
   &__burger {
     display: flex;
+
+    margin-right: $primary-gutter;
     margin-left: auto;
+    // @media #{$mq-desktop-small-up} {
+    //   margin-right: $primary-gutter;
+    // }
   }
 
   &__logo-container {
-    display: flex;
-    height: 100%;
-    width: calc(100px + #{$half-gutter * 2});
-    padding: $half-gutter;
-    z-index: 1;
     position: absolute;
-    left: 0;
+    z-index: 1;
     right: 0;
+    left: 0;
+
+    display: flex;
+
+    width: calc(100px + #{$half-gutter * 2});
+    height: 100%;
     margin: auto;
+    padding: $half-gutter;
   }
 
   &--unstick {
     @media #{$mq-desktop-small-up} {
-      bottom: 0;
-      left: 0;
       position: absolute;
       top: auto;
+      bottom: 0;
+      left: 0;
     }
   }
 
@@ -64,8 +95,9 @@
   }
 
   &--sub-nav-open {
-    background-color: rgba(256, 256, 256, 1);
     transition: background 250ms cubic-bezier(.86, 0, .07, 1);
+
+    background-color: rgba(256, 256, 256, 1);
 
     #{$root}__logo {
       path {
@@ -81,9 +113,5 @@
         }
       }
     }
-  }
-
-  @media #{$mq-desktop-small-up} {
-    height: $header-height;
   }
 }

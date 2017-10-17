@@ -3,7 +3,8 @@ include _modules/header/header
 include _modules/footer/footer
 
 block content
-  +header()
+  +header('expanded')
+  //- +header('condensed')
   article
     p Content goes here
   +footer()

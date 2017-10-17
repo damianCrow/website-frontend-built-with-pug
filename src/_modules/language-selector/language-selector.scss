@@ -2,13 +2,16 @@
 $burger-height: 3px;
 
 .language-selector {
-  position: absolute;
+  position: relative;
   bottom: 0;
 
   display: flex;
 
   margin: auto $primary-gutter 0 $primary-gutter;
   padding: $primary-gutter 0;
+
+  // width: calc(100% - #{$primary-gutter * 4});
+  width: calc(100% - #{$primary-gutter * 2});
 
   list-style: none;
 
