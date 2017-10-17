@@ -1,7 +1,14 @@
 extends _layouts/base
+include _modules/header/header
 include _modules/footer/footer
 
+block config
+  //- Correct base url pathing for this page 'condensed' or 'expanded'
+  - var headerType = 'expanded'
+  - var baseUrl = config.baseUrl || './'
+
 block content
+  +header(headerType)
   article
     p Content goes here
   +footer()

@@ -8,19 +8,17 @@
 @import 'type';
 @import 'defaults';
 
-@import '../_modules/button/button';
-@import '../_modules/textinput/textinput';
-// @import '../_modules/header/header';
-// @import '../_modules/menu/menu';
-// @import '../_modules/logo/logo';
-// @import '../_modules/burger/burger';
-// @import '../_modules/nav/nav';
-// @import '../_modules/language-selector/language-selector';
-@import '../_modules/icon/icon';
-@import '../_modules/footer/footer';
-@import '../_modules/radiobutton/radiobutton';
-@import '../_modules/dropdown/dropdown';
-@import '../_modules/personalDetailsForm/personalDetailsForm';
+// Used on the body tag for fixed header padding.
+body {
+  padding-top: $condensed-header-height;
+
+  &.expanded-header {
+    @media #{$mq-desktop-small-up} {
+      padding-top: $expanded-header-height;
+    }
+  }
+}
+
 
 .form_wrapper {
   display: flex;
@@ -64,9 +62,16 @@
 $data-blue: #00263c;
 $data-foreground-blue: lighten($data-blue, 10%);
 
-body {
-  &.lock {
-    overflow: hidden;
-  }
-}
-
+@import '../_modules/button/button';
+@import '../_modules/textinput/textinput';
+@import '../_modules/header/header';
+@import '../_modules/menu/menu';
+@import '../_modules/logo/logo';
+@import '../_modules/burger/burger';
+@import '../_modules/nav/nav';
+@import '../_modules/language-selector/language-selector';
+@import '../_modules/icon/icon';
+@import '../_modules/footer/footer';
+@import '../_modules/radiobutton/radiobutton';
+@import '../_modules/dropdown/dropdown';
+@import '../_modules/personalDetailsForm/personalDetailsForm';

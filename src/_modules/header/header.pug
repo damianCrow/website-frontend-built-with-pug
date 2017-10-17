@@ -1,14 +1,19 @@
 include ../logo/logo
 include ../burger/burger
 include ../menu/menu
+include ../button/button
 
-mixin header(spec)
-  header.main-header
-    .main-header__logo-container
-      +logo()
-    .main-header__burger
-      +burger()(burgerId='main-burger' burgerClass='burger--side')
-    +menu()
+mixin header(size)
+  header.main-header(class!='main-header--' + size)
+    .main-header__container
+      .main-header__login
+        +button(true)
+          | Client Login
+      .main-header__logo-container
+        +logo()(class!= size)
+      .main-header__burger
+        +burger()(burgerId='main-burger' burgerClass='burger--side')
+    +menu(size)
 
     if block
       block

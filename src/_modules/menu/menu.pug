@@ -1,7 +1,7 @@
 include ../nav/nav
 include ../language-selector/language-selector
 
-mixin menu()
-  #main-menu.main-menu
+mixin menu(headerSize)
+  #main-menu(class!='main-menu main-menu--' + headerSize)
     +nav()
     +language-selector()

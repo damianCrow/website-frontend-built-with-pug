@@ -4,6 +4,9 @@
 // import { TweenLite } from 'gsap'
 // import ScrollToPlugin from 'gsap/ScrollToPlugin'
 // import Team from '../_modules/team/team'
+import Menu from '../_modules/menu/menu'
+import Nav from '../_modules/nav/nav'
+
 // import Countdown from '../_modules/countdown/countdown'
 // import SideNav from '../_modules/side-nav/side-nav'
 // import PageControls from '../_modules/page-controls/page-controls'
@@ -53,7 +56,8 @@ class Main {
 
   initSections() {
     // TODO: A better way of initating these modules.
-    // new Countdown()
+    new Menu()
+    new Nav()
   }
 }
 

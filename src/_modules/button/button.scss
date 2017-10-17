@@ -1,16 +1,21 @@
-button {
+.button {
+  display: inline-flex;
+
+  padding: $half-gutter $double-gutter;
+
+  border: 1px solid palette(gold, process);
+
   align-self: center;
-  border: none;  
-  color: palette(gray, white);
-  cursor: pointer;
-  display: inline-block;
-  padding: 14px 45px;
-  text-align: center;
-  text-decoration: none;
+  @extend %typography-rectangle-button;
+  transition: $color-transistion, border 250ms $timing-function-ease-out-quint;
 
   &::after {}
 
-  &:hover {}
+  &:hover {
+    border: 1px solid palette(gray, pale);
+    // background: palette(gray, pale);
+    @extend %typography-active-rectangle-button;
+  }
 
   &.green {
     background-color: palette(green, light);
