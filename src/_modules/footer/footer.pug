@@ -1,21 +1,20 @@
-include ../link/link
 include ../icon/icon
 
 mixin footer()
   .footer
     .footer__columns
       .footer__wrapper.footer__wrapper--hide-small
-        +link({text: 'about'})(href="" class="footer__link")
-        +link({text: 'private'})(href="" class="footer__link")
-        +link({text: 'institutional'})(href="" class="footer__link")
-        +link({text: 'insight'})(href="" class="footer__link")
-        +link({text: 'contact'})(href="" class="footer__link")
+        a.footer__link(href='#') About
+        a.footer__link(href='#') Private
+        a.footer__link(href='#') Institutional
+        a.footer__link(href='#') Insight
+        a.footer__link(href='#') Contact
       .footer__wrapper.footer__wrapper--hide-small
-        +link({text: 'privacy Policy'})(href="" class="footer__link")
-        +link({text: 'regulations & licencing'})(href="" class="footer__link")
-        +link({text: 'terms & Conditions'})(href="" class="footer__link")
-        +link({text: 'risk Notice'})(href="" class="footer__link")
-        +link({text: 'site Map'})(href="" class="footer__link")
+        a.footer__link(href='#') Privacy Policy
+        a.footer__link(href='#') Regulations & licencing
+        a.footer__link(href='#') Terms & Conditions
+        a.footer__link(href='#') Risk Notice
+        a.footer__link(href='#') Site Map
       .footer__wrapper
         span.footer__title BP Prime
         span.footer__text Address line 1
@@ -38,6 +37,6 @@ mixin footer()
     .footer__rows
       .footer__box
         p As with all investing, Your capital is at risk. FX and CFDs are leveraged products that can result in losses exceeding your deposit. They are not suitable for everyone so please ensure you fully understand the risks involved. 
-          +link({text: 'Learn more', class: 'underlined'})(href="")
-      .footer__box--dark
+          a.footer__link.footer__link--highlighted(href='#') Learn more
+      .footer__box.footer__box--dark
         p Copyright © 2017 BP Prime. BP Prime is a trading name of Black Pearl Securities Limited (Company number 08823678). Black Pearl Securities Limited is authorized and regulated by the Financial Conduct Authority, Financial Services Register Number 688456. Registered office address: 36 Whitefriars Street, London, EC4Y 8BQ. United Kingdom

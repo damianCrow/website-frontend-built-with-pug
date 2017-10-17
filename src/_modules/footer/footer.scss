@@ -8,11 +8,7 @@
 
   letter-spacing: $mukta-spacing;
 
-  color: palette(gray, text);
   background-color: palette(brown, base);
-
-  font-size: 12px;
-  font-weight: 100;
 
   &__columns {
     position: relative;
@@ -28,7 +24,18 @@
   }
 
   &__title {
-    color: palette(gold, metalic);
+    @extend %typography-small-section-label;
+  }
+
+  &__link {
+    @extend %typography-small-section-link;
+    &--hightlighted {
+      @extend %typography-small-section-link;
+    }
+  }
+
+  &__text {
+    @extend %typography-small-section-text;
   }
 
   &__text,
@@ -93,10 +100,11 @@
     max-width: $max;
 
     @media #{$mq-tablet-small-up} {
-      margin: 1rem calc(8.333333333% + 2rem);
+      margin: 1rem calc(8.333333333% + #{$primary-gutter * 2});
     }
 
     p {
+      @extend %typography-small-section-text;
       flex: 1;
       padding: 0 $primary-gutter;
     }
@@ -104,20 +112,18 @@
     &--dark {
       border: none;
       background-color: palette(brown, dark);
+
       @media #{$mq-tablet-small-up} {
-        padding: 0 calc(8.333333333% + 1rem);
+        padding: 0 calc(8.333333333% + #{$half-gutter * 2});
+        margin: 0;
       }
 
       p {
+        @extend %typography-small-section-text;
         max-width: $max;
-        padding: $primary-gutter 2rem;
+        padding: $primary-gutter;
         margin: 0 auto;
       }
     }
-  }
-
-  .underlined {
-    text-decoration: underline;
-    color: palette(gold, metalic);
   }
 }
