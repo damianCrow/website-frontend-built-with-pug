@@ -8,6 +8,18 @@
 @import 'type';
 @import 'defaults';
 
+// Used on the body tag for fixed header padding.
+body {
+  padding-top: $condensed-header-height;
+
+  &.expanded-header {
+    @media #{$mq-desktop-small-up} {
+      padding-top: $expanded-header-height;
+    }
+  }
+}
+
+
 .form_wrapper {
   display: flex;
   position: relative;
@@ -49,12 +61,6 @@
 
 $data-blue: #00263c;
 $data-foreground-blue: lighten($data-blue, 10%);
-
-body {
-  &.lock {
-    overflow: hidden;
-  }
-}
 
 @import '../_modules/button/button';
 @import '../_modules/textinput/textinput';

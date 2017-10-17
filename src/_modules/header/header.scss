@@ -1,6 +1,7 @@
 // header styles
 .main-header {
-  position: relative;
+  position: fixed;
+  top: 0;
 
   box-sizing: border-box;
   width: 100%;
@@ -10,13 +11,15 @@
   $root: &;
   justify-content: space-between;
 
+  z-index: 1;
+
   &--expanded {
     #{$root}__container {
       background-color: transparent;
     }
 
     @media #{$mq-desktop-small-up} {
-      height: $header-height;
+      height: $expanded-header-height;
     }
   }
 

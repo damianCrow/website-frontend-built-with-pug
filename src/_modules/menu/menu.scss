@@ -9,7 +9,7 @@
 
   width: 100%;
   height: 100vh;
-  padding: $condensed-header-height $primary-gutter $primary-gutter;
+  padding: #{rem($condensed-header-height) + ($primary-gutter * 2)} $primary-gutter $primary-gutter;
 
   transition: transform 500ms $timing-function-fast-out-slow-in;
   transform: translateX(100%);
@@ -24,8 +24,6 @@
 
   @media #{$mq-desktop-small-up} {
     width: 350px;
-    padding-top: $header-height;
-
     opacity: 1;
   }
 
@@ -34,5 +32,11 @@
     pointer-events: auto;
 
     opacity: 1;
+  }
+
+  &--expanded {
+    @media #{$mq-desktop-small-up} {
+      padding-top: $expanded-header-height;
+    }
   }
 }
