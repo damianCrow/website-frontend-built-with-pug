@@ -1,0 +1,117 @@
+// burger styles
+$burger-height: 3px;
+
+.language-selector {
+  $root: &;
+  display: flex;
+  width: 100%;
+  list-style: none;
+  padding: $gutter;
+  margin-top: auto;
+
+
+  &__option {
+    padding: 0 $gutter;
+    border-left: 1px solid white;
+    &:first-child {
+      border-left: 0;
+      padding-left: 0;
+    }
+
+
+    &:after {
+    }
+  }
+
+  &--sub-nav-open {
+    #{$root}__piece {
+      border-top: $burger-height solid palette(gold, process);
+    }
+  }
+
+  &__piece {
+    border-top: $burger-height solid palette(gold, process);
+    display: block;
+    flex: 0 1 1px;
+    position: absolute;
+    right: 0;
+    transform-origin: 50% 50%;
+    transition: transform .25s, opacity .12s, border 1s cubic-bezier(.86, 0, .07, 1), width .25s;
+    width: 100%;
+  }
+
+  span {
+    // To make sure it sits exactly in the middle of itself
+    top: calc(50% - #{$burger-height / 2});
+
+    &:first-child {
+      top: 0;
+    }
+
+    &:last-child {
+      top: calc(100% - #{$burger-height});
+    }
+  }
+
+  &--side {
+    margin-left: 1rem; 
+    span {
+      border-top: $burger-height solid palette(gold, process);
+
+      &:nth-child(1) {
+        width: 60%;
+      }
+
+      &:nth-child(2) {
+        width: 100%;
+      }
+
+      &:nth-child(3) {
+        width: 80%;
+      }
+    }
+  }
+
+  &--show-all {
+    @media #{$mq-desktop-small-up} {
+      display: inline-block;
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  &--active {
+    // Active burger
+    $rotate-angle: 45deg;
+    $vertical-translate: 0.95rem;
+    transform: translateX(1rem);
+
+    #{$root}__piece {
+      border-top: $burger-height solid palette(gold, process);
+    }
+
+    span {
+      opacity: 0;
+
+      &:first-child {
+        opacity: 1;
+        transform: rotate($rotate-angle) translateY($vertical-translate) translateX(0);
+      }
+
+      &:last-child {
+        opacity: 1;
+        transform: rotate(-#{$rotate-angle}) translateY(-#{$vertical-translate}) translateX(0);
+      }
+    }
+
+    &#{$root}--side {
+      #{$root}__piece {
+        border-top: $burger-height solid palette(gold, process);
+        width: 100% !important;
+      }
+    }
+  }
+
+}
+
+

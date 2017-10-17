@@ -14,6 +14,7 @@ $_base-colors: (
     base:            #5c5c5c,
     black:           #000,
     medium:          #6f6d6b,
+    input:           #fafafa,
   ),
   brown: (
     base:             #2c2a28,
@@ -26,6 +27,9 @@ $_base-colors: (
   green: (
     light:            #388573,
     dark:             #327767,
+  ),
+  red: (
+    error:            #ab313d,
   )
 );
 
@@ -33,7 +37,7 @@ $app-colors: $_base-colors;
 
 // Font weights.
 @mixin brand-gradient() {
-  $brand-gradient: linear-gradient(45deg, rgba(#ffe900, 0.8) 10%, rgba(#009fff, 0.8) 100%);
+  $brand-gradient: linear-gradient(45deg, rgba(#ffe900, .8) 10%, rgba(#009fff, .8) 100%);
 }
 
 @function -brand-gradient($opacityVal: 0.8) {

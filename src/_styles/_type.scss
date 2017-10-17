@@ -10,15 +10,16 @@
 //==============================================================================
 
 // Font families.
-$font-arial:          Arial, sans-serif;
-$font-helvetica:      Helvetica;
-$blue-sky:            'BlueSkyStandard', $font-helvetica, $font-arial;
-// $blue-sky-bold:       'blue-sky-Bold', $font-helvetica, $font-arial;
-// $blue-sky-light:      'blue-sky-Light', $font-helvetica, $font-arial;
-// $blue-sky-medium:      'blue-sky-Medium', $font-helvetica, $font-arial;
+$font-arial: Arial, sans-serif;
+$font-helvetica: Helvetica;
+$mukta: "Mukta", $font-helvetica, $font-arial;
 
-$primary-font-family: $blue-sky;
-$secondary-font-family: 'Open Sans' Helvetica, Arial, sans-serif;
+$font-times: Times, serif;
+$font-times-new-roman: 'Times New Roman';
+$financier: "Financier", $font-times-new-roman, $font-times;
+
+$primary-font-family: $mukta;
+$secondary-font-family: "Open Sans", Helvetica, Arial, sans-serif;
 $tertiary-font-family: Arial, sans-serif;
 
 // Font weight variables.
@@ -128,183 +129,249 @@ $font-size-xxx-large: 80;
 // Add an ellipsis to overflowing text
 @mixin ellipsis($width: 100%) {
   display: inline-block;
-  max-width: $width;
   overflow: hidden;
-  text-overflow: ellipsis;
+
+  max-width: $width;
+
   white-space: nowrap;
+  text-overflow: ellipsis;
   word-wrap: normal;
 }
 
-
 @mixin image-replacement {
   overflow: hidden;
-  text-indent: 100%;
+
   white-space: nowrap;
+  text-indent: 100%;
 }
 
+// WORK IN PROGRESS
+%text-state-transitions {
+  transition: transform 325ms $timing-function-ease-out-quint, color 250ms $timing-function-ease-out-quint 125ms;
+}
 
 // Classes to be extended.
 
-%blue-sky-medium {
-  font-family: $blue-sky;
-  font-weight: normal;
-  line-height: 1.75;
-}
-
-// %blue-sky-book {
-//   font-family: $blue-sky;
-//   font-weight: normal;
-//   line-height: 1.5;
-//   letter-spacing: .025rem;
-// }
-
-%blue-sky-bold {
-  @include font-weight-bold;
-  font-family: $blue-sky;
-}
-
-%blue-sky-light {
-  font-family: $blue-sky;
+%mukta-light {
+  letter-spacing: $mukta-spacing;
+  font-family: $mukta;
   font-weight: lighter;
-  letter-spacing: rem(2px);
-  line-height: 1.5;
+  letter-spacing: $mukta-spacing;
 }
 
+%mukta-medium {
+  letter-spacing: $mukta-spacing;
+  font-family: $mukta;
+  font-weight: normal;
+  letter-spacing: $mukta-spacing;
+}
+
+%financier-regular {
+  font-family: $financier;
+  font-weight: normal;
+  // line-height: 1.75;
+}
+
+%financier-bold {
+  font-family: $financier;
+  font-weight: bold;
+  // line-height: 1.75;
+}
+
+// %blue-sky-bold {
+//   @include font-weight-bold;
+//   font-family: $blue-sky;
+// }
 
 // Font categorys
-%typography-header {
-  @extend %blue-sky-bold;
+// %typography-header {
+//   @extend %blue-sky-bold;
 
-  @include responsive-font-size(
-    $mobile: $font-size-large,
-    $desktop: $font-size-x-large
-  );
+//   @include responsive-font-size(
+//     $mobile: $font-size-large,
+//     $desktop: $font-size-x-large
+//   );
 
-  color: palette(gray, white);
-  letter-spacing: rem(6px);
-  margin-bottom: .5rem;
-  margin-top: .5rem;
-  text-transform: uppercase;
-  // text-decoration: underline;
-}
-
-
-%typography-featured-figures {
-  // TODO: Needs to be condensed font.p
-  @extend %blue-sky-bold;
-
-  @include responsive-font-size(
-    $mobile: $font-size-large,
-    $desktop: $font-size-x-large,
-    $desktop-large: $font-size-xx-large
-  );
-
-  color: palette(gray, white);
-  letter-spacing: rem(6px);
-  margin-bottom: .5rem;
-  margin-top: .5rem;
-  text-transform: uppercase;
-  // text-decoration: underline;
-}
-
-%typography-title {
-  @extend %blue-sky-bold;
-  @include responsive-font-size(
-    $mobile: $font-size-regular,
-    $desktop: $font-size-large
-  );
-  color: palette(gray, white);
-  letter-spacing: rem(6px);
-  line-height: 1.5;
-  margin-bottom: .5rem;
-  margin-top: .5rem;
-  text-transform: uppercase;
-}
-
-// %typography-subtitle {
-//   @extend %font-roboto-medium;
-//   @include font-size-regular();
+//   color: palette(gray, pale);
 // }
 
-%typography-body {
-  @extend %blue-sky-medium;
-  @include font-size-regular;
-}
+%typography-banner-title {
+  color: palette(gold, metalic);
 
-%typography-massive-feature {
-  @extend %blue-sky-light;
-
+  @extend %financier-bold;
   @include responsive-font-size(
     $mobile: $font-size-x-large,
-    $phablet: $font-size-xx-large,
-    $desktop: $font-size-xxx-large
-  );
-}
-
-%typography-feature {
-  @extend %blue-sky-light;
-
-  @include responsive-font-size(
-    $mobile: $font-size-large,
-    $phablet: $font-size-x-large,
     $desktop: $font-size-xx-large
   );
 }
 
-%typography-small-feature {
-  @extend %blue-sky-bold;
-  text-transform: uppercase;
-  letter-spacing: rem(3px);
+%typography-banner-subtitle {
+  color: palette(gray, pale);
 
+  @extend %mukta-light;
+  @include responsive-font-size(
+    $mobile: $font-size-large,
+    $desktop: $font-size-large
+  );
+}
+
+
+%typography-section-title {
+  color: palette(gold, metalic);
+
+  @extend %financier-bold;
+  @include font-size-large;
+}
+
+%typography-section-top-title {
+  color: palette(gold, metalic);
+
+  @extend %financier-bold;
+  @include font-size-x-large;
+}
+
+
+// ASK DESIGNER FOR PROPER NAME
+%typography-title-v-one {
+  color: palette(gray, medium);
+
+  @extend %mukta-medium;
   @include responsive-font-size(
     $mobile: $font-size-regular,
     $desktop: $font-size-regular
   );
 }
 
-%typography-button {
-  @extend %blue-sky-bold;
-  @include font-size-x-small;
-  letter-spacing: rem(2px);
-  text-transform: uppercase;
+// ASK DESIGNER FOR PROPER NAME
+%typography-title-v-two {
+  color: palette(gold, metalic);
+
+<<<<<<< HEAD
+  @include font-size-regular;
+
+  color: palette(gold, metalic);
+=======
+  @extend %financier-regular;
+  @include font-size-small;
+>>>>>>> 7fe043ac9c9f2381a9c2dbc1d43ba87f01878372
 }
 
-%typography-small {
-  @extend %blue-sky-light;
-  @include font-size-x-small;
-  text-transform: uppercase;
-  letter-spacing: rem(3px);
-  // line-height: 2;
+
+%typography-body {
+  color: palette(gray, pale);
+
+  @extend %mukta-light;
+  @include font-size-regular;
 }
 
-%typography-header-prefix {
-  @extend %blue-sky-light;
-  @include responsive-font-size(
-    $phablet: $font-size-x-small,
-    $desktop: $font-size-regular
-  );
-  letter-spacing: rem(2px);
-  text-transform: uppercase;
+%typography-list-label {
+  color: palette(gray, pale);
+
+  @extend %mukta-light;
+  @include font-size-regular;
 }
 
-%typography-publish-date {
-  @extend %blue-sky-light;
-  @include responsive-font-size(
-    $desktop: $font-size-x-small
-  );
-  color: palette(gray, gray-2);
-  letter-spacing: rem(2px);
-  text-transform: uppercase;
+%typography-list-value {
+  color: palette(gray, pale);
+
+  @extend %mukta-light;
+  @include font-size-regular;
 }
 
-%responsive-nav {
-  @extend %blue-sky-bold;
-  @include responsive-font-size(
-    $mobile: $font-size-x-large,
-    $phablet: $font-size-x-large,
-    $desktop: $font-size-x-small
-  );
+%typography-nav-section {
+  color: palette(gray, pale);
+
+  @extend %financier-regular;
+  @extend %text-state-transitions;
+  @include font-size-large;
+
+  &:hover,
+  &:active {
+    color: palette(gold, metalic);
+  }
 }
+
+%typography-open-nav-section {
+  color: palette(gold, metalic);
+
+  @extend %financier-bold;
+  @include font-size-large;
+}
+
+// %typography-massive-feature {
+//   @extend %blue-sky-light;
+
+//   @include responsive-font-size(
+//     $mobile: $font-size-x-large,
+//     $phablet: $font-size-xx-large,
+//     $desktop: $font-size-xxx-large
+//   );
+// }
+
+// %typography-feature {
+//   @extend %blue-sky-light;
+
+//   @include responsive-font-size(
+//     $mobile: $font-size-large,
+//     $phablet: $font-size-x-large,
+//     $desktop: $font-size-xx-large
+//   );
+// }
+
+// %typography-small-feature {
+//   @extend %blue-sky-bold;
+//   text-transform: uppercase;
+//   letter-spacing: rem(3px);
+
+//   @include responsive-font-size(
+//     $mobile: $font-size-regular,
+//     $desktop: $font-size-regular
+//   );
+// }
+
+// %typography-button {
+//   @extend %blue-sky-bold;
+//   @include font-size-x-small;
+//   letter-spacing: rem(2px);
+//   text-transform: uppercase;
+// }
+
+// %typography-small {
+//   @extend %blue-sky-light;
+//   @include font-size-x-small;
+//   text-transform: uppercase;
+//   letter-spacing: rem(3px);
+//   // line-height: 2;
+// }
+
+// %typography-header-prefix {
+//   @extend %blue-sky-light;
+//   @include responsive-font-size(
+//     $phablet: $font-size-x-small,
+//     $desktop: $font-size-regular
+//   );
+//   letter-spacing: rem(2px);
+//   text-transform: uppercase;
+// }
+
+// %typography-publish-date {
+//   @extend %blue-sky-light;
+//   @include responsive-font-size(
+//     $desktop: $font-size-x-small
+//   );
+//   color: palette(gray, gray-2);
+//   letter-spacing: rem(2px);
+//   text-transform: uppercase;
+// }
+
+// %responsive-nav {
+//   @extend %blue-sky-bold;
+//   @include responsive-font-size(
+//     $mobile: $font-size-x-large,
+//     $phablet: $font-size-x-large,
+//     $desktop: $font-size-x-small
+//   );
+// }
 
 
 

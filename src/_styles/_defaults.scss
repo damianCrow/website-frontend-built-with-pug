@@ -22,6 +22,7 @@ html {
 
 html,
 body {
+  // background-color: palette(brown, base);
   margin: 0;
   padding-bottom: 0;
 }
@@ -30,14 +31,13 @@ body {
   @include font-weight-normal;
   @include font-size-regular();
 
+  color: palette(gray, pale);
   font-family: $primary-font-family;
-
-  color: palette(gray, white);
-
-  background: palette(gray, gray);
-
-  padding: 0;
   margin: 0;
+  min-height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 
   // Remove 300ms delay on Windows Mobile.
   // Ref: http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away

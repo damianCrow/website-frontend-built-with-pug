@@ -1,0 +1,123 @@
+.footer {
+  position: relative;
+  max-width: $max;
+  display: flex;
+  flex-direction: column;
+
+  margin-top: auto;
+
+  letter-spacing: $mukta-spacing;
+
+  color: palette(gray, text);
+  background-color: palette(brown, base);
+
+  font-size: 12px;
+  font-weight: 100;
+
+  &__columns {
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: $primary-gutter;
+    flex-wrap: wrap;
+
+    @media #{$mq-tablet-small-up} {
+      padding: 30px calc(8.333333333% + 1rem) 0 calc(8.333333333% + 1rem);
+    }
+  }
+
+  &__title {
+    color: palette(gold, metalic);
+  }
+
+  &__text,
+  &__link {
+    padding: 4px 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    padding: 0 $primary-gutter;
+
+    &--hide-small {
+      display: none;
+
+      @media #{$mq-desktop-xsmall-up} {
+        display: flex;
+      }
+    }
+
+    &--break {
+      flex: 1 0 100%;
+
+      padding-top: $primary-gutter;
+
+      @media #{$mq-tablet-small-up} {
+        flex: 1;
+
+        padding-top: 0;
+      }
+    }
+  }
+
+  &__icon_wrap {
+    display: flex;
+    flex-direction: row;
+
+    padding: 4px 0;
+
+    .icon span {
+      margin-right: 15px;
+
+      border-radius: 3px;
+      background-color: palette(gray, text);
+    }
+  }
+
+  &__rows {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__box {
+    position: relative;
+    flex: 1;
+    margin: $primary-gutter;
+    border: 1px solid palette(gold, metalic);
+    max-width: $max;
+
+    @media #{$mq-tablet-small-up} {
+      margin: 1rem calc(8.333333333% + 2rem);
+    }
+
+    p {
+      flex: 1;
+      padding: 0 $primary-gutter;
+    }
+
+    &--dark {
+      border: none;
+      background-color: palette(brown, dark);
+      @media #{$mq-tablet-small-up} {
+        padding: 0 calc(8.333333333% + 1rem);
+      }
+
+      p {
+        max-width: $max;
+        padding: $primary-gutter 2rem;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .underlined {
+    text-decoration: underline;
+    color: palette(gold, metalic);
+  }
+}

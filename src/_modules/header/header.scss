@@ -5,9 +5,11 @@
   box-sizing: border-box;
   display: flex;
   height: $mobile-header-height;
-  width: 100%;
-  max-width: $thresh--large-3;
+  justify-content: space-between;
   margin: 0 auto;
+  max-width: $thresh--large-2;
+  position: relative;
+  width: 100%;
 
   @media #{$mq-desktop-small-up} {
     height: $header-height;
@@ -34,10 +36,21 @@
     }
   }
 
+  &__burger {
+    display: flex;
+    margin-left: auto;
+  }
+
   &__logo-container {
+    display: flex;
     height: 100%;
     width: $header-logo-space;
     z-index: 1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: rem(10) 2.5rem;
   }
 
   &--unstick {
@@ -48,39 +61,6 @@
       top: auto;
     }
   }
-
-  // &__logo {
-  //   display: flex;
-
-  //   > svg {
-  //     height: 30px;
-  //     width: auto;
-  //     @media #{$mq-desktop-small-up} {
-  //       height: 40px;
-  //     }
-  //   }
-
-  //   path {
-  //     fill: palette(gray, white);
-  //     transition: fill 1s cubic-bezier(.86, 0, .07, 1);
-  //   }
-
-  //   &--fixed {
-  //     path {
-  //       fill: palette(gray, white);
-  //     }
-
-  //     @media #{$mq-desktop-small-up} {
-  //       left: rem(40);
-  //       position: fixed;
-  //       top: rem(10);
-
-  //       path {
-  //         fill: palette(gray, white);
-  //       }
-  //     }
-  //   }
-  // }
 
   &__logo-mushroom {
 
