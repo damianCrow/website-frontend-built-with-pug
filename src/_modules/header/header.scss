@@ -1,38 +1,27 @@
 // header styles
 .main-header {
   $root: &;
-  align-items: center;
   box-sizing: border-box;
-  display: flex;
   height: $mobile-header-height;
   justify-content: space-between;
   margin: 0 auto;
-  max-width: $thresh--large-2;
   position: relative;
   width: 100%;
 
   @media #{$mq-desktop-small-up} {
     height: $header-height;
-    padding: rem(10) 2.5rem;
   }
 
-  &--sub-nav-open {
-    background-color: rgba(256, 256, 256, 1);
-    transition: background 250ms cubic-bezier(.86, 0, .07, 1);
+  &__container {
+    max-width: #{$thresh--large-2}px;
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    height: 100%;
 
-    #{$root}__logo {
-      path {
-        fill: palette(gray, black);
-      }
-    }
     @media #{$mq-desktop-small-up} {
-      background-color: palette(gray, black);
-
-      #{$root}__logo {
-        path {
-          fill: palette(gray, white);
-        }
-      }
+      padding: rem(10) 2.5rem;
     }
   }
 
@@ -71,6 +60,26 @@
 
     @media #{$mq-desktop-small-up} {
       display: inline;
+    }
+  }
+
+  &--sub-nav-open {
+    background-color: rgba(256, 256, 256, 1);
+    transition: background 250ms cubic-bezier(.86, 0, .07, 1);
+
+    #{$root}__logo {
+      path {
+        fill: palette(gray, black);
+      }
+    }
+    @media #{$mq-desktop-small-up} {
+      background-color: palette(gray, black);
+
+      #{$root}__logo {
+        path {
+          fill: palette(gray, white);
+        }
+      }
     }
   }
 

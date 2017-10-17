@@ -1,5 +1,6 @@
 .main-menu {
   position: fixed;
+  z-index: 10;
   top: 0;
   right: 0;
 
@@ -16,8 +17,10 @@
 
   opacity: 0;
   background: palette(brown, dark);
+  // contain: layout style paint;
 
-  z-index: 10;
+  contain: strict;
+  will-change: transform;
 
   @media #{$mq-desktop-small-up} {
     width: 350px;
