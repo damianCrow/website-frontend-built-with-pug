@@ -1,3 +1,7 @@
+html, body {
+  background-color: palette(gray, pale);
+}
+
 .form-container {
   display: flex;
   flex-direction: column;
