@@ -1,9 +1,10 @@
 .button {
   display: inline-flex;
   padding: $half-gutter $double-gutter;
-  align-self: center;
-  @extend %typography-rectangle-button;
-  transition: $color-transistion, border 250ms $timing-function-ease-out-quint;
+  align-items: center;
+  justify-content: center;
+  transition: border 250ms $timing-function-ease-out-quint;
+  cursor: pointer;
 
   &--trans-gold {
     border: 1px solid palette(gold, process);
@@ -11,18 +12,60 @@
     &:hover {
       border: 1px solid palette(gray, pale);
       // background: palette(gray, pale);
-      @extend %typography-active-rectangle-button;
+      > span {
+        @extend %typography-active-rectangle-button;
+      }
     }
+  }
+
+  > span {
+    @extend %typography-rectangle-button;
+    transition: $color-transistion;
   }
 
   &--green {
     background-color: palette(green, light);
-    color: palette(gray, white);
+    > span {
+      color: palette(gray, white);
+    }
   }
 
   &--dark-green {
     background-color: palette(green, dark);
-    color: palette(gray, white);
+    > span {
+      color: palette(gray, white);
+    }
+  }
+
+  &--arrow {
+    &::after {
+      position: relative;
+
+      display: inline-block;
+
+      transition: transform 250ms ease-out;
+
+      width: .45em;
+      height: .45em;
+      margin-right: $half-gutter;
+      margin-left: $half-gutter;
+
+      content: '';
+      transform: rotate(45deg);
+      vertical-align: top;
+
+      border-width: .05em .05em 0 0;
+      border-style: solid;
+      border-color: palette(gray, pale);
+
+      align-self: center;
+    }
+
+    &:hover {
+      &::after {
+        transform: translateX(#{$half-gutter / 2}) rotate(45deg);
+      }
+    }
   }
 
   &--medium {
@@ -33,5 +76,9 @@
   &--large {
     padding: 30px 40px;
     border: none;
+  }
+
+  &--fill-height {
+    height: 100%;
   }
 }
