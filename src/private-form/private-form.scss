@@ -1,16 +1,11 @@
-.wrapper {
-  margin: 0 auto;
-  max-width: $max;
+.form-container {
+  display: flex;
+  flex-direction: column;
   background-color: palette(gray, white);
 
-  &--mid {
-    display: flex;
-    flex-direction: column;
-
-    @media #{$mq-desktop-xsmall-up} {
-      flex-direction: row;
-    }
-  }
+  @media #{$mq-desktop-xsmall-up} {
+    flex-direction: row;
+  }  
 }
 
 .progress-wrap {
