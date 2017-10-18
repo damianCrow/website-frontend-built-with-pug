@@ -7,6 +7,7 @@
   width: 100%;
   height: $condensed-header-height;
   margin: 0 auto;
+  background-color: palette(gray, white);
 
   $root: &;
   justify-content: space-between;
@@ -14,9 +15,7 @@
   z-index: 1;
 
   &--expanded {
-    #{$root}__container {
-      background-color: transparent;
-    }
+    background-color: transparent;
 
     @media #{$mq-desktop-small-up} {
       height: $expanded-header-height;
@@ -39,8 +38,6 @@
     max-width: #{$thresh--large-2}px;
     height: 100%;
     margin: 0 auto;
-
-    background-color: palette(gray, white);
 
     align-items: center;
 

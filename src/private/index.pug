@@ -1,0 +1,17 @@
+extends ../_layouts/base
+include ../_modules/header/header
+include ../_modules/article-header/article-header
+include ../_modules/footer/footer
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+  - var headerType = 'condensed'
+
+block content
+  +header(headerType)
+  article
+    +article-header('Private', [{text: 'Become a Client', style: 'green'}, {text: 'Request Demo', style: 'dark-green'}])
+
+  +footer()
+    

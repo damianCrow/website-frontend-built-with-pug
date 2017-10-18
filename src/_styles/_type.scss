@@ -210,8 +210,8 @@ $color-transistion: color 250ms $timing-function-ease-out-quint;
   @include font-size-large;
 }
 
-%typography-section-top-title {
-  color: palette(gold, metalic);
+%typography-page-top-title {
+  color: palette(gray, medium);
 
   @extend %financier-bold;
   @include font-size-x-large;
