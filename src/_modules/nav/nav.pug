@@ -2,10 +2,38 @@ mixin nav()
   nav#main-nav.main-nav
     ul.main-nav__list
       li.main-nav__item
-        a.active(title='Vision Car') Overview
+        a.main-nav__link(title='Overview')
+          span Overview
+      li.main-nav__item.main-nav__item--sub-nav-item
+        a.main-nav__link(title='Private')
+          span Private
+        ul.main-nav__sub-nav
+          li.main-nav__item.main-nav__item--sub-item
+            a.main-nav__sub-link(title='Platforms')
+              span Platforms
+          li.main-nav__item.main-nav__item--sub-item
+            a.main-nav__sub-link(title='FOREX Technologies')
+              span FOREX Technologies
+      li.main-nav__item.main-nav__item--sub-nav-item
+        a.main-nav__link(title='Institutional')
+          span Institutional
+        ul.main-nav__sub-nav
+          li.main-nav__item.main-nav__item--sub-item
+            a.main-nav__sub-link(title='Account Details')
+              span Account Details
+          li.main-nav__item.main-nav__item--sub-item
+            a.main-nav__sub-link(title='Products')
+              span Products
+          li.main-nav__item.main-nav__item--sub-item
+            a.main-nav__sub-link(title='Platforms')
+              span Platforms
+      li.main-nav__item.main-nav__item--sub-nav-item
+        a.main-nav__link(title='Insight')
+          span Insight
+        ul.main-nav__sub-nav
+          li.main-nav__item.main-nav__item--sub-item
+            a.main-nav__sub-link(title='Account Details')
+              span Account Details
       li.main-nav__item
-        a(title='Experience') Institutional
-      li.main-nav__item
-        a(title='Insight') Insight
-      li.main-nav__item
-        a(title='Contact') Contact
+        a.main-nav__link(title='Contact')
+          span Contact

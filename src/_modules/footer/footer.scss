@@ -4,15 +4,13 @@
   display: flex;
   flex-direction: column;
 
-  margin-top: auto;
+  margin: auto auto 0;
 
   letter-spacing: $mukta-spacing;
 
-  color: palette(gray, text);
   background-color: palette(brown, base);
 
-  font-size: 12px;
-  font-weight: 100;
+  $root: &;
 
   &__columns {
     position: relative;
@@ -28,12 +26,32 @@
   }
 
   &__title {
-    color: palette(gold, metalic);
+    @extend %typography-small-section-label;
+  }
+
+  &__link {
+    @extend %typography-small-section-plain-link;
+    transition: $color-transistion;
+
+    &:hover {
+      @extend %typography-active-small-section-plain-link;
+    }
+
+    &--highlighted {
+      @extend %typography-small-section-link;
+    }
+  }
+
+  &__text {
+    @extend %typography-small-section-text;
   }
 
   &__text,
   &__link {
     padding: 4px 0;
+    &--highlighted {
+      padding: 0;
+    }
   }
 
   &__wrapper {
@@ -93,31 +111,32 @@
     max-width: $max;
 
     @media #{$mq-tablet-small-up} {
-      margin: 1rem calc(8.333333333% + 2rem);
-    }
-
-    p {
-      flex: 1;
-      padding: 0 $primary-gutter;
+      margin: 1rem calc(8.333333333% + #{$primary-gutter * 2});
     }
 
     &--dark {
       border: none;
       background-color: palette(brown, dark);
+      margin: 0;
+
       @media #{$mq-tablet-small-up} {
-        padding: 0 calc(8.333333333% + 1rem);
+        padding: 0 calc(8.333333333% + #{$half-gutter * 2});
       }
 
-      p {
+      #{$root}__legal {
+        @extend %typography-small-section-text;
         max-width: $max;
-        padding: $primary-gutter 2rem;
+        padding: $primary-gutter;
         margin: 0 auto;
+        display: block;
       }
     }
   }
 
-  .underlined {
-    text-decoration: underline;
-    color: palette(gold, metalic);
+  &__legal {
+    @extend %typography-small-section-text;
+    flex: 1;
+    padding: 0 $primary-gutter;
+    display: block;
   }
 }

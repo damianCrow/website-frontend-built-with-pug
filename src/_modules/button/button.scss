@@ -1,22 +1,37 @@
-button {
+.button {
+  display: inline-flex;
+  padding: $half-gutter $double-gutter;
   align-self: center;
-  border: none;  
-  color: palette(gray, white);
-  cursor: pointer;
-  display: inline-block;
-  padding: 14px 45px;
-  text-align: center;
-  text-decoration: none;
+  @extend %typography-rectangle-button;
+  transition: $color-transistion, border 250ms $timing-function-ease-out-quint;
 
-  &::after {}
+  &--trans-gold {
+    border: 1px solid palette(gold, process);
 
-  &:hover {}
-
-  &.green {
-    background-color: palette(green, light);
+    &:hover {
+      border: 1px solid palette(gray, pale);
+      // background: palette(gray, pale);
+      @extend %typography-active-rectangle-button;
+    }
   }
 
-  &.large {
-    padding: 30px 35px;
+  &--green {
+    background-color: palette(green, light);
+    color: palette(gray, white);
+  }
+
+  &--dark-green {
+    background-color: palette(green, dark);
+    color: palette(gray, white);
+  }
+
+  &--medium {
+    padding: 12px 35px;
+    border: none;
+  }
+
+  &--large {
+    padding: 30px 40px;
+    border: none;
   }
 }

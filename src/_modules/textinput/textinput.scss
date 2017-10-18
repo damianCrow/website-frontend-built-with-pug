@@ -2,6 +2,7 @@ input:not([type="radio"]) {
   height: 45px;
   background-color: palette(gray, input);
   padding-left: $primary-gutter;
+  border-style: ridge;
 
   &.medium {
     width: calc(100% - (15% + 24px));

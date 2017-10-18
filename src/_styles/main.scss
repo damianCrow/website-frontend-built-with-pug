@@ -8,66 +8,32 @@
 @import 'type';
 @import 'defaults';
 
+// Used on the body tag for fixed header padding.
+body {
+  padding-top: $condensed-header-height;
+
+  &.expanded-header {
+    @media #{$mq-desktop-small-up} {
+      padding-top: $expanded-header-height;
+    }
+  }
+}
+
+@import '../_modules/textinput/textinput';
+@import '../private-form/private-form';
+@import '../slider/slider';
+@import '../_modules/progressicon/progressicon';
 @import '../_modules/button/button';
 @import '../_modules/textinput/textinput';
-// @import '../_modules/header/header';
-// @import '../_modules/menu/menu';
-// @import '../_modules/logo/logo';
-// @import '../_modules/burger/burger';
-// @import '../_modules/nav/nav';
-// @import '../_modules/language-selector/language-selector';
-@import '../_modules/link/link';
+@import '../_modules/header/header';
+@import '../_modules/menu/menu';
+@import '../_modules/logo/logo';
+@import '../_modules/burger/burger';
+@import '../_modules/nav/nav';
+@import '../_modules/language-selector/language-selector';
 @import '../_modules/icon/icon';
 @import '../_modules/footer/footer';
 @import '../_modules/radiobutton/radiobutton';
+@import '../_modules/button/button';
 @import '../_modules/dropdown/dropdown';
 @import '../_modules/personalDetailsForm/personalDetailsForm';
-
-.form_wrapper {
-  display: flex;
-  position: relative;
-  background-color: palette(brown, dark);
-  flex-direction: column;
-  padding: 40px $primary-gutter;
-  font-weight: 100;
-
-  &__header {
-    color: palette(gold, metalic);
-    margin: 0;
-  }
-
-  &__inputwrap {
-    display: flex;
-    flex-direction: column;
-    padding: 10px 0;
-
-    &--double {
-      display: flex;
-    }
-
-    label {
-      color: palette(gold, metalic);
-    }
-
-    span {
-      color: palette(gray, medium);
-      font-size: 25px;
-      line-height: 40px;
-      width: $primary-gutter;
-    }
-  }
-
-  button {
-    margin-top: 30px;
-  }
-}
-
-$data-blue: #00263c;
-$data-foreground-blue: lighten($data-blue, 10%);
-
-body {
-  &.lock {
-    overflow: hidden;
-  }
-}
-

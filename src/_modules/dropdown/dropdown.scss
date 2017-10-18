@@ -4,6 +4,8 @@
   padding-left: $primary-gutter;
   color: palette(brown, base);
   position: relative;
-  background: palette(gray, input) url('../../images/bp-prime-arrow.svg') no-repeat 97% center;
+  background: palette(gray, input) url('../../images/bp-prime-arrow.svg') no-repeat calc(100% - 13px) center;
   background-size: 16px;
+  border-style: ridge;
+  border-radius: 0;
 }

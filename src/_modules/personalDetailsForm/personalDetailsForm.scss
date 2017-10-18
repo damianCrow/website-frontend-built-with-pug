@@ -5,7 +5,7 @@
   display: flex;
   position: relative;
   flex-direction: column;
-  padding: 40px $primary-gutter;
+  padding: 40px 0;
   font-weight: 100;
 
   &__radios {
@@ -97,7 +97,7 @@
   }
 
   button {
-    margin-top: 30px;
+    margin-top: $primary-gutter;
     float: right;
   }
 }
