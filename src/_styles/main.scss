@@ -19,49 +19,10 @@ body {
   }
 }
 
-
-.form_wrapper {
-  display: flex;
-  position: relative;
-  background-color: palette(brown, dark);
-  flex-direction: column;
-  padding: 40px $primary-gutter;
-  font-weight: 100;
-
-  &__header {
-    color: palette(gold, metalic);
-    margin: 0;
-  }
-
-  &__inputwrap {
-    display: flex;
-    flex-direction: column;
-    padding: 10px 0;
-
-    &--double {
-      display: flex;
-    }
-
-    label {
-      color: palette(gold, metalic);
-    }
-
-    span {
-      color: palette(gray, medium);
-      font-size: 25px;
-      line-height: 40px;
-      width: $primary-gutter;
-    }
-  }
-
-  button {
-    margin-top: 30px;
-  }
-}
-
-$data-blue: #00263c;
-$data-foreground-blue: lighten($data-blue, 10%);
-
+@import '../_modules/textinput/textinput';
+@import '../private-form/private-form';
+@import '../slider/slider';
+@import '../_modules/progressicon/progressicon';
 @import '../_modules/button/button';
 @import '../_modules/textinput/textinput';
 @import '../_modules/header/header';
@@ -73,5 +34,6 @@ $data-foreground-blue: lighten($data-blue, 10%);
 @import '../_modules/icon/icon';
 @import '../_modules/footer/footer';
 @import '../_modules/radiobutton/radiobutton';
+@import '../_modules/button/button';
 @import '../_modules/dropdown/dropdown';
 @import '../_modules/personalDetailsForm/personalDetailsForm';

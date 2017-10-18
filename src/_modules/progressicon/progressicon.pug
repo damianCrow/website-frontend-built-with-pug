@@ -1,0 +1,12 @@
+mixin progressicon(spec)
+  - spec = spec || {}
+  - spec.class = spec.class || ''
+  - spec.text = spec.text || ''
+  - spec.title = spec.title || ''
+
+  .progress(class=spec.class)&attributes(attributes)
+    .progress__wrap
+      span.progress__wrap__text 
+        != spec.text
+    p.progress__title
+      != spec.title

@@ -7,7 +7,7 @@ mixin header(size)
   header.main-header(class!='main-header--' + size)
     .main-header__container
       .main-header__login
-        +button(true)
+        +button(true)(class="button--trans-gold")
           | Client Login
       .main-header__logo-container
         +logo()(class!= size)

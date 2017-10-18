@@ -1,0 +1,43 @@
+extends ../_layouts/base
+include ../_modules/header/header
+include ../_modules/footer/footer
+include ../_modules/progressicon/progressicon
+include ../_modules/personalDetailsForm/personalDetailsForm
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+  - var headerType = 'condensed'
+
+block content
+  +header(headerType)
+  .wrapper
+    .progress-wrap
+      +progressicon({text: '1', title: 'Personal', class: 'chain complete'})
+      +progressicon({text: '2', title: 'BP Prime Safe', class: 'chain active'})
+      +progressicon({text: '3', title: 'Contact', class: 'chain'})
+      +progressicon({text: '4', title: 'Bank Account', class: 'chain'})
+      +progressicon({text: '5', title: 'Account', class: 'chain'})
+      +progressicon({text: '6', title: 'Financial', class: 'chain'})
+      +progressicon({text: '7', title: 'FATCA', class: 'chain'})
+      +progressicon({text: '8', title: 'Declaration', class: 'chain'})
+    .wrapper.wrapper--mid
+      .form-wrap
+        +personalDetailsForm()
+      .copy-wrap
+        .copy-wrap--inner
+          p #[span Click here] to view the required documents needed to complete the application
+
+          h4 How long will it take to open the account?
+
+          p Send application before 2pm and get it opened the same day (provided all documents are correct)
+
+          h4 What will my information be used for?
+
+          p We only ask questions that are essential to your application and fulfil regulatory requirements. We are obliged to comply with UK data protection legislation and as such, we have a strict security procedure in place in respect of both storage and disclosure of any information given to us
+
+          h4 Do you offer corporate accounts?
+
+          p Yes we do, please #[span click here] to download our Corporate Application Form.
+    +footer()
+    

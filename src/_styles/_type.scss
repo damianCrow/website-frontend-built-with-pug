@@ -237,6 +237,13 @@ $color-transistion: color 250ms $timing-function-ease-out-quint;
   @include font-size-regular;
 }
 
+%typography-title-v-three {
+  color: palette(gray, white);
+  
+  @extend %financier-regular;
+  @include font-size-regular;
+}
+
 
 %typography-body {
   color: palette(gray, pale);
