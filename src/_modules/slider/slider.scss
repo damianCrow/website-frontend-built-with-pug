@@ -24,9 +24,6 @@ html, body {
 
     @media #{$mq-desktop-xsmall-up} {
       flex: 1 0 100vh;
-      @media screen and (orientation: landscape) {
-        // flex: 1 0 100vh;
-      }
     }
   }
 
