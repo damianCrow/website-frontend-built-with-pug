@@ -246,7 +246,7 @@ $color-transistion: color 250ms $timing-function-ease-out-quint;
 
 
 %typography-body {
-  color: palette(gray, pale);
+  color: palette(gray, medium);
 
   @extend %mukta-light;
   @include font-size-regular;
