@@ -4,7 +4,8 @@
   "dependencies": {
     "gridlex": "^2.4.1",
     "jquery": "~3.2.1",
-    "normalize.css": "~7.0.0"
+    "normalize.css": "~7.0.0",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "autoprefixer": "~7.1.5",

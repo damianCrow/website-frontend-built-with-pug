@@ -6675,6 +6675,10 @@ slice-ansi@1.0.0:
   dependencies:
     is-fullwidth-code-point "^2.0.0"
 
+slick-carousel@^1.8.1:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/slick-carousel/-/slick-carousel-1.8.1.tgz#a4bfb29014887bb66ce528b90bd0cda262cc8f8d"
+
 sntp@0.2.x:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/sntp/-/sntp-0.2.4.tgz#fb885f18b0f3aad189f824862536bceeec750900"
@@ -7445,6 +7449,10 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "~1.0.0"
     spdx-expression-parse "~1.0.0"
+
+vanilla-js-carousel@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/vanilla-js-carousel/-/vanilla-js-carousel-3.0.0.tgz#79d0a58260ab8bcb035781d0ddebfb6b6f30f3bb"
 
 vendors@^1.0.0:
   version "1.0.1"

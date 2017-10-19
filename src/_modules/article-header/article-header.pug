@@ -1,0 +1,14 @@
+include ../logo/logo
+include ../burger/burger
+include ../menu/menu
+include ../button/button
+
+mixin article-header(title, buttons)
+  header.article-header
+    .article-header__bar.wrapper
+      h1.article-header__title!= title
+      .article-header__buttons
+        each button in buttons
+          +button(true)(class='button--arrow button--fill-height button--' + button.style)!=button.text
+    .article-header__image-feature
+      img(src='/images/article-header-image.jpg')

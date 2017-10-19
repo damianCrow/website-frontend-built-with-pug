@@ -11,6 +11,7 @@ import Nav from '../_modules/nav/nav'
 // import SideNav from '../_modules/side-nav/side-nav'
 // import PageControls from '../_modules/page-controls/page-controls'
 import TextInput from '../_modules/textinput/textinput'
+import Slider from '../slider/slider'
 
 // function protoMessage() {
 //   document.querySelector('.prototype-message').addEventListener('click', (e) => {
@@ -51,6 +52,7 @@ class Main {
 
     // protoMessage()
     this.textInput = new TextInput()
+    this.slider = new Slider()
     this.initSections()
   }
 
