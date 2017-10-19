@@ -44,13 +44,6 @@
     padding: 10px 0;
     position: relative;
 
-    .error-message {
-      position: absolute;
-      right: 0;
-      top: 75px;
-      color: palette(red, error);
-    }
-
     &--double {
       flex: 1;
     }

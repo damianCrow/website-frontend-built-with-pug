@@ -5,6 +5,7 @@
   justify-content: center;
   transition: border 250ms $timing-function-ease-out-quint;
   cursor: pointer;
+  border-radius: 0;
 
   &--trans-gold {
     border: 1px solid palette(gold, process);
@@ -69,7 +70,7 @@
   }
 
   &--medium {
-    padding: 12px 35px;
+    padding: 10px 40px;
     border: none;
   }
 

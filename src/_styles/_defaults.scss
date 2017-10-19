@@ -79,3 +79,10 @@ small {
     $desktop: $font-size-xx-large
   );
 }
+
+.error-message {
+  position: absolute;
+  right: 0;
+  top: 75px;
+  color: palette(red, error);
+}

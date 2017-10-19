@@ -1,0 +1,44 @@
+.contact-form {
+  display: flex;
+  position: relative;
+  background-color: palette(brown, dark);
+  flex-direction: column;
+  padding: 40px $primary-gutter;
+  font-weight: 100;
+
+  &__header {
+    color: palette(gold, metalic);
+    margin: 0;
+  }
+
+  &__text {
+  	border-bottom: 1px solid palette(gold, metalic);
+  	padding-bottom: 20px;
+  }
+ 
+  &__inputwrap {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+    position: relative;
+ 
+    &--double {
+      display: flex;
+    }
+ 
+    label {
+      color: palette(gold, metalic);
+    }
+ 
+    span {
+      color: palette(gray, medium);
+      font-size: 25px;
+      line-height: 40px;
+      width: $primary-gutter;
+    }
+  }
+ 
+  button {
+    margin-top: 30px;
+  }
+}

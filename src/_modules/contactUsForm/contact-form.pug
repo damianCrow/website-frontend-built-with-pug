@@ -1,0 +1,24 @@
+include ../button/button
+include ../textinput/textinput
+
+mixin contactUsForm()
+  .contact-form
+    h4.contact-form__header Contact Us
+    p.contact-form__text We offer financial institutions to a state of the art services platform to allow the best trading experience possible. Contact our support team for more information.
+    form.contact-form__form(action="")
+      .contact-form__inputwrap
+        +textinput({text: 'Company:', type: 'text', name: 'title'})
+      .contact-form__inputwrap
+        +textinput({text: 'First Name:', type: 'text', name: 'firstName'})
+      .contact-form__inputwrap
+        +textinput({text: 'Surname:', type: 'text', name: 'surname'})
+      .contact-form__inputwrap
+        +textinput({text: 'Email:', type: 'email', name: 'email'})
+      .contact-form__inputwrap
+        label Telephone:
+        div.contact-form__inputwrap--double
+          span +
+          +textinput({class: 'short', type: 'text'})
+          +textinput({class: 'medium', type: 'text'})
+      +button()(class="button--medium button--green" href="" type="submit" ) 
+        |Submit
