@@ -9,9 +9,12 @@ mixin article-header(title, image, message, bottomButton, buttons)
       .article-header__container
         h1.article-header__title!= title
         .article-header__buttons
-          each button in buttons
-            +button(true)(class='button--arrow button--fill-height button--' + button.style)!=button.text
+          if buttons
+            each button in buttons
+              +button(true)(class='button--arrow button--fill-height button--' + button.style)!=button.text
     .article-header__image-feature(style='background-image: url("' + image + '")')
-      .article-header__message!=message
-      .article-header__featured-button
-        +button(true)(class='button--' + bottomButton.style)!=bottomButton.text
+      if message
+        .article-header__message!=message
+      if bottomButton
+        .article-header__featured-button
+          +button(true)(class='button--' + bottomButton.style)!=bottomButton.text
