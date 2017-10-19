@@ -1,26 +1,34 @@
 .article-header {
   width: 100%;
-  background-color: palette(gray, white);
 
   $root: &;
 
-  &__bar {
+  &__container {
+    max-width: $max;
+    margin: 0 auto;
     display: flex;
-    align-items: center;
-    padding: 0 $primary-gutter;
     flex-direction: column;
+
+    padding: 0 $primary-gutter;
+
+    align-items: center;
 
     @media #{$mq-desktop-small-up} {
       flex-direction: row;
-      padding-left: calc(8.333333333% + #{$primary-gutter});
-      padding-right: 0;
-      height: 80px;
-    }
 
+      height: 80px;
+      padding-right: 0;
+      padding-left: calc(8.333333333% + #{$primary-gutter});
+    }
+  }
+
+  &__bar {
+    background-color: palette(gray, white);
   }
 
   &__buttons {
     display: flex;
+
     height: 100%;
     margin: $primary-gutter 0;
     @media #{$mq-desktop-small-up} {
@@ -30,7 +38,9 @@
   }
 
   &__image-feature {
+    max-width: $max;
     height: 250px;
+    margin: 0 auto;
 
     > img {
       width: 100%;
@@ -42,7 +52,12 @@
   }
 
   &__title {
-    margin: 0 $primary-gutter;
+    margin: 0;
+    align-self: flex-start;
+
+    @media #{$mq-desktop-small-up} {
+      margin: 0 $primary-gutter;
+    }
 
     @extend %typography-page-top-title;
   }

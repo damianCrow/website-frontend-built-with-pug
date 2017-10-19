@@ -1,22 +1,22 @@
-html, body {
-  background-color: palette(gray, white);
-}
-
 .slider {
   display: flex;
   flex-direction: column;
   flex: 1;
-  margin-top: -60px;
+
   width: 100%;
+  margin-top: -60px;
 
   @media #{$mq-desktop-small-up} {
     margin-top: -150px;
   }
 
   .slider-container {
-    width: 100%;
     display: flex;
     flex: 1 0 100vh;
+
+    width: 100%;
+    max-width: $max;
+    margin: 0 auto;
 
     @media screen and (orientation: landscape) {
       flex: 1 0 calc((100vh / 9) * 13);
@@ -32,6 +32,7 @@ html, body {
 
     &__text {
       flex-direction: column;
+
       width: calc(100% - 2rem);
 
       @media #{$mq-tablet-small-up} {
@@ -45,11 +46,13 @@ html, body {
       }
 
       &__subtitle, &__title {
-        transform: translateY(calc(-50% - 150px));
-        top: 50%;
         position: relative;
+        top: 50%;
+
         margin-top: 0;
         margin-left: $primary-gutter;
+
+        transform: translateY(calc(-50% - 150px));
       }
 
       &__title {
@@ -78,30 +81,40 @@ html, body {
   }
 
   .slick-dots {
-    @extend %typography-title-v-three;
     position: absolute;
-    opacity: 0;
-    pointer-events: none;
+
     list-style: none;
 
+    pointer-events: none;
+
+    opacity: 0;
+
+    @extend %typography-title-v-three;
+
     @media #{$mq-tablet-small-up} {
-      opacity: 1;
-      pointer-events: all;
-      transform: translateY(calc(-50% - 150px));
       top: 50%;
+
+      transform: translateY(calc(-50% - 150px));
+      pointer-events: all;
+
+      opacity: 1;
 
       li {
         margin-top: 15px;
+
         cursor: pointer;
 
         &.slick-active, &:hover {
           &:after {
-            content: '';
             position: absolute;
-            height: 1px;
-            background-color: palette(gold, process);
-            width: 20px;
             left: 0;
+
+            width: 20px;
+            height: 1px;
+
+            content: '';
+
+            background-color: palette(gold, process);
           }
         }
 
@@ -119,8 +132,9 @@ html, body {
     flex-direction: column;
 
     div {
-      height: 100%;
       display: flex;
+
+      height: 100%;
     }
   } 
 }
@@ -132,6 +146,7 @@ html, body {
     position: relative;
 
     display: flex;
+
     box-sizing: border-box;
 
     -webkit-user-select: none;
@@ -149,10 +164,12 @@ html, body {
 .slick-list
 {
     position: relative;
-    flex: 1;
+
     display: flex;
-    flex-direction: column;
     overflow: hidden;
+    flex-direction: column;
+    flex: 1;
+
     margin: 0;
     padding: 0;
 }
@@ -181,10 +198,12 @@ html, body {
     position: relative;
     top: 0;
     left: 0;
+
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
     flex: 1;
+
+    margin-right: auto;
+    margin-left: auto;
 }
 .slick-track:before,
 .slick-track:after
@@ -206,6 +225,7 @@ html, body {
 {
     display: none;
     float: left;
+
     height: 100%;
     min-height: 1px;
 }
