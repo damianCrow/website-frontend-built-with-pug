@@ -11,9 +11,9 @@ export default class Slider {
 		  arrows: false,
 		  speed: 1000,
 		  dots: true,
-		  customPaging: function(slick,index) {
+		  customPaging: function(slick, index) {
         return `<div class="progress__wrap"><a class="progress__wrap__text">${(index + 1)}</a></div>`;
-    },
+    	},
 		});
 	}
 }

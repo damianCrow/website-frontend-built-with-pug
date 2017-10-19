@@ -7450,10 +7450,6 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "~1.0.0"
     spdx-expression-parse "~1.0.0"
 
-vanilla-js-carousel@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/vanilla-js-carousel/-/vanilla-js-carousel-3.0.0.tgz#79d0a58260ab8bcb035781d0ddebfb6b6f30f3bb"
-
 vendors@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.1.tgz#37ad73c8ee417fb3d580e785312307d274847f22"
