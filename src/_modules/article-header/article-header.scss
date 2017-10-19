@@ -39,8 +39,16 @@
 
   &__image-feature {
     max-width: $max;
+    background-position: center;
+    background-size: cover;
     height: 250px;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    @media #{$mq-desktop-small-up} {
+      padding: $primary-gutter calc(8.333333333% + #{$primary-gutter});
+    }
 
     > img {
       width: 100%;
@@ -57,8 +65,19 @@
 
     @media #{$mq-desktop-small-up} {
       margin: 0 $primary-gutter;
+      align-self: initial;
     }
 
     @extend %typography-page-top-title;
+  }
+
+  &__message,
+  &__featured-button {
+    padding: $half-gutter $primary-gutter;
+  }
+
+  &__message {
+    max-width: 450px;
+    @extend %typography-section-title;
   }
 }
