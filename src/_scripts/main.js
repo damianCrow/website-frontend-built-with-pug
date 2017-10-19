@@ -11,7 +11,7 @@ import Nav from '../_modules/nav/nav'
 // import SideNav from '../_modules/side-nav/side-nav'
 // import PageControls from '../_modules/page-controls/page-controls'
 import TextInput from '../_modules/textinput/textinput'
-import Slider from '../slider/slider'
+import Slider from '../_modules/slider/slider'
 
 // function protoMessage() {
 //   document.querySelector('.prototype-message').addEventListener('click', (e) => {
