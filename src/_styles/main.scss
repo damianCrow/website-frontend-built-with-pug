@@ -25,6 +25,19 @@ body {
   max-width: $max;
 }
 
+.page-content {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: $max;
+  margin: 0 auto;
+  padding: #{$primary-gutter + $half-gutter};
+
+  &__block {
+    flex: 1;
+    padding: $primary-gutter;
+  }
+}
+
 @import '../_modules/textinput/textinput';
 @import '../_modules/slider/slider';
 @import '../_modules/private-form/private-form';
@@ -45,3 +58,4 @@ body {
 @import '../_modules/dropdown/dropdown';
 @import '../_modules/personalDetailsForm/personalDetailsForm';
 @import '../_modules/contactUsForm/contact-form';
+@import '../_modules/news/news';
