@@ -1,0 +1,35 @@
+.white-label {
+  background-color: palette(gray, white);
+  display: flex;
+  flex-direction: column;
+  padding: $primary-gutter;
+
+  &__text-wrap {
+
+    @media #{$mq-desktop-small-up} {
+      padding: 0 calc(8.333333333% + #{($primary-gutter * 3) + $half-gutter}) 0 calc(8.333333333%);
+    }
+    
+    &__text {
+      margin-top: 0;
+      @extend %typography-title-v-two;
+    }
+  }
+
+  @media #{$mq-desktop-small-up} {
+    padding: calc(#{($primary-gutter * 2) + $half-gutter});
+  }
+
+  @media #{$mq-desktop-small-up} {
+    flex-direction: row;
+
+    &__text-wrap {
+      flex: 2;
+    }
+
+    &__form {
+      flex: 1;
+      margin-right: $primary-gutter;
+    }
+  }
+}

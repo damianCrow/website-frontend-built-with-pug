@@ -38,6 +38,27 @@
     }
   }
 
+  &--red {
+    background-color: palette(red, error);
+    > span {
+      color: palette(gray, white);
+    }
+  }
+
+  &--orange {
+    background-color: palette(red, orange);
+    > span {
+      color: palette(gray, white);
+    }
+  }
+
+  &--blue {
+    background-color: palette(blue, light);
+    > span {
+      color: palette(gray, white);
+    }
+  }
+
   &--arrow {
     &::after {
       position: relative;

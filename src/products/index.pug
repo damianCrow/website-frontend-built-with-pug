@@ -1,0 +1,60 @@
+extends ../_layouts/base
+include ../_modules/header/header
+include ../_modules/footer/footer
+include ../_modules/button/button
+include ../_modules/progressicon/progressicon
+include ../_modules/article-header/article-header
+
+block config
+  //- Correct base url pathing for this page 'condensed' or 'expanded'
+  - var headerType = 'condensed'
+  - var baseUrl = '../'
+
+block content
+  +header(headerType)
+  main(role='main' style='background-color: white;')
+    article
+      +article-header('Products', '../images/article-header-image.jpg', null, null, [{text: 'Become a Client', style: 'green'}, {text: 'Request Demo', style: 'dark-green'}])
+      .page-content.products
+        section.page-content__block.product.product--left
+          .products__left--top
+            .products__hero(style="background-image: url('../images/test3.jpg')")
+            .products__footer
+              .products__footer__iconwrap
+                +progressicon({title: 'Forex', class: 'progress--icon red'})
+              .products__footer__textwrap
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                +button()(class="button--red button--medium") 
+                  |Learn More
+        section.page-content__block.product
+          .products__left--bottom
+            .products__hero(style="background-image: url('../images/test3.jpg')")
+            .products__footer
+              .products__footer__iconwrap
+                +progressicon({title: 'CFDs', class: 'progress--icon blue'})
+              .products__footer__textwrap
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                +button()(class="button--blue button--medium") 
+                  |Learn More
+        section.page-content__block.product.product--left
+          .products__right--top
+            .products__hero(style="background-image: url('../images/test3.jpg')")
+            .products__footer
+              .products__footer__iconwrap
+                +progressicon({title: 'Commodities', class: 'progress--icon orange'})
+              .products__footer__textwrap
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                +button()(class="button--orange button--medium") 
+                  |Learn More
+            
+        section.page-content__block.product
+          .products__right--bottom
+            .products__hero(style="background-image: url('../images/test3.jpg')")
+            .products__footer
+              .products__footer__iconwrap
+                +progressicon({title: 'Exchange', class: 'progress--icon green'})
+              .products__footer__textwrap
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                +button()(class="button--green button--medium") 
+                  |Learn More
+  +footer()

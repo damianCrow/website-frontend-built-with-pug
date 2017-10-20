@@ -61,4 +61,69 @@
     bottom: 6px;
     white-space: nowrap;
   }
+
+  &--icon {
+    height: auto;
+    flex-direction: row;
+
+    .progress__wrap {
+      top: 0;
+      left: 0;
+
+      &__text {
+        border-radius: 50%;
+        top: 3px;
+        left: 3px;
+        width: 65%;
+        height: 65%;
+      }
+    }
+
+    .progress__title {
+      transform: translateX(0);
+      left: 30px;
+      bottom: -2px;
+      @extend %typography-list-value;
+    }
+
+    &.red {
+      .progress__wrap {
+        border-color: palette(red, error);
+
+        &__text {
+          background-color: palette(red, error);
+        }
+      }
+    }
+
+    &.green {
+      .progress__wrap {
+        border-color: palette(green, light);
+
+        &__text {
+          background-color: palette(green, light);
+        }
+      }
+    }
+
+    &.orange {
+      .progress__wrap {
+        border-color: palette(red, orange);
+
+        &__text {
+          background-color: palette(red, orange);
+        }
+      }
+    }
+
+    &.blue {
+      .progress__wrap {
+        border-color: palette(blue, light);
+
+        &__text {
+          background-color: palette(blue, light);
+        }
+      }
+    }
+  }
 }
