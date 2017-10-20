@@ -34,6 +34,7 @@ body {
 
   &__block {
     flex: 1;
+    position: relative;
     padding: $primary-gutter;
   }
 }
@@ -59,3 +60,4 @@ body {
 @import '../_modules/personalDetailsForm/personalDetailsForm';
 @import '../_modules/contactUsForm/contact-form';
 @import '../_modules/news/news';
+@import '../_modules/square/square';
