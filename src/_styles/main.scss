@@ -21,22 +21,27 @@ body {
 
 // TODO: Unsure if this should actually be a mixin or not?
 .wrapper {
-  margin: 0 auto;
   max-width: $max;
+  margin: 0 auto;
 }
 
 .page-content {
   display: flex;
-  flex-wrap: wrap;
+
   max-width: $max;
   margin: 0 auto;
   padding: #{$primary-gutter + $half-gutter};
 
+  flex-wrap: wrap;
+
   &__block {
-    flex: 1;
     position: relative;
+
+    flex: 1;
+
     padding: $primary-gutter;
   }
+
 }
 
 @import '../_modules/textinput/textinput';
@@ -61,6 +66,5 @@ body {
 @import '../_modules/contactUsForm/contact-form';
 @import '../_modules/news/news';
 @import '../_modules/square/square';
-@import '../_modules/product/product';
 @import '../_modules/products/products';
 @import '../_modules/whiteLabels/white-labels';

@@ -16,7 +16,7 @@
     @media #{$mq-desktop-small-up} {
       flex-direction: row;
 
-      height: 80px;
+      height: $article-header-height;
       padding-right: 0;
       padding-left: calc(8.333333333% + #{$primary-gutter});
     }

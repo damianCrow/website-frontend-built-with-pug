@@ -1,39 +1,39 @@
-mixin nav()
-  nav#main-nav.main-nav
-    ul.main-nav__list
-      li.main-nav__item
-        a.main-nav__link(title='Overview')
+mixin nav(config = {sideNav: true, animatedHeight: true, bright: true})
+  nav#main-nav(class='toggle-nav ' + (config.sideNav ? 'toggle-nav--side ' : '') + (config.animatedHeight ? 'toggle-nav--animated-height ' : '') + (config.bright ? 'toggle-nav--bright' : ''))
+    ul.toggle-nav__list
+      li.toggle-nav__item
+        a.toggle-nav__link(title='Overview')
           span Overview
-      li.main-nav__item.main-nav__item--sub-nav-item
-        a.main-nav__link(title='Private')
+      li.toggle-nav__item.toggle-nav__item--sub-nav-container
+        a.toggle-nav__link(title='Private')
           span Private
-        ul.main-nav__sub-nav
-          li.main-nav__item.main-nav__item--sub-item
-            a.main-nav__sub-link(title='Platforms')
+        ul.toggle-nav__sub-nav
+          li.toggle-nav__item.toggle-nav__item--sub-item
+            a.toggle-nav__sub-link(title='Platforms')
               span Platforms
-          li.main-nav__item.main-nav__item--sub-item
-            a.main-nav__sub-link(title='FOREX Technologies')
+          li.toggle-nav__item.toggle-nav__item--sub-item
+            a.toggle-nav__sub-link(title='FOREX Technologies')
               span FOREX Technologies
-      li.main-nav__item.main-nav__item--sub-nav-item
-        a.main-nav__link(title='Institutional')
+      li.toggle-nav__item.toggle-nav__item--sub-nav-container
+        a.toggle-nav__link(title='Institutional')
           span Institutional
-        ul.main-nav__sub-nav
-          li.main-nav__item.main-nav__item--sub-item
-            a.main-nav__sub-link(title='Account Details')
+        ul.toggle-nav__sub-nav
+          li.toggle-nav__item.toggle-nav__item--sub-item
+            a.toggle-nav__sub-link(title='Account Details')
               span Account Details
-          li.main-nav__item.main-nav__item--sub-item
-            a.main-nav__sub-link(title='Products')
+          li.toggle-nav__item.toggle-nav__item--sub-item
+            a.toggle-nav__sub-link(title='Products')
               span Products
-          li.main-nav__item.main-nav__item--sub-item
-            a.main-nav__sub-link(title='Platforms')
+          li.toggle-nav__item.toggle-nav__item--sub-item
+            a.toggle-nav__sub-link(title='Platforms')
               span Platforms
-      li.main-nav__item.main-nav__item--sub-nav-item
-        a.main-nav__link(title='Insight')
+      li.toggle-nav__item.toggle-nav__item--sub-nav-container
+        a.toggle-nav__link(title='Insight')
           span Insight
-        ul.main-nav__sub-nav
-          li.main-nav__item.main-nav__item--sub-item
-            a.main-nav__sub-link(title='Account Details')
+        ul.toggle-nav__sub-nav
+          li.toggle-nav__item.toggle-nav__item--sub-item
+            a.toggle-nav__sub-link(title='Account Details')
               span Account Details
-      li.main-nav__item
-        a.main-nav__link(title='Contact')
+      li.toggle-nav__item
+        a.toggle-nav__link(title='Contact')
           span Contact

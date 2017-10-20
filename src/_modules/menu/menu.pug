@@ -3,5 +3,5 @@ include ../language-selector/language-selector
 
 mixin menu(headerSize)
   #main-menu(class!='main-menu main-menu--' + headerSize)
-    +nav()
+    +nav({sideNav: false})
     +language-selector()

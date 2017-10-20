@@ -1,6 +1,6 @@
 // nav styles
 
-.main-nav {
+.toggle-nav {
   position: absolute;
   left: 0;
 
@@ -12,9 +12,6 @@
   &__list {
     display: flex;
     flex-direction: column;
-
-    // TODO: Get this to work with 'strict', aka with 'size'.
-    contain: layout style paint;
     // contain: strict;
 
     width: 100%;
@@ -23,7 +20,9 @@
     padding: 0 ($primary-gutter + $half-gutter);
 
     list-style: none;
+    // TODO: Get this to work with 'strict', aka with 'size'.
 
+    contain: layout style paint;
     align-items: flex-start;
     justify-content: flex-start;
   }
@@ -53,7 +52,7 @@
       }
     }
 
-    &--sub-nav-item {
+    &--sub-nav-container {
       #{$root}__link {
         &:after {
           position: relative;
@@ -112,6 +111,7 @@
     position: relative;
 
     display: flex;
+    flex: 1 0 auto;
 
     box-sizing: border-box;
     padding: $half-gutter 0;
@@ -120,8 +120,9 @@
     text-decoration: none;
 
     span {
-      @extend %typography-nav-section;
       transition: transform 325ms $timing-function-ease-out-quint, $color-transistion 125ms;
+
+      @extend %typography-nav-section;
     }
 
   }
@@ -133,6 +134,68 @@
       @extend %typography-title-v-one;
 
     }
+  }
+
+  &--animated-height {
+    #{$root}__item--sub-nav-container {
+      transition: height 500ms $timing-function-fast-out-slow-in;
+    }
+  }
+
+  &--side {
+    position: relative;
+    #{$root}__list {
+      padding: 0;
+    }
+
+    #{$root}__item {
+      padding: 0 $primary-gutter;
+    }
+
+    #{$root}__sub-link {}
+  }
+
+  &--bright {
+    #{$root}__item {
+      border-top: 1px solid palette(gray, border);
+      &--sub-item {
+        padding: 0;
+      }
+
+      &--active-sub-nav {
+        #{$root}__link {
+          > span {
+            @extend %typography-side-nav-item;
+          }
+        }
+      }
+      &:last-child {
+        border-bottom: 1px solid palette(gray, border);
+      }
+    }
+
+    #{$root}__link {
+      > span {
+        margin: $primary-gutter 0;
+        @extend %typography-side-nav-item;
+      }
+    }
+
+    #{$root}__sub-link {
+      > span {
+        margin: 0;
+        opacity: .5;
+        @extend %typography-side-nav-sub-item;
+      }
+      &:hover {
+
+      }
+    }
+
+    #{$root}__sub-nav {
+      background-color: palette(gray, light);
+    }
+
   }
 }
 

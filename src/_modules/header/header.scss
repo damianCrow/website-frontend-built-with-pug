@@ -17,6 +17,12 @@
   &--expanded {
     background-color: transparent;
 
+    #{$root}__logo-container {
+      @media #{$mq-desktop-small-up} {
+        width: calc(100px + #{$half-gutter * 2});
+      }
+    }
+
     @media #{$mq-desktop-small-up} {
       height: $expanded-header-height;
     }
@@ -67,7 +73,8 @@
 
     display: flex;
 
-    width: calc(100px + #{$half-gutter * 2});
+    width: calc(135px + #{$half-gutter * 2});
+
     height: 100%;
     margin: auto;
     padding: $half-gutter;

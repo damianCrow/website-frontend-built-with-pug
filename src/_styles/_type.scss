@@ -266,7 +266,29 @@ $color-transistion: color 250ms $timing-function-ease-out-quint;
   @include font-size-regular;
 }
 
-// *Nav*
+// *Side Nav*
+%typography-side-nav-title {
+  color: palette(gray, lightblack);
+
+  @extend %mukta-light;
+  @include font-size-regular;
+}
+
+%typography-side-nav-item {
+  color: palette(gray, medium);
+
+  @extend %mukta-light;
+  @include font-size-regular;
+}
+
+%typography-side-nav-sub-item {
+  color: palette(gray, medium);
+
+  @extend %mukta-light;
+  @include font-size-regular;
+}
+
+// *Main Nav*
 %typography-nav-section {
   color: palette(gray, pale);
 
@@ -313,7 +335,6 @@ $color-transistion: color 250ms $timing-function-ease-out-quint;
   cursor: pointer;
 
   @extend %mukta-light;
-  // @extend %text-state-transitions;
   @include font-size-small;
 }
 
