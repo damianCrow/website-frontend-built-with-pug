@@ -353,3 +353,9 @@ $color-transistion: color 250ms $timing-function-ease-out-quint;
   @include font-size-small;
 }
 
+%typography-tandc-small {
+  color: palette(gray, medium);
+  @extend %mukta-light;
+  @include font-size-x-small;
+}
+

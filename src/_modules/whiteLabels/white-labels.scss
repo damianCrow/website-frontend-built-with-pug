@@ -12,7 +12,11 @@
     
     &__text {
       margin-top: 0;
-      @extend %typography-title-v-two;
+      @extend %typography-section-title;
+
+      &--gray {
+        @extend %typography-body;
+      }
     }
   }
 

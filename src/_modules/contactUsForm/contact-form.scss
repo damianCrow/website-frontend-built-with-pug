@@ -21,6 +21,10 @@
     flex-direction: column;
     padding: 10px 0;
     position: relative;
+
+    input {
+      border-color: transparent;
+    }
  
     &--double {
       display: flex;

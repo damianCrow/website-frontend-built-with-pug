@@ -63,6 +63,67 @@
     margin: 0;
     align-self: flex-start;
 
+    &--product {
+      position: relative;
+      margin-left: 34px;
+
+      &:before {
+        content: '';
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        transform: rotate(45deg);
+        left: -30px;
+        top: 7px;
+      }
+
+      &:after {
+        content: '';
+        border-radius: 50%;
+        top: 11px;
+        left: -26px;
+        width: 12px;
+        height: 12px;
+        position: absolute;
+      }
+
+      &.red {
+        &:before {
+          border: 1px solid palette(red, error);
+        }
+        &:after {
+          background-color: palette(red, error);
+        }
+      }
+
+      &.blue {
+        &:before {
+          border: 1px solid palette(blue, light);
+        }
+        &:after {
+          background-color: palette(blue, light);
+        }
+      }
+
+      &.orange {
+        &:before {
+          border: 1px solid palette(red, orange);
+        }
+        &:after {
+          background-color: palette(red, orange);
+        }
+      }
+
+      &.green {
+        &:before {
+          border: 1px solid palette(green, light);
+        }
+        &:after {
+          background-color: palette(green, light);
+        }
+      }
+    }
+
     @media #{$mq-desktop-small-up} {
       margin: 0 $primary-gutter;
       align-self: initial;

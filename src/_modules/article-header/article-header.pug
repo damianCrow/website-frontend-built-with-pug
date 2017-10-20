@@ -3,11 +3,14 @@ include ../burger/burger
 include ../menu/menu
 include ../button/button
 
-mixin article-header(title, image, message, bottomButton, buttons)
+mixin article-header(title, image, message, bottomButton, buttons, product)
   header.article-header
     .article-header__bar
       .article-header__container
-        h1.article-header__title!= title
+        if product
+          h1.article-header__title(class!= product.class)!= title
+        else
+          h1.article-header__title!= title
         .article-header__buttons
           if buttons
             each button in buttons
