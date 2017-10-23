@@ -1,0 +1,118 @@
+extends ../_layouts/base
+include ../_modules/header/header
+include ../_modules/footer/footer
+include ../_modules/button/button
+include ../_modules/progressicon/progressicon
+include ../_modules/article-header/article-header
+
+block config
+  //- Correct base url pathing for this page 'condensed' or 'expanded'
+  - var headerType = 'condensed'
+  - var baseUrl = '../'
+
+block content
+  +header(headerType)
+  main(role='main' style='background-color: white;')
+    article
+      +article-header('Forex', '../images/article-header-image.jpg', null, null, [{text: 'Become a Client', style: 'red'}, {text: 'Request Demo', style: 'dark-red'}], {class: 'red article-header__title--product'})
+      .wrapper.product-detail
+        p.product-detail__summary.red
+          |It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        p.product-detail__terms 
+          |It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        label(name="currency-table").product-detail__label.closed.red
+          | Open All
+        details.detail.detail--table-wrap.red.currency-table
+          summary 
+            |Currency Pair Spreads
+          table.product-detail__table.red
+            tr
+              th.column|Currency
+              th(colspan="2")|Standard Account
+              th(colspan="2")|Pro Account
+              th(colspan="2")|Prime Account
+            tr
+              td.column|AUD
+              td|Min Spread
+              td.column|Average Spread
+              td|Min Spread
+              td.column|Average Spread
+              td|Min Spread
+              td|Average Spread
+            tr
+              td.column|AUD/CHF
+              td|0.3
+              td.column|1.25
+              td|0.33
+              td.column|1.8
+              td|2.3
+              td|0.1
+            tr
+              td.column|AUD/JPY
+              td|0.3
+              td.column|1.25
+              td|0.33
+              td.column|1.8
+              td|2.3
+              td|0.1
+        details.detail.detail--table-wrap.red.currency-table
+          summary 
+            |Market Hours and Trade Sizes
+          table.product-detail__table.red
+            tr
+              th.column|Currency
+              th(colspan="2")|Standard Account
+              th(colspan="2")|Pro Account
+              th(colspan="2")|Prime Account
+            tr
+              td.column|AUD
+              td|Min Spread
+              td.column|Average Spread
+              td|Min Spread
+              td.column|Average Spread
+              td|Min Spread
+              td|Average Spread
+            tr
+              td.column|AUD/CHF
+              td|0.3
+              td.column|1.25
+              td|0.33
+              td.column|1.8
+              td|2.3
+              td|0.1
+            tr
+              td.column|AUD/JPY
+              td|0.3
+              td.column|1.25
+              td|0.33
+              td.column|1.8
+              td|2.3
+              td|0.1
+        p.product-detail__summary.red Forex Overview
+        label(name="detail-text").product-detail__label.closed.red
+          | Open All
+        details.detail.detail--single.red.detail-text
+          summary 
+            |What is Forex Exchange?
+          p.product-detail__terms Foreign Exchange (FX) is the largest, most liquid, market in the world. Larger than the shares and futures markets combined, every day over $5.3 trillion of FX transactions is traded globally. Forex trading is the act ofsimultaneously buying one currency while selling another, primarily for the purpose of speculation. Currency values rise (appreciate) and fall (depreciate) against each other due to a number of factors including economics and geopolitics. The common goal of forex traders is to profit from these changes in the value of one currency against another by actively speculating on which way forex prices are likely to turn in the future.
+        details.detail.detail--single.red.detail-text
+          summary 
+            |What is a Lot?
+          p.product-detail__terms One lot in the MT4 is equal to 100,000 units of currency. BlackPearlFX accounts offers a minimum lot size of 0.01 which means that a 0.01 of a lot traded is equal to 1,000 units of currency (i.e. A 0.01 lot on EURUSD is equal to 1,000 USD position. Account holders can, however place trades of different sizes, as long as they are in increments of 1,000 units like 2,000; 6,000; 18,000; 114,000.
+        details.detail.detail--single.red.detail-text
+          summary 
+            |What is a Pip?
+          p.product-detail__terms A pip is the unit you count profit or loss in. Most currency pairs, except Japanese yen pairs (which is quoted in 3 decimals), are quoted in five decimal places. The fourth spot after the decimal point (at one 100th of a cent) is typically what one watches to count “pips”. Every point that place in the quote moves is 1 pip of movement. For example, if EUR/USD rises from 1.40220 to 1.40270 EUR/USD has risen 5 pips.
+        details.detail.detail--single.red.detail-text
+          summary 
+            |Margin Requirements
+          p.product-detail__terms
+        details.detail.detail--single.red.detail-text
+          summary 
+            |Why Trade Forex?
+          p.product-detail__terms
+        details.detail.detail--single.red.detail-text
+          summary 
+            |Levrage Risk Warning
+          p.product-detail__terms
+  +footer()

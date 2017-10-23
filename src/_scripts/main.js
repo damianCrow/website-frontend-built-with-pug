@@ -4,6 +4,7 @@ import Menu from '../_modules/menu/menu'
 import Nav from '../_modules/nav/nav'
 import TextInput from '../_modules/textinput/textinput'
 import Slider from '../_modules/slider/slider'
+import Product from '../_modules/product/product'
 
 
 class Main {
@@ -14,6 +15,7 @@ class Main {
     // protoMessage()
     this.textInput = new TextInput()
     this.slider = new Slider()
+    this.product = new Product()
     this.initSections()
   }
 

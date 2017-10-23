@@ -1,0 +1,216 @@
+.product-detail {
+  display: flex;
+  flex-direction: column;
+  background-color: palette(gray, white);
+  padding: $primary-gutter;
+
+  @media #{$mq-tablet-small-up} {
+    padding: calc(#{$primary-gutter * 2.5}) calc(8.333333333% + #{$primary-gutter * 1});
+  }
+
+  &__summary {
+    @extend %typography-section-title;
+    @media #{$mq-desktop-small-up} {
+      width: 75%;
+      padding-left: $primary-gutter;
+    }
+
+    &.red {
+      color: palette(red, error);
+    }
+
+    &.blue {
+      color: palette(blue, light);
+    }
+
+    &.green {
+      color: palette(green, light);
+    }
+
+    &.orange {
+      color: palette(red, orange);
+    }
+  }
+
+  &__terms {
+    @extend %typography-tandc-small;
+    @media #{$mq-desktop-small-up} {
+      width: 75%;
+      padding-left: $primary-gutter;
+    }
+  }
+
+  &__label {
+    width: 100%;
+    padding-left: $primary-gutter;
+    text-align: right;
+    @extend %typography-tandc-small;
+
+    &.red {
+      color: palette(red, error);
+    }
+
+    &.blue {
+      color: palette(blue, light);
+    }
+
+    &.green {
+      color: palette(green, light);
+    }
+
+    &.orange {
+      color: palette(red, orange);
+    }
+  }
+
+  .detail {
+    outline: none;
+    @extend %typography-tandc-small;
+    border-bottom: 2px solid transparent;
+    position: relative;
+    margin-bottom: $half-gutter;
+    overflow: hidden;
+
+    &--table-wrap {
+      overflow-x: scroll;
+    }
+
+    &--single {
+      border: none;
+
+      summary {
+        border-bottom: 1px solid palette(gray, medium);
+      }
+
+      &.red {
+        summary {
+          color: palette(red, error);
+        }
+      }
+
+      &.blue {
+        summary {
+          color: palette(blue, light);
+        }
+      }
+
+      &.green {
+        summary {
+          color: palette(green, light);
+        }
+      }
+
+      &.orange {
+        summary {
+          color: palette(red, orange);
+        }
+      }
+    }
+
+    &.red {
+      border-color: palette(red, error);
+    }
+
+    &.blue {
+      border-color: palette(blue, light);
+    }
+
+    &.green {
+      border-color: palette(green, light);
+    }
+
+    &.orange {
+      border-color: palette(red, orange);
+    }
+
+    summary {
+      outline: none;
+      position: relative;
+      padding: $half-gutter 0 $half-gutter 0;
+      display: block;
+
+      @media #{$mq-desktop-small-up} {
+        padding: $half-gutter 0 $half-gutter $primary-gutter;
+      }
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        height: 1rem;
+        width: 1rem;
+        background: url('../images/bp-prime-arrow.svg') no-repeat center/75%;
+        right: $primary-gutter;
+      }
+    }
+  }
+
+  details[open] {
+    border: none;
+
+    > summary:after {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__table {
+    border-collapse: collapse;
+    width: 100%;
+
+    &.red {
+      border: 1px solid palette(red, error);
+      border-width: 2px 0;
+    }
+
+    &.blue {
+      border: 1px solid palette(blue, light);
+      border-width: 2px 0;
+    }
+
+    &.green {
+      border: 1px solid palette(green, light);
+      border-width: 2px 0;
+    }
+
+    &.orange {
+      border: 1px solid palette(red, orange);
+      border-width: 2px 0;
+    }
+
+    tr {
+      border-bottom: 1px solid palette(gray, pale);
+      height: 40px;
+      text-align: left;
+      margin-left: $primary-gutter;
+    }
+
+    th {
+      @extend %typography-title-v-two;
+      padding: 0 $primary-gutter 0 0;
+
+      &.column {
+        padding: 0 $primary-gutter 0 0;
+
+        @media #{$mq-desktop-small-up} {
+          padding: 0 $primary-gutter 0 $primary-gutter;
+        }
+      }
+    }
+
+    td {
+      @extend %typography-tandc-small;
+      padding: 0 $primary-gutter 0 0;
+
+      &.column {
+        padding: 0 calc(#{$primary-gutter * 5}) 0 0;
+
+        @media #{$mq-desktop-small-up} {
+          padding: 0 calc(#{$primary-gutter * 5}) 0 $primary-gutter;
+        }
+      }
+    }
+  }
+}
