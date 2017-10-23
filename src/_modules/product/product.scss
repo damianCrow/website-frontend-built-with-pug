@@ -68,7 +68,7 @@
     @extend %typography-tandc-small;
     border-bottom: 2px solid transparent;
     position: relative;
-    margin-bottom: $half-gutter;
+    margin-bottom: 2.5rem;
     overflow: hidden;
 
     &--table-wrap {
@@ -79,7 +79,7 @@
       border: none;
 
       summary {
-        border-bottom: 1px solid palette(gray, medium);
+        border-bottom: 1px solid palette(gray, pale);
       }
 
       &.red {
@@ -128,6 +128,8 @@
       position: relative;
       padding: $half-gutter 0 $half-gutter 0;
       display: block;
+      @extend %typography-title-v-two;
+      color: palette(red, error);
 
       @media #{$mq-desktop-small-up} {
         padding: $half-gutter 0 $half-gutter $primary-gutter;
