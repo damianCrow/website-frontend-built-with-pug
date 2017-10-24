@@ -27,12 +27,12 @@ export default (gulp, plugins, args, config, taskTarget, browserSync) => {
         ]
       }
 
-      let bundler = browserify(customOpts)
+      let bundler = browserify(customOpts).transform('babelify', { presets: ['es2015'], plugins: ['add-module-exports'] })
 
       if (!args.production) {
         // Setup Watchify for faster builds
         const opts = _.assign({}, watchify.args, customOpts)
-        bundler = watchify(browserify(opts))
+        bundler = watchify(browserify(opts).transform('babelify', { presets: ['es2015'], plugins: ['add-module-exports'] }))
       }
 
       const rebundle = () => {

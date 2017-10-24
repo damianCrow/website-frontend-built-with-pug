@@ -3,9 +3,9 @@ include ../burger/burger
 include ../menu/menu
 include ../button/button
 
-mixin article-header(title, buttons, product)
+mixin article-header(title, buttons, product, subMenu)
   header.article-header
-    .article-header__bar
+    .article-header__bar(class=(subMenu ? ' article-header__bar--responsive-sub-menu' : ''))
       .article-header__container
         if product
           h1.article-header__title(class!= product.class)!= title

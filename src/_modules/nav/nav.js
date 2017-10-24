@@ -1,3 +1,6 @@
+// TODO: Change this to import
+// require('element-dataset').default()
+
 // TODO: Move these to an import helper functions, from here:
 // https://plainjs.com/javascript/traversing/get-siblings-of-an-element-40/
 function nextSiblings(el, filter) {
@@ -52,18 +55,18 @@ export default class Nav {
 
     Array.from(this.allItems).forEach((category, index) => {
       if (this.animatedHeight) {
-        category.dataset.orginalHeight = category.offsetHeight
+        category.setAttribute('data-orginal-height', category.offsetHeight)
         category.style.height = `${this.itemHeight}px`
       } else {
         category.style.transform = `translateY(-${this.allSectionsTotalHeight}px)`
-        category.dataset.closedPosistion = (0 - this.allSectionsTotalHeight)
+        category.setAttribute('data-closed-posistion', (0 - this.allSectionsTotalHeight))
       }
       containerHeight = this.itemHeight * (index + 1)
       this.allSectionsTotalHeight += category.offsetHeight - this.itemHeight
       this.sectionHeights.push(category.offsetHeight)
       this.sectionHeights.push(category.offsetHeight)
     })
-    this.parent.dataset.totalHeight = containerHeight
+    this.parent.setAttribute('data-total-height', containerHeight)
   }
 
   closeNavs() {
@@ -71,21 +74,20 @@ export default class Nav {
       if (this.animatedHeight) {
         item.style.height = `${this.itemHeight}px`
       } else {
-        item.style.transform = `translateY(${item.dataset.closedPosistion}px)`
+        item.style.transform = `translateY(${item.getAttribute('data-closed-posistion')}px)`
       }
     })
   }
 
   visibleNavs(chosenItem) {
     if (this.animatedHeight) {
-      chosenItem.style.height = `${chosenItem.dataset.orginalHeight}px`
+      chosenItem.style.height = `${chosenItem.getAttribute('data-orginal-height')}px`
     } else {
       const sectionHeight = chosenItem.offsetHeight
       const nextItems = nextSiblings(chosenItem, exampleFilter)
       Array.from(nextItems).forEach((item) => {
         const currentTranslate = 0 - +item.style.transform.replace(/[^0-9.]/g, '')
         const newPosistion = (currentTranslate + sectionHeight) - this.itemHeight
-        // console.log(chosenItem ? newPosistion : item.dataset.closedPosistion)
         item.style.transform = `translateY(${newPosistion}px)`
       })
     }

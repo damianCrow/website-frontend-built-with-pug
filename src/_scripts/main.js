@@ -1,3 +1,6 @@
+import 'babel-polyfill'
+import objectFitImages from 'object-fit-images'
+
 // Main javascript entry point
 // Should handle bootstrapping/starting application
 import Menu from '../_modules/menu/menu'
@@ -20,8 +23,8 @@ class Main {
     this.textInput = new TextInput()
     this.slider = new Slider()
     this.product = new Product()
-    this.contact = new Contact()
     this.initSections()
+    objectFitImages()
   }
 
   initSections() {
@@ -46,6 +49,10 @@ class Main {
     Array.from(this.tabsNodes).forEach((tabSet) => {
       tabSets.push(new Tabs(tabSet))
     })
+
+    if (document.getElementById('map')) {
+      this.contact = new Contact()
+    }
   }
 }
 

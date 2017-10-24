@@ -35,8 +35,8 @@ body {
 
   &__block {
     position: relative;
-    display: flex;
 
+    display: flex;
     flex: 1 1 #{rem(($thresh--small-3 / 5)) - ($primary-gutter * 2)};
 
 
@@ -50,7 +50,6 @@ body {
 
     > * {
       // margin: $primary-gutter 0;
-
       // @media #{$mq-desktop-small-up} {
       margin: $half-gutter;
       // }      
@@ -60,8 +59,10 @@ body {
   &__container {
     display: flex;
     flex: 2.5;
-    flex-wrap: wrap;
+
     padding: $primary-gutter;
+
+    flex-wrap: wrap;
     
     @media #{$mq-desktop-small-up} {
       padding: rem($article-header-height) - $primary-gutter #{$primary-gutter + $half-gutter};
@@ -98,9 +99,11 @@ body {
 @import '../_modules/tabs/tabs';
 @import '../_modules/personalDetailsForm/personalDetailsForm';
 @import '../_modules/contactUsForm/contact-form';
+@import '../_modules/overview/overview';
 @import '../_modules/news/news';
 @import '../_modules/contact/contact';
 @import '../_modules/square/square';
+@import '../_modules/diamond-list/diamond-list';
 @import '../_modules/products/products';
 @import '../_modules/product/product';
 @import '../_modules/whiteLabels/white-labels';

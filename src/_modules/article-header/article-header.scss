@@ -1,11 +1,14 @@
 .article-header {
-  width: 100%;
   position: sticky;
   z-index: 6;
+  top: $condensed-header-height;
+
+  width: 100%;
+
+  pointer-events: none;
+
   border-top: 1px solid palette(gray, border);
   border-bottom: 1px solid palette(gray, border);
-  top: $condensed-header-height;
-  pointer-events: none;
 
   $root: &;
 
@@ -18,23 +21,30 @@
     flex-direction: column;
 
     max-width: $max;
+    height: $article-header-height;
     margin: 0 auto;
     padding: 0 $primary-gutter;
+
     align-items: center;
     justify-content: center;
-    height: $article-header-height;
 
     @media #{$mq-desktop-small-up} {
       flex-direction: row;
-      justify-content: flex-start;
+
       padding-right: 0;
       padding-left: calc(8.333333333% + #{$primary-gutter});
+
+      justify-content: flex-start;
     }
   }
 
   &__bar {
-    @media #{$mq-desktop-small-up} {
-      background-color: palette(gray, white);
+    background-color: palette(gray, white);
+    &--responsive-sub-menu {
+      background-color: transparent;
+      @media #{$mq-desktop-small-up} {
+        background-color: palette(gray, white);
+      }      
     }
   }
 

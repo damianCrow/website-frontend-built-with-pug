@@ -7,14 +7,14 @@ export default class SideMenu {
   }
 
   categoryToggle() {
-    this.categories.style.transform = `translateY(-${this.categories.dataset.totalHeight}px)`
+    this.categories.style.transform = `translateY(-${this.categories.getAttribute('data-total-height')}px)`
     this.sideMenu.setAttribute('data-closed', '')
 
     this.categoriesTitle.addEventListener('click', () => {
       this.categories.removeAttribute('data-start-shut')
-      if (!('closed' in this.sideMenu.dataset)) {
+      if (!(this.sideMenu.hasAttribute('data-closed'))) {
         this.sideMenu.setAttribute('data-closed', '')
-        this.categories.style.transform = `translateY(-${this.categories.dataset.totalHeight}px)`
+        this.categories.style.transform = `translateY(-${this.categories.getAttribute('data-total-height')}px)`
       } else {
         this.categories.style.transform = ''
         this.sideMenu.removeAttribute('data-closed')
