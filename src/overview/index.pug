@@ -1,0 +1,36 @@
+extends ../_layouts/base
+include ../_modules/header/header
+include ../_modules/article-header/article-header
+include ../_modules/article-hero/article-hero
+include ../_modules/tabs/tabs
+include ../_modules/nav/nav
+include ../_modules/footer/footer
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+  - var headerType = 'condensed'
+
+block content
+  +header(headerType)
+  main(role='main' style='background-color: white;')
+    article
+      +article-header('Overview')
+      +article-hero('/images/article-header-image.jpg')
+
+      .page-content
+        .page-content__container
+          +tabs([{title: 'About Us', active: true, tablink: 'about-us'}, {title: 'Management Team', tablink: 'management-team'}, {title: 'Regulation and Licensing', tablink: 'regulation-licensing'}])
+            section.tabs__content.tabs__content--active(data-tab-link='about-us')
+              p
+                | Pearls represent wisdom acquired through experience. They are believed to attract wealth and luck as well as to offer protection. The pearl is also said to symbolize the purity, generosity, integrity, and loyalty of its wearer. At BlackPearlFX we aim to offer just the same. We put our experience at our client’s service and at the same time give protection to their capitals.
+            section.tabs__content(data-tab-link='management-team')
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur luctus leo ac mauris aliquet tincidunt. Aenean sollicitudin est vel dapibus lobortis. Praesent pharetra at velit vel rhoncus. Praesent pellentesque pretium vulputate. Nam ornare urna eu nibh fermentum, ut accumsan massa aliquam. Aenean et ultrices enim. Morbi quis semper purus, ultricies imperdiet orci. Cras ultricies urna in mauris consequat egestas. In sagittis augue id efficitur blandit. Nulla ligula metus, facilisis id mollis eu, placerat ac neque. Quisque at velit id ante sodales consequat. Mauris nec luctus nisl, et auctor quam. Nulla ac dui in eros sagittis ultricies at molestie velit. Fusce aliquet rhoncus consequat.
+
+            section.tabs__content(data-tab-link='regulation-licensing')
+              p
+                | Pearls represent wisdom acquired through experience. They are believed to attract wealth and luck as well as to offer protection. The pearl is also said to symbolize the purity, generosity, integrity, and loyalty of its wearer. At BlackPearlFX we aim to offer just the same. We put our experience at our client’s service and at the same time give protection to their capitals.
+
+
+  +footer()

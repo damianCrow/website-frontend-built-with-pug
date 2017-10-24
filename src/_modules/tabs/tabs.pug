@@ -1,0 +1,8 @@
+mixin tabs(tabs)
+  article.tabs
+    ul.tabs__titles
+      each tab in tabs
+        li(data-tab-link!=tab.tablink class='tabs__tab ' + (tab.active ? 'tabs__tab--active ' : ''))!=tab.title
+    if block
+      .tabs__content-wrapper
+        block

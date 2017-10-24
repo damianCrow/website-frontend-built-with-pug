@@ -6,12 +6,14 @@ import Nav from '../_modules/nav/nav'
 import TextInput from '../_modules/textinput/textinput'
 import Slider from '../_modules/slider/slider'
 import Product from '../_modules/product/product'
+import Tabs from '../_modules/tabs/tabs'
 
 class Main {
   constructor() {
     // super()
     this.navs = document.getElementsByClassName('toggle-nav')
     this.sideMenus = document.getElementsByClassName('side-menu')
+    this.tabsNodes = document.getElementsByClassName('tabs')
 
     // protoMessage()
     this.textInput = new TextInput()
@@ -36,6 +38,11 @@ class Main {
     const sideMenus = []
     Array.from(this.sideMenus).forEach((sideMenu) => {
       sideMenus.push(new SideMenu({ sideMenu }))
+    })
+
+    const tabSets = []
+    Array.from(this.tabsNodes).forEach((tabSet) => {
+      tabSets.push(new Tabs(tabSet))
     })
   }
 }
