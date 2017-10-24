@@ -1,0 +1,115 @@
+extends ../_layouts/base
+include ../_modules/header/header
+include ../_modules/footer/footer
+include ../_modules/button/button
+include ../_modules/progressicon/progressicon
+include ../_modules/article-header/article-header
+include ../_modules/contactUsForm/contact-form
+
+block config
+  //- Correct base url pathing for this page 'condensed' or 'expanded'
+  - var headerType = 'condensed'
+  - var baseUrl = '../'
+
+block content
+  +header(headerType)
+  main(role='main' style='background-color: white;')
+    article
+      +article-header('Institutional', '../images/test1.jpg')
+      .wrapper.institutional 
+        .institutional__blocks
+          .institutional__block-wrap
+            .institutional__block.institutional__block--text
+              h4 Our Solutions
+              p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+            .institutional__block.institutional__block--vert
+              .institutional__block.institutional__block--border
+                h6 Our Solutions
+                h5 White Lables
+                +button()(class="button--green button--medium") 
+                  |Learn More
+              .institutional__block.institutional__block--border.spacer
+                h6 Our Clients
+                h5 IB & IA
+                +button()(class="button--green button--medium") 
+                  |Learn More
+            .institutional__block.institutional__block--border
+              h6 Our Solutions
+              h5 Liquidity Solutions
+              +button()(class="button--green button--medium") 
+                |Learn More
+          .institutional__block-wrap.institutional__block-wrap--border
+            .institutional__hero(style="background-image: url('../images/test1.jpg')")
+            .institutional__block.institutional__block--text
+              h4 Technology
+              p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          .institutional__block-wrap
+            .institutional__block.institutional__block--border
+              h6 Technology
+              h5 FIX API
+              +button()(class="button--green button--medium") 
+                |Learn More
+            .institutional__block.institutional__block--border.spacer--left
+              h6 Technology
+              h5 XCORE
+              +button()(class="button--green button--medium") 
+                |Learn More
+            .institutional__block.institutional__block--vert
+              .institutional__block.institutional__block--border
+                h6 Technology
+                h5 White Lables
+                +button()(class="button--green button--medium") 
+                  |Learn More
+              .institutional__block.institutional__block--border.spacer
+                h6 Technology
+                h5 IB & IA
+                +button()(class="button--green button--medium") 
+                  |Learn More
+          .institutional__block-wrap.institutional__block-wrap--border
+            .institutional__block.institutional__block--text
+              h4 Our Solutions
+              p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            .institutional__hero(style="background-image: url('../images/test1.jpg')")
+          .institutional__block-wrap
+            .institutional__block.institutional__block--vert
+              .institutional__block.institutional__block--border
+                h6 Our Solutions
+                h5 White Lables
+                +button()(class="button--green button--medium") 
+                  |Learn More
+              .institutional__block.institutional__block--border.spacer
+                h6 Our Clients
+                h5 IB & IA
+                +button()(class="button--green button--medium") 
+                  |Learn More
+            .institutional__block.institutional__block--border
+              h6 Our Solutions
+              h5 Liquidity Solutions
+              +button()(class="button--green button--medium") 
+                |Learn More
+            .institutional__block.institutional__block--border.spacer--left
+              h6 Our Solutions
+              h5 Liquidity Solutions
+              +button()(class="button--green button--medium") 
+                |Learn More
+          .institutional__block-wrap
+            .institutional__block.institutional__block--text
+              h4 Our Solutions
+              p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            .institutional__block.institutional__block--vert
+              .institutional__block.institutional__block--border
+                +progressicon({title: 'Forex', class: 'progress--icon red'})
+                +button()(class="button--red button--medium") 
+                  |Learn More
+              .institutional__block.institutional__block--border.spacer
+                +progressicon({title: 'CDFs', class: 'progress--icon blue'})
+                +button()(class="button--blue button--medium") 
+                  |Learn More
+            .institutional__block.institutional__block--border
+              +progressicon({title: 'Commodities', class: 'progress--icon orange'})
+              +button()(class="button--orange button--medium") 
+                |Learn More
+        .institutional__form
+          +contactUsForm()
+  +footer()

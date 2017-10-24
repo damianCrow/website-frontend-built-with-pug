@@ -1,6 +1,6 @@
 // TODO: Move these to an import helper functions, from here:
 // https://plainjs.com/javascript/traversing/get-siblings-of-an-element-40/
-function getNextSiblings(el, filter) {
+function nextSiblings(el, filter) {
   const siblings = []
   while (el = el.nextSibling) { if (!filter || filter(el)) siblings.push(el) }
   return siblings
@@ -11,14 +11,17 @@ function exampleFilter(el) {
 }
 
 export default class Nav {
-  constructor() {
-    this.categories = document.querySelectorAll('.main-nav__item--sub-nav-item .main-nav__link')
-    this.allItems = document.querySelectorAll('.main-nav__list > .main-nav__item')
-    this.item = document.querySelector('.main-nav__item')
+  constructor(config) {
+    this.animatedHeight = config.animatedHeight
+    this.parent = config.parent
+    this.categories = this.parent.querySelectorAll('.toggle-nav__item--sub-nav-container .toggle-nav__link')
+    this.allItems = this.parent.querySelectorAll('.toggle-nav__list > .toggle-nav__item')
+    this.item = this.parent.querySelector('.toggle-nav__item')
 
     this.categoryToggle()
 
     this.itemHeight = 0
+    this.allSectionsTotalHeight = 0
     this.sectionHeights = []
 
     this.getSizes()
@@ -29,70 +32,62 @@ export default class Nav {
 
     Array.from(categories).forEach(category => category.addEventListener('click', (e) => {
       const subMenuContainer = e.currentTarget.parentNode
-      if (subMenuContainer.classList.contains('main-nav__item--active-sub-nav')) {
-        this.visibleNavs()
-        subMenuContainer.classList.remove('main-nav__item--active-sub-nav')
+      if (subMenuContainer.classList.contains('toggle-nav__item--active-sub-nav')) {
+        this.closeNavs()
+        subMenuContainer.classList.remove('toggle-nav__item--active-sub-nav')
       } else {
-        this.visibleNavs()
+        this.closeNavs()
         Array.from(categories).forEach((category) => {
-          category.parentNode.classList.remove('main-nav__item--active-sub-nav')
+          category.parentNode.classList.remove('toggle-nav__item--active-sub-nav')
         })
-        subMenuContainer.classList.add('main-nav__item--active-sub-nav')
+        subMenuContainer.classList.add('toggle-nav__item--active-sub-nav')
         this.visibleNavs(subMenuContainer)
       }
     }))
   }
 
   getSizes() {
+    let containerHeight = 0
     this.itemHeight = this.item.offsetHeight
 
-    let allSectionsTotalHeight = 0
-    Array.from(this.allItems).forEach((category) => {
-      category.style.transform = `translateY(-${allSectionsTotalHeight}px)`
-      category.dataset.closedPosistion = (0 - allSectionsTotalHeight)
-      allSectionsTotalHeight += category.offsetHeight - this.itemHeight
+    Array.from(this.allItems).forEach((category, index) => {
+      if (this.animatedHeight) {
+        category.dataset.orginalHeight = category.offsetHeight
+        category.style.height = `${this.itemHeight}px`
+      } else {
+        category.style.transform = `translateY(-${this.allSectionsTotalHeight}px)`
+        category.dataset.closedPosistion = (0 - this.allSectionsTotalHeight)
+      }
+      containerHeight = this.itemHeight * (index + 1)
+      this.allSectionsTotalHeight += category.offsetHeight - this.itemHeight
       this.sectionHeights.push(category.offsetHeight)
+      this.sectionHeights.push(category.offsetHeight)
+    })
+    this.parent.dataset.totalHeight = containerHeight
+  }
+
+  closeNavs() {
+    Array.from(this.allItems).forEach((item) => {
+      if (this.animatedHeight) {
+        item.style.height = `${this.itemHeight}px`
+      } else {
+        item.style.transform = `translateY(${item.dataset.closedPosistion}px)`
+      }
     })
   }
 
   visibleNavs(chosenItem) {
-    let navItem
-
-    if (!chosenItem) {
-      navItem = document.querySelector('.main-nav__item--active-sub-nav')
+    if (this.animatedHeight) {
+      chosenItem.style.height = `${chosenItem.dataset.orginalHeight}px`
     } else {
-      navItem = chosenItem
-    }
-
-    if (navItem) {
-      const sectionHeight = navItem.offsetHeight
-      const nextItems = getNextSiblings(navItem, exampleFilter)
+      const sectionHeight = chosenItem.offsetHeight
+      const nextItems = nextSiblings(chosenItem, exampleFilter)
       Array.from(nextItems).forEach((item) => {
         const currentTranslate = 0 - +item.style.transform.replace(/[^0-9.]/g, '')
         const newPosistion = (currentTranslate + sectionHeight) - this.itemHeight
         // console.log(chosenItem ? newPosistion : item.dataset.closedPosistion)
-        item.style.transform = `translateY(${chosenItem ? newPosistion : item.dataset.closedPosistion}px)`
+        item.style.transform = `translateY(${newPosistion}px)`
       })
     }
   }
-
-  // mobileSubNav(lockBody, team) {
-  //   const { menu, header, burger } = this
-
-  //   menu.addEventListener('click', (e) => {
-  //     if (menu.classList.contains('sub-nav--active')) {
-  //       menu.classList.remove('sub-nav--active')
-  //       header.classList.remove('main-header--sub-nav-open')
-  //       burger.classList.remove('burger--sub-nav-open')
-  //       lockBody(false)
-  //       team.closeSub(null, e)
-  //     } else {
-  //       menu.classList.add('sub-nav--active')
-  //       header.classList.add('main-header--sub-nav-open')
-  //       burger.classList.add('burger--sub-nav-open')
-  //       lockBody(true)
-  //       team.closeSub(null, e)
-  //     }
-  //   })
-  // }
 }

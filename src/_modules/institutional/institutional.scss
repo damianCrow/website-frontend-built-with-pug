@@ -1,0 +1,132 @@
+.institutional {
+  @extend .white-label;
+  flex-direction: column;
+
+  @media #{$mq-desktop-small-up} {
+    flex-direction: row;
+  }
+
+  &__blocks {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+
+    @media #{$mq-tablet-large-up} {
+      padding-right: $primary-gutter;
+    }
+  }
+
+  &__block-wrap {
+    display: flex;
+    flex: 1;
+    min-height: 350px;
+    flex-direction: column;
+
+    @media #{$mq-tablet-large-up} {
+      flex-direction: row;
+      margin-bottom: calc(#{$primary-gutter} * 2.5);
+      padding-top: calc(#{$primary-gutter} * 2.5);
+
+      &--border {
+        border-top: 1px solid palette(gray, pale);
+      }
+    }
+
+    @media #{$mq-desktop-small-up} {
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+  }
+
+  &__hero {
+    @extend .products__hero;
+    flex: 2;
+    margin-bottom: $primary-gutter;
+
+    @media #{$mq-tablet-large-up} {
+      margin-bottom: 0;
+    }
+  }
+
+  &__block {
+    flex: 1;
+    padding: $primary-gutter;
+    position: relative;
+    min-height: 150px;
+    margin-bottom: $primary-gutter;
+
+    &--text {
+      margin-bottom: 0;
+      padding-top: 0;
+    }
+
+    @media #{$mq-tablet-large-up} {
+      margin-bottom: 0;
+    }
+
+    &--border {
+      border: 1px solid palette(gold, metalic);
+
+      h6 {
+        @extend %typography-title-v-two;
+        margin: 0;
+      }
+
+      h5 {
+        @etend %typography-title-v-one;
+        color: palette(gray, medium);
+      }
+    }
+
+    &--vert {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      margin-bottom: 0;
+
+      @media #{$mq-tablet-large-up} {
+        padding: 0 $primary-gutter;
+
+        &:last-child {
+          padding: 0 0 0 $primary-gutter;
+        }
+      }
+    }
+
+    .button {
+      position: absolute;
+      bottom: 1rem;
+    }
+  }
+
+  &__form {
+    flex: 1;
+  }
+
+  h4 {
+    @extend %typography-section-title;
+    margin: 0;
+  }
+
+  p {
+    @extend %typography-tandc-small;
+  }
+
+  .spacer {
+    margin-top: 0;
+
+    @media #{$mq-tablet-large-up} {
+      margin-top: $primary-gutter;
+    }
+
+    &--left {
+      margin-left: 0;
+
+      @media #{$mq-tablet-large-up} {
+        margin-left: $primary-gutter;
+      }
+    }
+  }
+}
+
