@@ -3,7 +3,7 @@ include ../burger/burger
 include ../menu/menu
 include ../button/button
 
-mixin article-header(title, image, message, bottomButton, buttons, product)
+mixin article-header(title, buttons, product)
   header.article-header
     .article-header__bar
       .article-header__container
@@ -11,13 +11,7 @@ mixin article-header(title, image, message, bottomButton, buttons, product)
           h1.article-header__title(class!= product.class)!= title
         else
           h1.article-header__title!= title
-        .article-header__buttons
-          if buttons
+        if buttons
+          .article-header__buttons
             each button in buttons
               +button(true)(class='button--arrow button--fill-height button--' + button.style)!=button.text
-    .article-header__image-feature(style='background-image: url("' + image + '")')
-      if message
-        .article-header__message!=message
-      if bottomButton
-        .article-header__featured-button
-          +button(true)(class='button--' + bottomButton.style)!=bottomButton.text

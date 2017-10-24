@@ -1,0 +1,33 @@
+.article-hero {
+  z-index: 4;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: $max;
+  height: 250px;
+  margin: 0 auto;
+
+  background-position: center;
+  background-size: cover;
+  position: relative;
+
+  $root: &;
+  justify-content: center;
+
+  @media #{$mq-desktop-small-up} {
+    padding: $primary-gutter calc(8.333333333% + #{$primary-gutter});
+  }
+
+  &__message,
+  &__featured-button {
+    padding: $half-gutter $primary-gutter;
+  }
+
+  &__message {
+    max-width: 450px;
+
+    @extend %typography-section-title;
+  }
+}

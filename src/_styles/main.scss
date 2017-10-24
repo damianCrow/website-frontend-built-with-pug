@@ -30,16 +30,48 @@ body {
 
   max-width: $max;
   margin: 0 auto;
-  padding: #{$primary-gutter + $half-gutter};
 
   flex-wrap: wrap;
 
   &__block {
     position: relative;
+    display: flex;
 
-    flex: 1;
+    flex: 1 1 #{rem(($thresh--small-3 / 5)) - ($primary-gutter * 2)};
 
+
+    &--column {
+      flex-direction: column;
+    }
+
+    &--double {
+      flex: 1 1 #{rem(($thresh--small-3 / 2)) - ($primary-gutter * 2)};
+    }
+
+    > * {
+      // margin: $primary-gutter 0;
+
+      // @media #{$mq-desktop-small-up} {
+      margin: $half-gutter;
+      // }      
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex: 2.5;
+    flex-wrap: wrap;
     padding: $primary-gutter;
+    
+    @media #{$mq-desktop-small-up} {
+      padding: rem($article-header-height) - $primary-gutter #{$primary-gutter + $half-gutter};
+    }
+  }
+
+  &--menu-container {
+    @media #{$mq-desktop-small-up} {
+      flex-direction: row-reverse;
+    }
   }
 }
 
@@ -50,7 +82,9 @@ body {
 @import '../_modules/button/button';
 @import '../_modules/textinput/textinput';
 @import '../_modules/header/header';
+@import '../_modules/side-menu/side-menu';
 @import '../_modules/article-header/article-header';
+@import '../_modules/article-hero/article-hero';
 @import '../_modules/menu/menu';
 @import '../_modules/logo/logo';
 @import '../_modules/burger/burger';

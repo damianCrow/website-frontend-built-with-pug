@@ -1,5 +1,5 @@
 mixin nav(config = {sideNav: true, animatedHeight: true, bright: true})
-  nav#main-nav(class='toggle-nav ' + (config.sideNav ? 'toggle-nav--side ' : '') + (config.animatedHeight ? 'toggle-nav--animated-height ' : '') + (config.bright ? 'toggle-nav--bright' : ''))
+  nav#main-nav(class='toggle-nav ' + (config.sideNav ? 'toggle-nav--side ' : '') + (config.animatedHeight ? 'toggle-nav--animated-height ' : '') + (config.bright ? 'toggle-nav--bright' : ''), data-start-shut='')
     ul.toggle-nav__list
       li.toggle-nav__item
         a.toggle-nav__link(title='Overview')

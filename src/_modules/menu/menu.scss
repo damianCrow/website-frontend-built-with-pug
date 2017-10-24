@@ -11,7 +11,7 @@
   height: 100vh;
   padding: #{rem($condensed-header-height) + ($primary-gutter * 2)} $primary-gutter $primary-gutter;
 
-  transition: transform 500ms $timing-function-fast-out-slow-in;
+  transition: transform 500ms $timing-function-fast-out-slow-in, opacity 0s linear 500ms;
   transform: translateX(100%);
   pointer-events: none;
 
@@ -24,10 +24,12 @@
 
   @media #{$mq-desktop-small-up} {
     width: 350px;
+
     opacity: 1;
   }
 
   &--active {
+    transition: transform 500ms $timing-function-fast-out-slow-in, opacity 0s linear 0s;
     transform: translateX(0);
     pointer-events: auto;
 

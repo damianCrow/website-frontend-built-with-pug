@@ -54,7 +54,7 @@
 
     &--sub-nav-container {
       #{$root}__link {
-        &:after {
+        &::after {
           position: relative;
 
           display: inline-block;
@@ -64,8 +64,11 @@
           margin-right: $primary-gutter;
           margin-left: auto;
 
+          contain: strict;
+
           content: '';
           transform: rotate(-225deg);
+
           vertical-align: top;
 
           border-width: .05em .05em 0 0;
@@ -73,6 +76,8 @@
           border-color: palette(gray, warm);
 
           align-self: center;
+
+          transition: transform 250ms $timing-function-fast-out-slow-in;
         }        
       }
     }
@@ -86,10 +91,14 @@
 
           @extend %typography-open-nav-section;
         }
+        &::after {
+          transform: rotate(-45deg);
+          transition: transform 250ms $timing-function-fast-out-slow-in 150ms;
+        }
       }
       #{$root}__sub-nav {
         // opening
-        transition: opacity 500ms $timing-function-fast-out-slow-in 500ms;
+        transition: opacity 500ms $timing-function-fast-out-slow-in 250ms;
 
         opacity: 1;
       }
@@ -143,7 +152,10 @@
   }
 
   &--side {
-    position: relative;
+    overflow: hidden;
+
+    transition: transform 500ms $timing-function-fast-out-slow-in;
+
     #{$root}__list {
       padding: 0;
     }
@@ -153,20 +165,34 @@
     }
 
     #{$root}__sub-link {}
+
+    @media #{$mq-desktop-small-up} {
+      position: relative;
+      // Stop the fold-up from mobile.
+
+      transform: none !important;
+    }
   }
 
   &--bright {
+    background-color: palette(gray, white);
     #{$root}__item {
       border-top: 1px solid palette(gray, border);
+      border-left: 1px solid palette(gray, border);
       &--sub-item {
         padding: 0;
       }
 
       &--active-sub-nav {
+        border-left: 1px solid palette(gray, border);
         #{$root}__link {
           > span {
             @extend %typography-side-nav-item;
           }
+        }
+
+        #{$root}__item {
+          border-left: 1px solid palette(gray, border);
         }
       }
       &:last-child {
@@ -174,9 +200,14 @@
       }
     }
 
+    &[data-start-shut] {
+      transition: none;
+    }
+
     #{$root}__link {
       > span {
         margin: $primary-gutter 0;
+
         @extend %typography-side-nav-item;
       }
     }
@@ -184,7 +215,9 @@
     #{$root}__sub-link {
       > span {
         margin: 0;
+
         opacity: .5;
+
         @extend %typography-side-nav-sub-item;
       }
       &:hover {

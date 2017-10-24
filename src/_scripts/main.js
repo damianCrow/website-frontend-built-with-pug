@@ -1,16 +1,17 @@
 // Main javascript entry point
 // Should handle bootstrapping/starting application
 import Menu from '../_modules/menu/menu'
+import SideMenu from '../_modules/side-menu/side-menu'
 import Nav from '../_modules/nav/nav'
 import TextInput from '../_modules/textinput/textinput'
 import Slider from '../_modules/slider/slider'
 import Product from '../_modules/product/product'
 
-
 class Main {
   constructor() {
     // super()
     this.navs = document.getElementsByClassName('toggle-nav')
+    this.sideMenus = document.getElementsByClassName('side-menu')
 
     // protoMessage()
     this.textInput = new TextInput()
@@ -30,6 +31,11 @@ class Main {
       } else {
         toggleNavs.push(new Nav({ parent: foundNav }))
       }
+    })
+
+    const sideMenus = []
+    Array.from(this.sideMenus).forEach((sideMenu) => {
+      sideMenus.push(new SideMenu({ sideMenu }))
     })
   }
 }

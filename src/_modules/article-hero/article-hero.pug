@@ -1,0 +1,12 @@
+include ../logo/logo
+include ../burger/burger
+include ../menu/menu
+include ../button/button
+
+mixin article-hero(image, message, button)
+  .article-hero(style='background-image: url("' + image + '")')
+    if message
+      .article-hero__message!=message
+    if button
+      .article-hero__featured-button
+        +button(true)(class='button--' + button.style)!=button.text

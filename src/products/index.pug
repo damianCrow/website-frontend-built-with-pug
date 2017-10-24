@@ -4,6 +4,7 @@ include ../_modules/footer/footer
 include ../_modules/button/button
 include ../_modules/progressicon/progressicon
 include ../_modules/article-header/article-header
+include ../_modules/article-hero/article-hero
 
 block config
   //- Correct base url pathing for this page 'condensed' or 'expanded'
@@ -14,7 +15,8 @@ block content
   +header(headerType)
   main(role='main' style='background-color: white;')
     article
-      +article-header('Products', '../images/article-header-image.jpg', null, null, [{text: 'Become a Client', style: 'green'}, {text: 'Request Demo', style: 'dark-green'}])
+      +article-header('Products', [{text: 'Become a Client', style: 'green'}, {text: 'Request Demo', style: 'dark-green'}])
+      +article-hero('../images/article-header-image.jpg')
       .page-content.products
         section.page-content__block.product.product--left
           .products__left--top
