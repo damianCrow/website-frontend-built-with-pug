@@ -21,11 +21,10 @@ $burger-height: 3px;
   $root: &;
   justify-content: space-around;
 
-  // @media #{$mq-desktop-small-up} {
-  //   display: none;
-  //   opacity: 0;
-  //   pointer-events: none;
-  // }
+  // This needs to change to strict, modify the transform-origin to make it work.
+  // contain: strict;
+  contain: size layout style;
+  will-change: transform;
 
   &--sub-nav-open {
     #{$root}__piece {
