@@ -214,7 +214,10 @@ $color-transistion: color 250ms $timing-function-ease-out-quint;
   color: palette(gray, medium);
 
   @extend %financier-bold;
-  @include font-size-x-large;
+  @include responsive-font-size(
+    $mobile: $font-size-large,
+    $desktop: $font-size-x-large
+  );
 }
 
 
@@ -270,7 +273,7 @@ $color-transistion: color 250ms $timing-function-ease-out-quint;
 %typography-side-nav-title {
   color: palette(gray, lightblack);
 
-  @extend %mukta-light;
+  @extend %mukta-medium;
   @include font-size-regular;
 }
 
