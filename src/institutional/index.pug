@@ -4,6 +4,7 @@ include ../_modules/footer/footer
 include ../_modules/button/button
 include ../_modules/progressicon/progressicon
 include ../_modules/article-header/article-header
+include ../_modules/article-hero/article-hero
 include ../_modules/contactUsForm/contact-form
 
 block config
@@ -15,7 +16,8 @@ block content
   +header(headerType)
   main(role='main' style='background-color: white;')
     article
-      +article-header('Institutional', '../images/test1.jpg')
+      +article-header('Institutional')
+      +article-hero('../images/test1.jpg')
       .wrapper.institutional 
         .institutional__blocks
           .institutional__block-wrap
