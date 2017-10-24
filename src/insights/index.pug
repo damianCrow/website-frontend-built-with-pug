@@ -1,0 +1,33 @@
+extends ../_layouts/base
+include ../_modules/header/header
+include ../_modules/article-header/article-header
+include ../_modules/article-hero/article-hero
+include ../_modules/news/news
+include ../_modules/square/square
+include ../_modules/side-menu/side-menu
+include ../_modules/nav/nav
+include ../_modules/footer/footer
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+  - var headerType = 'condensed'
+
+block content
+  +header(headerType)
+  main(role='main' style='background-color: white;')
+    article
+      +article-header('Insights')
+      +article-hero('/images/article-header-image.jpg')
+
+      .page-content.page-content--menu-container
+        +side-menu('Categories')
+          +nav()
+        .page-content__container
+          .page-content__block.page-content__block--double
+            +news()
+          .page-content__block.page-content__block--column
+            +square()
+            +square({bright: true})
+  +footer()
+    

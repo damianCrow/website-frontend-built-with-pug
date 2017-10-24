@@ -22,7 +22,11 @@ $burger-height: 3px;
     flex: 0 0 100%;
 
     width: 100%;
-    height: 325px;
+    height: 175px;
+
+    @media #{$mq-desktop-small-up} {
+      height: 325px;
+    }
 
     > img {
       width: 100%;
@@ -42,12 +46,11 @@ $burger-height: 3px;
     display: flex;
     flex-direction: column;
 
-    padding: $primary-gutter;
-
     border-bottom: 1px solid palette(gray, border);
-    // &:last-child {
-    //   border-bottom: 0;
-    // }
+
+    @media #{$mq-desktop-small-up} {
+      padding: $half-gutter;
+    }
 
     &--featured {
       flex-direction: row;
@@ -59,8 +62,13 @@ $burger-height: 3px;
   &__featured-item-details {
     display: flex;
     flex-direction: column;
-    flex: 1;
-    padding: $primary-gutter;
+    flex: 0 0 100%;
+    padding: 0;
+
+    @media #{$mq-desktop-small-up} {
+      flex: 1;
+      padding: $half-gutter;
+    }
   }
 
   &__item-title {
@@ -79,15 +87,24 @@ $burger-height: 3px;
   }
 
   &__item-description {
-    flex: 1.5;
+    flex: 0 0 100%;
     margin: 0;
-    padding: #{$primary-gutter + $half-gutter};
+    padding: $half-gutter 0;
 
     @extend %typography-body;
+
+    @media #{$mq-desktop-small-up} {
+      flex: 2;
+      padding: #{$primary-gutter + $half-gutter} $half-gutter;
+    }
   }
 
   &__view-all {
-    margin: $primary-gutter;
+    margin: $primary-gutter 0;
+
+    @media #{$mq-desktop-small-up} {
+      margin: $primary-gutter;
+    }
 
     @extend %typography-small-section-link;
     align-self: flex-start;
