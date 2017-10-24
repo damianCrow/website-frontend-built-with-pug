@@ -331,6 +331,16 @@ $color-transistion: color 250ms $timing-function-ease-out-quint;
   @include font-size-small;
 }
 
+%typography-small-section-link-invert {
+  color: palette(brown, base);
+  text-decoration: none;
+  border-bottom: 1px solid palette(brown, base);
+  cursor: pointer;
+
+  @extend %mukta-light;
+  @include font-size-small;
+}
+
 %typography-active-small-section-link {
   color: palette(gold, metalic);
   text-decoration: none;

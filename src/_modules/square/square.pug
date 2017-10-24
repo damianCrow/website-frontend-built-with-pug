@@ -1,5 +1,5 @@
-mixin square(spec)
-  section.square
+mixin square(spec = {bright: false})
+  section(class='square ' + (spec.bright ? 'square--bright ' : ''))
     h1.square__title Daily Analysis
     time(datetime="2017-04-29T19:00").square__date 26 September 2017
     a.square__analysis View Analysis
