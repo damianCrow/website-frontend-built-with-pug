@@ -30,4 +30,25 @@
 
     @extend %typography-section-title;
   }
+
+  .mapboxgl-canvas {
+    top: 0;
+    left: 0;
+  }
+
+  .marker {
+    background: url('../images/logo.png') no-repeat center/100%;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+
+    &:after {
+      @extend %typography-small-section-text;
+      content: '36 Whitefriars Street';
+      position: absolute;
+      white-space: nowrap;
+      left: 30px;
+      top: 3px;
+    }
+  }
 }

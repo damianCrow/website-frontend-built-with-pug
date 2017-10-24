@@ -7,6 +7,7 @@ import TextInput from '../_modules/textinput/textinput'
 import Slider from '../_modules/slider/slider'
 import Product from '../_modules/product/product'
 import Tabs from '../_modules/tabs/tabs'
+import Contact from '../_modules/contact/contact'
 
 class Main {
   constructor() {
@@ -19,6 +20,7 @@ class Main {
     this.textInput = new TextInput()
     this.slider = new Slider()
     this.product = new Product()
+    this.contact = new Contact()
     this.initSections()
   }
 

@@ -105,6 +105,12 @@
           color: palette(red, orange);
         }
       }
+
+      // &.gold {
+      //   summary {
+      //     color: palette(gold, process);
+      //   }
+      // }
     }
 
     &.red {
@@ -121,6 +127,14 @@
 
     &.orange {
       border-color: palette(red, orange);
+    }
+
+    &.gold {
+      border-color: palette(gold, process);
+      
+      summary {
+        color: palette(gray, medium);
+      }
     }
 
     summary {
