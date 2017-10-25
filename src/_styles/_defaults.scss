@@ -45,6 +45,21 @@ body {
   // Ref: http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away
   -ms-touch-action: manipulation;
   touch-action: manipulation;
+
+  &.modal-open {
+    overflow: hidden;
+
+    &:after {
+      content: '';
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      background-color: palette(brown, base);
+      opacity: 0.75;
+      top: 0;
+      z-index: 10;
+    }
+  }
 }
 
 h1 {

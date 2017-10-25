@@ -1,0 +1,12 @@
+mixin modal(configObj)
+  - configObj.heading.class = configObj.heading.class || ''
+  .modal()&attributes(attributes)
+    h3.modal__heading(class=configObj.heading.class)
+      !=configObj.heading.text
+    span.modal__close
+      |&times;
+    each paragraph, idx in configObj.paragraphs
+      - pObj = configObj.paragraphs[idx]
+      - pObj.class = pObj.class || ''
+      p.modal__text(class!=pObj.class)
+        !=pObj.text
