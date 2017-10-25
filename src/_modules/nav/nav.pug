@@ -1,39 +1,60 @@
+//- mixin nav(config = {sideNav: true, animatedHeight: true, bright: true})
+//-   nav#main-nav(class='toggle-nav ' + (config.sideNav ? 'toggle-nav--side ' : '') + (config.animatedHeight ? 'toggle-nav--animated-height ' : '') + (config.bright ? 'toggle-nav--bright' : ''), data-start-shut='')
+//-     ul.toggle-nav__list
+//-       li.toggle-nav__item
+//-         a.toggle-nav__link(title='Overview', href='/overview') Overview
+//-       li.toggle-nav__item.toggle-nav__item--sub-nav-container
+//-         a.toggle-nav__link(title='Private', href='/private') Private
+//-         ul.toggle-nav__sub-nav
+//-           li.toggle-nav__item.toggle-nav__item--sub-item
+//-             a.toggle-nav__sub-link(title='Platforms')
+//-               span Platforms
+//-           li.toggle-nav__item.toggle-nav__item--sub-item
+//-             a.toggle-nav__sub-link(title='FOREX Technologies')
+//-               span FOREX Technologies
+//-       li.toggle-nav__item.toggle-nav__item--sub-nav-container
+//-         a.toggle-nav__link(title='Institutional', href='/institutional') Institutional
+//-         ul.toggle-nav__sub-nav
+//-           li.toggle-nav__item.toggle-nav__item--sub-item
+//-             a.toggle-nav__sub-link(title='Account Details')
+//-               span Account Details
+//-           li.toggle-nav__item.toggle-nav__item--sub-item
+//-             a.toggle-nav__sub-link(title='Products', href='/products')
+//-               span Products
+//-           li.toggle-nav__item.toggle-nav__item--sub-item
+//-             a.toggle-nav__sub-link(title='Platforms', href='/platforms')
+//-               span Platforms
+//-       li.toggle-nav__item.toggle-nav__item--sub-nav-container
+//-         a.toggle-nav__link(title='Insight', href='/insight') Insight
+//-         ul.toggle-nav__sub-nav
+//-           li.toggle-nav__item.toggle-nav__item--sub-item
+//-             a.toggle-nav__sub-link(title='Account Details', href='/account-details')
+//-               span Account Details
+//-       li.toggle-nav__item
+//-         a.toggle-nav__link(title='Contact', href='/contact') Contact
+
 mixin nav(config = {sideNav: true, animatedHeight: true, bright: true})
   nav#main-nav(class='toggle-nav ' + (config.sideNav ? 'toggle-nav--side ' : '') + (config.animatedHeight ? 'toggle-nav--animated-height ' : '') + (config.bright ? 'toggle-nav--bright' : ''), data-start-shut='')
     ul.toggle-nav__list
-      li.toggle-nav__item
-        a.toggle-nav__link(title='Overview')
-          span Overview
-      li.toggle-nav__item.toggle-nav__item--sub-nav-container
-        a.toggle-nav__link(title='Private')
-          span Private
-        ul.toggle-nav__sub-nav
-          li.toggle-nav__item.toggle-nav__item--sub-item
-            a.toggle-nav__sub-link(title='Platforms')
-              span Platforms
-          li.toggle-nav__item.toggle-nav__item--sub-item
-            a.toggle-nav__sub-link(title='FOREX Technologies')
-              span FOREX Technologies
-      li.toggle-nav__item.toggle-nav__item--sub-nav-container
-        a.toggle-nav__link(title='Institutional')
-          span Institutional
-        ul.toggle-nav__sub-nav
-          li.toggle-nav__item.toggle-nav__item--sub-item
-            a.toggle-nav__sub-link(title='Account Details')
-              span Account Details
-          li.toggle-nav__item.toggle-nav__item--sub-item
-            a.toggle-nav__sub-link(title='Products')
-              span Products
-          li.toggle-nav__item.toggle-nav__item--sub-item
-            a.toggle-nav__sub-link(title='Platforms')
-              span Platforms
-      li.toggle-nav__item.toggle-nav__item--sub-nav-container
-        a.toggle-nav__link(title='Insight')
-          span Insight
-        ul.toggle-nav__sub-nav
-          li.toggle-nav__item.toggle-nav__item--sub-item
-            a.toggle-nav__sub-link(title='Account Details')
-              span Account Details
-      li.toggle-nav__item
-        a.toggle-nav__link(title='Contact')
-          span Contact
+      each item in config.items
+        if item.subItems
+          li.toggle-nav__item.toggle-nav__item--sub-nav-container
+            a.toggle-nav__link(title!=item.title, href!=item.href)!=item.title
+            ul.toggle-nav__sub-nav
+              each subItem in item.subItems
+                if subItem.subSubItems
+                  li.toggle-nav__item.toggle-nav__item--sub-item.toggle-nav__item--sub-sub-nav-container
+                    a.toggle-nav__sub-link(title!=subItem.title, href!=subItem.href)
+                      span!=subItem.title
+                    ul.toggle-nav__sub-nav
+                      each subSubItem in subItem.subSubItems
+                        li.toggle-nav__item.toggle-nav__item--sub-item
+                          a.toggle-nav__sub-link(title!=subSubItem.title, href!=subSubItem.href)
+                            span!=subSubItem.title
+                else
+                  li.toggle-nav__item.toggle-nav__item--sub-item
+                    a.toggle-nav__sub-link(title!=subItem.title, href!=subItem.href)
+                      span!=subItem.title
+        else
+          li.toggle-nav__item
+            a.toggle-nav__link(title!=item.title, href!=item.href)!=item.title

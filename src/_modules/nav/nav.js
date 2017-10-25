@@ -17,31 +17,35 @@ export default class Nav {
   constructor(config) {
     this.animatedHeight = config.animatedHeight
     this.parent = config.parent
-    this.categories = this.parent.querySelectorAll('.toggle-nav__item--sub-nav-container .toggle-nav__link')
-    this.allItems = this.parent.querySelectorAll('.toggle-nav__list > .toggle-nav__item')
+    this.categories = this.parent.querySelectorAll('.toggle-nav__item--sub-nav-container')
+    this.allSubNavs = this.parent.querySelectorAll('.toggle-nav__list > .toggle-nav__item--sub-nav-container > .toggle-nav__sub-nav')
+    this.firstLevelItems = this.parent.querySelectorAll('.toggle-nav__list > .toggle-nav__item')
+    // this.secondLevelItems = this.parent.querySelectorAll('.toggle-nav__sub-nav-container > .toggle-nav__sub-nav > .toggle-nav__item')
     this.item = this.parent.querySelector('.toggle-nav__item')
+    this.subItem = this.parent.querySelector('.toggle-nav__item--sub-item')
 
     this.categoryToggle()
 
     this.itemHeight = 0
-    this.allSectionsTotalHeight = 0
+    this.allItemsFirstLevelTotalHeight = 0
+    this.allItemsSecondLevelTotalHeight = 0
     this.sectionHeights = []
 
-    this.getSizes()
+    this.processLevels()
   }
 
   categoryToggle() {
     const { categories } = this
 
     Array.from(categories).forEach(category => category.addEventListener('click', (e) => {
-      const subMenuContainer = e.currentTarget.parentNode
+      const subMenuContainer = e.currentTarget
+      this.closeNavs()
+
       if (subMenuContainer.classList.contains('toggle-nav__item--active-sub-nav')) {
-        this.closeNavs()
         subMenuContainer.classList.remove('toggle-nav__item--active-sub-nav')
       } else {
-        this.closeNavs()
         Array.from(categories).forEach((category) => {
-          category.parentNode.classList.remove('toggle-nav__item--active-sub-nav')
+          category.classList.remove('toggle-nav__item--active-sub-nav')
         })
         subMenuContainer.classList.add('toggle-nav__item--active-sub-nav')
         this.visibleNavs(subMenuContainer)
@@ -49,28 +53,50 @@ export default class Nav {
     }))
   }
 
-  getSizes() {
-    let containerHeight = 0
+  processLevels() {
+    // let containerHeight = 0
     this.itemHeight = this.item.offsetHeight
+    this.subItemHeight = this.subItem.offsetHeight
 
-    Array.from(this.allItems).forEach((category, index) => {
+    Array.from(this.firstLevelItems).forEach((category) => {
       if (this.animatedHeight) {
         category.setAttribute('data-orginal-height', category.offsetHeight)
         category.style.height = `${this.itemHeight}px`
       } else {
-        category.style.transform = `translateY(-${this.allSectionsTotalHeight}px)`
-        category.setAttribute('data-closed-posistion', (0 - this.allSectionsTotalHeight))
+        category.style.transform = `translateY(-${this.allItemsFirstLevelTotalHeight}px)`
+        category.setAttribute('data-closed-posistion', (0 - this.allItemsFirstLevelTotalHeight))
       }
-      containerHeight = this.itemHeight * (index + 1)
-      this.allSectionsTotalHeight += category.offsetHeight - this.itemHeight
+      // containerHeight = this.itemHeight * (index + 1)
+      this.allItemsFirstLevelTotalHeight += category.offsetHeight - this.itemHeight
       this.sectionHeights.push(category.offsetHeight)
       this.sectionHeights.push(category.offsetHeight)
     })
-    this.parent.setAttribute('data-total-height', containerHeight)
+
+
+    Array.from(this.allSubNavs).forEach((subNav) => {
+      let allItemsSecondLevelTotalHeight = 0
+      // const subItems = subNav.children.querySelectorAll('> .toggle-nav__item')
+      const subItems = subNav.children
+      console.log(subItems)
+      Array.from(subItems).forEach((category, index) => {
+        if (this.animatedHeight) {
+          category.setAttribute('data-orginal-height', category.offsetHeight)
+          category.style.height = `${this.subItemHeight}px`
+        } else {
+          category.style.transform = `translateY(-${allItemsSecondLevelTotalHeight}px)`
+          category.setAttribute('data-closed-posistion', (0 - allItemsSecondLevelTotalHeight))
+        }
+        // containerHeight = this.itemHeight * (index + 1)
+        allItemsSecondLevelTotalHeight += category.offsetHeight - this.subItemHeight
+        this.sectionHeights.push(category.offsetHeight)
+        this.sectionHeights.push(category.offsetHeight)
+      })
+    })
+    // this.parent.setAttribute('data-total-height', containerHeight)
   }
 
   closeNavs() {
-    Array.from(this.allItems).forEach((item) => {
+    Array.from(this.firstLevelItems).forEach((item) => {
       if (this.animatedHeight) {
         item.style.height = `${this.itemHeight}px`
       } else {

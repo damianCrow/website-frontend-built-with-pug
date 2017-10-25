@@ -13,7 +13,8 @@ mixin header(size)
         +logo()(class!= size)
       .main-header__burger
         +burger()(burgerId='main-burger' burgerClass='burger--side')
-    +menu(size)
+      .main-header__menu-container
+        +menu(size)
 
     if block
       block
