@@ -2,11 +2,9 @@ mixin nav(config = {sideNav: true, animatedHeight: true, bright: true})
   nav#main-nav(class='toggle-nav ' + (config.sideNav ? 'toggle-nav--side ' : '') + (config.animatedHeight ? 'toggle-nav--animated-height ' : '') + (config.bright ? 'toggle-nav--bright' : ''), data-start-shut='')
     ul.toggle-nav__list
       li.toggle-nav__item
-        a.toggle-nav__link(title='Overview', href='/overview')
-          span Overview
+        a.toggle-nav__link(title='Overview', href='/overview') Overview
       li.toggle-nav__item.toggle-nav__item--sub-nav-container
-        a.toggle-nav__link(title='Private', href='/private')
-          span Private
+        a.toggle-nav__link(title='Private', href='/private') Private
         ul.toggle-nav__sub-nav
           li.toggle-nav__item.toggle-nav__item--sub-item
             a.toggle-nav__sub-link(title='Platforms', href='/platforms')
@@ -15,8 +13,7 @@ mixin nav(config = {sideNav: true, animatedHeight: true, bright: true})
             a.toggle-nav__sub-link(title='FOREX Technologies', href='/forex-technologies')
               span FOREX Technologies
       li.toggle-nav__item.toggle-nav__item--sub-nav-container
-        a.toggle-nav__link(title='Institutional', href='/institutional')
-          span Institutional
+        a.toggle-nav__link(title='Institutional', href='/institutional') Institutional
         ul.toggle-nav__sub-nav
           li.toggle-nav__item.toggle-nav__item--sub-item
             a.toggle-nav__sub-link(title='Account Details', href='/account-details')
@@ -28,12 +25,10 @@ mixin nav(config = {sideNav: true, animatedHeight: true, bright: true})
             a.toggle-nav__sub-link(title='Platforms', href='/platforms')
               span Platforms
       li.toggle-nav__item.toggle-nav__item--sub-nav-container
-        a.toggle-nav__link(title='Insight', href='/insight')
-          span Insight
+        a.toggle-nav__link(title='Insight', href='/insight') Insight
         ul.toggle-nav__sub-nav
           li.toggle-nav__item.toggle-nav__item--sub-item
             a.toggle-nav__sub-link(title='Account Details', href='/account-details')
               span Account Details
       li.toggle-nav__item
-        a.toggle-nav__link(title='Contact', href='/contact')
-          span Contact
+        a.toggle-nav__link(title='Contact', href='/contact') Contact
