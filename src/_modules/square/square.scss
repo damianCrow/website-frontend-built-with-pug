@@ -1,7 +1,7 @@
 .square {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 1 1 0;
 
   max-height: 325px;
   padding: $primary-gutter;
@@ -25,6 +25,7 @@
 
   &__analysis {
     margin-top: auto;
+    display: block;
 
     @extend %typography-small-section-link;
     align-self: flex-start;
