@@ -12,7 +12,7 @@ block config
   - var baseUrl = '../'
 
 block content
-  +header(headerType)
+  +header(headerType, baseUrl)
   main(role='main' style='background-color: white;')
     article
       +article-header('Forex', [{text: 'Become a Client', style: 'red'}, {text: 'Request Demo', style: 'dark-red'}], {class: 'red article-header__title--product'})
@@ -117,4 +117,4 @@ block content
           summary 
             |Levrage Risk Warning
           p.product-detail__terms
-  +footer()
+  +footer(baseUrl)

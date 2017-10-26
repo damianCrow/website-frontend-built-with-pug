@@ -3,18 +3,17 @@ include ../burger/burger
 include ../menu/menu
 include ../button/button
 
-mixin header(size)
+mixin header(size, baseUrl)
   header.main-header(class!='main-header--' + size)
     .main-header__container
       .main-header__login
         +button(true)(class="button--trans-gold")
           | Client Login
       .main-header__logo-container
-        +logo()(class!= size)
+        +logo(baseUrl)(class!= size)
       .main-header__burger
         +burger()(burgerId='main-burger' burgerClass='burger--side')
       .main-header__menu-container
-        +menu(size)
-
+        +menu(size, baseUrl)
     if block
       block

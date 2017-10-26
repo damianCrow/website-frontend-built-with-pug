@@ -8,7 +8,7 @@ block config
   - var baseUrl = config.baseUrl || './'
 
 block content
-  +header(headerType)
+  +header(headerType, baseUrl)
   .slider
     .slider-container
       .slide.slide--1
@@ -24,4 +24,4 @@ block content
           h2.slide__text__title First for wisdom, second to none.
           p.slide__text__subtitle BP Prime, opening the window to a world-class financial platform for the discerning trader.
     .swiper-pagination
-    +footer()
+    +footer(baseUrl)
