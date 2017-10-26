@@ -13,11 +13,11 @@ block config
   - var headerType = 'condensed'
 
 block content
-  +header(headerType)
+  +header(headerType, baseUrl)
   main(role='main' style='background-color: white;')
     article
       +article-header('Overview')
-      +article-hero('/images/article-header-image.jpg')
+      +article-hero('../images/article-header-image.jpg')
 
       .page-content
         .page-content__container
@@ -62,4 +62,4 @@ block content
                 p.overview__intro
                   | Pearls represent wisdom acquired through experience. They are believed to attract wealth and luck as well as to offer protection. The pearl is also said to symbolize the purity, generosity, integrity, and loyalty of its wearer. At BlackPearlFX we aim to offer just the same. We put our experience at our client’s service and at the same time give protection to their capitals.
 
-  +footer()
+  +footer(baseUrl)

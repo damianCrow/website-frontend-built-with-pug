@@ -1,7 +1,7 @@
 include ../nav/nav
 include ../language-selector/language-selector
 
-mixin menu(headerSize)
+mixin menu(headerSize, baseUrl)
   #main-menu(class!='main-menu main-menu--' + headerSize)
-    +nav({sideNav: false})
+    +nav({sideNav: false}, baseUrl)
     +language-selector()

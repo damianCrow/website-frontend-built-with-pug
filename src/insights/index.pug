@@ -14,11 +14,11 @@ block config
   - var headerType = 'condensed'
 
 block content
-  +header(headerType)
+  +header(headerType, baseUrl)
   main(role='main' style='background-color: white;')
     article
       +article-header('Insights', null, null, true )
-      +article-hero('/images/article-header-image.jpg')
+      +article-hero('../images/article-header-image.jpg')
 
       .page-content.page-content--menu-container
         +side-menu('Categories')
@@ -29,5 +29,5 @@ block content
           .page-content__block.page-content__block--column
             +square()
             +square({bright: true})
-  +footer()
+  +footer(baseUrl)
     

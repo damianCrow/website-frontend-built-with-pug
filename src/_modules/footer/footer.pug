@@ -1,6 +1,6 @@
 include ../icon/icon
 
-mixin footer()
+mixin footer(baseUrl)
   footer.footer
     .footer__columns
       .footer__wrapper.footer__wrapper--hide-small
@@ -30,10 +30,10 @@ mixin footer()
       .footer__wrapper.footer__wrapper--break
         span.footer__title Follow BP Prime
         .footer__icon_wrap
-          +icon({image: "'/images/facebook.svg'"})(href="")
-          +icon({image: "'/images/twitter.svg'"})(href="")
-          +icon({image: "'/images/google.svg'"})(href="")
-          +icon({image: "'/images/linkedin.svg'"})(href="")
+          +icon({image: "'" + baseUrl + "images/facebook.svg'"})(href="")
+          +icon({image: "'" + baseUrl + "images/twitter.svg'"})(href="")
+          +icon({image: "'" + baseUrl + "images/google.svg'"})(href="")
+          +icon({image: "'" + baseUrl + "images/linkedin.svg'"})(href="")
     .footer__legal
       .footer__legal-notice
         .footer__legal-notice-container

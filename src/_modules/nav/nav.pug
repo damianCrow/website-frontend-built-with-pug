@@ -1,34 +1,34 @@
-mixin nav(config = {sideNav: true, animatedHeight: true, bright: true})
+mixin nav(config = {sideNav: true, animatedHeight: true, bright: true}, baseUrl)
   nav#main-nav(class='toggle-nav ' + (config.sideNav ? 'toggle-nav--side ' : '') + (config.animatedHeight ? 'toggle-nav--animated-height ' : '') + (config.bright ? 'toggle-nav--bright' : ''), data-start-shut='')
     ul.toggle-nav__list
       li.toggle-nav__item
-        a.toggle-nav__link(title='Overview', href='/overview') Overview
+        a.toggle-nav__link(title='Overview', href!=baseUrl + 'overview') Overview
       li.toggle-nav__item.toggle-nav__item--sub-nav-container
-        a.toggle-nav__link(title='Private', href='/private') Private
+        a.toggle-nav__link(title='Private', href!=baseUrl + 'private') Private
         ul.toggle-nav__sub-nav
           li.toggle-nav__item.toggle-nav__item--sub-item
-            a.toggle-nav__sub-link(title='Platforms', href='/platforms')
+            a.toggle-nav__sub-link(title='Platforms', href!=baseUrl + 'platforms')
               span Platforms
           li.toggle-nav__item.toggle-nav__item--sub-item
-            a.toggle-nav__sub-link(title='FOREX Technologies', href='/forex-technologies')
+            a.toggle-nav__sub-link(title='FOREX Technologies', href!=baseUrl + 'forex-technologies')
               span FOREX Technologies
       li.toggle-nav__item.toggle-nav__item--sub-nav-container
-        a.toggle-nav__link(title='Institutional', href='/institutional') Institutional
+        a.toggle-nav__link(title='Institutional', href!=baseUrl + 'institutional') Institutional
         ul.toggle-nav__sub-nav
           li.toggle-nav__item.toggle-nav__item--sub-item
-            a.toggle-nav__sub-link(title='Account Details', href='/account-details')
+            a.toggle-nav__sub-link(title='Account Details', href!=baseUrl + 'account-details')
               span Account Details
           li.toggle-nav__item.toggle-nav__item--sub-item
-            a.toggle-nav__sub-link(title='Products', href='/products')
+            a.toggle-nav__sub-link(title='Products', href!=baseUrl + 'products')
               span Products
           li.toggle-nav__item.toggle-nav__item--sub-item
-            a.toggle-nav__sub-link(title='Platforms', href='/platforms')
+            a.toggle-nav__sub-link(title='Platforms', href!=baseUrl + 'platforms')
               span Platforms
       li.toggle-nav__item.toggle-nav__item--sub-nav-container
-        a.toggle-nav__link(title='Insight', href='/insight') Insight
+        a.toggle-nav__link(title='Insight', href!=baseUrl + 'insight') Insight
         ul.toggle-nav__sub-nav
           li.toggle-nav__item.toggle-nav__item--sub-item
-            a.toggle-nav__sub-link(title='Account Details', href='/account-details')
+            a.toggle-nav__sub-link(title='Account Details', href!=baseUrl + 'account-details')
               span Account Details
       li.toggle-nav__item
-        a.toggle-nav__link(title='Contact', href='/contact') Contact
+        a.toggle-nav__link(title='Contact', href!=baseUrl + 'contact') Contact
