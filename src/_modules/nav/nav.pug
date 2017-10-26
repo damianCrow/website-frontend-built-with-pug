@@ -1,34 +1,26 @@
-mixin nav(config = {sideNav: true, animatedHeight: true, bright: true}, baseUrl)
+mixin nav(config = {sideNav: true, animatedHeight: true, bright: true})
   nav#main-nav(class='toggle-nav ' + (config.sideNav ? 'toggle-nav--side ' : '') + (config.animatedHeight ? 'toggle-nav--animated-height ' : '') + (config.bright ? 'toggle-nav--bright' : ''), data-start-shut='')
-    ul.toggle-nav__list
-      li.toggle-nav__item
-        a.toggle-nav__link(title='Overview', href!=baseUrl + 'overview') Overview
-      li.toggle-nav__item.toggle-nav__item--sub-nav-container
-        a.toggle-nav__link(title='Private', href!=baseUrl + 'private') Private
-        ul.toggle-nav__sub-nav
-          li.toggle-nav__item.toggle-nav__item--sub-item
-            a.toggle-nav__sub-link(title='Platforms', href!=baseUrl + 'platforms')
-              span Platforms
-          li.toggle-nav__item.toggle-nav__item--sub-item
-            a.toggle-nav__sub-link(title='FOREX Technologies', href!=baseUrl + 'forex-technologies')
-              span FOREX Technologies
-      li.toggle-nav__item.toggle-nav__item--sub-nav-container
-        a.toggle-nav__link(title='Institutional', href!=baseUrl + 'institutional') Institutional
-        ul.toggle-nav__sub-nav
-          li.toggle-nav__item.toggle-nav__item--sub-item
-            a.toggle-nav__sub-link(title='Account Details', href!=baseUrl + 'account-details')
-              span Account Details
-          li.toggle-nav__item.toggle-nav__item--sub-item
-            a.toggle-nav__sub-link(title='Products', href!=baseUrl + 'products')
-              span Products
-          li.toggle-nav__item.toggle-nav__item--sub-item
-            a.toggle-nav__sub-link(title='Platforms', href!=baseUrl + 'platforms')
-              span Platforms
-      li.toggle-nav__item.toggle-nav__item--sub-nav-container
-        a.toggle-nav__link(title='Insight', href!=baseUrl + 'insight') Insight
-        ul.toggle-nav__sub-nav
-          li.toggle-nav__item.toggle-nav__item--sub-item
-            a.toggle-nav__sub-link(title='Account Details', href!=baseUrl + 'account-details')
-              span Account Details
-      li.toggle-nav__item
-        a.toggle-nav__link(title='Contact', href!=baseUrl + 'contact') Contact
+    ul.toggle-nav__list.toggle-nav__list--root
+      each item in config.items
+        if item.subItems
+          li.toggle-nav__item.toggle-nav__item--sub-nav-container
+            a.toggle-nav__link(title!=item.title, href!=item.href)
+              span!=item.title
+            ul.toggle-nav__sub-nav
+              each subItem in item.subItems
+                if subItem.subSubItems
+                  li.toggle-nav__item.toggle-nav__item--sub-item.toggle-nav__item--sub-sub-nav-container
+                    a.toggle-nav__sub-link(title!=subItem.title, href!=subItem.href)
+                      span!=subItem.title
+                    ul.toggle-nav__sub-nav
+                      each subSubItem in subItem.subSubItems
+                        li.toggle-nav__item.toggle-nav__item--sub-item
+                          a.toggle-nav__sub-link(title!=subSubItem.title, href!=subSubItem.href)
+                            span!=subSubItem.title
+                else
+                  li.toggle-nav__item.toggle-nav__item--sub-item
+                    a.toggle-nav__sub-link(title!=subItem.title, href!=subItem.href)
+                      span!=subItem.title
+        else
+          li.toggle-nav__item
+            a.toggle-nav__link(title!=item.title, href!=item.href)!=item.title

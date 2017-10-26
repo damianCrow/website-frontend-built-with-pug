@@ -22,9 +22,28 @@
     list-style: none;
 
     // TODO: Get this to work with 'strict', aka with 'size'.
-    contain: layout style paint;
+    // contain: layout style paint;
     align-items: flex-start;
     justify-content: flex-start;
+
+    &--root {
+      #{$root}__item {
+        &:last-child {
+          &::after {
+            position: absolute;
+            top: calc(100% + 1px);
+            left: 0;
+
+            width: 100%;
+            height: 100vh;
+
+            content: '';
+
+            background-color: palette(brown, dark);
+          }        
+        }
+      }      
+    }
   }
 
   &__item {
@@ -38,6 +57,7 @@
     transition: transform 400ms $timing-function-fast-out-slow-in 250ms;
 
     border-top: 1px solid palette(gray, warm);
+    background: palette(brown, dark);
 
     &:last-child {
       border-bottom: 1px solid palette(gray, warm);
@@ -83,7 +103,7 @@
     }
 
     &--sub-sub-nav-container {
-      #{$root}__link {
+      #{$root}__sub-link {
         &::after {
           position: absolute;
           top: $primary-gutter;
@@ -111,6 +131,15 @@
 
           contain: strict;
         }        
+      }
+
+      #{$root}__item--sub-item {
+        background-color: black;
+
+        span {
+          display: inline-block;
+          transform: translateX($primary-gutter);
+        }
       }
     }
 
@@ -147,7 +176,7 @@
     transition: opacity 250ms $timing-function-fast-out-slow-in;
 
     opacity: 0;
-    background-color: palette(brown, base);
+    // background-color: palette(brown, base);
   }
 
   &__link {
@@ -156,18 +185,28 @@
     box-sizing: border-box;
     padding: $half-gutter 0;
 
+    height: 50px;
+
     cursor: pointer;
-    transition: transform 325ms $timing-function-ease-out-quint, $color-transistion 125ms;
     text-decoration: none;
 
     @extend %typography-nav-section;
 
+    > span {
+      transition: transform 325ms $timing-function-ease-out-quint, $color-transistion 125ms;
+      display: inline-block;
+    }
+
   }
 
   &__sub-link {
-    display: block;
+    display: inline-block;
+
+    box-sizing: border-box;
 
     padding: $primary-gutter;
+
+    height: 50px;
 
     text-decoration: none;
 
