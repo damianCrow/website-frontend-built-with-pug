@@ -1,5 +1,5 @@
-mixin logo(size)
-  a(href='#landing', title='Home' class='logo logo--' + attributes.class)
+mixin logo(baseUrl)
+  a(href!=baseUrl, title='Home' class='logo logo--' + attributes.class)
     svg.logo__diamond(xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", viewbox="0 0 253.71 253.71")
       path(d="M162.82 90.89a50.86 50.86 0 1 1-71.93 0 50.86 50.86 0 0 1 71.93 0m90.89 36L126.86 0 0 126.86l126.86 126.85z", fill="#8E7D47")
     svg.logo__text(xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", viewbox="0 0 431.7 49.94")

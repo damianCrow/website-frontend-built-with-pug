@@ -13,7 +13,7 @@ block config
   - var baseUrl = '../'
 
 block content
-  +header(headerType)
+  +header(headerType, baseUrl)
   main(role='main' style='background-color: white;')
     article
       +article-header('Institutional')
@@ -114,4 +114,4 @@ block content
                 |Learn More
         .institutional__form
           +contactUsForm()
-  +footer()
+  +footer(baseUrl)

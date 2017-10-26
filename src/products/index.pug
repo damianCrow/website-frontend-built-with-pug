@@ -12,7 +12,7 @@ block config
   - var baseUrl = '../'
 
 block content
-  +header(headerType)
+  +header(headerType, baseUrl)
   main(role='main' style='background-color: white;')
     article
       +article-header('Products', [{text: 'Become a Client', style: 'green'}, {text: 'Request Demo', style: 'dark-green'}])
@@ -59,4 +59,4 @@ block content
                 p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 +button()(class="button--green button--medium") 
                   |Learn More
-  +footer()
+  +footer(baseUrl)

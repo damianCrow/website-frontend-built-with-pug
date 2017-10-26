@@ -68,15 +68,15 @@
     }
 
     &--1 {
-      background: url('../images/test1.jpg') no-repeat 0 0/cover palette(gray, pale); 
+      background: url('../images/bp-prime-landing-001.jpg') no-repeat 0 0 / cover palette(gray, pale); 
     } 
 
     &--2 {
-      background: url('../images/test2.jpg') no-repeat 0 0/cover palette(gray, pale);
+      background: url('../images/bp-prime-landing-002.jpg') no-repeat 0 0 / cover palette(gray, pale);
     } 
 
     &--3 {
-      background: url('../images/test3.jpg') no-repeat 0 0/cover palette(gray, pale);
+      background: url('../images/bp-prime-landing-003.jpg') no-repeat 0 0 / cover palette(gray, pale);
     } 
   }
 
@@ -88,6 +88,8 @@
     pointer-events: none;
 
     opacity: 0;
+
+    left: 0;
 
     @extend %typography-title-v-three;
 

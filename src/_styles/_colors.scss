@@ -15,6 +15,7 @@ $_base-colors: (
     base:            #5c5c5c,
     black:           #000,
     lightblack:      #2d2a28,
+    almostblack:     #161514,
     input:           #fafafa,
     border:          #f5f5f5,
     light:           #f8f8f7,
@@ -48,8 +49,8 @@ $app-colors: $_base-colors;
   $brand-gradient: linear-gradient(45deg, rgba(#ffe900, .8) 10%, rgba(#009fff, .8) 100%);
 }
 
-@function -brand-gradient($opacityVal: 0.8) {
-  @return linear-gradient(45deg, rgba(#ffe900, $opacityVal) 10%, rgba(#009fff, $opacityVal) 100%);
+@function -brand-gradient($opacity-val: .8) {
+  @return linear-gradient(45deg, rgba(#ffe900, $opacity-val) 10%, rgba(#009fff, $opacity-val) 100%);
 }
 
 

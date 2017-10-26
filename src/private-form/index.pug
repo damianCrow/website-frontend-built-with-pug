@@ -10,7 +10,7 @@ block config
   - var headerType = 'condensed'
 
 block content
-  +header(headerType)
+  +header(headerType, baseUrl)
   .wrapper
     .progress-wrap
       +progressicon({text: '1', title: 'Personal', class: 'chain complete'})
@@ -39,5 +39,5 @@ block content
           h4 Do you offer corporate accounts?
 
           p Yes we do, please #[span click here] to download our Corporate Application Form.
-  +footer()
+  +footer(baseUrl)
     
