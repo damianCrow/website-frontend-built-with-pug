@@ -1,0 +1,25 @@
+extends ../_layouts/base
+include ../_modules/header/header
+include ../_modules/article-header/article-header
+include ../_modules/article-hero/article-hero
+include ../_modules/side-menu/side-menu
+include ../_modules/nav/nav
+include ../_modules/footer/footer
+include ../_modules/button/button
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+  - var headerType = 'condensed'
+
+block content
+  +header(headerType, baseUrl)
+  .wrapper.not-found
+    +article-header('Page Not Found', [] )
+    +article-hero('../images/bp-prime-404.jpg','Error 404')
+      p.not-found__message
+        |Sorry but the page you are looking for cannot be found. #[br]Please use the button below to return to the home page.
+      +button(true, '/')(class="button--green button--medium not-found__link") 
+        |BP Prime Home
+    +footer(baseUrl)
+    

@@ -74,8 +74,8 @@ export default class TextInput {
 
         for(let i = 0; i < radioArray.length; i++) {
           if($(`input[name=${radioArray[i]}]:checked`).length <= 0) {
-            $(`input[name=${radioArray[i]}]`).addClass('error').change((el) => {
-              $(el.target).removeClass('error')
+            $(`input[name=${radioArray[i]}]`).addClass('error').change(() => {
+              $(`input[name=${radioArray[i]}]`).removeClass('error')
             })
           } else {
             $(`input[name=${radioArray[i]}]`).removeClass('error')

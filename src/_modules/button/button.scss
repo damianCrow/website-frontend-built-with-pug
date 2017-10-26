@@ -6,6 +6,7 @@
   transition: border 250ms $timing-function-ease-out-quint;
   cursor: pointer;
   border-radius: 0;
+  text-decoration: none;
 
   &--trans-gold {
     border: 1px solid palette(gold, process);
