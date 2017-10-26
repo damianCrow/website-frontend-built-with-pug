@@ -16,7 +16,7 @@ mixin contactUsForm()
         +textinput({text: 'Email:', type: 'email', name: 'email'})
       .contact-form__inputwrap
         label Telephone:
-        div.contact-form__inputwrap--double
+        div.contact-form__inputwrap--double.phone-validate
           span +
           +textinput({class: 'short', type: 'text'})
           +textinput({class: 'medium', type: 'text'})

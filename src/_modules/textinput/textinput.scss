@@ -11,6 +11,7 @@ input:not([type="radio"]) {
   &.short {
     width: 15%;
     margin: 0 4px;
+    padding-left: 0;
   }
 
   &.error {
