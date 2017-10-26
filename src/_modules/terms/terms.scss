@@ -1,0 +1,9 @@
+.terms {
+  p {
+    width: 100%;
+
+    @media #{$mq-desktop-small-up} {
+      width: 75%;
+    }
+  }
+}

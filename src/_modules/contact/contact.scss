@@ -13,7 +13,7 @@
     height: 100%;
     width: 275px;
     top: 0;
-    padding: calc(#{$primary-gutter} * 2);
+    padding:calc(#{$primary-gutter} * 1.5) calc(#{$primary-gutter} * 2);
   }
 
   span {
