@@ -1,7 +1,29 @@
 include ../nav/nav
 include ../language-selector/language-selector
 
-mixin menu(headerSize, baseUrl)
+mixin menu(headerSize)
   #main-menu(class!='main-menu main-menu--' + headerSize)
-    +nav({sideNav: false}, baseUrl)
+    +nav({sideNav: false, items: 
+      [ {title: 'Overview', href: '/overview'},
+        {title: 'Private', href: '/private', subItems:[
+          {title: 'Platforms', href: '/platforms'},
+          {title: 'FOREX Technologies', href: '/FOREX-Technologies'}]},
+        {title: 'Institutional', href: '/institutional', subItems: [
+          {title: 'Solutions', subSubItems: [
+            {title: 'White Labels', href: '/white-labels'},
+            {title: 'IB & IA', href: '/IB-and-IA'},
+            {title: 'Liquidity Solutions', href: '/liquidity-solutions'},
+          ]},
+          {title: 'Technology', href: '/technology', subSubItems: [
+            {title: 'White Labels', href: '/white-labels'},
+            {title: 'IB & IA', href: '/IB-and-IA'},
+            {title: 'Liquidity Solutions', href: '/liquidity-solutions'},
+          ]},
+          {title: 'Clients', href: '/clients'},
+          {title: 'Products', href: '/products'},
+        ]},
+        {title: 'Insight', href: '/insight'},
+        {title: 'Contact', href: '/contact'},
+      ]
+    })
     +language-selector()
