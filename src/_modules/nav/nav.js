@@ -16,22 +16,79 @@ export default class Nav {
   constructor(config) {
     this.animatedHeight = config.animatedHeight
     this.parent = config.parent
-    this.allItems = this.parent.getElementsByClassName('toggle-nav__item')
-    this.categories = this.parent.querySelectorAll('.toggle-nav__item--sub-nav-container, .toggle-nav__item--sub-sub-nav-container')
-    this.allSubNavs = this.parent.querySelectorAll('.toggle-nav__list > .toggle-nav__item--sub-nav-container > .toggle-nav__sub-nav')
-    this.firstLevelItems = this.parent.querySelectorAll('.toggle-nav__list > .toggle-nav__item')
-    this.secondLevelItems = this.parent.querySelectorAll('.toggle-nav__item--sub-nav-container > .toggle-nav__sub-nav > .toggle-nav__item')
-    this.item = this.parent.querySelector('.toggle-nav__item')
-    this.subItem = this.parent.querySelector('.toggle-nav__item--sub-item')
 
-    this.categoryToggle()
+    // Collect the first collection of items with their nested sub navs
+    this.imediateItems = this.parent.querySelectorAll('.toggle-nav__list > .toggle-nav__item')
 
-    this.itemHeight = 0
-    this.allItemsFirstLevelTotalHeight = 0
-    this.allItemsSecondLevelTotalHeight = 0
-    this.subSectionHeights = []
+    this.allItemDetails = this.calculateSizes(this.imediateItems)
+    console.log('allItemDetails', this.allItemDetails)
+    this.applyEventListners()
+  }
 
-    this.processLevels()
+  calculateSizes(level, heightOfSelectedNav = 0, startingPosition = 0) {
+    console.log('startingPosition', startingPosition)
+
+    // Starts as 0, if we're opening a nav then that's also considered
+    let totalHeightOfPreviousItems = 0
+    const itemDetails = []
+    // Cycle though each item on this level and grab it's orginal height.
+    for (let i = 0; i < level.length; i += 1) {
+      if (i === startingPosition) {
+        totalHeightOfPreviousItems -= heightOfSelectedNav
+      }
+
+      // Orginal height of the sub nav without transforms.
+      const orginalHeight = level[i].offsetHeight
+      // We will use the height of the first list item link as a reference.
+      const firstLinkHeight = level[i].querySelector('.toggle-nav__link, .toggle-nav__sub-link').offsetHeight
+      // Will return an array of objects, with details of each subitem
+      // const subItems = this.checkForSubItems(level[i])
+
+      itemDetails[i] = {
+        element: level[i],
+        orginalHeight,
+        firstLinkHeight,
+        totalHeightOfPreviousItems,
+        // subItems,
+        level,
+      }
+
+      console.log('i', i)
+      console.log('itemDetails[i]', itemDetails[i])
+
+      this.closeItem(itemDetails[i].element, itemDetails[i].totalHeightOfPreviousItems)
+
+      // Total up how much we will need to shift the next item by.
+      totalHeightOfPreviousItems += orginalHeight - firstLinkHeight
+      // console.log(subItems.length)
+    }
+    return itemDetails
+  }
+
+  checkForSubItems(parentItem) {
+    const subNav = parentItem.querySelector('.toggle-nav__sub-nav')
+    const subItems = subNav ? subNav.children : []
+    return this.calculateSizes(subItems)
+  }
+
+  // Close the previous subnav by hiding this one over it (by moving it upwards)
+  closeItem(item, totalHeightOfPreviousItems) {
+    item.style.transform = `translateY(-${totalHeightOfPreviousItems}px)`
+  }
+
+  applyEventListners() {
+    for (let i = 0; i < this.allItemDetails.length; i += 1) {
+      this.allItemDetails[i].element.addEventListener('click', (e) => {
+        e.stopPropagation()
+        // removeClass(this.allItemDetails[i].level, 'toggle-nav__item--active-sub-nav')
+        console.log('i', i)
+        for (let j = i + 1; j < this.allItemDetails.length; j += 1) {
+          console.log(this.allItemDetails[j].totalHeightOfPreviousItems)
+          console.log(this.allItemDetails[i + 1].totalHeightOfPreviousItems)
+          this.allItemDetails[j].element.style.transform = `translateY(-${this.allItemDetails[j].totalHeightOfPreviousItems - this.allItemDetails[i + 1].totalHeightOfPreviousItems}px)`
+        }
+      })
+    }
   }
 
   categoryToggle() {
