@@ -1,0 +1,20 @@
+// header styles
+.daily-calendar {
+  display: flex;
+  flex: 1;
+  margin: $half-gutter;
+
+  > .square {
+    margin-left: $primary-gutter;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &__bottom-link {
+    display: inline-block;
+    align-self: flex-start;
+    margin: $primary-gutter 0;
+    @extend %typography-small-section-link;
+  }
+}

@@ -1,5 +1,11 @@
-mixin square(spec = {bright: false})
+mixin square(spec)
   section(class='square ' + (spec.bright ? 'square--bright ' : ''))
-    h1.square__title Daily Analysis
-    time(datetime="2017-04-29T19:00").square__date 26 September 2017
-    a.square__analysis View Analysis
+    span.square__meta!=(spec.meta.text ? spec.meta.text : '13:00 GMT 5th October 2017')
+    h1.square__title
+      if spec.title.date
+        time(datetime="2017-04-29T19:00")!=(sspec.title.text ? spec.title.text : '13:00 GMT 5th October 2017')
+      else
+        span!=spec.title.text
+    .square__bottom-meta
+      if block
+        block

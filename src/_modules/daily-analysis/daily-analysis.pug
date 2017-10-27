@@ -1,0 +1,10 @@
+include ../square/square
+
+mixin daily-analysis(baseUrl)
+  .daily-analysis
+    +square({bright: false, meta: {text: 'Daily Analysis', date: false}, title: {text: "Sample text"}})
+      a.square__bottom-link(href='https://twitter.com') View Analysis
+    +square({bright: true, meta: {text: 'Daily Analysis', date: false}, title: {text: "Sample text"}})
+      a.square__bottom-link(href='https://twitter.com') 2 hours ago
+    a.daily-analysis__bottom-link(href='') View All Technical Analysis
+

@@ -1,0 +1,13 @@
+.twitter-icon {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  margin-right: $half-gutter;
+  border: 0;
+  text-decoration: none;
+
+  path {
+    fill: palette(gold, process)
+  } 
+}
+

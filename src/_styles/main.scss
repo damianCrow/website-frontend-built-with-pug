@@ -35,6 +35,10 @@ body {
 
   background-color: white;
 
+  &__row {
+    display: flex;
+  }
+
   &__block {
     position: relative;
 
@@ -114,3 +118,6 @@ body {
 @import '../_modules/account-details/account-details';
 @import '../_modules/terms/terms';
 @import '../_modules/modal/modal';
+@import '../_modules/twitter-icon/twitter-icon';
+@import '../_modules/daily-analysis/daily-analysis';
+@import '../_modules/daily-calendar/daily-calendar';
