@@ -1,4 +1,9 @@
-mixin diamond-list(listItems)
-  ul.diamond-list
-    each listItem in listItems
-      li.diamond-list__item!= listItem
+mixin diamond-list(listItems, style2)
+  if style2
+    ul.diamond-list.diamond-list--style2
+      each listItem in listItems
+        li.diamond-list__item.diamond-list__item--style2!= listItem
+  else
+    ul.diamond-list
+      each listItem in listItems
+        li.diamond-list__item!= listItem

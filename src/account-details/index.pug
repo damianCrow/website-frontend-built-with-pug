@@ -1,0 +1,65 @@
+extends ../_layouts/base
+include ../_modules/header/header
+include ../_modules/footer/footer
+include ../_modules/button/button
+include ../_modules/progressicon/progressicon
+include ../_modules/article-header/article-header
+include ../_modules/article-hero/article-hero
+include ../_modules/diamond-list/diamond-list
+
+block config
+  //- Correct base url pathing for this page 'condensed' or 'expanded'
+  - var headerType = 'condensed'
+  - var baseUrl = '../'
+
+block content
+  +header(headerType, baseUrl)
+  main(role='main' style='background-color: white;')
+    article
+      +article-header('Account Details', [{text: 'Become a Client', style: 'green'}, {text: 'Request Demo', style: 'dark-green'}])
+      +article-hero('../images/article-header-image.jpg')
+      .wrapper.account-details
+        .account-details__standard.account-details__section
+          h3.product-detail__summary
+            |Standard
+          p The PRO Account allows our clients to trade all instruments with commission already built in the spread. Minimum deposit is as low as $100.
+          +diamond-list([
+            'Professional Spreads STP/DMA Execution',
+            '$0 Commission',
+            'Spreads from 0.6 pips',
+            'Ultra fast execution via XCORE Aggregator',
+            'Up to 60 Currency Pairs including GOLD & SILVER on MT4 Platform (up to 100 Currency Pairs via FIX API)',
+            '14 CFDs Indexes, plus USOil and UKOil and Commodities'
+          ], true)
+          +button()(class="button--green button--medium not-found__link") 
+            |Learn More
+        .account-details__pro.account-details__section
+          h3.product-detail__summary
+            |Pro
+          p The PRO Account allows our clients to trade all instruments with commission already built in the spread. Minimum deposit is as low as $100.
+          +diamond-list([
+            'Professional Spreads STP/DMA Execution',
+            '$0 Commission',
+            'Spreads from 0.6 pips',
+            'Ultra fast execution via XCORE Aggregator',
+            'Up to 60 Currency Pairs including GOLD & SILVER on MT4 Platform (up to 100 Currency Pairs via FIX API)',
+            '14 CFDs Indexes, plus USOil and UKOil and Commodities'
+          ], true)
+          +button()(class="button--green button--medium not-found__link") 
+            |Learn More
+        .account-details__prime.account-details__section
+          h3.product-detail__summary
+            |Prime
+          p The PRO Account allows our clients to trade all instruments with commission already built in the spread. Minimum deposit is as low as $100.
+          +diamond-list([
+            'Professional Spreads STP/DMA Execution',
+            '$0 Commission',
+            'Spreads from 0.6 pips',
+            'Ultra fast execution via XCORE Aggregator',
+            'Up to 60 Currency Pairs including GOLD & SILVER on MT4 Platform (up to 100 Currency Pairs via FIX API)',
+            '14 CFDs Indexes, plus USOil and UKOil and Commodities'
+          ], true)
+          +button()(class="button--green button--medium not-found__link") 
+            |Learn More
+
+  +footer(baseUrl)

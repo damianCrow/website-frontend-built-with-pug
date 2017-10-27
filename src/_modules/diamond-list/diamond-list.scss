@@ -12,6 +12,11 @@
 
   $root: &;
 
+  &--style2 {
+    padding: calc(#{$primary-gutter} * 1.5) 0;
+    position: relative;
+  }
+
   &__item {
     display: flex;
 
@@ -35,6 +40,23 @@
       background-color: palette(gold, process);
 
       font: normal 100%/normal Arial, Helvetica, sans-serif;
+    }
+
+    &--style2 {
+      padding-left: calc(#{$primary-gutter} * 2.5);
+      position: relative;
+
+      &::before {
+        width: 20px;
+        height: 20px;
+        left: 0;
+        position: absolute;
+        background-image:url('../images/logo.png');
+        background-size: contain;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        transform: rotateZ(0);
+      }
     }
   }
 
