@@ -22,7 +22,7 @@ export default class Nav {
 
     this.allItemDetails = this.calculateSizes(this.imediateItems)
     console.log('allItemDetails', this.allItemDetails)
-    this.applyEventListners()
+    this.applyEventListners(this.allItemDetails)
   }
 
   calculateSizes(level, heightOfSelectedNav = 0, startingPosition = 0) {
@@ -42,21 +42,21 @@ export default class Nav {
       // We will use the height of the first list item link as a reference.
       const firstLinkHeight = level[i].querySelector('.toggle-nav__link, .toggle-nav__sub-link').offsetHeight
       // Will return an array of objects, with details of each subitem
-      // const subItems = this.checkForSubItems(level[i])
+      const subItems = this.checkForSubItems(level[i])
 
       itemDetails[i] = {
         element: level[i],
         orginalHeight,
         firstLinkHeight,
         totalHeightOfPreviousItems,
-        // subItems,
+        subItems,
         level,
       }
 
-      console.log('i', i)
-      console.log('itemDetails[i]', itemDetails[i])
+      // console.log('i', i)
+      // console.log('itemDetails[i]', itemDetails[i])
 
-      this.closeItem(itemDetails[i].element, itemDetails[i].totalHeightOfPreviousItems)
+      this.closeItem(itemDetails[i].element, firstLinkHeight)
 
       // Total up how much we will need to shift the next item by.
       totalHeightOfPreviousItems += orginalHeight - firstLinkHeight
@@ -73,21 +73,34 @@ export default class Nav {
 
   // Close the previous subnav by hiding this one over it (by moving it upwards)
   closeItem(item, totalHeightOfPreviousItems) {
-    item.style.transform = `translateY(-${totalHeightOfPreviousItems}px)`
+    // item.style.transform = `translateY(-${totalHeightOfPreviousItems}px)`
+    item.style.height = `${totalHeightOfPreviousItems}px`
   }
 
-  applyEventListners() {
-    for (let i = 0; i < this.allItemDetails.length; i += 1) {
-      this.allItemDetails[i].element.addEventListener('click', (e) => {
+  applyEventListners(level) {
+    for (let i = 0; i < level.length; i += 1) {
+      level[i].element.addEventListener('click', (e) => {
         e.stopPropagation()
-        // removeClass(this.allItemDetails[i].level, 'toggle-nav__item--active-sub-nav')
-        console.log('i', i)
-        for (let j = i + 1; j < this.allItemDetails.length; j += 1) {
-          console.log(this.allItemDetails[j].totalHeightOfPreviousItems)
-          console.log(this.allItemDetails[i + 1].totalHeightOfPreviousItems)
-          this.allItemDetails[j].element.style.transform = `translateY(-${this.allItemDetails[j].totalHeightOfPreviousItems - this.allItemDetails[i + 1].totalHeightOfPreviousItems}px)`
+
+        console.log('clicked: ', level[i].element)
+
+        if (hasClass(level[i].element, 'toggle-nav__item--active-sub-nav')) {
+          level[i].element.style.height = `${level[i].firstLinkHeight}px`
+          removeClass(level[i].element, 'toggle-nav__item--active-sub-nav')
+        } else {
+          level[i].element.style.height = 'auto'
+          addClass(level[i].element, 'toggle-nav__item--active-sub-nav')
         }
+
+        // removeClass(this.allItemDetails[i].level, 'toggle-nav__item--active-sub-nav')
+        console.log(level[i].element)
+        console.log(`${level[i].orginalHeight}px`)
       })
+
+      console.log(level[i].subItems)
+      if (level[i].subItems.length > 0) {
+        this.applyEventListners(level[i].subItems)
+      }
     }
   }
 

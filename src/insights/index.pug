@@ -18,11 +18,26 @@ block content
   main(role='main' style='background-color: white;')
     article
       +article-header('Insights', null, null, true )
-      +article-hero('../images/article-header-image.jpg')
+      +article-hero('../images/insight/insight-banner-001.jpg')
 
       .page-content.page-content--menu-container
-        //- +side-menu('Categories')
-        //-   +nav()
+        +side-menu('Categories')
+          +nav({bright: true, sideNav: true, items: 
+            [ {title: 'Lastest News', href: '#latest-news'},
+              {title: 'Technical Analysis', href: '#technical-analysis', subItems:[
+                {title: 'Platforms', href: '/platforms'},
+                {title: 'FOREX Technologies', href: '/FOREX-Technologies'}]},
+              {title: 'Education', href: '#education', subItems: [
+                {title: 'Trading Tools', href: '#solutions'},
+                {title: 'Videos', href: '#technology'},
+                {title: 'Webinars & Seminars', href: '#clients'},
+                {title: 'Guides & eBooks', href: '#products'},
+                {title: 'Financial Glossary', href: '#products'},
+              ]},
+              {title: 'Calendar', href: '/insight'},
+              {title: 'Charts', href: '/contact'},
+            ]
+          })
         .page-content__container
           .page-content__block.page-content__block--double
             +news()
