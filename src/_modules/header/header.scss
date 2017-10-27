@@ -8,6 +8,7 @@
   height: $condensed-header-height;
   margin: 0 auto;
   background-color: palette(gray, white);
+  overflow-y: visible;
 
   $root: &;
   justify-content: space-between;
@@ -36,10 +37,10 @@
   }
 
   &__container {
-    position: relative;
+    // No posistion so main menu nav can overflow properly.
+    // position: relative;
 
     display: flex;
-    overflow: hidden;
 
     max-width: #{$thresh--large-2}px;
     height: 100%;
@@ -53,6 +54,30 @@
     @media #{$mq-desktop-small-up} {
       padding: rem(10) 2.5rem;
     }
+  }
+
+  &__menu-container {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+
+    right: 0;
+    left: 0;
+    overflow: hidden;
+    top: 0;
+    pointer-events: none;
+
+    @media #{$mq-desktop-small-up} {
+      width: 350px;
+      left: auto;
+      opacity: 1;
+      right: 0;
+    }
+
+    @media #{$mq-desktop-xlarge-up} {
+      right: calc(50% - #{$max / 2}) ;
+    }
+
   }
 
   &__burger {
