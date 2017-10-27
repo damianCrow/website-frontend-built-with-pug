@@ -21,7 +21,7 @@
     flex-direction: column;
 
     max-width: $max;
-    height: $article-header-height;
+    min-height: $article-header-height;
     margin: 0 auto;
     padding: 0 $primary-gutter;
 
