@@ -83,7 +83,7 @@
       transform: translateX(0);
       left: 30px;
       bottom: -2px;
-      @extend %typography-list-value;
+      @extend %typography-title-v-one;
     }
 
     &.red {

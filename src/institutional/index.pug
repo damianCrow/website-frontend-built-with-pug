@@ -14,10 +14,10 @@ block config
 
 block content
   +header(headerType, baseUrl)
-  main(role='main' style='background-color: white;')
+  main(role='main')
     article
       +article-header('Institutional')
-      +article-hero('../images/test1.jpg')
+      +article-hero('../images/institutional/institutional-banner-001.jpg')
       .wrapper.institutional 
         .institutional__blocks
           .institutional__block-wrap
@@ -42,7 +42,7 @@ block content
               +button()(class="button--green button--medium") 
                 |Learn More
           .institutional__block-wrap.institutional__block-wrap--border
-            .institutional__hero(style="background-image: url('../images/test1.jpg')")
+            .institutional__hero(style="background-image: url('../images/institutional/institutional-technology-thumbnail.jpg')")
             .institutional__block.institutional__block--text
               h4 Technology
               p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -72,7 +72,7 @@ block content
             .institutional__block.institutional__block--text
               h4 Our Solutions
               p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            .institutional__hero(style="background-image: url('../images/test1.jpg')")
+            .institutional__hero(style="background-image: url('../images/institutional/institutional-clients-thumbnail.jpg')")
           .institutional__block-wrap
             .institutional__block.institutional__block--vert
               .institutional__block.institutional__block--border

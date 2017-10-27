@@ -14,4 +14,4 @@ mixin article-header(title, buttons, product, subMenu)
         if buttons
           .article-header__buttons
             each button in buttons
-              +button(true)(class='button--arrow button--fill-height button--' + button.style)!=button.text
+              +button(true)(class='button--arrow button--large button--' + button.style)!=button.text

@@ -1,29 +1,41 @@
 include ../nav/nav
 include ../language-selector/language-selector
 
-mixin menu(headerSize)
+mixin menu(headerSize, baseUrl)
   #main-menu(class!='main-menu main-menu--' + headerSize)
     +nav({sideNav: false, items: 
-      [ {title: 'Overview', href: '/overview'},
-        {title: 'Private', href: '/private', subItems:[
-          {title: 'Platforms', href: '/platforms'},
-          {title: 'FOREX Technologies', href: '/FOREX-Technologies'}]},
-        {title: 'Institutional', href: '/institutional', subItems: [
+      [ {title: 'Overview', href: baseUrl + 'overview'},
+        {title: 'Private', href: baseUrl + 'private', subItems:[
+          {title: 'Account Details', href: baseUrl + 'accounts'}, 
+          {title: 'Products', href: baseUrl + 'products'},
+          {title: 'Platforms', href: baseUrl + 'platforms'},
+          {title: 'FOREX Technologies', href: baseUrl + 'forex-technologies'}]},
+        {title: 'Institutional', href: baseUrl + 'institutional', subItems: [
           {title: 'Solutions', subSubItems: [
-            {title: 'White Labels', href: '/white-labels'},
-            {title: 'IB & IA', href: '/IB-and-IA'},
-            {title: 'Liquidity Solutions', href: '/liquidity-solutions'},
+            {title: 'White Labels', href: baseUrl + 'white-labels'},
+            {title: 'IB & IA', href: baseUrl + 'ib-and-ia'},
+            {title: 'Liquidity Solutions', href: baseUrl + 'liquidity-solutions'},
           ]},
-          {title: 'Technology', href: '/technology', subSubItems: [
-            {title: 'White Labels', href: '/white-labels'},
-            {title: 'IB & IA', href: '/IB-and-IA'},
-            {title: 'Liquidity Solutions', href: '/liquidity-solutions'},
+          {title: 'Technology', href: baseUrl + 'technology', subSubItems: [
+            {title: 'Fix API', href: baseUrl + 'fix-api'},
+            {title: 'XCORE Aggregator', href: baseUrl + 'xcore-aggregator'},
+            {title: 'XTrader Platform', href: baseUrl + 'xtrader-platform'},
+            {title: 'Equinx', href: baseUrl + 'equinx'},
           ]},
-          {title: 'Clients', href: '/clients'},
-          {title: 'Products', href: '/products'},
+          {title: 'Our Clients', href: baseUrl + 'our-clients', subSubItems: [
+            {title: 'Brokers', href: baseUrl + 'brokers'},
+            {title: 'Professional', href: baseUrl + 'professional'},
+            {title: 'Fund Managers', href: baseUrl + 'fund-managers'},
+            {title: 'Family Offices', href: baseUrl + 'family-offices'},
+          ]},
+          {title: 'Products', href: baseUrl + 'products', subSubItems: [
+            {title: 'FOREX', href: baseUrl + 'forex'},
+            {title: 'CFDs', href: baseUrl + 'cfds'},
+            {title: 'Commodities', href: baseUrl + 'commodities'},
+          ]},
         ]},
-        {title: 'Insight', href: '/insight'},
-        {title: 'Contact', href: '/contact'},
+        {title: 'Insights', href: baseUrl + 'insights'},
+        {title: 'Contact', href: baseUrl + 'contact'},
       ]
     })
     +language-selector()

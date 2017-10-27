@@ -1,3 +1,6 @@
+$article-hero-height: 360px;
+$article-hero-height-mobile: $article-hero-height / 2;
+
 .article-hero {
   z-index: 4;
 
@@ -6,7 +9,7 @@
 
   width: 100%;
   max-width: $max;
-  height: 250px;
+  height: $article-hero-height-mobile;
   margin: 0 auto;
 
   background-position: center;
@@ -18,6 +21,7 @@
 
   @media #{$mq-desktop-small-up} {
     padding: $primary-gutter calc(8.333333333% + #{$primary-gutter});
+    height: $article-hero-height;
   }
 
   &__message,

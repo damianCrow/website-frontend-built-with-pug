@@ -33,6 +33,8 @@ body {
 
   flex-wrap: wrap;
 
+  background-color: white;
+
   &__block {
     position: relative;
 
@@ -106,7 +108,7 @@ body {
 @import '../_modules/diamond-list/diamond-list';
 @import '../_modules/products/products';
 @import '../_modules/product/product';
-@import '../_modules/whiteLabels/white-labels';
+@import '../_modules/institutional-sub-page/institutional-sub-page';
 @import '../_modules/institutional/institutional';
 @import '../_modules/notfound/notfound';
 @import '../_modules/account-details/account-details';

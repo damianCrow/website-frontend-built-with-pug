@@ -1,5 +1,5 @@
 .institutional {
-  @extend .white-label;
+  @extend .institutional-sub-page;
   flex-direction: column;
 
   @media #{$mq-desktop-small-up} {
@@ -74,8 +74,9 @@
       }
 
       h5 {
-        @etend %typography-title-v-one;
+        @extend %typography-title-v-one;
         color: palette(gray, medium);
+        margin: $half-gutter 0;
       }
     }
 
