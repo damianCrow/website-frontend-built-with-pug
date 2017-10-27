@@ -8,4 +8,8 @@
   background-size: 16px;
   border-style: ridge;
   border-radius: 0;
+
+  &.error {
+  	border: 2px solid palette(red, error);
+  }
 }

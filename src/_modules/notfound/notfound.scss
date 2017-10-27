@@ -1,0 +1,24 @@
+.not-found {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  &__link {
+    margin-left: $primary-gutter;
+    max-width: calc(#{$primary-gutter} * 11);
+  }
+
+  &__message {
+    @extend %typography-body;
+    padding: 0 $primary-gutter;
+    color: palette(gray, white);
+  }
+
+  .article-hero {
+    flex: 1;
+
+    &__message {
+      @extend %typography-banner-title;
+    }
+  }
+}

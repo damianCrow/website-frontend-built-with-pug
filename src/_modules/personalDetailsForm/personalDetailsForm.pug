@@ -31,8 +31,8 @@ mixin personalDetailsForm(spec)
       .personal_form__inputwrap
         h5.label.label--telephone Telephone:
         span +
-        div.personal_form__inputwrap--double
+        div.personal_form__inputwrap--double.phone-validate
           +textinput({class: 'short', type: 'text'})
           +textinput({class: 'medium', type: 'text'})
-      +button()(class="button--green button--medium" href="" type="submit" ) 
+      +button()(class="button--green button--medium" href="" type="submit") 
         |Continue

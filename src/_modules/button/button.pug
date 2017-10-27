@@ -1,6 +1,8 @@
-mixin button(link)
+mixin button(link, href)
+  - href = href || '#'
+  
   if link
-    a.button(class!=attributes.class, type!=attributes.type)
+    a.button(class!=attributes.class, type!=attributes.type href!=href)
       span
         block
   else

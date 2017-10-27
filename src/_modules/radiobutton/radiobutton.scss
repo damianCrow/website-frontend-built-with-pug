@@ -13,6 +13,22 @@
     position: relative;
     margin-top: 13.5px;
 
+    &:after {
+      content: '';
+      width: 18px;
+      height: 18px;
+      position: absolute;
+      transform: rotate(45deg);
+      visibility: visible;
+      border: 1px solid palette(gold, metalic);
+    }
+
+    &.error {
+      &:after {
+        border: 2px solid palette(red,error);
+      }
+    }
+
     &:checked {
     	&:before {
     		content: '';
@@ -25,16 +41,6 @@
     		top: 4px;
     		left: 4px;
     	}
-    }
-
-    &:after {
-    	content: '';
-    	width: 18px;
-    	height: 18px;
-    	position: absolute;
-    	border: 1px solid palette(gold, metalic);
-    	transform: rotate(45deg);
-    	visibility: visible;
     }
   }
 }
