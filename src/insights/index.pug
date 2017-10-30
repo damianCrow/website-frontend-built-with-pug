@@ -10,6 +10,10 @@ include ../_modules/footer/footer
 include ../_modules/twitter-icon/twitter-icon
 include ../_modules/daily-analysis/daily-analysis
 include ../_modules/daily-calendar/daily-calendar
+include ../_modules/featured-webinar/featured-webinar
+include ../_modules/featured-videos/featured-videos
+include ../_modules/featured-guides/featured-guides
+include ../_modules/featured-charts/featured-charts
 
 block config
   //- Correct base url pathing for this page
@@ -20,7 +24,7 @@ block content
   +header(headerType, baseUrl)
   main(role='main')
     article
-      +article-header('Insights', null, null, true )
+      +article-header('Insights', null, null, true)
       +article-hero('../images/insight/insight-banner-001.jpg')
 
       .page-content.page-content--menu-container
@@ -42,28 +46,27 @@ block content
             ]
           })
         .page-content__container
-          .page-content__block.page-content__block--column
-            .page-content__row
-              .page-content__block.page-content__block--double
-                +news()
-              .page-content__block.page-content__block--column
-                +daily-analysis()
-            .page-content__row
-              .page-content__block.page-content__block--column
-                +square({bright: false, meta: {text: '@BlackPearlFX', date: false}, title: {text: "#JPMorgan's CEO Jamie Dimon Says #Bitcoin is a money backed by nothing but a Fraud #Economy #Finance #Stocks"}})
-                  +twitter-icon()
-                  a.square__bottom-link(href='https://twitter.com') 2 hours ago
-
-              .page-content__block.page-content__block--double
-                //- +news()
-            .page-content__row
+          .page-content__row-or-stack
+            .page-content__block.page-content__block--double
+              +news()
+            .page-content__block.page-content__block--column
+              +daily-analysis()
+          .page-content__row-or-stack
+            .page-content__block.page-content__block--column
+              +square({modifier: [''], meta: {text: '@BlackPearlFX', date: false}, title: {text: "#JPMorgan's CEO Jamie Dimon Says #Bitcoin is a money backed by nothing but a Fraud #Economy #Finance #Stocks"}})
+                +twitter-icon()
+                a.square__bottom-link(href='https://twitter.com') 2 hours ago
+            .page-content__block.page-content__block--double
+              +featured-charts(baseUrl)
+          .page-content__row-or-stack
+            .page-content__block.page-content__block--double
               +daily-calendar()
-
-            //- .page-content__block
-            //-   .page-content__block.page-content__block--column
-            //-     +square()
-            //-     +square({bright: true})
-            //-   .page-content__block.page-content__block--double
-            //-     +news()
+            .page-content__block.page-content__block--column
+              +featured-webinar()
+          .page-content__row-or-stack
+            .page-content__block--double
+              +featured-videos(baseUrl)
+            .page-content__block
+              +featured-guides(baseUrl)
   +footer(baseUrl)
     

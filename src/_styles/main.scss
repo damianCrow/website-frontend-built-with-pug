@@ -35,23 +35,37 @@ body {
 
   background-color: white;
 
-  &__row {
+  $root: &;
+
+  &__row-or-stack {
     display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @media #{$mq-desktop-small-up} {
+      flex-direction: row;
+    }
   }
 
   &__block {
     position: relative;
+    width: 100%;
 
     display: flex;
-    flex: 1 1 #{rem(($thresh--small-3 / 5)) - ($primary-gutter * 2)};
-
+    flex: 1 1 auto;
+    @media #{$mq-desktop-small-up} {
+      flex: 1 1 #{rem(($thresh--small-3 / 5)) - ($primary-gutter * 2)};
+    }
 
     &--column {
       flex-direction: column;
     }
 
     &--double {
-      flex: 1 1 #{rem(($thresh--small-3 / 2)) - ($primary-gutter * 2)};
+      flex: 1 1 auto;
+      @media #{$mq-desktop-small-up} {
+        flex: 1 1 #{rem(($thresh--small-3 / 2)) - ($primary-gutter * 2)};
+      }
     }
 
     > * {
@@ -65,6 +79,7 @@ body {
   &__container {
     display: flex;
     flex: 2.5;
+    max-width: 100%;
 
     padding: $primary-gutter;
 
@@ -76,6 +91,9 @@ body {
   }
 
   &--menu-container {
+    #{$root}__container {
+      padding-top: rem($article-header-height) - $half-gutter;
+    }
     @media #{$mq-desktop-small-up} {
       flex-direction: row-reverse;
     }
@@ -125,3 +143,7 @@ body {
 @import '../_modules/daily-calendar/daily-calendar';
 @import '../_modules/alarm-manager/alarm-manager';
 @import '../_modules/modal/modal';
+@import '../_modules/featured-webinar/featured-webinar';
+@import '../_modules/featured-videos/featured-videos';
+@import '../_modules/featured-guides/featured-guides';
+@import '../_modules/featured-charts/featured-charts';
