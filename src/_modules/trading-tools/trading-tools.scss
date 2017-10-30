@@ -1,0 +1,54 @@
+.trading-tools {
+  .product-detail__summary, .product-detail__terms {
+    border-bottom: 1px solid palette(gold, metalic);
+    padding-bottom: calc(#{$primary-gutter} * 1.5);
+
+    @media #{$mq-desktop-small-up} {
+      margin-left: 11.33333333%;
+    }
+  }
+
+  .page-content__row {
+    flex-direction: column;
+
+    @media #{$mq-tablet-large-up} {
+      flex-direction: row;
+    }
+  }
+
+  .product-detail__terms {
+    margin-bottom: calc(#{$primary-gutter} * 2);
+  }
+
+  .institutional__block {
+    display: flex;
+
+    &:not(:last-child) {
+      margin-right: 0;
+
+      @media #{$mq-tablet-large-up} {
+        margin-right: $primary-gutter;
+      }
+    }
+
+    .trading-tools__tool-wrap {
+      flex: 1 0 calc(60% - #{$primary-gutter});
+    }
+    .trading-tools__image {
+      flex: 1 0 40%;
+      margin: auto -#{$primary-gutter} auto auto;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .button {
+      padding: 10px 36px;
+      
+      @media #{$mq-tablet-large-up} {
+        padding: 7px 20px;
+      }
+    } 
+  }
+}

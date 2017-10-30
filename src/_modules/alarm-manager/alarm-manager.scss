@@ -1,0 +1,26 @@
+.alarm-manager {
+  .page-content__container {
+    padding: $primary-gutter $half-gutter;
+
+    @media #{$mq-tablet-small-up} {
+      padding: calc(#{$primary-gutter} * 2.5) 0 0 calc(8.333333333% + (#{$primary-gutter} * 1.5));
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    h5 {
+      @extend %typography-title-v-two;
+      margin: 0 0 0 $half-gutter;
+    }
+
+    ul {
+      padding: 0;
+    }
+
+    p {
+      padding: 0;
+    }
+  }
+}

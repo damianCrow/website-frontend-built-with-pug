@@ -1,0 +1,87 @@
+extends ../_layouts/base
+include ../_modules/header/header
+include ../_modules/article-header/article-header
+include ../_modules/article-hero/article-hero
+include ../_modules/news/news
+include ../_modules/square/square
+include ../_modules/side-menu/side-menu
+include ../_modules/nav/nav
+include ../_modules/footer/footer
+include ../_modules/diamond-list/diamond-list
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+  - var headerType = 'condensed'
+
+block content
+  +header(headerType, baseUrl)
+  main(role='main')
+    article
+      +article-header('Alarm Manager', null, null, true )
+      +article-hero('../images/insight/insight-banner-001.jpg')
+      .alarm-manager
+        .page-content.page-content--menu-container
+          +side-menu('Categories')
+            +nav({bright: true, sideNav: true, items: 
+              [ {title: 'Lastest News', href: '#latest-news'},
+                {title: 'Technical Analysis', href: '#technical-analysis', subItems:[
+                  {title: 'Platforms', href: '/platforms'},
+                  {title: 'FOREX Technologies', href: '/FOREX-Technologies'}]},
+                {title: 'Education', href: '#education', subItems: [
+                  {title: 'Trading Tools', href: '#solutions'},
+                  {title: 'Videos', href: '#technology'},
+                  {title: 'Webinars & Seminars', href: '#clients'},
+                  {title: 'Guides & eBooks', href: '#products'},
+                  {title: 'Financial Glossary', href: '#products'},
+                ]},
+                {title: 'Calendar', href: '/insight'},
+                {title: 'Charts', href: '/contact'},
+              ]
+            })
+          .page-content__container
+            .page-content__block.page-content__block--column
+              p.product-detail__summary
+               |The Alarm Manager is a personal trading assistant which can notify the trader – or their followers on social media – about event, and carry out any number of automated actions such as opening positions, sending email and SMS.
+              .alarm-manager__image-wrap
+                img(src="../images/insight/Tools/Tools-Alarm-Manager-Large.jpg")
+
+              p.product-detail__terms
+               |The Alarm Manager is a unique and powerful trade assistant. It is designed both for individual traders and also for trade-leaders and educators who want to broadcast important trade-relevant information to followers.
+              p.product-detail__terms
+               |Traders can create rule-based alarms which trigger any number of actions. The software can notify the trader about events, carry out trading actions such as placing new orders or closing existing positions, or send updates to followers via email, SMS, or Twitter.
+
+              h5 The available alarms include the following key areas:
+              +diamond-list([
+                'Account alarms: changes in key account parameters, e.g. margin, balance, profit, loss, equity, consecutive wins/losses etc...',
+                'News/Sentiment alarms: triggered by calendar events or by material changes in live market sentiment.',
+                'Trade activity alarms: notifies about newly opened or closed trades, floating P&L on individual trades, and       identifies trades without stop losses etc...',
+                'Price alarms: triggered by changes/levels/breakouts in price.',
+                'Technical Indicator alarms: based on changes in technical indicators such as ATR, Bollinger Bands, Moving Averages , MACD, Swings, Stochastics, RSI, etc...',
+                'Time alarms: allows the trader to set stop-watch and time-of-day alarms'
+              ], true)
+
+              h5 The actions available upon an alarm being triggered include:
+              +diamond-list([
+                'Notification: send (or broadcast) twitter, SMS, email messages, pop up alert/audible alarms',
+                'Orders: place new market or pending orders',
+                'Trades: close some (e.g. all winning or losing EURUSD trades) or all trade'
+              ], true)
+
+              h5 For example, the Alarm Manager can be used to set up all of the following - the complete trading assistant:
+              +diamond-list([
+                'Warn on screen (or by email, or SMS) if margin usage exceeds 20%',
+                'Close all losing positions if drawdown on the account exceeds 10%',
+                'Send a message to followers on Twitter (or email or SMS) every time a trade is opened or closed',
+                'Automatically place orders or close positions at a time in the future, e.g. "at 2pm" or "in 30 minutes time"',
+                'Warn the trader if there is an open position without a stop-loss',
+                'Automatically place orders or close positions based on technical indicators such as RSI or  moving-average crosses',
+                'Send a message to followers on Twitter whenever there is a new 30-day high in an instrument',
+                'Display a message congratulating yourself if you have 3 consecutive winning trades',
+                'Remind yourself to stop trading if you have 4 consecutive losing trades, or if your balance declines by more      than 3%, or if your win/loss % falls below 30%',
+                'Show a message 10 minutes before high-impact events in the economic calendar',
+                'Place a new order when RSI is above 70 on three different timeframes',
+                'Place a new order if RSI goes above 70 or there is a MACD cross of the signal line'
+              ], true)
+                
+  +footer(baseUrl)
