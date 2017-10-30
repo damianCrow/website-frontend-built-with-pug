@@ -1,14 +1,41 @@
 .square {
   display: flex;
   flex-direction: column;
-  flex: 1 1 325px;
+  flex: 1 1 auto;
 
   max-height: 325px;
-  padding: $primary-gutter;
 
   background: palette(brown, base);
 
+  @media #{$mq-desktop-small-up} {
+    flex: 1 1 325px;
+  }
+
+
   $root: &;
+
+  &__featured-image {
+    position: relative;
+
+    overflow: hidden;
+    flex: 0 1 170px;
+
+    width: 100%;
+
+    > img {
+      width: 100%;
+      height: 100%;
+
+      @include object-fit(cover, center);
+    }
+  }
+
+  &__contents {
+    padding: $primary-gutter;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
 
   &__meta {
     margin-top: 0;
@@ -24,19 +51,47 @@
   }
 
   &__bottom-meta {
-    margin-top: auto;
     display: flex;
-    align-items: center;
 
+    margin-top: auto;
+
+    align-items: center;
     align-self: flex-start;
 
   }
 
   &__bottom-link {
     @extend %typography-small-section-link;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    
+    &--video {
+      margin-top: $half-gutter;
+      margin-left: rem(30) + $half-gutter;
+      &::before {
+        content: '';
+        background-image: url('../images/play-button.svg');
+        width: 30px;
+        height: 30px;
+        right: calc(100% + #{$half-gutter});
+        position: absolute;
+        display: inline-block;
+      }
+    }
   }
 
+  &--flush {
+    padding: 0;
+  }
 
+  &--collapsed {
+    flex: 1 1 auto;
+
+    @media #{$mq-desktop-small-up} {
+      flex: 1 1 0;
+    }
+  }
 
   &--bright {
     background-color: palette(gray, pale);
@@ -52,5 +107,31 @@
         @extend %typography-small-section-link-invert;
       }
     }
+  }
+
+  &--white {
+    border: 1px solid palette(gray, border);
+    background-color: palette(gray, white);
+
+    #{$root}__title {
+      > * {
+        @extend %typography-title-v-one;
+      }
+    }
+
+    #{$root}__bottom-meta {
+      #{$root}__bottom-link {
+        @extend %typography-small-section-link-invert;
+      }
+    }
+  }
+
+  &__bottom-countdown {
+    display: inline-block;
+
+    margin: $primary-gutter 0;
+
+    align-self: flex-start;
+    @extend %typography-title-v-two;
   }
 }

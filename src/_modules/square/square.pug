@@ -1,11 +1,18 @@
 mixin square(spec)
-  section(class='square ' + (spec.bright ? 'square--bright ' : ''))
-    span.square__meta!=(spec.meta.text ? spec.meta.text : '13:00 GMT 5th October 2017')
-    h1.square__title
-      if spec.title.date
-        time(datetime="2017-04-29T19:00")!=(sspec.title.text ? spec.title.text : '13:00 GMT 5th October 2017')
-      else
-        span!=spec.title.text
-    .square__bottom-meta
-      if block
-        block
+  - var modifers = ''
+  each modifier in spec.modifier
+    - modifers = modifers + (' square--' + modifier) 
+  section(class='square ' + modifers)
+    if spec.image
+      .square__featured-image
+        img(src!=spec.image)
+    .square__contents
+      span.square__meta!=(spec.meta.text ? spec.meta.text : '13:00 GMT 5th October 2017')
+      h1.square__title
+        if spec.title.date
+          time(datetime="2017-04-29T19:00")!=(sspec.title.text ? spec.title.text : '13:00 GMT 5th October 2017')
+        else
+          span!=spec.title.text
+      .square__bottom-meta
+        if block
+          block
