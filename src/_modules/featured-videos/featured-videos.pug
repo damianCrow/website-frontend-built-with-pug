@@ -1,0 +1,11 @@
+include ../square/square
+
+mixin featured-videos(baseUrl)
+  .featured-videos
+    .featured-videos__posts
+      +square({modifier: ['white', 'flush'], image: baseUrl + 'images/private/education-tutorial-default.jpg', meta: {text: 'Education', date: false}, title: {text: "New to Forex Trading"}})
+        span.square__bottom-link.square__bottom-link--video Watch Now
+      +square({modifier: ['white', 'flush'], image: baseUrl + 'images/private/education-tutorial-default.jpg', meta: {text: 'Education', date: falsett}, title: {text: "Top Technical Indicators Used by Forex Traders"}})
+        span.square__bottom-link.square__bottom-link--video Watch Now
+    a.featured-videos__bottom-link(href='') View All Videos
+

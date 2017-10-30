@@ -196,6 +196,14 @@
       border-width: 2px 0;
     }
 
+    .postive-text {
+      color: palette(green, light);
+    }
+
+    .negative-text {
+      color: palette(red, error);
+    }
+
     tr {
       border-bottom: 1px solid palette(gray, pale);
       height: 40px;

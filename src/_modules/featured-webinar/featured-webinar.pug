@@ -1,0 +1,8 @@
+include ../square/square
+
+mixin featured-webinar(baseUrl)
+  .featured-webinar
+    +square({modifier: ['collapsed'], meta: {text: '00:30 GMT 5th October 2017', date: true}, title: {text: "Webinar: Simplify the trading process with MT4 Trader"}})
+      span.square__bottom-link Register Now
+    a.daily-analysis__bottom-link(href='') View All Webinars
+

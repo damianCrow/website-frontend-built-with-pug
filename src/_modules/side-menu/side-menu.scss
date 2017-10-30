@@ -32,6 +32,10 @@
         transform: rotate(-225deg);
       }
     }
+
+    .toggle-nav {
+      transform: translateY(-100%);
+    }
   }
 
   &__title {

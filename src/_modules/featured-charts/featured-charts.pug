@@ -1,0 +1,122 @@
+include ../square/square
+include ../../_modules/tabs/tabs
+include ../../_modules/diamond-list/diamond-list
+
+mixin featured-charts(baseUrl)
+  .featured-charts
+    +tabs([{title: 'Forex', active: true, tablink: 'forex'}, {title: 'CFDs', tablink: 'cfds'}, {title: 'Commodities', tablink: 'commodities'}])
+      section.tabs__content.tabs__content--active(data-tab-link='forex')
+        table.product-detail__table
+            tr
+              th.column|Currency
+              th|Value
+              th|Change
+              th|Time (GMT)
+              th|2 Day
+            tr
+              td.column|EUR-USD
+              td|1.1765
+              td.positive-text|0.0006
+              td|5.56 AM
+              td|???
+            tr
+              td.column|EUR-USD
+              td|1.1765
+              td.negative-text|0.0006
+              td|5.56 AM
+              td|???
+            tr
+              td.column|EUR-USD
+              td|1.1765
+              td.positive-text|0.0006
+              td|5.56 AM
+              td|???
+            tr
+              td.column|EUR-USD
+              td|1.1765
+              td.negative-text|0.0006
+              td|5.56 AM
+              td|???
+            tr
+              td.column|EUR-USD
+              td|1.1765
+              td.positive-text|0.0006
+              td|5.56 AM
+              td|???
+      section.tabs__content(data-tab-link='cfds')
+        table.product-detail__table
+            tr
+              th.column|Currency
+              th|Value
+              th|Change
+              th|Time (GMT)
+              th|2 Day
+            tr
+              td.column|EUR-USD
+              td|1.1765
+              td.positive-text|0.0006
+              td|5.56 AM
+              td|???
+            tr
+              td.column|EUR-USD
+              td|1.1765
+              td.negative-text|0.0006
+              td|5.56 AM
+              td|???
+            tr
+              td.column|EUR-USD
+              td|1.1765
+              td.positive-text|0.0006
+              td|5.56 AM
+              td|???
+            tr
+              td.column|EUR-USD
+              td|1.1765
+              td.negative-text|0.0006
+              td|5.56 AM
+              td|???
+            tr
+              td.column|EUR-USD
+              td|1.1765
+              td.positive-text|0.0006
+              td|5.56 AM
+              td|???
+      section.tabs__content(data-tab-link='commodities')
+        table.product-detail__table
+            tr
+              th.column|Currency
+              th|Value
+              th|Change
+              th|Time (GMT)
+              th|2 Day
+            tr
+              td.column|EUR-USD
+              td|1.1765
+              td.positive-text|0.0006
+              td|5.56 AM
+              td|???
+            tr
+              td.column|EUR-USD
+              td|1.1765
+              td.negative-text|0.0006
+              td|5.56 AM
+              td|???
+            tr
+              td.column|EUR-USD
+              td|1.1765
+              td.positive-text|0.0006
+              td|5.56 AM
+              td|???
+            tr
+              td.column|EUR-USD
+              td|1.1765
+              td.negative-text|0.0006
+              td|5.56 AM
+              td|???
+            tr
+              td.column|EUR-USD
+              td|1.1765
+              td.positive-text|0.0006
+              td|5.56 AM
+              td|???
+    a.featured-charts__bottom-link(href='') View All Charts

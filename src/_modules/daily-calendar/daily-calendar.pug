@@ -2,9 +2,10 @@ include ../square/square
 
 mixin daily-calendar(baseUrl)
   .daily-calendar
-    +square({bright: true, meta: {text: '00:30 GMT 5th October 2017', date: true}, title: {text: "AUD Trade Balance (Australian dollar) (AUG)"}})
-      span.square__bottom-link 00 Days  00 Hours  00 Mins  00 Secs
-    +square({bright: true, meta: {text: '08:00 GMT 5th October 2017', date: true}, title: {text: "GBP New Car Registrations (YoY) (SEP)"}})
-      span.square__bottom-link 00 Days  00 Hours  00 Mins  00 Secs
-    a.daily-analysis__bottom-link(href='') View All Technical Analysis
+    .daily-calendar__events
+      +square({modifier: ['white', 'collapsed'], meta: {text: '00:30 GMT 5th October 2017', date: true}, title: {text: "AUD Trade Balance (Australian dollar) (AUG)"}})
+        span.square__bottom-countdown 00 Days  00 Hours  00 Mins  00 Secs
+      +square({modifier: ['white', 'collapsed'], meta: {text: '08:00 GMT 5th October 2017', date: true}, title: {text: "GBP New Car Registrations (YoY) (SEP)"}})
+        span.square__bottom-countdown 00 Days  00 Hours  00 Mins  00 Secs
+    a.daily-calendar__bottom-link(href='') View All Technical Analysis
 

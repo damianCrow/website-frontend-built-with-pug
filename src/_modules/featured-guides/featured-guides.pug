@@ -1,0 +1,9 @@
+include ../square/square
+
+mixin featured-guides(baseUrl)
+  .featured-guides
+    .featured-guides__posts
+      +square({modifier: ['white'], meta: {text: 'Education', date: false}, title: {text: "New to Forex Trading"}})
+        span.square__bottom-link Download Guide (PDF)
+    a.daily-analysis__bottom-link(href='') View All Guides
+
