@@ -12,6 +12,8 @@
     display: flex;
     list-style: none;
     padding: 0;
+    margin: 0;
+    margin-bottom: $half-gutter;
   }
 
   &__tab {
@@ -70,10 +72,13 @@
     width: 100%;
     background-color: white;
     opacity: 0;
-    transition: opacity 250ms $timing-function-fast-out-slow-in;
 
     &--active {
       opacity: 1;
+    }
+
+    &--transition {
+      transition: opacity 250ms $timing-function-fast-out-slow-in;
     }
   }
 }
