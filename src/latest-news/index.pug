@@ -1,0 +1,57 @@
+extends ../_layouts/base
+include ../_modules/header/header
+include ../_modules/article-header/article-header
+include ../_modules/article-hero/article-hero
+include ../_modules/news/news
+include ../_modules/square/square
+include ../_modules/side-menu/side-menu
+include ../_modules/nav/nav
+include ../_modules/footer/footer
+include ../_modules/diamond-list/diamond-list
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+  - var headerType = 'condensed'
+
+block content
+  +header(headerType, baseUrl)
+  main(role='main')
+    article
+      +article-header('Latest News', null, null, true )
+      +article-hero('../images/insight/insight-banner-001.jpg')
+      .latest-news
+        .page-content.page-content--menu-container
+          +side-menu('Categories')
+            +nav({bright: true, sideNav: true, items: 
+              [ {title: 'Lastest News', href: '#latest-news'},
+                {title: 'Technical Analysis', href: '#technical-analysis', subItems:[
+                  {title: 'Platforms', href: '/platforms'},
+                  {title: 'FOREX Technologies', href: '/FOREX-Technologies'}]},
+                {title: 'Education', href: '#education', subItems: [
+                  {title: 'Trading Tools', href: '#solutions'},
+                  {title: 'Videos', href: '#technology'},
+                  {title: 'Webinars & Seminars', href: '#clients'},
+                  {title: 'Guides & eBooks', href: '#products'},
+                  {title: 'Financial Glossary', href: '#products'},
+                ]},
+                {title: 'Calendar', href: '/insight'},
+                {title: 'Charts', href: '/contact'},
+              ]
+            })
+          .page-content__container
+            .page-content__block.page-content__block--column
+              .latest-news__photo-wrap
+                h3.product-detail__summary.latest-news__title
+                  |The Euro Club may have a new member soon
+                .photo
+                p.latest-news__subtitle
+                  |5th October 2017 By #[span Emanuele Canegrati]
+
+              p.product-detail__terms
+                |According to many influencing top Hungarian bankers, Hungary can join the Euro club sooner than expected, becoming the first economy of the former Western bloc (Poland, Czech Republic and Romania are the other three members) to adopt the common currency. Until now, the local governments have refused to indicate a date for the official adoption of the Euro. Nevertheless, after the defeat of populist parties in the last elections held in France and Germany, the European spirit has risen again also on the Eastern side of Europe.
+              p.product-detail__terms
+                |"At the end of the day, Hungary will join the eurozone and we'll go together", with the other members wishing for more European integration, Sandor Csanyi, OTP bank's CEO said last week in Budapest. The entrance of Eastern countries into the Eurozone has become a hot topic, after European top officials started a discussion about the reform of the European Union, with French president Emmanuel Macron who seemed willing to take the lead of the reform process.
+              p.product-detail__terms
+                |Hungary's forint was traded at € 311.75 as of 3:01 am EDT on October 5, near the five-month low against the euro.
+  +footer(baseUrl)

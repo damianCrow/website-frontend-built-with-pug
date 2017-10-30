@@ -1,0 +1,88 @@
+.latest-news {
+  background-color: palette(gray, white);
+
+  @media #{$mq-desktop-small-up} {
+    padding: calc(1rem * 2.5) 0 0 calc(8.333333333% + (1rem * 1.5));
+  }
+
+  &__subtitle {
+    position: relative;
+    bottom: 55px;
+    left: 85px;
+    @extend %typography-body;
+    max-width: calc(100% - 85px);
+
+    @media #{$mq-desktop-small-up} {
+      left: 90px;
+      bottom: 40px;
+    }
+
+    span {
+      text-decoration: underline;
+    }
+  }
+
+  &__title {
+    padding-left: $half-gutter;
+    margin: 0 0 $primary-gutter 0;
+
+    @media #{$mq-desktop-small-up} {
+      position: relative;
+      left: 80px;
+      max-width: 100%;
+      top: 40px;
+    }
+  }
+
+  &__photo-wrap {
+    position: relative;
+    margin-bottom: -2rem;
+
+    // @media #{$mq-tablet-small-up} {
+    //   padding-left: $primary-gutter;
+    // }
+  }
+
+  .photo {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    transform: rotate(45deg);
+    overflow: hidden;
+    margin-left: $primary-gutter;
+
+    // @media #{$mq-tablet-small-up} {
+    //   padding-left: $primary-gutter;
+    // }
+
+    &:after {
+      content: '';
+      top: -14px;
+      left: -15px;
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      transform: rotate(-45deg);
+      background-size: cover;
+      background-image: url('../images/insight/News/Analyst-Profile-Emanuele-Canegrati.jpg');
+    }
+  }
+
+  .page-content__container {
+    padding-left: 0;
+    padding-top: 1rem;
+    
+    @media #{$mq-desktop-small-up} {
+      padding-top: 0;
+    }
+
+    p {
+      padding: 0;
+      padding-left: $half-gutter;
+
+      @media #{$mq-desktop-small-up} {
+        padding-left: 0;
+      }
+    }
+  }
+}
