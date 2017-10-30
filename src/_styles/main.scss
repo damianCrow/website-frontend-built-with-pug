@@ -13,7 +13,7 @@ body {
   padding-top: $condensed-header-height;
 
   &.expanded-header {
-    @media #{$mq-desktop-small-up} {
+    @media #{$mq-tablet-small-up} {
       padding-top: $expanded-header-height;
     }
   }
@@ -117,6 +117,8 @@ body {
 @import '../_modules/notfound/notfound';
 @import '../_modules/account-details/account-details';
 @import '../_modules/terms/terms';
+@import '../_modules/forex-tech/forex-tech';
+@import '../_modules/platforms/platforms';
 @import '../_modules/modal/modal';
 @import '../_modules/twitter-icon/twitter-icon';
 @import '../_modules/daily-analysis/daily-analysis';

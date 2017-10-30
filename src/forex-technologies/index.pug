@@ -1,0 +1,37 @@
+extends ../_layouts/base
+include ../_modules/header/header
+include ../_modules/footer/footer
+include ../_modules/button/button
+include ../_modules/progressicon/progressicon
+include ../_modules/article-header/article-header
+include ../_modules/article-hero/article-hero
+include ../_modules/diamond-list/diamond-list
+
+block config
+  //- Correct base url pathing for this page 'condensed' or 'expanded'
+  - var headerType = 'condensed'
+  - var baseUrl = '../'
+
+block content
+  +header(headerType, baseUrl)
+  main(role='main' style='background-color: white;')
+    article
+      +article-header('Forex Technologies', [{text: 'Become a Client', style: 'green'}, {text: 'Request Demo', style: 'dark-green'}])
+      +article-hero('../images/Private/Private-Banner-001.jpg')
+      .wrapper.forex-tech
+        .institutional__block.institutional__block--border
+          h6 Our Solutions
+          h5 Equinix
+          +button()(class="button--green button--medium") 
+            |Learn More
+        .institutional__block.institutional__block--border
+          h6 Our Solutions
+          h5 PrimeXM
+          +button()(class="button--green button--medium") 
+            |Learn More
+        .institutional__block.institutional__block--border
+          h6 Our Solutions
+          h5 FIXprotocol
+          +button()(class="button--green button--medium") 
+            |Learn More
+  +footer(baseUrl)
