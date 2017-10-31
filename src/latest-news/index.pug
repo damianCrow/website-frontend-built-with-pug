@@ -1,0 +1,89 @@
+extends ../_layouts/base
+include ../_modules/header/header
+include ../_modules/article-header/article-header
+include ../_modules/article-hero/article-hero
+include ../_modules/news/news
+include ../_modules/square/square
+include ../_modules/side-menu/side-menu
+include ../_modules/nav/nav
+include ../_modules/footer/footer
+include ../_modules/twitter-icon/twitter-icon
+include ../_modules/linkedin-icon/linkedin-icon
+include ../_modules/daily-analysis/daily-analysis
+include ../_modules/daily-calendar/daily-calendar
+include ../_modules/featured-webinar/featured-webinar
+include ../_modules/featured-videos/featured-videos
+include ../_modules/featured-guides/featured-guides
+include ../_modules/featured-charts/featured-charts
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+  - var headerType = 'condensed'
+
+block content
+  +header(headerType, baseUrl)
+  main(role='main')
+    article
+      +article-header('Latest News', null, null, true)
+      +article-hero('../images/insight/insight-banner-001.jpg')
+
+      .page-content.page-content--menu-container
+        +side-menu('Categories')
+          +nav({bright: true, sideNav: true, items: 
+            [ {title: 'Lastest News', href: '#latest-news'},
+              {title: 'Technical Analysis', href: '#technical-analysis', subItems:[
+                {title: 'Platforms', href: '/platforms'},
+                {title: 'FOREX Technologies', href: '/FOREX-Technologies'}]},
+              {title: 'Education', href: '#education', subItems: [
+                {title: 'Trading Tools', href: '#solutions'},
+                {title: 'Videos', href: '#technology'},
+                {title: 'Webinars & Seminars', href: '#clients'},
+                {title: 'Guides & eBooks', href: '#products'},
+                {title: 'Financial Glossary', href: '#products'},
+              ]},
+              {title: 'Calendar', href: '/insight'},
+              {title: 'Charts', href: '/contact'},
+            ]
+          })
+        .page-content__container
+          +tabs([{title: 'Real-Time News', active: true, tablink: 'real-time-news'}, {title: 'Articles', tablink: 'latest-news-articles'}, {title: 'BP Prime Analysis', tablink: 'bp-prime-analysis'}])
+            section.tabs__content.tabs__content--active(data-tab-link='real-time-news')
+              .real-time-news
+                +square({modifier: ['collapsed'], meta: {text: '@BlackPearlFX', date: false}, title: {text: "#JPMorgan's CEO Jamie Dimon Says #Bitcoin is a money backed by nothing but a Fraud #Economy #Finance #Stocks"}})
+                  +twitter-icon()
+                  a.square__bottom-link(href='https://twitter.com') 2 hours
+                +square({modifier: ['collapsed', 'grey'], meta: {text: '@BlackPearlFX', date: false}, title: {text: "#JPMorgan's CEO Jamie Dimon Says #Bitcoin is a money backed by nothing but a Fraud #Economy #Finance #Stocks"}})
+                  +linkedin-icon()
+                  a.square__bottom-link(href='https://twitter.com') 2 hours
+                +square({modifier: ['collapsed'], meta: {text: '@BlackPearlFX', date: false}, title: {text: "#JPMorgan's CEO Jamie Dimon Says #Bitcoin is a money backed by nothing but a Fraud #Economy #Finance #Stocks"}})
+                  +twitter-icon()
+                  a.square__bottom-link(href='https://twitter.com') 2 hours
+                +square({modifier: ['collapsed', 'grey'], meta: {text: '@BlackPearlFX', date: false}, title: {text: "#JPMorgan's CEO Jamie Dimon Says #Bitcoin is a money backed by nothing but a Fraud #Economy #Finance #Stocks"}})
+                  +linkedin-icon()
+                  a.square__bottom-link(href='https://twitter.com') 2 hours
+                +square({modifier: ['collapsed'], meta: {text: '@BlackPearlFX', date: false}, title: {text: "#JPMorgan's CEO Jamie Dimon Says #Bitcoin is a money backed by nothing but a Fraud #Economy #Finance #Stocks"}})
+                  +twitter-icon()
+                  a.square__bottom-link(href='https://twitter.com') 2 hours
+                +square({modifier: ['collapsed', 'grey'], meta: {text: '@BlackPearlFX', date: false}, title: {text: "#JPMorgan's CEO Jamie Dimon Says #Bitcoin is a money backed by nothing but a Fraud #Economy #Finance #Stocks"}})
+                  +linkedin-icon()
+                  a.square__bottom-link(href='https://twitter.com') 2 hours
+            section.tabs__content(data-tab-link='latest-news-articles')
+              +news(true)
+              +news(true)
+              +news(true)
+              +news(true)
+              +news(true)
+              +news(true)
+              +news(true)
+              +news(true)
+              +news(true)
+              +news(true)
+              +news(true)
+              +news(true)
+            section.tabs__content(data-tab-link='bp-prime-analysis')
+              .overview
+                p.overview__intro
+                  | Pearls represent wisdom acquired through experience. They are believed to attract wealth and luck as well as to offer protection. The pearl is also said to symbolize the purity, generosity, integrity, and loyalty of its wearer. At BlackPearlFX we aim to offer just the same. We put our experience at our client’s service and at the same time give protection to their capitals.
+  +footer(baseUrl)
+    
