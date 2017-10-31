@@ -11,13 +11,11 @@ $burger-height: 3px;
   $root: &;
 
   &__featured-image {
-    flex: 0 0 100%;
-
-    width: 100%;
-    height: 175px;
+    flex: 0 1 100%;
+    height: 75px;
 
     @media #{$mq-desktop-small-up} {
-      height: 325px;
+      flex: 0 1 170px;
     }
 
     > img {
@@ -35,12 +33,19 @@ $burger-height: 3px;
 
   &__item {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+
+    margin-top: $primary-gutter;
 
     border-bottom: 1px solid palette(gray, border);
-
+    
     @media #{$mq-desktop-small-up} {
-      padding: $half-gutter;
+      flex-direction: row;
+
+      padding: $half-gutter 0;
+      margin-top: 0;
+
+      align-items: center;
     }
 
     &--featured {
@@ -49,6 +54,24 @@ $burger-height: 3px;
       padding: 0;
 
       flex-wrap: wrap;
+
+      #{$root}__featured-image {
+        flex: 0 0 100%;
+
+        width: 100%;
+        height: 175px;
+
+        @media #{$mq-desktop-small-up} {
+          height: 325px;
+        }
+
+        > img {
+          width: 100%;
+          height: 100%;
+
+          @include object-fit(cover, center);
+        }
+      }
     }
   }
 
@@ -56,12 +79,12 @@ $burger-height: 3px;
   &__item-details {
     display: flex;
     flex-direction: column;
-    flex: 1 1 0;
+    flex: 1 1 auto;
 
     padding: 0;
 
     @media #{$mq-desktop-small-up} {
-      // flex: 1;
+      flex: 1 1 0;
 
       padding: $half-gutter;
     }

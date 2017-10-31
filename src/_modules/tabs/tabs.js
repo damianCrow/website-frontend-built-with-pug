@@ -4,7 +4,7 @@ export default class Tabs {
   constructor(tabsNode) {
     this.parent = tabsNode
     this.eachTab = tabsNode.getElementsByClassName('tabs__tab')
-    this.eachTabContent = tabsNode.getElementsByTagName('section')
+    this.eachTabContent = tabsNode.querySelectorAll('.tabs__content-wrapper [data-tab-link]')
     // eslint-disable-next-line prefer-destructuring
     this.tabWrapper = tabsNode.getElementsByClassName('tabs__content-wrapper')[0]
     this.firstActiveTab = tabsNode.getElementsByClassName('tabs__content--active')[0]
@@ -20,6 +20,7 @@ export default class Tabs {
       this.eachTab[i].addEventListener('click', e => this.toggleTab(e))
     }
 
+    console.log(this.tabWrapper)
     this.tabWrapper.style.height = `${this.firstActiveTab.getAttribute('data-orginal-height')}px`
     addClass(this.tabWrapper, 'tabs__content--transition')
   }

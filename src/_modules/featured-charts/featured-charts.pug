@@ -2,121 +2,142 @@ include ../square/square
 include ../../_modules/tabs/tabs
 include ../../_modules/diamond-list/diamond-list
 
-mixin featured-charts(baseUrl)
+mixin featured-charts(baseUrl, styleModifers, smaller)
+  - var modifers = ''
+  if styleModifers
+    each modifier in styleModifers
+      - modifers = modifers + (' featured-charts--' + modifier) 
   .featured-charts
     +tabs([{title: 'Forex', active: true, tablink: 'forex'}, {title: 'CFDs', tablink: 'cfds'}, {title: 'Commodities', tablink: 'commodities'}])
-      section.tabs__content.tabs__content--active(data-tab-link='forex')
+      section(data-tab-link='forex' class='tabs__content tabs__content--active ' + modifers)
         table.product-detail__table
             tr
-              th.column|Currency
-              th|Value
-              th|Change
-              th|Time (GMT)
-              th|2 Day
+              th.column Currency
+              th.detail-column Value
+              th Change
+              th.detail-column Time (GMT)
+              th 2 Day
             tr
-              td.column|EUR-USD
-              td|1.1765
-              td.positive-text|0.0006
-              td|5.56 AM
-              td|???
+              td.column EUR-USD
+              td.detail-column 1.1765
+              td.positive-text 0.0006
+              td.detail-column 5.56 AM
+              td.product-detail__graph-example
+                img(src=baseUrl + 'images/small-graph-example.png')
             tr
-              td.column|EUR-USD
-              td|1.1765
-              td.negative-text|0.0006
-              td|5.56 AM
-              td|???
+              td.column EUR-USD
+              td.detail-column 1.1765
+              td.positive-text 0.0006
+              td.detail-column 5.56 AM
+              td.product-detail__graph-example
+                img(src=baseUrl + 'images/small-graph-example.png')
             tr
-              td.column|EUR-USD
-              td|1.1765
-              td.positive-text|0.0006
-              td|5.56 AM
-              td|???
+              td.column EUR-USD
+              td.detail-column 1.1765
+              td.positive-text 0.0006
+              td.detail-column 5.56 AM
+              td.product-detail__graph-example
+                img(src=baseUrl + 'images/small-graph-example.png')
             tr
-              td.column|EUR-USD
-              td|1.1765
-              td.negative-text|0.0006
-              td|5.56 AM
-              td|???
+              td.column EUR-USD
+              td.detail-column 1.1765
+              td.positive-text 0.0006
+              td.detail-column 5.56 AM
+              td.product-detail__graph-example
+                img(src=baseUrl + 'images/small-graph-example.png')
             tr
-              td.column|EUR-USD
-              td|1.1765
-              td.positive-text|0.0006
-              td|5.56 AM
-              td|???
-      section.tabs__content(data-tab-link='cfds')
+              td.column EUR-USD
+              td.detail-column 1.1765
+              td.positive-text 0.0006
+              td.detail-column 5.56 AM
+              td.product-detail__graph-example
+                img(src=baseUrl + 'images/small-graph-example.png')
+      section(data-tab-link='cfds' class='tabs__content tabs__content--active ' + modifers)
         table.product-detail__table
             tr
-              th.column|Currency
-              th|Value
-              th|Change
-              th|Time (GMT)
-              th|2 Day
+              th.column Currency
+              th.detail-column Value
+              th Change
+              th.detail-column Time (GMT)
+              th 2 Day
             tr
-              td.column|EUR-USD
-              td|1.1765
-              td.positive-text|0.0006
-              td|5.56 AM
-              td|???
+              td.column EUR-USD
+              td.detail-column 1.1765
+              td.positive-text 0.0006
+              td.detail-column 5.56 AM
+              td.product-detail__graph-example
+                img(src=baseUrl + 'images/small-graph-example.png')
             tr
-              td.column|EUR-USD
-              td|1.1765
-              td.negative-text|0.0006
-              td|5.56 AM
-              td|???
+              td.column EUR-USD
+              td.detail-column 1.1765
+              td.positive-text 0.0006
+              td.detail-column 5.56 AM
+              td.product-detail__graph-example
+                img(src=baseUrl + 'images/small-graph-example.png')
             tr
-              td.column|EUR-USD
-              td|1.1765
-              td.positive-text|0.0006
-              td|5.56 AM
-              td|???
+              td.column EUR-USD
+              td.detail-column 1.1765
+              td.positive-text 0.0006
+              td.detail-column 5.56 AM
+              td.product-detail__graph-example
+                img(src=baseUrl + 'images/small-graph-example.png')
             tr
-              td.column|EUR-USD
-              td|1.1765
-              td.negative-text|0.0006
-              td|5.56 AM
-              td|???
+              td.column EUR-USD
+              td.detail-column 1.1765
+              td.positive-text 0.0006
+              td.detail-column 5.56 AM
+              td.product-detail__graph-example
+                img(src=baseUrl + 'images/small-graph-example.png')
             tr
-              td.column|EUR-USD
-              td|1.1765
-              td.positive-text|0.0006
-              td|5.56 AM
-              td|???
-      section.tabs__content(data-tab-link='commodities')
+              td.column EUR-USD
+              td.detail-column 1.1765
+              td.positive-text 0.0006
+              td.detail-column 5.56 AM
+              td.product-detail__graph-example
+                img(src=baseUrl + 'images/small-graph-example.png')
+      section(data-tab-link='commodities' class='tabs__content tabs__content--active ' + modifers)
         table.product-detail__table
             tr
-              th.column|Currency
-              th|Value
-              th|Change
-              th|Time (GMT)
-              th|2 Day
+              th.column Currency
+              th.detail-column Value
+              th Change
+              th.detail-column Time (GMT)
+              th 2 Day
             tr
-              td.column|EUR-USD
-              td|1.1765
-              td.positive-text|0.0006
-              td|5.56 AM
-              td|???
+              td.column EUR-USD
+              td.detail-column 1.1765
+              td.positive-text 0.0006
+              td.detail-column 5.56 AM
+              td.product-detail__graph-example
+                img(src=baseUrl + 'images/small-graph-example.png')
             tr
-              td.column|EUR-USD
-              td|1.1765
-              td.negative-text|0.0006
-              td|5.56 AM
-              td|???
+              td.column EUR-USD
+              td.detail-column 1.1765
+              td.positive-text 0.0006
+              td.detail-column 5.56 AM
+              td.product-detail__graph-example
+                img(src=baseUrl + 'images/small-graph-example.png')
             tr
-              td.column|EUR-USD
-              td|1.1765
-              td.positive-text|0.0006
-              td|5.56 AM
-              td|???
+              td.column EUR-USD
+              td.detail-column 1.1765
+              td.positive-text 0.0006
+              td.detail-column 5.56 AM
+              td.product-detail__graph-example
+                img(src=baseUrl + 'images/small-graph-example.png')
             tr
-              td.column|EUR-USD
-              td|1.1765
-              td.negative-text|0.0006
-              td|5.56 AM
-              td|???
+              td.column EUR-USD
+              td.detail-column 1.1765
+              td.positive-text 0.0006
+              td.detail-column 5.56 AM
+              td.product-detail__graph-example
+                img(src=baseUrl + 'images/small-graph-example.png')
             tr
-              td.column|EUR-USD
-              td|1.1765
-              td.positive-text|0.0006
-              td|5.56 AM
-              td|???
-    a.featured-charts__bottom-link(href='') View All Charts
+              td.column EUR-USD
+              td.detail-column 1.1765
+              td.positive-text 0.0006
+              td.detail-column 5.56 AM
+              td.product-detail__graph-example
+                img(src=baseUrl + 'images/small-graph-example.png')
+    if smaller
+    else
+      a.featured-charts__bottom-link(href='') View All Charts

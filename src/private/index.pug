@@ -7,6 +7,11 @@ include ../_modules/square/square
 include ../_modules/side-menu/side-menu
 include ../_modules/nav/nav
 include ../_modules/footer/footer
+include ../_modules/prime-points/prime-points
+include ../_modules/our-office/our-office
+include ../_modules/featured-charts/featured-charts
+include ../_modules/featured-image-text/featured-image-text
+include ../_modules/payment-methods/payment-methods
 
 block config
   //- Correct base url pathing for this page
@@ -20,10 +25,25 @@ block content
       +article-header('Private', [{text: 'Become a Client', style: 'green'}, {text: 'Request Demo', style: 'dark-green'}] )
       +article-hero('../images/article-header-image.jpg','Banner Message style with call to action, typeset in Financier Text Bold', {text: 'CTA Button', style: 'green'})
       .page-content
-        section.page-content__block
-          +news()
-        section.page-content__block
-          //- +square()
-
+        .page-content__container
+          .page-content__row-or-stack
+            section.page-content__block.page-content__block--double
+              +featured-image-text(baseUrl)
+            section.page-content__block
+              +prime-points(baseUrl)
+            section.page-content__block
+              +our-office(baseUrl)
+          .page-content__row-or-stack
+            section.page-content__block
+              +square({modifier: ['white', 'flush'], image: baseUrl + 'images/private/education-tutorial-default.jpg', meta: {text: 'Education', date: false}, title: {text: "New to Forex Trading"}})
+                span.square__bottom-link.square__bottom-link--video Watch Now
+            section.page-content__block
+              +square({modifier: ['white'], meta: {text: 'Our Producrs', date: false}, title: {text: "Trade different markets on one powerful platform - from over 60 currency pairs to metals and energy."}})
+                span.square__bottom-link View Products
+            section.page-content__block
+              +square({modifier: [''], meta: {text: 'Tools', date: false}, title: {text: "BlackPearlFX is proud to offer a suite of multi-platform, multi-lingual, market-informed apps which help traders to optimise their ability to trade successfully."}})
+                span.square__bottom-link View Trader Tools
+            section.page-content__block
+              +featured-charts(baseUrl, ['smaller'], true)
+          +payment-methods(baseUrl)
   +footer(baseUrl)
-    

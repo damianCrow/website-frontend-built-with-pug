@@ -1,0 +1,21 @@
+// header styles
+.real-time-news {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -#{$half-gutter};
+  padding-top: $primary-gutter;
+  flex-direction: column;
+
+
+  @media #{$mq-desktop-small-up} {
+    flex-direction: row;
+  }
+
+  > .square {
+    margin: $half-gutter;
+    @media #{$mq-desktop-small-up} {
+      height: 325px;
+    }
+    flex: 1 0 calc(33.333333333% - #{$primary-gutter * 2});
+  }
+}

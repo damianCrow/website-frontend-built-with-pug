@@ -18,6 +18,7 @@
   &__events {
     display: flex;
     flex-direction: column;
+
     width: 100%;
 
     @media #{$mq-desktop-small-up} {
@@ -26,6 +27,7 @@
 
     > .square {
       flex: 1;
+
       margin-top: $primary-gutter;
 
       @media #{$mq-desktop-small-up} {
@@ -35,8 +37,13 @@
           margin-left: 0;
         }
       }
+    }
+  }
 
-
+  // TODO: This should really be in a table mixin
+  &--smaller {
+    .detail-column {
+      display: none;
     }
   }
 }

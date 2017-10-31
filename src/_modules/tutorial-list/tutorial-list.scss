@@ -1,0 +1,24 @@
+// header styles
+.tutorial-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -#{$half-gutter};
+  padding-top: $primary-gutter;
+  flex-direction: column;
+  width: 100%;
+
+  @media #{$mq-desktop-small-up} {
+    flex-direction: row;
+  }
+
+  > .square {
+    margin: $half-gutter;
+    flex: 1 1 auto;
+    width: 100%;
+    @media #{$mq-desktop-small-up} {
+      height: 325px;
+      width: auto;
+      flex: 1 0 calc(33.333333333% - #{$primary-gutter * 2});
+    }
+  }
+}

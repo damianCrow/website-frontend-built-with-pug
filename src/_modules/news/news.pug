@@ -1,29 +1,41 @@
 include ../../_modules/button/button
 
-mixin news(spec)
+mixin news(single)
   section.news
 
     .news__list
       //- https://stackoverflow.com/questions/19307443/semantic-html-of-an-articles-list
-      article.news__item.news__item--featured
-        .news__featured-image
-          img(src='../images/news.jpg')
-        .news__featured-item-details
-          time.news__item-date(datetime="2017-04-29T19:00") 26 September 2017
-          h1.news__item-title
-            a EU and UK Clash Again over Brexit.
-        p.news__item-description
-          | British Prime Minister Theresa May’s speech held in Florence last Friday achieved the goal to capture the interest of Italian newspapers and public opinion but failed to...
-      article.news__item
-        .news__item-details
-          time.news__item-date(datetime="2017-04-29T19:00") 26 September 2017
-          h1.news__item-title
-            a EU and UK Clash Again over Brexit.
-        +button(true)(class='button--green') Read Article
-      article.news__item
-        .news__item-details
-          time.news__item-date(datetime="2017-04-29T19:00") 26 September 2017
-          h1.news__item-title
-            a EU and UK Clash Again over Brexit.
-        +button(true)(class='button--green') Read Article
-    a.news__view-all View All News
+      if single
+        article.news__item
+          .news__featured-image
+            img(src='../images/news.jpg')
+          .news__item-details
+            time.news__item-date(datetime="2017-04-29T19:00") 26 September 2017
+            h1.news__item-title
+              a EU and UK Clash Again over Brexit.
+          +button(true)(class='button--green') Read Article
+      else
+        article.news__item.news__item--featured
+          .news__featured-image
+            img(src='../images/news.jpg')
+          .news__featured-item-details
+            time.news__item-date(datetime="2017-04-29T19:00") 26 September 2017
+            h1.news__item-title
+              a EU and UK Clash Again over Brexit.
+          p.news__item-description
+            | British Prime Minister Theresa May’s speech held in Florence last Friday achieved the goal to capture the interest of Italian newspapers and public opinion but failed to...
+        article.news__item
+          .news__item-details
+            time.news__item-date(datetime="2017-04-29T19:00") 26 September 2017
+            h1.news__item-title
+              a EU and UK Clash Again over Brexit.
+          +button(true)(class='button--green') Read Article
+        article.news__item
+          .news__item-details
+            time.news__item-date(datetime="2017-04-29T19:00") 26 September 2017
+            h1.news__item-title
+              a EU and UK Clash Again over Brexit.
+          +button(true)(class='button--green') Read Article
+    if single
+    else
+      a.news__view-all View All News

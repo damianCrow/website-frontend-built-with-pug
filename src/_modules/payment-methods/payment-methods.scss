@@ -1,0 +1,65 @@
+// header styles
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: ($primary-gutter * 2) (-$primary-gutter);
+  padding: ($primary-gutter * 2);
+  align-items: center;
+  justify-content: space-between;
+  background-color: palette(gray, 'light');
+
+  // margin: $half-gutter;
+
+  &__payment {
+    flex: 1 1 auto;
+    margin: $half-gutter;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__title {
+    flex: 1 1 auto;
+    @extend %typography-title-v-one;
+  }
+
+  @media #{$mq-desktop-small-up} {
+    flex-direction: row;
+  }
+
+  &__posts {
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @media #{$mq-desktop-small-up} {
+      flex-direction: row;
+    }
+
+    > .square {
+      flex: 1 1 0;
+      margin-bottom: $primary-gutter;
+      // margin-top: $primary-gutter;
+
+      @media #{$mq-desktop-small-up} {
+        margin-left: $primary-gutter;
+        margin-bottom: 0; 
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+
+
+    }
+  }
+
+  &__bottom-link {
+    display: inline-block;
+    align-self: flex-start;
+    margin: $primary-gutter 0;
+    @extend %typography-small-section-link;
+  }
+}

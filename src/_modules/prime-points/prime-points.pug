@@ -1,0 +1,14 @@
+include ../square/square
+include ../diamond-list/diamond-list
+
+mixin prime-points(baseUrl)
+  .prime-points
+    +diamond-list([
+      {title: 'Professional Clients', text: 'Up to 200:1'},
+      {title: '100%', text: 'DMA/STP'},
+      {title: 'Up to 100', text: 'Currencies & Metals'},
+      {title: '$100', text: 'Minimum Deposit'},
+      {title: '15+', text: 'Tier 1 Banks'},
+    ], ['style2', 'title-points'])
+    a.prime-points__bottom-link(href='#') BP Prime Overview
+

@@ -4,6 +4,8 @@
   background-color: palette(gray, white);
   padding: $primary-gutter;
 
+  $root: &;
+
   @media #{$mq-tablet-small-up} {
     padding: calc(#{$primary-gutter * 2.5}) calc(8.333333333% + #{$primary-gutter * 1});
   }
@@ -196,7 +198,7 @@
       border-width: 2px 0;
     }
 
-    .postive-text {
+    .positive-text {
       color: palette(green, light);
     }
 
@@ -222,6 +224,10 @@
           padding: 0 $primary-gutter 0 $primary-gutter;
         }
       }
+
+      &#{$root}__sub-heading {
+        @extend %typography-title-v-one;
+      }
     }
 
     td {
@@ -237,4 +243,11 @@
       }
     }
   }
+
+  &__graph-example {
+    > img {
+      width: 50px;
+    }
+  }
+
 }
