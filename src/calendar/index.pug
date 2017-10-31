@@ -1,0 +1,94 @@
+extends ../_layouts/base
+include ../_modules/header/header
+include ../_modules/article-header/article-header
+include ../_modules/article-hero/article-hero
+include ../_modules/news/news
+include ../_modules/square/square
+include ../_modules/side-menu/side-menu
+include ../_modules/nav/nav
+include ../_modules/footer/footer
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+  - var headerType = 'condensed'
+
+block content
+  +header(headerType, baseUrl)
+  main(role='main')
+    article
+      +article-header('Calendar', null, null, true )
+      +article-hero('../images/insight/insight-banner-001.jpg')
+      .calendar
+        .page-content.page-content--menu-container
+          +side-menu('Categories')
+            +nav({bright: true, sideNav: true, items: 
+              [ {title: 'Lastest News', href: '#latest-news'},
+                {title: 'Technical Analysis', href: '#technical-analysis', subItems:[
+                  {title: 'Platforms', href: '/platforms'},
+                  {title: 'FOREX Technologies', href: '/FOREX-Technologies'}]},
+                {title: 'Education', href: '#education', subItems: [
+                  {title: 'Trading Tools', href: '#solutions'},
+                  {title: 'Videos', href: '#technology'},
+                  {title: 'Webinars & Seminars', href: '#clients'},
+                  {title: 'Guides & eBooks', href: '#products'},
+                  {title: 'Financial Glossary', href: '#products'},
+                ]},
+                {title: 'Calendar', href: '/insight'},
+                {title: 'Charts', href: '/contact'},
+              ]
+            })
+          .page-content__container
+            .page-content__block.page-content__block--column
+              .page-content__row
+                h3.calendar__event-date 05/10/17
+                .calendar__event-info
+                  p #[b 00:50 GMT] 5th October 2017
+                  h6 AUD Trade Balance (Australian Dollar) (AUG)
+              .page-content__row
+                h3.calendar__event-date 05/10/17
+                .calendar__event-info
+                  p #[b 00:50 GMT] 5th October 2017
+                  h6 AUD Trade Balance (Australian Dollar) (AUG)  
+              .page-content__row
+                h3.calendar__event-date 05/10/17
+                .calendar__event-info
+                  p #[b 00:50 GMT] 5th October 2017
+                  h6 AUD Trade Balance (Australian Dollar) (AUG) 
+              .page-content__row
+                h3.calendar__event-date 05/10/17
+                .calendar__event-info
+                  p #[b 00:50 GMT] 5th October 2017
+                  h6 AUD Trade Balance (Australian Dollar) (AUG)  
+              .page-content__row
+                h3.calendar__event-date 05/10/17
+                .calendar__event-info
+                  p #[b 00:50 GMT] 5th October 2017
+                  h6 AUD Trade Balance (Australian Dollar) (AUG)
+              .page-content__row
+                h3.calendar__event-date 05/10/17
+                .calendar__event-info
+                  p #[b 00:50 GMT] 5th October 2017
+                  h6 AUD Trade Balance (Australian Dollar) (AUG)
+              .page-content__row
+                h3.calendar__event-date 05/10/17
+                .calendar__event-info
+                  p #[b 00:50 GMT] 5th October 2017
+                  h6 AUD Trade Balance (Australian Dollar) (AUG)  
+              .page-content__row
+                h3.calendar__event-date 05/10/17
+                .calendar__event-info
+                  p #[b 00:50 GMT] 5th October 2017
+                  h6 AUD Trade Balance (Australian Dollar) (AUG) 
+              .page-content__row
+                h3.calendar__event-date 05/10/17
+                .calendar__event-info
+                  p #[b 00:50 GMT] 5th October 2017
+                  h6 AUD Trade Balance (Australian Dollar) (AUG)  
+              .page-content__row
+                h3.calendar__event-date 05/10/17
+                .calendar__event-info
+                  p #[b 00:50 GMT] 5th October 2017
+                  h6 AUD Trade Balance (Australian Dollar) (AUG) 
+  +footer(baseUrl)
+    

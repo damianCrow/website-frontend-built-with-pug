@@ -37,10 +37,6 @@
   &__photo-wrap {
     position: relative;
     margin-bottom: -2rem;
-
-    // @media #{$mq-tablet-small-up} {
-    //   padding-left: $primary-gutter;
-    // }
   }
 
   .photo {
@@ -50,10 +46,6 @@
     transform: rotate(45deg);
     overflow: hidden;
     margin-left: $primary-gutter;
-
-    // @media #{$mq-tablet-small-up} {
-    //   padding-left: $primary-gutter;
-    // }
 
     &:after {
       content: '';

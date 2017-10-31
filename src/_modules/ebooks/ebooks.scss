@@ -1,0 +1,39 @@
+.ebooks {
+  .page-content__container {
+    padding-top: $primary-gutter;
+
+    .button {
+      margin-top: $primary-gutter;
+      position: initial;
+    }
+
+    @media #{$mq-tablet-large-up} {
+      padding-top: 3rem;
+    }
+  }
+  .page-content__row {
+    margin: 0;
+
+    &:last-child {
+      .institutional__block {
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    @media #{$mq-tablet-large-up} {
+      display: flex;
+
+      &:not(:last-child) {
+        margin-bottom: $primary-gutter;
+      }
+
+      .institutional__block {
+        &:not(:last-child) {
+          margin-right: $primary-gutter;
+        }
+      }
+    }
+  }
+}
