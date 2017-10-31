@@ -1,9 +1,14 @@
-mixin diamond-list(listItems, style2)
-  if style2
-    ul.diamond-list.diamond-list--style2
-      each listItem in listItems
-        li.diamond-list__item.diamond-list__item--style2!= listItem
-  else
-    ul.diamond-list
-      each listItem in listItems
+mixin diamond-list(listItems, styleModifers)
+  - var modifers = ''
+  if styleModifers
+    each modifier in styleModifers
+      - modifers = modifers + (' diamond-list--' + modifier) 
+  ul(class='diamond-list' + modifers)
+    each listItem in listItems
+      if listItem.title
+        li.diamond-list__item
+          span.diamond-list__item--title!= listItem.title
+          span!= listItem.text
+      else
         li.diamond-list__item!= listItem
+//- style2

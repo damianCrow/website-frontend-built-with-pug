@@ -14,6 +14,8 @@
   // overflow-y: visible;
 
   @media #{$mq-desktop-small-up} {
+    // Non sticky fallback.
+    position: relative;
     position: sticky;
     top: $article-header-height + 5px;
 

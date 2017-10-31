@@ -232,6 +232,16 @@ $color-transistion: color 250ms $timing-function-ease-out-quint;
   );
 }
 
+%typography-title-v-one--lighter {
+  color: palette(gray, pale);
+
+  @extend %mukta-medium;
+  @include responsive-font-size(
+    $mobile: $font-size-regular,
+    $desktop: $font-size-regular
+  );
+}
+
 // ASK DESIGNER FOR PROPER NAME
 %typography-title-v-two {
   color: palette(gold, metalic);
