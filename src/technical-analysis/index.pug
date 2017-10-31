@@ -1,0 +1,178 @@
+extends ../_layouts/base
+include ../_modules/header/header
+include ../_modules/article-header/article-header
+include ../_modules/article-hero/article-hero
+include ../_modules/news/news
+include ../_modules/square/square
+include ../_modules/side-menu/side-menu
+include ../_modules/nav/nav
+include ../_modules/footer/footer
+include ../_modules/twitter-icon/twitter-icon
+include ../_modules/linkedin-icon/linkedin-icon
+include ../_modules/daily-analysis/daily-analysis
+include ../_modules/daily-calendar/daily-calendar
+include ../_modules/featured-webinar/featured-webinar
+include ../_modules/featured-videos/featured-videos
+include ../_modules/featured-guides/featured-guides
+include ../_modules/featured-charts/featured-charts
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+  - var headerType = 'condensed'
+
+block content
+  +header(headerType, baseUrl)
+  main(role='main')
+    article
+      +article-header('Technical Analysis', null, null, true)
+      +article-hero('../images/insight/insight-banner-001.jpg')
+
+      .page-content.page-content--menu-container
+        +side-menu('Categories')
+          +nav({bright: true, sideNav: true, items: 
+            [ {title: 'Lastest News', href: '#latest-news'},
+              {title: 'Technical Analysis', href: '#technical-analysis', subItems:[
+                {title: 'Platforms', href: '/platforms'},
+                {title: 'FOREX Technologies', href: '/FOREX-Technologies'}]},
+              {title: 'Education', href: '#education', subItems: [
+                {title: 'Trading Tools', href: '#solutions'},
+                {title: 'Videos', href: '#technology'},
+                {title: 'Webinars & Seminars', href: '#clients'},
+                {title: 'Guides & eBooks', href: '#products'},
+                {title: 'Financial Glossary', href: '#products'},
+              ]},
+              {title: 'Calendar', href: '/insight'},
+              {title: 'Charts', href: '/contact'},
+            ]
+          })
+        .page-content__container
+          +tabs([{title: 'Support & Resistance', active: true, tablink: 'support-and-resistance'}, {title: 'Pivot Points', tablink: 'pivot-points'}, {title: 'Morning Bell', tablink: 'morning-bell'}])
+            section.tabs__content.tabs__content--horizontal-scroll.tabs__content--active(data-tab-link='support-and-resistance')
+              table.product-detail__table
+                  tr
+                    th.column(colspan='1') Currency
+                    th(colspan='2') Standard Account
+                    th(colspan='2') Pro Account
+                  tr
+                    th.product-detail__sub-heading.column AUD
+                    th.product-detail__sub-heading Min Spread
+                    th.product-detail__sub-heading Average Spread
+                    th.product-detail__sub-heading Min Spread
+                    th.product-detail__sub-heading Average Spread
+                  tr
+                    td.column AUD / CHF*
+                    td 0.3
+                    td.positive-text 1.25
+                    td 0.9
+                    td 1.85
+                  tr
+                    td.column AUD / JPY*
+                    td 0.3
+                    td.positive-text 1.25
+                    td 0.9
+                    td 1.85
+                  tr
+                    td.column AUD / NZD*
+                    td 0.3
+                    td.positive-text 1.25
+                    td 0.9
+                    td 1.85
+                  tr
+                    td.column AUD / SGD*
+                    td 0.3
+                    td.positive-text 1.25
+                    td 0.9
+                    td 1.85
+                  tr
+                    td.column AUD / USD*
+                    td 0.3
+                    td.positive-text 1.25
+                    td 0.9
+                    td 1.85
+            section.tabs__content.tabs__content--horizontal-scroll(data-tab-link='pivot-points')
+              table.product-detail__table
+                  tr
+                    th.column(colspan='1') Currency
+                    th(colspan='2') Standard Account
+                    th(colspan='2') Pro Account
+                  tr
+                    th.product-detail__sub-heading.column AUD
+                    th.product-detail__sub-heading Min Spread
+                    th.product-detail__sub-heading Average Spread
+                    th.product-detail__sub-heading Min Spread
+                    th.product-detail__sub-heading Average Spread
+                  tr
+                    td.column AUD / CHF*
+                    td 0.1
+                    td.positive-text 0.82
+                    td 0.2
+                    td 4.69
+                  tr
+                    td.column AUD / JPY*
+                    td 0.1
+                    td.positive-text 0.82
+                    td 0.2
+                    td 4.69
+                  tr
+                    td.column AUD / NZD*
+                    td 0.1
+                    td.positive-text 0.82
+                    td 0.2
+                    td 4.69
+                  tr
+                    td.column AUD / SGD*
+                    td 0.1
+                    td.positive-text 0.82
+                    td 0.2
+                    td 4.69
+                  tr
+                    td.column AUD / USD*
+                    td 0.1
+                    td.positive-text 0.82
+                    td 0.2
+                    td 4.69
+            section.tabs__content.tabs__content--horizontal-scroll(data-tab-link='morning-bell')
+              table.product-detail__table
+                  tr
+                    th.column(colspan='1') Currency
+                    th(colspan='2') Standard Account
+                    th(colspan='2') Pro Account
+                  tr
+                    th.product-detail__sub-heading.column AUD
+                    th.product-detail__sub-heading Min Spread
+                    th.product-detail__sub-heading Average Spread
+                    th.product-detail__sub-heading Min Spread
+                    th.product-detail__sub-heading Average Spread
+                  tr
+                    td.column AUD / CHF*
+                    td 0.3
+                    td.positive-text 2.17
+                    td 0.9
+                    td 1.85
+                  tr
+                    td.column AUD / JPY*
+                    td 0.3
+                    td.positive-text 2.17
+                    td 0.9
+                    td 1.85
+                  tr
+                    td.column AUD / NZD*
+                    td 0.3
+                    td.positive-text 2.17
+                    td 0.9
+                    td 1.85
+                  tr
+                    td.column AUD / SGD*
+                    td 0.3
+                    td.positive-text 2.17
+                    td 0.9
+                    td 1.85
+                  tr
+                    td.column AUD / USD*
+                    td 0.3
+                    td.positive-text 2.17
+                    td 0.9
+                    td 1.85
+  +footer(baseUrl)
+    

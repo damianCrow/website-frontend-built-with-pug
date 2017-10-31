@@ -1,0 +1,18 @@
+include ../square/square
+
+mixin payment-methods(baseUrl)
+  .payment-methods
+    .payment-methods__title Payment Methods
+    .payment-methods__payment
+      img(src= baseUrl + '/images/private/payment-logos/maestro.png')
+    .payment-methods__payment
+      img(src= baseUrl + '/images/private/payment-logos/mastercard.png')
+    .payment-methods__payment
+      img(src= baseUrl + '/images/private/payment-logos/neteller.png')
+    .payment-methods__payment
+      img(src= baseUrl + '/images/private/payment-logos/skrill.png')
+    .payment-methods__payment
+      img(src= baseUrl + '/images/private/payment-logos/unionpay.png')
+    .payment-methods__payment
+      img(src= baseUrl + '/images/private/payment-logos/visa.png')
+

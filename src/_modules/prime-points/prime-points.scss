@@ -1,0 +1,18 @@
+// header styles
+.prime-points {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  margin: $half-gutter;
+
+  &__bottom-link {
+    display: inline-block;
+    align-self: flex-start;
+    margin: $primary-gutter 0;
+    @extend %typography-active-small-section-link;
+
+    @media #{$mq-desktop-small-up} {
+      margin-top: auto;
+    }
+  }
+}
