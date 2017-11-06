@@ -79,6 +79,9 @@
 
     &--single {
       border: none;
+    }
+    
+    &--table-wrap, &--single {
 
       summary {
         border-bottom: 1px solid palette(gray, pale);

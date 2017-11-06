@@ -7,7 +7,7 @@ export default class Slider {
 		  autoplay: true,
 		  autoplaySpeed: 7000,
 		  arrows: false,
-		  speed: 2000,
+		  speed: 650,
 		  dots: true,
 		  fade: true,
 		  customPaging: function(slick, index) {
