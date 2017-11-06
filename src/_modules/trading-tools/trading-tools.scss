@@ -10,6 +10,7 @@
 
   .page-content__row {
     flex-direction: column;
+    display: flex;
 
     @media #{$mq-tablet-large-up} {
       flex-direction: row;
