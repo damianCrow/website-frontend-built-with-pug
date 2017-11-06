@@ -92,6 +92,13 @@ body {
     }
   }
 
+  &--squeezed {
+    @media #{$mq-desktop-small-up} {
+      padding-right: calc(8.333333333% + 1rem);
+      padding-left: calc(8.333333333% + 1rem);
+    }
+  }
+
   &--menu-container {
     #{$root}__container {
       @media #{$mq-desktop-small-up} {

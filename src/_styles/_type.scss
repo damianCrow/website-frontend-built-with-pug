@@ -32,10 +32,10 @@ $font-weight-bold: 700;
 $font-size-x-small: 12;
 $font-size-small: 14;
 $font-size-regular: 16;
-$font-size-large: 25;
-$font-size-x-large: 32;
-$font-size-xx-large: 50;
-$font-size-xxx-large: 80;
+$font-size-large: 20;
+$font-size-x-large: 25;
+$font-size-xx-large: 32;
+$font-size-xxx-large: 50;
 
 $color-transistion: color 250ms $timing-function-ease-out-quint;
 
@@ -188,8 +188,8 @@ $color-transistion: color 250ms $timing-function-ease-out-quint;
 
   @extend %financier-bold;
   @include responsive-font-size(
-    $mobile: $font-size-x-large,
-    $desktop: $font-size-xx-large
+    $mobile: $font-size-xx-large,
+    $desktop: $font-size-xxx-large
   );
 }
 
@@ -198,7 +198,7 @@ $color-transistion: color 250ms $timing-function-ease-out-quint;
 
   @extend %mukta-light;
   @include responsive-font-size(
-    $mobile: $font-size-large,
+    $mobile: $font-size-regular,
     $desktop: $font-size-large
   );
 }
@@ -215,8 +215,8 @@ $color-transistion: color 250ms $timing-function-ease-out-quint;
 
   @extend %financier-bold;
   @include responsive-font-size(
-    $mobile: $font-size-large,
-    $desktop: $font-size-x-large
+    $mobile: $font-size-x-large,
+    $desktop: $font-size-xx-large
   );
 }
 

@@ -6,7 +6,7 @@
   width: 100%;
   margin-top: -#{$condensed-header-height};
 
-  @media #{$mq-desktop-small-up} {
+  @media #{$mq-tablet-small-up} {
     margin-top: -#{$expanded-header-height};
   }
 
@@ -42,13 +42,11 @@
 
       @media #{$mq-desktop-xsmall-up} {
         width: 100%;
-        max-width: 500px;
+        max-width: 450px;
       }
 
       &__subtitle, &__title {
         position: relative;
-        top: 50%;
-
         margin-top: 0;
         margin-left: $primary-gutter;
 
@@ -57,12 +55,15 @@
 
       &__title {
         @extend %typography-banner-title;
+        line-height: 1;
+        top: 60%;
         @media #{$mq-desktop-small-up} {
           margin-bottom: 0;
         }
       }
 
       &__subtitle {
+        top: 58%;
         @extend %typography-banner-subtitle;
       }
     }
@@ -94,7 +95,7 @@
     @extend %typography-title-v-three;
 
     @media #{$mq-tablet-small-up} {
-      top: 50%;
+      top: 59%;
 
       transform: translateY(calc(-50% - #{$expanded-header-height}));
       pointer-events: all;

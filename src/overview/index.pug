@@ -19,8 +19,10 @@ block content
       +article-header('Overview')
       +article-hero('../images/overview/overview-banner-001.jpg')
 
-      .page-content
+      .page-content.page-content--squeezed
         .page-content__container
+          p.overview-page__intro
+            |Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
           +tabs([{title: 'About Us', active: true, tablink: 'about-us'}, {title: 'Management Team', tablink: 'management-team'}, {title: 'Regulation and Licensing', tablink: 'regulation-licensing'}])
             section.tabs__content.tabs__content--active(data-tab-link='about-us')
               .overview
@@ -47,16 +49,35 @@ block content
                     p.overview__member-role
                       | Francesco is the founder of Black Pearl Securities Limited. After landing a role at ODL Securities as Institutional Sales, in July 2010 he co-founded Hantec Markets Ltd and was appointed as the Global Head of Sales working closely with the CEO to develop a Business Plan and Sales Strategies in order to succeed in the competitive FX Brokerage environment. This was followed by a role at Market Securities (a Kyte Group Company) where he managed the FX Flow for Margin and Institutional Business, gaining a deeper understanding on Liquidity Aggregation and also Managing Risk by taking care of the Real Time Trade Reconciliation. Francesco is responsible for leading the development and execution of the company’s long term strategy with a view to creating shareholder value.
                   .overview__member-portrait
-                    img(src='/images/article-header-image.jpg')
+                    img(src=baseUrl + 'images/overview/francesco.jpg')
                 .overview__member.overview__member--reverse
                   .overview__member-info
                     h1.overview__title Keith MCCulloch – IT Director
                     p.overview__member-role
                       | Keith is a strategic IT leader with hands on operational experience of integrating IT systems and services into core business management processes in order to enhance commercial delivery. His technology career spans 12 years focusing on the unique challenges of electronic trading. While covering the role of Head of IT at previous brokers, Keith has managed office relocation and setup in Dubai and provided technical assistance across a number of platforms and systems. Keith combines commercial acumen with intellectual rigor and straightforward approach to deliver practical innovation driving both step change and continuous improvement.
                   .overview__member-portrait
-                    img(src='/images/article-header-image.jpg')
-
-
+                    img(src=baseUrl + 'images/overview/keith.jpg')
+                .overview__member
+                  .overview__member-info
+                    h1.overview__title Francesco Porcu – CEO
+                    p.overview__member-role
+                      | Francesco is the founder of Black Pearl Securities Limited. After landing a role at ODL Securities as Institutional Sales, in July 2010 he co-founded Hantec Markets Ltd and was appointed as the Global Head of Sales working closely with the CEO to develop a Business Plan and Sales Strategies in order to succeed in the competitive FX Brokerage environment. This was followed by a role at Market Securities (a Kyte Group Company) where he managed the FX Flow for Margin and Institutional Business, gaining a deeper understanding on Liquidity Aggregation and also Managing Risk by taking care of the Real Time Trade Reconciliation. Francesco is responsible for leading the development and execution of the company’s long term strategy with a view to creating shareholder value.
+                  .overview__member-portrait
+                    img(src=baseUrl + 'images/overview/alex.jpg')
+                .overview__member.overview__member--reverse
+                  .overview__member-info
+                    h1.overview__title Keith MCCulloch – IT Director
+                    p.overview__member-role
+                      | Keith is a strategic IT leader with hands on operational experience of integrating IT systems and services into core business management processes in order to enhance commercial delivery. His technology career spans 12 years focusing on the unique challenges of electronic trading. While covering the role of Head of IT at previous brokers, Keith has managed office relocation and setup in Dubai and provided technical assistance across a number of platforms and systems. Keith combines commercial acumen with intellectual rigor and straightforward approach to deliver practical innovation driving both step change and continuous improvement.
+                  .overview__member-portrait
+                    img(src=baseUrl + 'images/overview/gary.jpg')
+                .overview__member
+                  .overview__member-info
+                    h1.overview__title Francesco Porcu – CEO
+                    p.overview__member-role
+                      | Francesco is the founder of Black Pearl Securities Limited. After landing a role at ODL Securities as Institutional Sales, in July 2010 he co-founded Hantec Markets Ltd and was appointed as the Global Head of Sales working closely with the CEO to develop a Business Plan and Sales Strategies in order to succeed in the competitive FX Brokerage environment. This was followed by a role at Market Securities (a Kyte Group Company) where he managed the FX Flow for Margin and Institutional Business, gaining a deeper understanding on Liquidity Aggregation and also Managing Risk by taking care of the Real Time Trade Reconciliation. Francesco is responsible for leading the development and execution of the company’s long term strategy with a view to creating shareholder value.
+                  .overview__member-portrait
+                    img(src=baseUrl + 'images/overview/marcos.jpg')
             section.tabs__content(data-tab-link='regulation-licensing')
               .overview
                 p.overview__intro
