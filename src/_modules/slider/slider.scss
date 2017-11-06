@@ -13,6 +13,7 @@
   .slider-container {
     display: flex;
     flex: 1 0 100vh;
+    justify-content: center;
 
     width: 100%;
     max-width: $max;
@@ -32,6 +33,7 @@
 
     &__text {
       flex-direction: column;
+      justify-content: center;
 
       width: calc(100% - 2rem);
 
@@ -49,21 +51,15 @@
         position: relative;
         margin-top: 0;
         margin-left: $primary-gutter;
-
-        transform: translateY(calc(-50% - #{$expanded-header-height}));
       }
 
       &__title {
         @extend %typography-banner-title;
-        line-height: 1;
-        top: 60%;
-        @media #{$mq-desktop-small-up} {
-          margin-bottom: 0;
-        }
+        line-height: .8;
+        margin-bottom: 10px;
       }
 
       &__subtitle {
-        top: 58%;
         @extend %typography-banner-subtitle;
       }
     }
@@ -83,35 +79,38 @@
 
   .slick-dots {
     position: absolute;
-
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    display: flex;
     list-style: none;
-
     pointer-events: none;
-
     opacity: 0;
-
     left: 0;
-
     @extend %typography-title-v-three;
 
-    @media #{$mq-tablet-small-up} {
-      top: 59%;
+    .progress__wrap {
+      top: 0;
+    }
 
-      transform: translateY(calc(-50% - #{$expanded-header-height}));
+    @media #{$mq-tablet-small-up} {
       pointer-events: all;
 
       opacity: 1;
 
       li {
-        margin-top: 15px;
-
+        &:not(:first-child) {
+          margin-top: 15px;
+        }
+        position: relative;
         cursor: pointer;
 
         &.slick-active, &:hover {
           &:after {
             position: absolute;
-            left: 0;
-
+            left: -40px;
+            top: 9px;
             width: 20px;
             height: 1px;
 
