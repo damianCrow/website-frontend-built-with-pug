@@ -51,7 +51,9 @@ export default (gulp, plugins, args, config, taskTarget, browserSync) => {
           .pipe(vsource(entry))
           .pipe(buffer())
           .pipe(plugins.sourcemaps.init({ loadMaps: true }))
-          // .pipe(gulpif(args.production, plugins.uglify()))
+          .pipe(gulpif(args.production, plugins.uglify({ compress: {
+            drop_debugger: false, unused: false, dead_code: false, comparisons: false
+          }})))
           .on('error', plugins.notify.onError(config.defaultNotification))
           .pipe(plugins.rename((filepath) => {
             // Remove 'source' directory as well as prefixed folder underscores

@@ -29,23 +29,7 @@ block content
       +article-hero('../images/insight/insight-banner-001.jpg')
 
       .page-content.page-content--menu-container
-        +side-menu('Categories')
-          +nav({bright: true, sideNav: true, items: 
-            [ {title: 'Lastest News', href: '#latest-news'},
-              {title: 'Technical Analysis', href: '#technical-analysis', subItems:[
-                {title: 'Platforms', href: '/platforms'},
-                {title: 'FOREX Technologies', href: '/FOREX-Technologies'}]},
-              {title: 'Education', href: '#education', subItems: [
-                {title: 'Trading Tools', href: '#solutions'},
-                {title: 'Videos', href: '#technology'},
-                {title: 'Webinars & Seminars', href: '#clients'},
-                {title: 'Guides & eBooks', href: '#products'},
-                {title: 'Financial Glossary', href: '#products'},
-              ]},
-              {title: 'Calendar', href: '/insight'},
-              {title: 'Charts', href: '/contact'},
-            ]
-          })
+        +side-menu('Categories', baseUrl)
         .page-content__container
           +tabs([{title: 'Real-Time News', active: true, tablink: 'real-time-news'}, {title: 'Articles', tablink: 'latest-news-articles'}, {title: 'BP Prime Analysis', tablink: 'bp-prime-analysis'}])
             section.tabs__content.tabs__content--active(data-tab-link='real-time-news')

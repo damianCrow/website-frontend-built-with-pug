@@ -1,7 +1,23 @@
-mixin side-menu(title)
+include ../../_modules/nav/nav
+
+mixin side-menu(title, baseUrl)
   aside.side-menu
     if title
       .side-menu__title
         h2 Categories
-    if block
-      block
+    +nav({bright: true, sideNav: true, items: 
+      [ {title: 'Lastest News', href: baseUrl + 'latest-news'},
+        {title: 'Technical Analysis', href: baseUrl + 'technical-analysis', subItems:[
+          {title: 'Platforms', href: baseUrl + 'platforms'},
+          {title: 'FOREX Technologies', href: baseUrl + 'forex-technologies'}]},
+        {title: 'Education', href: '', subItems: [
+          {title: 'Trading Tools', href: baseUrl + 'trading-tools'},
+          {title: 'Videos', href: ''},
+          {title: 'Webinars & Seminars', href: ''},
+          {title: 'Guides & eBooks', href: baseUrl + '/ebooks'},
+          {title: 'Financial Glossary', href: '#products'},
+        ]},
+        {title: 'Calendar', href: baseUrl + 'calendar'},
+        {title: 'Charts', href: baseUrl + ''},
+      ]
+    })

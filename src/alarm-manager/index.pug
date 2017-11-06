@@ -5,7 +5,6 @@ include ../_modules/article-hero/article-hero
 include ../_modules/news/news
 include ../_modules/square/square
 include ../_modules/side-menu/side-menu
-include ../_modules/nav/nav
 include ../_modules/footer/footer
 include ../_modules/diamond-list/diamond-list
 
@@ -22,23 +21,7 @@ block content
       +article-hero('../images/insight/insight-banner-001.jpg')
       .alarm-manager
         .page-content.page-content--menu-container
-          +side-menu('Categories')
-            +nav({bright: true, sideNav: true, items: 
-              [ {title: 'Lastest News', href: '#latest-news'},
-                {title: 'Technical Analysis', href: '#technical-analysis', subItems:[
-                  {title: 'Platforms', href: '/platforms'},
-                  {title: 'FOREX Technologies', href: '/FOREX-Technologies'}]},
-                {title: 'Education', href: '#education', subItems: [
-                  {title: 'Trading Tools', href: '#solutions'},
-                  {title: 'Videos', href: '#technology'},
-                  {title: 'Webinars & Seminars', href: '#clients'},
-                  {title: 'Guides & eBooks', href: '#products'},
-                  {title: 'Financial Glossary', href: '#products'},
-                ]},
-                {title: 'Calendar', href: '/insight'},
-                {title: 'Charts', href: '/contact'},
-              ]
-            })
+          +side-menu('Categories', baseUrl)
           .page-content__container
             .page-content__block.page-content__block--column
               p.product-detail__summary

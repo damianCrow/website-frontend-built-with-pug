@@ -20,7 +20,6 @@ export default class Tabs {
       this.eachTab[i].addEventListener('click', e => this.toggleTab(e))
     }
 
-    console.log(this.tabWrapper)
     this.tabWrapper.style.height = `${this.firstActiveTab.getAttribute('data-orginal-height')}px`
     addClass(this.tabWrapper, 'tabs__content--transition')
   }
