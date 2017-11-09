@@ -36,8 +36,12 @@ $article-hero-height-mobile: $article-hero-height / 2;
   }
 
   .mapboxgl-canvas {
-    top: 0;
+    top: -60px;
     left: 0;
+
+    @media #{$mq-mobile-xlarge-up} {
+      top: 0;
+    }
   }
 
   .marker {
@@ -45,6 +49,11 @@ $article-hero-height-mobile: $article-hero-height / 2;
     width: 25px;
     height: 25px;
     position: absolute;
+    top: -60px;
+
+    @media #{$mq-mobile-xlarge-up} {
+      top: 0;
+    }
 
     &:after {
       @extend %typography-small-section-text;

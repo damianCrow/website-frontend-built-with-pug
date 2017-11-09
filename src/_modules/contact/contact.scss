@@ -3,7 +3,7 @@
 .address {
   position: absolute;
   z-index: 5;
-  top: 250px;
+  top: 180px;
   right: 0;
 
   display: flex;
@@ -18,7 +18,6 @@
 
   @media #{$mq-mobile-xlarge-up} {
     top: 0;
-
     width: 275px;
     height: 100%;
     padding:calc(#{$primary-gutter} * 1.5) calc(#{$primary-gutter} * 2);
@@ -98,9 +97,9 @@
 }
 
 #map {
-  overflow: visible;
-
-  margin-bottom: 214px;
+  overflow: hidden;
+  height: 360px;
+  padding-bottom: 180px;
   
   @media #{$mq-mobile-xlarge-up} {
     margin-bottom: 0;
