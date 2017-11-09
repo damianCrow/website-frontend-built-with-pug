@@ -89,6 +89,10 @@
       @media #{$mq-tablet-large-up} {
         padding: 0 $primary-gutter;
 
+        &:first-child {
+          padding: 0 $primary-gutter 0 0;
+        }
+
         &:last-child {
           padding: 0 0 0 $primary-gutter;
         }
