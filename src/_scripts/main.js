@@ -1,8 +1,11 @@
 import 'babel-polyfill'
 import objectFitImages from 'object-fit-images'
 
+
 // Main javascript entry point
 // Should handle bootstrapping/starting application
+import { windowResize } from './helper-functions'
+
 import Menu from '../_modules/menu/menu'
 import SideMenu from '../_modules/side-menu/side-menu'
 import Nav from '../_modules/nav/nav'
@@ -25,6 +28,9 @@ class Main {
     this.slider = new Slider()
     this.product = new Product()
     this.modal = new Modal()
+
+    this.resizeTimer = 0
+
     this.initSections()
     objectFitImages()
   }
@@ -55,6 +61,26 @@ class Main {
     if (document.getElementById('map')) {
       this.contact = new Contact()
     }
+
+    this.windowReszing(tabSets)
+  }
+
+  windowReszing(tabSets) {
+    let resizeTimer
+    let windowWidth = window.innerWidth
+
+    windowResize(window, 'resize', () => {
+      clearTimeout(resizeTimer)
+
+      resizeTimer = setTimeout(() => {
+        // Run code here, resizing has "stopped"
+        if (windowWidth !== window.innerWidth) {
+          windowWidth = window.innerWidth
+
+          Array.from(tabSets).forEach(tabSet => tabSet.setSizes())
+        }
+      }, 250)
+    }, true)
   }
 }
 
