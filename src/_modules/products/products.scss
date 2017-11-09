@@ -2,7 +2,7 @@
   padding: 0;
 
   @media #{$mq-tablet-small-up} {
-    padding: calc(#{$primary-gutter} + #{$half-gutter});
+    padding: calc(#{$primary-gutter} * 2);
   }
 
   &__hero {

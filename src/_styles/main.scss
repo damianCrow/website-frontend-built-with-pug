@@ -80,11 +80,13 @@ body {
     display: flex;
     flex: 2.5;
     max-width: 100%;
-
     padding: $primary-gutter;
 
-    flex-wrap: wrap;
+    @media #{$mq-desktop-small-up} {
+      padding: 0 0 $primary-gutter calc(#{$primary-gutter} * 2.5);
+    }
 
+    flex-wrap: wrap;
     &--side-menu {
       @media #{$mq-desktop-small-up} {
         padding: rem($article-header-height) - $primary-gutter #{$primary-gutter + $half-gutter};

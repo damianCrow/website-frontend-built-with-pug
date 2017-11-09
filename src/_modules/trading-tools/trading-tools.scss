@@ -11,6 +11,7 @@
   .page-content__row {
     flex-direction: column;
     display: flex;
+    padding: $half-gutter 0;
 
     @media #{$mq-tablet-large-up} {
       flex-direction: row;
@@ -40,7 +41,7 @@
       margin: auto -#{$primary-gutter} auto auto;
 
       img {
-        width: 100%;
+        width: calc(100% - 1px);
       }
     }
 
