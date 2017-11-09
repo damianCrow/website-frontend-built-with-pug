@@ -31,6 +31,7 @@
 
 .form-wrap {
   flex: 1;
+  margin: 0 $primary-gutter;
 
   @media #{$mq-tablet-small-up} {
     margin: 0 calc(8.333333333% + #{$primary-gutter * 2});
