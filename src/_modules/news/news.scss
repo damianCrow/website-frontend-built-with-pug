@@ -5,6 +5,7 @@ $burger-height: 3px;
   display: flex;
   flex-direction: column;
   flex: 1;
+  margin: $half-gutter;
 
   background: palette(gray, white);
 

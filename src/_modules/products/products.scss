@@ -42,6 +42,14 @@
       }
     }
   }
+
+  &__right--top,
+  &__right--bottom,
+  &__left--top,
+  &__left--bottom {
+    margin: $half-gutter;
+  }
+
 }
 
 .product {

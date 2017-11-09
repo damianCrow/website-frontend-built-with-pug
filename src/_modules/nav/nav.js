@@ -17,12 +17,13 @@ export default class Nav {
     this.animatedHeight = config.animatedHeight
     this.parent = config.parent
 
-    // Collect the first collection of items with their nested sub navs
-    this.imediateItems = this.parent.querySelectorAll('.toggle-nav__list > .toggle-nav__item')
+    document.addEventListener('DOMContentLoaded', () => {
+      // Collect the first collection of items with their nested sub navs
+      this.imediateItems = this.parent.querySelectorAll('.toggle-nav__list > .toggle-nav__item')
 
-    this.allItemDetails = this.calculateSizes(this.imediateItems)
-    console.log('allItemDetails', this.allItemDetails)
-    this.applyEventListners(this.allItemDetails)
+      this.allItemDetails = this.calculateSizes(this.imediateItems)
+      this.applyEventListners(this.allItemDetails)
+    })
   }
 
   calculateSizes(level, heightOfSelectedNav = 0, startingPosition = 0) {
@@ -82,7 +83,6 @@ export default class Nav {
       level[i].element.addEventListener('click', (e) => {
         e.stopPropagation()
 
-        console.log('clicked: ', level[i].element)
 
         if (hasClass(level[i].element, 'toggle-nav__item--active-sub-nav')) {
           level[i].element.style.height = `${level[i].firstLinkHeight}px`
@@ -93,11 +93,8 @@ export default class Nav {
         }
 
         // removeClass(this.allItemDetails[i].level, 'toggle-nav__item--active-sub-nav')
-        console.log(level[i].element)
-        console.log(`${level[i].orginalHeight}px`)
       })
 
-      console.log(level[i].subItems)
       if (level[i].subItems.length > 0) {
         this.applyEventListners(level[i].subItems)
       }
@@ -123,7 +120,6 @@ export default class Nav {
         subMenuContainer.classList.remove('toggle-nav__item--active-sub-nav')
         // Logic needed here for following parent items to close up to prev sibling sub-items
         if (hasClass(subMenuContainer, 'toggle-nav__item--sub-sub-nav-container')) {
-          console.log('setting to midway')
           this.visibleNavs(subMenuContainer)
           // this.midWayFirstLevel(subMenuContainer)
         }
@@ -201,8 +197,6 @@ export default class Nav {
       const nextItemsOnParentLevel = nextSiblings(chosenItem.parentNode.parentNode, exampleFilter)
 
       const nextItems = nextItemsOnOwnLevel.concat(nextItemsOnParentLevel)
-
-      console.log('nextItems', nextItems)
 
       Array.from(nextItems).forEach((item) => {
         const currentTranslate = 0 - +item.style.transform.replace(/[^0-9.]/g, '')

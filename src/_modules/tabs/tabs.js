@@ -7,21 +7,30 @@ export default class Tabs {
     this.eachTabContent = tabsNode.querySelectorAll('.tabs__content-wrapper [data-tab-link]')
     // eslint-disable-next-line prefer-destructuring
     this.tabWrapper = tabsNode.getElementsByClassName('tabs__content-wrapper')[0]
-    this.firstActiveTab = tabsNode.getElementsByClassName('tabs__content--active')[0]
 
-    this.setPreferences()
+    window.onload = () => {
+      this.setSizes()
+      this.setPreferences()
+    }
+  }
+
+  setSizes() {
+    removeClass(this.tabWrapper, 'tabs__content--transition')
+    this.tabWrapper.style.height = 'auto'
+    const currentActiveTab = this.parent.getElementsByClassName('tabs__content--active')[0]
+
+    for (let i = 0; i < this.eachTab.length; i += 1) {
+      this.eachTabContent[i].setAttribute('data-orginal-height', this.eachTabContent[i].offsetHeight)
+    }
+
+    this.tabWrapper.style.height = `${currentActiveTab.offsetHeight}px`
+    addClass(this.tabWrapper, 'tabs__content--transition')
   }
 
   setPreferences() {
     for (let i = 0; i < this.eachTab.length; i += 1) {
-      this.eachTabContent[i].setAttribute('data-orginal-height', this.eachTabContent[i].offsetHeight)
-
-      // this.eachTabContent[i].dataset.orginalHeight = this.eachTabContent[i].offsetHeight
       this.eachTab[i].addEventListener('click', e => this.toggleTab(e))
     }
-
-    this.tabWrapper.style.height = `${this.firstActiveTab.getAttribute('data-orginal-height')}px`
-    addClass(this.tabWrapper, 'tabs__content--transition')
   }
 
   toggleTab(e) {
