@@ -21,6 +21,11 @@
 
     p {
       padding: 0;
+      margin: $half-gutter;
     }
+  }
+
+  &__image-wrap {
+    margin: $half-gutter;
   }
 }
