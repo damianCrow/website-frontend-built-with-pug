@@ -61,6 +61,9 @@
 
     margin: $half-gutter 0;
 
+    padding-left: $primary-gutter + $half-gutter;
+    position: relative;
+
     align-items: center;
     @extend %typography-body;
 
@@ -83,7 +86,9 @@
       border: none;
       background-color: palette(gold, process);
 
-      font: normal 100%/normal Arial, Helvetica, sans-serif;
+      position: absolute;
+      left: 0;
+      top: 7px;
     }
   }
 
