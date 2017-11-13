@@ -114,4 +114,26 @@
   &--fill-height {
     height: 100%;
   }
+
+  &--sink-height {
+    margin-top: auto;
+  }
+
+  &--fill-width {
+    width: 100%;
+  }
+
+  &--breathing {
+    margin: $primary-gutter;
+  }
+
+  &--mobile-only {
+    @media #{$mq-desktop-small-up} {
+      display: none;
+    }
+  }
+
+  &--bfb {
+    width: calc(100% - 2rem);
+  }
 }

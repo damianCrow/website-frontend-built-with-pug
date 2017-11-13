@@ -42,9 +42,9 @@ export default class Tabs {
       removeClass(this.eachTabContent[i], 'tabs__content--active')
     }
 
-    const tabContent = this.parent.querySelector(`section[data-tab-link="${e.srcElement.getAttribute('data-tab-link')}"]`)
+    const tabContent = this.parent.querySelector(`section[data-tab-link="${e.target.getAttribute('data-tab-link')}"]`)
     this.tabWrapper.style.height = `${tabContent.getAttribute('data-orginal-height')}px`
     addClass(tabContent, 'tabs__content--active')
-    addClass(e.srcElement, 'tabs__tab--active')
+    addClass(e.target, 'tabs__tab--active')
   }
 }

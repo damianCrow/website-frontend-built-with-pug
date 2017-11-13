@@ -6,6 +6,8 @@
   top: 180px;
   right: 0;
 
+  font-style: normal;
+
   display: flex;
   flex-direction: column;
 
@@ -43,56 +45,6 @@
     width: 100%;
     margin: 0 0 $primary-gutter 0;
     padding: 0;
-  }
-}
-
-.contact {
-  @extend .product-detail;
-
-  details.gold {
-    margin-bottom: 0;
-
-    &[open] {
-      > summary {
-        border-bottom: 2px solid palette(gold, process);
-      }
-    }
-  }
-
-  .link {
-    @extend %typography-small-section-link-invert;
-  }
-
-  p a {
-    color: palette(gold, process);
-  }
-
-  .institutional__block--vert, .institutional__block--vert:last-child {
-    flex:  1 0 calc(50% - #{$half-gutter});
-
-    padding-left: 0;
-
-    &.pad-adjust {
-      padding-right: 0;
-    }
-
-    @media #{$mq-desktop-small-up} {
-      flex: 1;
-
-      &.pad-adjust {
-        padding-right: $primary-gutter;
-      }
-    }
-
-    .institutional__block--border {
-      margin-bottom: $primary-gutter;
-
-      border-color: palette(gray, pale);
-    }
-  }
-
-  .institutional__block-wrap {
-    flex-wrap: wrap;
   }
 }
 

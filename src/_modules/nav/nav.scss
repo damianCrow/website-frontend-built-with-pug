@@ -176,6 +176,7 @@
         transition: opacity 400ms $timing-function-fast-out-slow-in 250ms;
 
         opacity: 1;
+        pointer-events: auto;
 
         > #{$root}__item--sub-item {
           opacity: 1;
@@ -195,6 +196,8 @@
 
     opacity: 0;
     background-color: palette(brown, base);
+
+    pointer-events: none;
   }
 
   &__link {

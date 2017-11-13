@@ -5,6 +5,8 @@ include ../_modules/button/button
 include ../_modules/progressicon/progressicon
 include ../_modules/article-header/article-header
 include ../_modules/article-hero/article-hero
+include ../_modules/square/square
+include ../_modules/expand-section/expand-section
 
 block config
   //- Correct base url pathing for this page 'condensed' or 'expanded'
@@ -17,7 +19,7 @@ block content
     article
       +article-header('Contact')
       +article-hero('../images/article-header-image.jpg')(id="map")
-        .address
+        address.address
           h3.product-detail__summary UK Head Office
           span BP Prime
           span 36 Whitefriars Street
@@ -26,61 +28,81 @@ block content
           span United Kingdom
           span.phone-number T: #[a(href="tel:+442037457101") +44 (0) 20 3745 7101]
           span.email E: #[a(href="mailto:support@blackpearlfx.com") support@blackpearlfx.com]
-      .wrapper.contact
-        details.detail.detail--table-wrap.gold.currency-table
-          summary 
-            |Careers
-          p.product-detail__summary
-            |BlackPearlFX is proud to offer a suite of multi-platform, multi-lingual, market-informed apps which help traders to optimise their ability to trade successfully. The apps give traders institutional quality tools over and abovethose provided in the MT4. This include advanced trade execution and management, decision assistance, sophisticated alarms and messaging broadcasting facilities, plus news and market data.
-          p.product-detail__terms 
-            |We care about our employees and invest in their success, helping them develop their skills and their careers. Our employees can build interesting careers here, thanks to our global business reach, a host of opportunities and our collaborative, dynamic culture. If you are interested in an informal and confidential discussion, or wish to send your CV, please email at #[a(href="") careers@blackpearlfx.com]
-        p.product-detail__summary
-          |Legal Documentation
-        p.product-detail__terms 
-          |*To become a client of BP Prime you must read, understand and agree to all the following documentation:
-        .institutional__block-wrap
-          .institutional__block.institutional__block--vert
-              .institutional__block.institutional__block--border
-                h6 Our Solutions
-                h5 White Lables
-                +button()(class="button--green button--medium") 
-                  |Open PDF
-              .institutional__block.institutional__block--border
-                h6 Our Clients
-                h5 IB & IA
-                +button()(class="button--green button--medium") 
-                  |Open PDF
-          .institutional__block.institutional__block--vert.pad-adjust
-              .institutional__block.institutional__block--border
-                h6 Our Solutions
-                h5 White Lables
-                +button()(class="button--green button--medium") 
-                  |Open PDF
-              .institutional__block.institutional__block--border
-                h6 Our Clients
-                h5 IB & IA
-                +button()(class="button--green button--medium") 
-                  |Open PDF
-          .institutional__block.institutional__block--vert
-              .institutional__block.institutional__block--border
-                h6 Our Solutions
-                h5 White Lables
-                +button()(class="button--green button--medium") 
-                  |Open PDF
-              .institutional__block.institutional__block--border
-                h6 Our Clients
-                h5 IB & IA
-                +button()(class="button--green button--medium") 
-                  |Open PDF
-          .institutional__block.institutional__block--vert
-              .institutional__block.institutional__block--border
-                h6 Our Solutions
-                h5 White Lables
-                +button()(class="button--green button--medium") 
-                  |Open PDF
-              .institutional__block.institutional__block--border
-                h6 Our Clients
-                h5 IB & IA
-                +button()(class="button--green button--medium") 
-                  |Open PDF
+      
+      section.page-content.page-content--squeezed
+        +expand-section('Careers')
+          .page-content__container
+            .page-content__block.page-content__block--column.page-content__block--left-sqeeze
+              p.typography-section-title
+                |BlackPearlFX is proud to offer a suite of multi-platform, multi-lingual, market-informed apps which help traders to optimise their ability to trade successfully. The apps give traders institutional quality tools over and abovethose provided in the MT4. This include advanced trade execution and management, decision assistance, sophisticated alarms and messaging broadcasting facilities, plus news and market data.
+              p.typography-body
+                |We care about our employees and invest in their success, helping them develop their skills and their careers. Our employees can build interesting careers here, thanks to our global business reach, a host of opportunities and our collaborative, dynamic culture. If you are interested in an informal and confidential discussion, or wish to send your CV, please email at #[a(href="") careers@blackpearlfx.com]
+      section.page-content.page-content--squeezed
+        .page-content__container
+          .page-content__block.page-content__block--column
+            h1.typography-section-title Legal Documentation
+            p.typography-body *To become a client of BP Prime you must read, understand and agree to all the following documentation:
+
+      section.page-content
+        .page-content__container.page-content__container--full-width
+          .page-content__row-or-stack
+            +square({modifier: ['white', 'collapsed'], meta: {text: 'Our Documents'}, title: {text: 'Best Execution Policy'}})
+              +button()(class="button--green button--medium") Open PDF
+            +square({modifier: ['white', 'collapsed'], meta: {text: 'Our Documents'}, title: {text: 'Best Execution Policy'}})
+              +button()(class="button--green button--medium") Open PDF
+            +square({modifier: ['white', 'collapsed'], meta: {text: 'Our Documents'}, title: {text: 'Best Execution Policy'}})
+              +button()(class="button--green button--medium") Open PDF
+          .page-content__row-or-stack
+            +square({modifier: ['white', 'collapsed'], meta: {text: 'Our Documents'}, title: {text: 'Best Execution Policy'}})
+              +button()(class="button--green button--medium") Open PDF
+            +square({modifier: ['white', 'collapsed'], meta: {text: 'Our Documents'}, title: {text: 'Best Execution Policy'}})
+              +button()(class="button--green button--medium") Open PDF
+            +square({modifier: ['white', 'collapsed'], meta: {text: 'Our Documents'}, title: {text: 'Best Execution Policy'}})
+              +button()(class="button--green button--medium") Open PDF
+
+        //- .institutional__block-wrap
+        //-   .institutional__block.institutional__block--vert
+        //-       .institutional__block.institutional__block--border
+        //-         h6 Our Solutions
+        //-         h5 White Lables
+        //-         +button()(class="button--green button--medium") 
+        //-           |Open PDF
+        //-       .institutional__block.institutional__block--border
+        //-         h6 Our Clients
+        //-         h5 IB & IA
+        //-         +button()(class="button--green button--medium") 
+        //-           |Open PDF
+        //-   .institutional__block.institutional__block--vert.pad-adjust
+        //-       .institutional__block.institutional__block--border
+        //-         h6 Our Solutions
+        //-         h5 White Lables
+        //-         +button()(class="button--green button--medium") 
+        //-           |Open PDF
+        //-       .institutional__block.institutional__block--border
+        //-         h6 Our Clients
+        //-         h5 IB & IA
+        //-         +button()(class="button--green button--medium") 
+        //-           |Open PDF
+        //-   .institutional__block.institutional__block--vert
+        //-       .institutional__block.institutional__block--border
+        //-         h6 Our Solutions
+        //-         h5 White Lables
+        //-         +button()(class="button--green button--medium") 
+        //-           |Open PDF
+        //-       .institutional__block.institutional__block--border
+        //-         h6 Our Clients
+        //-         h5 IB & IA
+        //-         +button()(class="button--green button--medium") 
+        //-           |Open PDF
+        //-   .institutional__block.institutional__block--vert
+        //-       .institutional__block.institutional__block--border
+        //-         h6 Our Solutions
+        //-         h5 White Lables
+        //-         +button()(class="button--green button--medium") 
+        //-           |Open PDF
+        //-       .institutional__block.institutional__block--border
+        //-         h6 Our Clients
+        //-         h5 IB & IA
+        //-         +button()(class="button--green button--medium") 
+        //-           |Open PDF
   +footer(baseUrl)

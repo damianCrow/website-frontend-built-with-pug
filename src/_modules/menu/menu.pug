@@ -38,4 +38,6 @@ mixin menu(headerSize, baseUrl)
         {title: 'Contact', href: baseUrl + 'contact'},
       ]
     })
-    +language-selector()
+    .main-menu__bottom
+      +button(true)(class="button--trans-gold button--breathing button--bfb button--mobile-only") Client Login
+      +language-selector()

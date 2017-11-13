@@ -5,6 +5,7 @@
   margin: $half-gutter;
 
   max-height: 325px;
+  min-height: 150px;
 
   background: palette(brown, base);
 
@@ -18,7 +19,8 @@
     position: relative;
 
     overflow: hidden;
-    flex: 0 1 170px;
+    flex: 0 0 170px;
+    // min-height: 175px;
 
     width: 100%;
 
@@ -33,7 +35,9 @@
   &__contents {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex: 1 1 auto;
+
+    // min-height: 175px;
 
     padding: $primary-gutter;
   }

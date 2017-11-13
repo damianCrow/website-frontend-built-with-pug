@@ -40,4 +40,8 @@
       padding-top: $expanded-header-height;
     }
   }
+
+  &__bottom {
+    margin-top: auto;
+  }
 }
