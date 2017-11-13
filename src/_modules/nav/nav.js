@@ -27,7 +27,6 @@ export default class Nav {
   }
 
   calculateSizes(level, heightOfSelectedNav = 0, startingPosition = 0) {
-    console.log('startingPosition', startingPosition)
 
     // Starts as 0, if we're opening a nav then that's also considered
     let totalHeightOfPreviousItems = 0
