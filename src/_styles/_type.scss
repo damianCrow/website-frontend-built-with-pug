@@ -405,3 +405,230 @@ $color-transistion: color 250ms $timing-function-ease-out-quint;
   font-size: 14px;
 }
 
+// Duplicates of above to be used in html
+
+
+.typography-banner-title {
+  color: palette(gold, metalic);
+
+  @extend %financier-bold;
+  @include responsive-font-size(
+    $mobile: $font-size-xx-large,
+    $desktop: $font-size-xxx-large
+  );
+}
+
+.typography-banner-subtitle {
+  color: palette(gray, pale);
+
+  @extend %mukta-light;
+  @include responsive-font-size(
+    $mobile: $font-size-regular,
+    $desktop: $font-size-large
+  );
+}
+
+.typography-section-title {
+  color: palette(gold, metalic);
+  line-height: 30px;
+  @extend %financier-bold;
+  @include font-size-large;
+}
+
+.typography-page-top-title {
+  color: palette(gray, medium);
+
+  @extend %financier-bold;
+  @include responsive-font-size(
+    $mobile: $font-size-x-large,
+    $desktop: $font-size-xx-large
+  );
+}
+
+
+// ASK DESIGNER FOR PROPER NAME
+.typography-title-v-one {
+  color: palette(gray, medium);
+
+  @extend %mukta-medium;
+  @include responsive-font-size(
+    $mobile: $font-size-regular,
+    $desktop: $font-size-regular
+  );
+}
+
+.typography-title-v-one--lighter {
+  color: palette(gray, pale);
+
+  @extend %mukta-medium;
+  @include responsive-font-size(
+    $mobile: $font-size-regular,
+    $desktop: $font-size-regular
+  );
+}
+
+// ASK DESIGNER FOR PROPER NAME
+.typography-title-v-two {
+  color: palette(gold, metalic);
+
+  @extend %financier-regular;
+  @include font-size-regular;
+}
+
+.typography-title-v-three {
+  color: palette(gray, white);
+  
+  @extend %financier-regular;
+  @include font-size-regular;
+}
+
+
+.typography-body {
+  color: palette(gray, medium);
+
+  @extend %mukta-light;
+  @include font-size-regular;
+}
+
+.typography-list-label {
+  color: palette(gray, pale);
+
+  @extend %mukta-light;
+  @include font-size-regular;
+}
+
+.typography-list-value {
+  color: palette(gray, pale);
+
+  @extend %mukta-light;
+  @include font-size-regular;
+}
+
+// *Side Nav*
+.typography-side-nav-title {
+  color: palette(gray, lightblack);
+
+  @extend %mukta-medium;
+  @include font-size-regular;
+}
+
+.typography-side-nav-item {
+  color: palette(gray, medium);
+
+  @extend %mukta-light;
+  @include font-size-regular;
+}
+
+.typography-side-nav-sub-item {
+  color: palette(gray, medium);
+
+  @extend %mukta-light;
+  @include font-size-regular;
+}
+
+// *Main Nav*
+.typography-nav-section {
+  color: palette(gray, pale);
+
+  @extend %financier-regular;
+  @include font-size-large;
+}
+
+.typography-open-nav-section {
+  color: palette(gold, metalic);
+
+  @extend %financier-bold;
+  @include font-size-large;
+}
+
+// *small text including footer*
+.typography-small-section-label {
+  color: palette(gold, metalic);
+
+  @extend %mukta-light;
+  @include font-size-small;
+}
+
+.typography-small-section-text {
+  color: palette(gray, pale);
+
+  @extend %mukta-light;
+  @include font-size-small;
+}
+
+.typography-small-section-link {
+  color: palette(gray, pale);
+  text-decoration: none;
+  border-bottom: 1px solid palette(gray, pale);
+  cursor: pointer;
+
+  @extend %mukta-light;
+  @include font-size-small;
+}
+
+.typography-small-section-link-invert {
+  color: palette(brown, base);
+  text-decoration: none;
+  border-bottom: 1px solid palette(brown, base);
+  cursor: pointer;
+
+  @extend %mukta-light;
+  @include font-size-small;
+}
+
+.typography-active-small-section-link {
+  color: palette(gold, metalic);
+  text-decoration: none;
+  border-bottom: 1px solid palette(gold, metalic);
+  cursor: pointer;
+
+  @extend %mukta-light;
+  @include font-size-small;
+}
+
+.typography-small-section-plain-link {
+  color: palette(gray, pale);
+  text-decoration: none;
+  cursor: pointer;
+
+  @extend %mukta-light;
+  @include font-size-small;
+}
+
+.typography-active-small-section-plain-link {
+  color: palette(gold, metalic);
+  text-decoration: none;
+  cursor: pointer;
+
+  @extend %mukta-light;
+  @include font-size-small;
+}
+
+.typography-rectangle-button {
+  color: palette(gold, metalic);
+  text-decoration: none;
+  cursor: pointer;
+
+  @extend %mukta-light;
+  @include font-size-small;
+}
+
+.typography-active-rectangle-button {
+  color: palette(gray, pale);
+  text-decoration: none;
+  cursor: pointer;
+
+  @extend %mukta-light;
+  @include font-size-small;
+}
+
+.typography-tandc-small {
+  color: palette(gray, medium);
+  @extend %mukta-light;
+  @include font-size-x-small;
+  line-height: 20px;
+  font-size: 14px;
+}
+ 
+
+
