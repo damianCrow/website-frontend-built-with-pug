@@ -8,6 +8,20 @@
   padding: 40px 0;
   font-weight: 100;
 
+  &.success {
+    & > * {
+      display: none;
+    }
+
+    .success-only {
+      display: block;
+    }
+  }
+
+  .success-only {
+    display: none;
+  }
+
   &__radios {
     flex: 1;
     display: flex;

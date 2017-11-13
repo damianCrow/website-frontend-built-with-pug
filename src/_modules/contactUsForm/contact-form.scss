@@ -6,6 +6,20 @@
   padding: 40px $primary-gutter;
   font-weight: 100;
 
+  &.success {
+    & > * {
+      display: none;
+    }
+
+    .success-only {
+      display: block;
+    }
+  }
+
+  .success-only {
+    display: none;
+  }
+
   &__header {
     color: palette(gold, metalic);
     margin: 0;

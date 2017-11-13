@@ -4,8 +4,10 @@ include ../textinput/textinput
 mixin contactUsForm()
   .contact-form
     h4.contact-form__header Contact Us
+    h4.contact-form__header.success-only Success
     p.contact-form__text We offer financial institutions to a state of the art services platform to allow the best trading experience possible. Contact our support team for more information.
-    form.contact-form__form(action="")
+    p.contact-form__text.success-only Thank You. You have succussfully submitted the form.
+    form.contact-form__form(action="someEndPoint/onSomeServer/" method="POST")
       .contact-form__inputwrap
         +textinput({text: 'Company:', type: 'text', name: 'title'})
       .contact-form__inputwrap

@@ -81,7 +81,21 @@ export default class TextInput {
             $(`input[name=${radioArray[i]}]`).removeClass('error')
           }
         }
-      } 
+      }
+
+      if($(e.target).find('input.error').length === 0) {
+        // SUCCESSFULL FORM VALIDATION! CALL SUCCESS FUNCTION HERE \\
+
+        alert('Form Valid!');
+        // ADD SUCCESS CLASS TO FORM \\
+        $(e.target).parent().addClass('success');
+        // SUBMIT FORM \\
+        // $(e.target).get(0).submit(); 
+      } else {
+
+        // FAILED FORM VALIDATION! CALL FAIL FUNCTION HERE \\
+        alert('Form NOT Valid!');
+      }
     })
   }
 

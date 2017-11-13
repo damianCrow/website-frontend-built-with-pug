@@ -3,12 +3,13 @@ include ../radiobutton/radiobutton
 include ../button/button
 include ../dropdown/dropdown
 
-
 mixin personalDetailsForm(spec)
   .personal_form
     h4.personal_form__header Personal Details
+    h4.contact-form__header.success-only Success
     p.personal_form__text Please ensure you state your name exactly as it appears on your passport or other photo ID.
-    form.personal_form__form(action="")
+    p.personal_form__text.success-only Thank You. You have succussfully submitted the form.
+    form.personal_form__form(action="someEndPoint/onSomeServer/" method="POST")
       .personal_form__inputwrap
         h5.label Gender:
         .personal_form__radios
