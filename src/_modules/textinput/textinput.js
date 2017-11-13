@@ -85,16 +85,12 @@ export default class TextInput {
 
       if($(e.target).find('input.error').length === 0) {
         // SUCCESSFULL FORM VALIDATION! CALL SUCCESS FUNCTION HERE \\
-
-        alert('Form Valid!');
-        // ADD SUCCESS CLASS TO FORM \\
-        $(e.target).parent().addClass('success');
+        
         // SUBMIT FORM \\
-        // $(e.target).get(0).submit(); 
+        $(e.target).get(0).submit(); 
       } else {
 
         // FAILED FORM VALIDATION! CALL FAIL FUNCTION HERE \\
-        alert('Form NOT Valid!');
       }
     })
   }
