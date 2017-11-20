@@ -11,9 +11,11 @@
   }
 
   .slider-container {
-    display: flex;
     flex: 1 0 100vh;
     justify-content: center;
+
+    overflow: hidden;
+    position: relative;
 
     width: 100%;
     max-width: $max;
@@ -29,7 +31,12 @@
   }
 
   .slide {
-    flex: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    display: flex;
+    align-items: center;
 
     &__text {
       flex-direction: column;
@@ -65,15 +72,17 @@
     }
 
     &--1 {
-      background: url('../images/bp-prime-landing-001.jpg') no-repeat 0 0 / cover palette(gray, pale); 
+      // Make sure the first slide is loaded first (before JS)
+      z-index: 1;
+      background: url('../images/bp-prime-landing-001.jpg') no-repeat center center / cover palette(brown, dark); 
     } 
 
     &--2 {
-      background: url('../images/bp-prime-landing-002.jpg') no-repeat 0 0 / cover palette(gray, pale);
+      background: url('../images/bp-prime-landing-002.jpg') no-repeat center center / cover palette(brown, dark);
     } 
 
     &--3 {
-      background: url('../images/bp-prime-landing-003.jpg') no-repeat 0 0 / cover palette(gray, pale);
+      background: url('../images/bp-prime-landing-003.jpg') no-repeat center center / cover palette(brown, dark);
     } 
   }
 
