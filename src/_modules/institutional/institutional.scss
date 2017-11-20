@@ -105,6 +105,27 @@
     }
   }
 
+  // PATCH
+  .institutional__block {
+    display: flex;
+    flex-direction: column;
+
+    button {
+      position: relative;
+      margin-top: auto;
+      align-self: flex-start;
+    }
+
+    img {
+      width: 100%;
+      margin-top: auto;
+      margin-bottom: auto;
+      padding: $primary-gutter;
+      display: block;
+      padding-bottom: $primary-gutter * 2;
+    }
+  }
+
   &__form {
     flex: 1;
   }
