@@ -41,6 +41,11 @@
     flex: 2;
     flex-direction: column;
     justify-content: center;
+
+    > span {
+      // flex: 1 1 auto;
+      display: block;
+    }
   }
 
   &__featured-image {

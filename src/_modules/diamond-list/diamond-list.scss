@@ -16,6 +16,8 @@
 
     #{$root}__item {
       position: relative;
+      width: 100%;
+      display: block;
 
       padding-left: calc(#{$primary-gutter} * 2.5);
 
