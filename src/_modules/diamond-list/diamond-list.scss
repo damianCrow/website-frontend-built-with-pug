@@ -11,6 +11,32 @@
 
   $root: &;
 
+  &--open-diamonds {
+    position: relative;
+
+    #{$root}__item {
+      position: relative;
+
+      padding-left: calc(#{$primary-gutter} * 2.5);
+
+      &::before {
+        position: absolute;
+        left: 0;
+
+        width: 20px;
+        height: 20px;
+
+        transform: rotateZ(0);
+
+        background-color: transparent;
+        background-image: url('../images/logo.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        top: 0;
+      }
+    }
+  }
+
   &--style2 {
     position: relative;
 
@@ -34,7 +60,7 @@
         background-image: url('../images/logo.png');
         background-repeat: no-repeat;
         background-size: contain;
-      }      
+      }
     }
   }
 

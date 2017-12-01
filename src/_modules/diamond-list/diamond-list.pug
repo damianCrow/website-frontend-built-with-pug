@@ -10,5 +10,6 @@ mixin diamond-list(listItems, styleModifers)
           span.diamond-list__item--title!= listItem.title
           span!= listItem.text
       else
-        li.diamond-list__item!= listItem
+        li.diamond-list__item
+          span!= listItem
 //- style2
