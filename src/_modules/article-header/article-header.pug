@@ -8,7 +8,7 @@ mixin article-header(title, buttons, product, subMenu)
     .article-header__bar(class=(subMenu ? ' article-header__bar--responsive-sub-menu' : ''))
       .article-header__container
         if product
-          h1.article-header__title(class!= product.class)!= title
+          h1.article-header__title(class!= product.className)!= title
         else
           h1.article-header__title!= title
         if buttons

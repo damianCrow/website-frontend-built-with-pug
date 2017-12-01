@@ -1,14 +1,11 @@
 .article-header {
-  position: sticky;
-  z-index: 6;
-  top: $condensed-header-height;
-
-  width: 100%;
-
-  pointer-events: none;
-
-  border-top: 1px solid palette(gray, border);
   border-bottom: 1px solid palette(gray, border);
+  border-top: 1px solid palette(gray, border);
+  pointer-events: none;
+  position: sticky;
+  top: $condensed-header-height;
+  width: 100%;
+  z-index: 6;
 
   $root: &;
 
