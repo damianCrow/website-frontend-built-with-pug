@@ -19,8 +19,9 @@
   &__block-wrap {
     display: flex;
     flex: 1;
-    min-height: 350px;
     flex-direction: column;
+
+    min-height: 350px;
 
     @media #{$mq-tablet-large-up} {
       flex-direction: row;
@@ -103,6 +104,10 @@
       position: absolute;
       bottom: 1rem;
     }
+  }
+
+  &__image-wrap {
+    width: 100%;
   }
 
   // PATCH

@@ -5,6 +5,7 @@
   flex-direction: column;
   padding: 40px $primary-gutter;
   font-weight: 100;
+  flex: 1;
 
   &.success {
     & > * {

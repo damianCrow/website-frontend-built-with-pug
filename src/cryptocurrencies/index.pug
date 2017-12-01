@@ -1,0 +1,92 @@
+extends ../_layouts/base
+include ../_modules/header/header
+include ../_modules/footer/footer
+include ../_modules/article-header/article-header
+include ../_modules/article-hero/article-hero
+include ../_modules/contactUsForm/contact-form
+include ../_modules/square/square
+include ../_modules/diamond-list/diamond-list
+
+block config
+  //- Correct base url pathing for this page 'condensed' or 'expanded'
+  - var headerType = 'condensed'
+  - var baseUrl = '../'
+
+block content
+  +header(headerType, baseUrl)
+  main(role='main')
+    article
+      +article-header('Cryptocurrencies', [{text: 'Become a Client', style: 'green'}, {text: 'Request Demo', style: 'dark-green'}], {className: 'green article-header__title--product'} )
+      +article-hero('../images/crypto-banner-001.jpg','Digital currencies at your fingertips. Start trading today with Competitive spreads', {text: 'CTA Button', style: 'green'})
+
+      .page-content.page-content--left-squeze
+        .page-content__container
+          .page-content__block.page-content__block--column
+            p.product-detail__summary.product-detail__summary--flush.green
+              |Cryptocurrencies are virtual currencies which operate independently from banks and governments, but like physical currency they can be used as a method of exchange or investor speculation.
+            p.overview__intro
+              |Cryptocurrencies are virtual currencies which operate independently from banks and governments, but like physical currency they can be used as a method of exchange or investor speculation.
+            p.overview__intro
+              |Today Cryptocurrencies have become a popular investment option, partly due to being highly volatile and unpredictable which can provide alternative opportunities for a trader’s portfolio. Risk is there to be managed when trading on margin and particularly in a market whose price is driven for the most part by pure market demand.
+            p.institutional-sub-page__text-wrap__text--gray BP PRIME offers Bitcoin and Ethereum quoted against USD, EUR, GBP, JPY, AUD.
+            h2.product-detail__summary.product-detail__summary--flush.green Quick Facts about BTC vs ETH
+          .page-content__row-or-stack
+            +square({modifier: ['white', 'equal', 'grow'], empty: true})
+              header.square__header-details
+                .square__header-logo
+                  img(src!=baseUrl + 'images/bitcoin_logo.svg', title='Bitcoin')
+                .square__header-meta
+                  span.typography-body USD 9528.80
+                  span.typography-body -0.14%
+              +diamond-list([
+                'Date of introduction: 3rd of January 2009',
+                'Symbol = BTC',
+                'No one single entity controls BitCoin, it is decentralised',
+                'BitCoin Market Cap is $185B as of November 2017.',
+                'The maximum bitcoins that can be created is 21 MILLION. November 2017 around 16.7M BTC are in circulation.',
+                'The BLOCKCHAIN is a public ledger that records bitcoin transactions',
+                'BitCoin Transactions are measured in Satoshi/byte. 1 SATOSHI = 0.00000001 BITCOIN',
+                'The Bitcoin network is more powerful than 500 SUPERCOMPUTERS PUT TOGETHER',
+                'Big companies that accept bitcoin payments (DELL, OVERSTOCK, MICROSOFT, EXPEDIA, DISH NETWORK)'
+              ], ['open-diamonds'])
+            +square({modifier: ['white', 'equal', 'grow'], empty: true})
+              header.square__header-details
+                .square__header-logo
+                  img(src!=baseUrl + 'images/ethereum_logo.svg', title='Ethereum')
+                .square__header-meta
+                  span.typography-body USD 9528.80
+                  span.typography-body -0.14%
+              +diamond-list([
+                'Initial release date: 30th of July 2015',
+                'Symbol = ETH',
+                'ETH is a decentralised platform that runs smart contracts, it is a blockchain based system.',
+                'Ethereum portrays itself as one of the most promising cryptocurrency technologies following in the footsteps of BitCoin in terms of success. ',
+                'Ethereum Market Cap is $46.7B as of November 2017',
+                'Ether’s supply is infinite. So far 96M ETH coins are in circulation.',
+                'ETH price is mainly driven by changes in the Ethereum platform especially everytime it reaches important milestones known as “hard forks”.',
+                'Another external factor that drives ETH prices is BitCoin. Since Bitcoin is the largest and most popular cryptocurrency, when there is a significant price movement in BTC other cryptocurrencies move accordingly.'
+              ], ['open-diamonds'])
+          .page-content__block.page-content__block--column
+            .product-detail__summary.product-detail__summary--flush.green Why Trade Bitcoin and Ethereum with BP PRIME?
+            +diamond-list([
+              'Unlimited Demo Account',
+              'No Dealing  Desk – trade against the market not your broker',
+              'Up to 20:1 Leverage',
+              'Control your profits and losses with price alerts and stops',
+              'Elite Trading Tools',
+              'No digital wallet needed. Don’t lose your digital coins forever when you lose your wallet.',
+              'Ability to sell without owning the underlying instrument',
+              'Advanced charts and live quotes',
+              'Competitive spreads and swap rates',
+              'No requotes',
+              'Trade 24/5',
+              'Powerful MT4 platform Desktop and Mobile',
+              'Trade cryptocurrencies in any of our accounts',
+              'Exceptional support'
+            ], ['open-diamonds'])
+          .page-content__image
+            img(src!=baseUrl + '/images/cryptocurrencies-mobile.jpg')
+        .institutional-sub-page__form
+          +contactUsForm()
+
+  +footer(baseUrl)
