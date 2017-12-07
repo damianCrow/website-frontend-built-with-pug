@@ -54,6 +54,11 @@
       margin: 0 0 0 auto;
       padding-left: $primary-gutter;
     }
+
+    > a,
+    button {
+      pointer-events: auto;
+    }
   }
 
 
