@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import 'nodep-date-input-polyfill'
 
 export default class PersonalDetailsForm {
   constructor(textInput) {
@@ -21,8 +22,8 @@ export default class PersonalDetailsForm {
         // }
       },
       onStepChanged(event, currentIndex, priorIndex) {
-        // $(`#personalDetailsForm-p-${currentIndex}`).find('input.error').removeClass('error')
-        // console.log($(`#personalDetailsForm-p-${currentIndex}`).find('input'))
+        $(`#personalDetailsForm-p-${currentIndex}`).find('.error').removeClass('error')
+        
         if (currentIndex < priorIndex) {
          $('#personalDetailsFormProgress').find(`.progress[data-index="${priorIndex}"]`).removeClass('active complete')
          $('#personalDetailsFormProgress').find(`.progress[data-index="${currentIndex}"]`).removeClass('complete').addClass('active')
@@ -32,8 +33,9 @@ export default class PersonalDetailsForm {
         }
       },
       onFinishing(event, currentIndex) {
-          // $('#personalDetailsForm').validate().settings.ignore = ':disabled';
-          // return $('#personalDetailsForm').valid();
+        if(textInput.validateForm(`personalDetailsForm-p-${currentIndex}`, () => true, () => false)) {
+          $(this).submit()
+        }
       },
       onFinished(event, currentIndex) {
           alert('Submitted!')

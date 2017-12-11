@@ -95,9 +95,13 @@
       &--telephone {
         flex: 0 1 27%;
       }
+
+      a {
+        color: palette(gold, metalic);
+      }
     }
 
-    input:not([type="radio"]):not([type="file"]) {
+    input:not([type="radio"]):not([type="file"]):not([type="date"]) {
       flex: 1;
       transform: translateY(14px);
 
