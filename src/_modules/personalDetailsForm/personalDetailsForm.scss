@@ -43,6 +43,12 @@
     @extend %typography-section-title;
   }
 
+  &__sub-heading {
+    @extend %typography-title-v-one;
+    color: palette(gray, medium);
+    margin: 0;
+  }
+
   &__dropdownwrap {
     flex: 1;
     display: flex;
@@ -50,14 +56,6 @@
 
     .dropdown {
       flex: 0.5;
-
-      &.trio {
-        flex: 1;
-
-        // &:not(:first-child) {
-        //   margin-left: 8px;
-        // }
-      }
     }
   }
 

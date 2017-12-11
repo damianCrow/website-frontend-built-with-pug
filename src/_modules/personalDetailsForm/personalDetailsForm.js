@@ -23,10 +23,10 @@ export default class PersonalDetailsForm {
       },
       onStepChanged(event, currentIndex, priorIndex) {
         $(`#personalDetailsForm-p-${currentIndex}`).find('.error').removeClass('error')
-        
+     
         if (currentIndex < priorIndex) {
-         $('#personalDetailsFormProgress').find(`.progress[data-index="${priorIndex}"]`).removeClass('active complete')
-         $('#personalDetailsFormProgress').find(`.progress[data-index="${currentIndex}"]`).removeClass('complete').addClass('active')
+          $('#personalDetailsFormProgress').find(`.progress[data-index="${priorIndex}"]`).removeClass('active complete')
+          $('#personalDetailsFormProgress').find(`.progress[data-index="${currentIndex}"]`).removeClass('complete').addClass('active')
         } else {
           $('#personalDetailsFormProgress').find(`.progress[data-index="${priorIndex}"]`).removeClass('active').addClass('complete')
           $('#personalDetailsFormProgress').find(`.progress[data-index="${currentIndex}"]`).addClass('active')
@@ -34,11 +34,17 @@ export default class PersonalDetailsForm {
       },
       onFinishing(event, currentIndex) {
         if(textInput.validateForm(`personalDetailsForm-p-${currentIndex}`, () => true, () => false)) {
-          $(this).submit()
+
+          $(this).submit(() => {
+            return false
+          })
+
+          $(`.progress[data-index="${currentIndex}"]`).removeClass('active').addClass('complete')
+          $('#formWrapper').addClass('success')
         }
       },
       onFinished(event, currentIndex) {
-          alert('Submitted!')
+        // alert('Submitted!')
       }
     })
   }
