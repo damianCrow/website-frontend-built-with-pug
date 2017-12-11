@@ -15,84 +15,82 @@ export default class TextInput {
     		}
     	})
     }
+  }
 
-    $('.personal_form__form, .contact-form__form').submit((e) => {
-      e.preventDefault()
+  validateForm(element, successCallBack, errorCallBack) {
 
-      if($(e.target).find('.phone-validate')) {
-        let phoneNumber = ''
+    if($(`#${element}`).find('.phone-validate')) {
+      let phoneNumber = ''
 
-        $('.phone-validate').find('input').each((idx, item) => {
-          phoneNumber += $(item).val().replace('+', '')
-        })
-        
-        if(!this.validatePhoneNumber(`+${phoneNumber}`)) {
-          $('.phone-validate').append('<b class="error-message">Invalid Phone Number!</b>');
-          $('.phone-validate').find('input').addClass('error').focus((ele) => {
-            $(ele.target).removeClass('error')
-            $('.phone-validate').find('.error-message').remove()
-          })
-        } else {
-          $('.phone-validate').find('input').removeClass('error')
-          $('.phone-validate').find('.error-message').remove()
-        } 
-      }
-
-      $(e.target).find('input:not(.error)').each((indx, field) => {
-        if($(field).val().length < 1) {
-          $(field).parent().append('<b class="error-message">Input Required!</b>');
-          $(field).addClass('error').focus((el) => {
-            $(el.target).removeClass('error')
-            $(el.target).parent().find('.error-message').remove()
-          })
-        } else {
-          $(field).removeClass('error')
-          $(field).parent().find('.error-message').remove()
-        }
+      $('.phone-validate').find('input').each((idx, item) => {
+        phoneNumber += $(item).val().replace('+', '')
       })
 
-      if($(e.target).find('.dropdown')) {
-        $('.dropdown').each((indx, select) => {
-          if($(select).val() === null) {
-            $(select).addClass('error').change((el) => {
-              $(el.target).removeClass('error')
-            })
-          } else {
-            $(select).removeClass('error')
-          }
+      if(!this.validatePhoneNumber(`+${phoneNumber}`)) {
+        $('.phone-validate').append('<b class="error-message">Invalid Phone Number!</b>');
+        $('.phone-validate').find('input').addClass('error').focus((ele) => {
+          $(ele.target).removeClass('error')
+          $('.phone-validate').find('.error-message').remove()
         })
-      } 
-
-      if($(e.target).find('.radiowrap__radio')) {
-        let radioCategories = []
-
-        $('.radiowrap__radio').each((indx, radio) => {
-          radioCategories.push($(radio).attr('name'))
-        })
-
-        const radioArray = Array.from(new Set(radioCategories))
-
-        for(let i = 0; i < radioArray.length; i++) {
-          if($(`input[name=${radioArray[i]}]:checked`).length <= 0) {
-            $(`input[name=${radioArray[i]}]`).addClass('error').change(() => {
-              $(`input[name=${radioArray[i]}]`).removeClass('error')
-            })
-          } else {
-            $(`input[name=${radioArray[i]}]`).removeClass('error')
-          }
-        }
-      }
-
-      if($(e.target).find('input.error').length === 0) {
-        // SUCCESSFULL FORM VALIDATION! CALL SUCCESS FUNCTION HERE \\
-        
-        // SUBMIT FORM \\
-        $(e.target).get(0).submit(); 
       } else {
+        $('.phone-validate').find('input').removeClass('error')
+        $('.phone-validate').find('.error-message').remove()
+      } 
+    }
 
-        // FAILED FORM VALIDATION! CALL FAIL FUNCTION HERE \\
+    $(`#${element}`).find('input:not(.error)').each((indx, field) => {
+      if($(field).val().length < 1) {
+        $(field).parent().append('<b class="error-message">Input Required!</b>');
+        $(field).addClass('error').focus((el) => {
+          $(el.target).removeClass('error')
+          $(el.target).parent().find('.error-message').remove()
+        })
+      } else {
+        $(field).removeClass('error')
+        $(field).parent().find('.error-message').remove()
       }
     })
+
+    if($(`#${element}`).find('.dropdown')) {
+      $('.dropdown').each((indx, select) => {
+        if($(select).val() === null) {
+          $(select).addClass('error').change((el) => {
+            $(el.target).removeClass('error')
+          })
+        } else {
+          $(select).removeClass('error')
+        }
+      })
+    }
+
+    if($(`#${element}`).find('.radiowrap__radio')) {
+      let radioCategories = []
+
+      $('.radiowrap__radio').each((indx, radio) => {
+        radioCategories.push($(radio).attr('name'))
+      })
+
+      const radioArray = Array.from(new Set(radioCategories))
+
+      for(let i = 0; i < radioArray.length; i++) {
+        if($(`input[name=${radioArray[i]}]:checked`).length <= 0) {
+          $(`input[name=${radioArray[i]}]`).addClass('error').change(() => {
+            $(`input[name=${radioArray[i]}]`).removeClass('error')
+          })
+        } else {
+          $(`input[name=${radioArray[i]}]`).removeClass('error')
+        }
+      }
+    }
+
+    if($(`#${element}`).find('input.error').length === 0) {
+      // SUCCESSFULL FORM VALIDATION! CALL SUCCESS FUNCTION HERE \\
+      return successCallBack()
+
+    } else {
+      // FAILED FORM VALIDATION! CALL FAIL FUNCTION HERE \\
+      return errorCallBack()
+    }
   }
 
   validateEmail(email) {
@@ -113,5 +111,4 @@ export default class TextInput {
     }
   }
 }
-
 

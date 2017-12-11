@@ -12,13 +12,13 @@ block config
 block content
   +header(headerType, baseUrl)
   .wrapper
-    .progress-wrap
-      +progressicon({text: '1', title: 'Personal', class: 'chain complete'})
-      +progressicon({text: '2', title: 'BP Prime Safe', class: 'chain active'})
-      +progressicon({text: '3', title: 'Contact', class: 'chain'})
-      +progressicon({text: '4', title: 'Bank Account', class: 'chain'})
-      +progressicon({text: '5', title: 'Account', class: 'chain'})
-      +progressicon({text: '6', title: 'Financial', class: 'chain'})
+    .progress-wrap(id="personalDetailsFormProgress")
+      +progressicon({text: '1', title: 'Personal', class: 'chain'})(data-index="0")
+      +progressicon({text: '2', title: 'BP Prime Safe', class: 'chain'})(data-index="1")
+      +progressicon({text: '3', title: 'Contact', class: 'chain'})(data-index="2")
+      +progressicon({text: '4', title: 'Bank Account', class: 'chain'})(data-index="3")
+      +progressicon({text: '5', title: 'Account', class: 'chain'})(data-index="4")
+      +progressicon({text: '6', title: 'Financial', class: 'chain'})(data-index="5")
       +progressicon({text: '7', title: 'FATCA', class: 'chain'})
       +progressicon({text: '8', title: 'Declaration', class: 'chain'})
     .form-container

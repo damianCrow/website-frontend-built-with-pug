@@ -5,7 +5,7 @@ import objectFitImages from 'object-fit-images'
 // Main javascript entry point
 // Should handle bootstrapping/starting application
 import { windowResize } from './helper-functions'
-
+import './jquery.steps'
 import Menu from '../_modules/menu/menu'
 import SideMenu from '../_modules/side-menu/side-menu'
 import Nav from '../_modules/nav/nav'
@@ -15,6 +15,8 @@ import Product from '../_modules/product/product'
 import Tabs from '../_modules/tabs/tabs'
 import Contact from '../_modules/contact/contact'
 import Modal from '../_modules/modal/modal'
+import PersonalDetailsForm from '../_modules/personalDetailsForm/personalDetailsForm'
+import ContactUsForm from '../_modules/contactUsForm/contact-form'
 
 class Main {
   constructor() {
@@ -28,6 +30,13 @@ class Main {
     this.slider = new Slider()
     this.product = new Product()
     this.modal = new Modal()
+
+    if (document.getElementById('personalDetailsForm')) {
+      this.personalDetailsForm = new PersonalDetailsForm(this.textInput)
+    }
+    if (document.getElementsByClassName('contact-form__form')) {
+      this.contactUsForm = new ContactUsForm(this.textInput)
+    }
 
     this.resizeTimer = 0
 

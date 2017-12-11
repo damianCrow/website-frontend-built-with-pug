@@ -93,7 +93,7 @@ block content
               h4.contact-form__header.success-only Success
               p.contact-form__text Trade bitcoin and ethereum with BP Prime today. It's free to open an account, takes less than five minutes, and there's no obligation to fund or trade.
               p.contact-form__text.success-only Thank You. You have succussfully submitted the form.
-              form.contact-form__form(action="someEndPoint/onSomeServer/" method="POST")
+              form.contact-form__form(action="someEndPoint/onSomeServer/" method="POST")(id="cryptocurrenciesContactForm")
                 .contact-form__inputwrap
                   +textinput({text: 'Company:', type: 'text', name: 'title'})
                 .contact-form__inputwrap

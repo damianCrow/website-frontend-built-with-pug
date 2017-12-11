@@ -3,4 +3,5 @@ node_modules
 build
 tmp
 .grunt
+.gulp
 .DS_Store

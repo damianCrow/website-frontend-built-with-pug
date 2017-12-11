@@ -10,7 +10,7 @@ mixin contactUsForm()
       h4.contact-form__header.success-only Success
       p.contact-form__text We offer financial institutions to a state of the art services platform to allow the best trading experience possible. Contact our support team for more information.
       p.contact-form__text.success-only Thank You. You have succussfully submitted the form.
-      form.contact-form__form(action="someEndPoint/onSomeServer/" method="POST")
+      form.contact-form__form(action="someEndPoint/onSomeServer/" method="POST")&attributes(attributes)
         .contact-form__inputwrap
           +textinput({text: 'Company:', type: 'text', name: 'title'})
         .contact-form__inputwrap
@@ -27,3 +27,4 @@ mixin contactUsForm()
             +textinput({class: 'medium', type: 'text'})
         +button()(class="button--medium button--green" href="" type="submit" ) 
           |Submit
+

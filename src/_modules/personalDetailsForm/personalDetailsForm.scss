@@ -50,6 +50,14 @@
 
     .dropdown {
       flex: 0.5;
+
+      &.trio {
+        flex: 1;
+
+        // &:not(:first-child) {
+        //   margin-left: 8px;
+        // }
+      }
     }
   }
 
@@ -62,6 +70,23 @@
       flex: 1;
     }
 
+    &.long-lable {
+      .label {
+        flex: 0 1 60%;
+      }
+      .dropdown {
+        flex: 1;
+      }
+    }
+
+    &.long-heading {
+      flex-direction: column;
+      .label {
+        flex: 1;
+        margin: 5px 0;
+      }
+    }
+
     .label {
       color: palette(gold, metalic);
       flex: 0 1 30%;
@@ -72,7 +97,7 @@
       }
     }
 
-    input:not([type="radio"]) {
+    input:not([type="radio"]):not([type="file"]) {
       flex: 1;
       transform: translateY(14px);
 
@@ -106,5 +131,11 @@
   button {
     margin-top: $primary-gutter;
     float: right;
+  }
+
+/* overide for jquery steps plugin */
+
+  .steps {
+    display: none;
   }
 }
