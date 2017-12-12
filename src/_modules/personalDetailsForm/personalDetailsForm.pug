@@ -2,12 +2,13 @@ include ../textinput/textinput
 include ../radiobutton/radiobutton
 include ../button/button
 include ../dropdown/dropdown
+include ../tabs-list/tabs-list
 
 mixin personalDetailsForm(baseUrl)
   .personal_form(id="formWrapper")
     h4.contact-form__header.success-only Success
     p.personal_form__text.success-only Thank You. You have succussfully submitted the form.
-    form.personal_form__form(id="personalDetailsForm" action="someEndPoint/onSomeServer/" method="POST")
+    form.personal_form__form(id="personalDetailsForm")
 
       h1
       section.personal_form-section(data-index="0")
@@ -16,7 +17,7 @@ mixin personalDetailsForm(baseUrl)
         .personal_form__inputwrap
           h5.label Title:
           .personal_form__dropdownwrap
-            +dropdown(baseUrl, ['Mr', 'Mrs', 'Miss'])
+            +dropdown(baseUrl, ['Mr', 'Mrs', 'Miss', 'Ms', 'Dr'])
         .personal_form__inputwrap
           h5.label First Name:
           +textinput({type: 'text', name: 'firstName'})
@@ -30,29 +31,29 @@ mixin personalDetailsForm(baseUrl)
         .personal_form__inputwrap
           h5.label Nationality:
           .personal_form__dropdownwrap
-            +dropdown(baseUrl, ['Mr', 'Mrs', 'Miss'])
+            +dropdown(baseUrl, ["Afghanistan","Aland Islands","Albania","Algeria","American Samoa","Andorra","Angola","Anguilla","Antarctica","Antigua And Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia And Herzegovina","Botswana","Bouvet Island","Brazil","British Indian Ocean Territory","Brunei Darussalam","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central African Republic","Chad","Chile","China","Christmas Island","Cocos (Keeling) Islands","Colombia","Comoros","Congo","Congo, Democratic Republic","Cook Islands","Costa Rica","Cote D'Ivoire","Croatia","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands (Malvinas)","Faroe Islands","Fiji","Finland","France","French Guiana","French Polynesia","French Southern Territories","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guadeloupe","Guam","Guatemala","Guernsey","Guinea","Guinea-Bissau","Guyana","Haiti","Heard Island &amp; Mcdonald Islands","Holy See (Vatican City State)","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran, Islamic Republic Of","Iraq","Ireland","Isle Of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Korea","Kuwait","Kyrgyzstan","Lao People's Democratic Republic","Latvia","Lebanon","Lesotho","Liberia","Libyan Arab Jamahiriya","Liechtenstein","Lithuania","Luxembourg","Macao","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Martinique","Mauritania","Mauritius","Mayotte","Mexico","Micronesia, Federated States Of","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Niue","Norfolk Island","Northern Mariana Islands","Norway","Oman","Pakistan","Palau","Palestinian Territory, Occupied","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Pitcairn","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russian Federation","Rwanda","Saint Barthelemy","Saint Helena","Saint Kitts And Nevis","Saint Lucia","Saint Martin","Saint Pierre And Miquelon","Saint Vincent And Grenadines","Samoa","San Marino","Sao Tome And Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Georgia And Sandwich Isl.","Spain","Sri Lanka","Sudan","Suriname","Svalbard And Jan Mayen","Swaziland","Sweden","Switzerland","Syrian Arab Republic","Taiwan","Tajikistan","Tanzania","Thailand","Timor-Leste","Togo","Tokelau","Tonga","Trinidad And Tobago","Tunisia","Turkey","Turkmenistan","Turks And Caicos Islands","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","United States Outlying Islands","Uruguay","Uzbekistan","Vanuatu","Venezuela","Viet Nam","Virgin Islands, British","Virgin Islands, U.S.","Wallis And Futuna","Western Sahara","Yemen","Zambia","Zimbabwe"], ['AF','AX','AL','DZ','AS','AD','AO','AI','AQ','AG','AR','AM','AW','AU','AT','AZ','BS','BH','BD','BB','BY','BE','BZ','BJ','BM','BT','BO','BA','BW','BV','BR','IO','BN','BG','BF','BI','KH','CM','CA','CV','KY','CF','TD','CL','CN','CX','CC','CO','KM','CG','CD','CK','CR','CI','HR','CU','CY','CZ','DK','DJ','DM','DO','EC','EG','SV','GQ','ER','EE','ET','FK','FO','FJ','FI','FR','GF','PF','TF','GA','GM','GE','DE','GH','GI','GR','GL','GD','GP','GU','GT','GG','GN','GW','GY','HT','HM','VA','HN','HK','HU','IS','IN','ID','IR','IQ','IE','IM','IL','IT','JM','JP','JE','JO','KZ','KE','KI','KR','KW','KG','LA','LV','LB','LS','LR','LY','LI','LT','LU','MO','MK','MG','MW','MY','MV','ML','MT','MH','MQ','MR','MU','YT','MX','FM','MD','MC','MN','ME','MS','MA','MZ','MM','NA','NR','NP','NL','AN','NC','NZ','NI','NE','NG','NU','NF','MP','NO','OM','PK','PW','PS','PA','PG','PY','PE','PH','PN','PL','PT','PR','QA','RE','RO','RU','RW','BL','SH','KN','LC','MF','PM','VC','WS','SM','ST','SA','SN','RS','SC','SL','SG','SK','SI','SB','SO','ZA','GS','ES','LK','SD','SR','SJ','SZ','SE','CH','SY','TW','TJ','TZ','TH','TL','TG','TK','TO','TT','TN','TR','TM','TC','TV','UG','UA','AE','GB','US','UM','UY','UZ','VU','VE','VN','VG','VI','WF','EH','YE','ZM','ZW'])
         .personal_form__inputwrap
           h5.label Language:
           .personal_form__dropdownwrap
-            +dropdown(baseUrl, ['Mr', 'Mrs', 'Miss'])
+            +dropdown(baseUrl, ['English', 'Spanish', 'Italian', 'Italian', 'Chinese-simplified', 'Chinese-traditional', 'Portuguese'])
         span.line
 
         .personal_form__inputwrap
-          h5.label Postcode:
-          +textinput({type: 'text', name: 'postCode'})
-        .personal_form__inputwrap
-          h5.label House/Flat Number/Name:
+          h5.label House/Flat Number And Street Name:
           +textinput({type: 'text', name: 'HouseNameNumber'})
-        .personal_form__inputwrap
-          h5.label Street Name:
-          +textinput({type: 'text', name: 'streetName'})
+        //- .personal_form__inputwrap
+        //-   h5.label Street Name:
+        //-   +textinput({type: 'text', name: 'streetName'})
         .personal_form__inputwrap
           h5.label Town:
           +textinput({type: 'text', name: 'town'})
         .personal_form__inputwrap
           h5.label Country:
           .personal_form__dropdownwrap
-            +dropdown(baseUrl, ['Mr', 'Mrs', 'Miss'])
+            +dropdown(baseUrl, ["Afghanistan","Aland Islands","Albania","Algeria","American Samoa","Andorra","Angola","Anguilla","Antarctica","Antigua And Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia And Herzegovina","Botswana","Bouvet Island","Brazil","British Indian Ocean Territory","Brunei Darussalam","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central African Republic","Chad","Chile","China","Christmas Island","Cocos (Keeling) Islands","Colombia","Comoros","Congo","Congo, Democratic Republic","Cook Islands","Costa Rica","Cote D'Ivoire","Croatia","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands (Malvinas)","Faroe Islands","Fiji","Finland","France","French Guiana","French Polynesia","French Southern Territories","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guadeloupe","Guam","Guatemala","Guernsey","Guinea","Guinea-Bissau","Guyana","Haiti","Heard Island &amp; Mcdonald Islands","Holy See (Vatican City State)","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran, Islamic Republic Of","Iraq","Ireland","Isle Of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Korea","Kuwait","Kyrgyzstan","Lao People's Democratic Republic","Latvia","Lebanon","Lesotho","Liberia","Libyan Arab Jamahiriya","Liechtenstein","Lithuania","Luxembourg","Macao","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Martinique","Mauritania","Mauritius","Mayotte","Mexico","Micronesia, Federated States Of","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Niue","Norfolk Island","Northern Mariana Islands","Norway","Oman","Pakistan","Palau","Palestinian Territory, Occupied","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Pitcairn","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russian Federation","Rwanda","Saint Barthelemy","Saint Helena","Saint Kitts And Nevis","Saint Lucia","Saint Martin","Saint Pierre And Miquelon","Saint Vincent And Grenadines","Samoa","San Marino","Sao Tome And Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Georgia And Sandwich Isl.","Spain","Sri Lanka","Sudan","Suriname","Svalbard And Jan Mayen","Swaziland","Sweden","Switzerland","Syrian Arab Republic","Taiwan","Tajikistan","Tanzania","Thailand","Timor-Leste","Togo","Tokelau","Tonga","Trinidad And Tobago","Tunisia","Turkey","Turkmenistan","Turks And Caicos Islands","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","United States Outlying Islands","Uruguay","Uzbekistan","Vanuatu","Venezuela","Viet Nam","Virgin Islands, British","Virgin Islands, U.S.","Wallis And Futuna","Western Sahara","Yemen","Zambia","Zimbabwe"], ['AF','AX','AL','DZ','AS','AD','AO','AI','AQ','AG','AR','AM','AW','AU','AT','AZ','BS','BH','BD','BB','BY','BE','BZ','BJ','BM','BT','BO','BA','BW','BV','BR','IO','BN','BG','BF','BI','KH','CM','CA','CV','KY','CF','TD','CL','CN','CX','CC','CO','KM','CG','CD','CK','CR','CI','HR','CU','CY','CZ','DK','DJ','DM','DO','EC','EG','SV','GQ','ER','EE','ET','FK','FO','FJ','FI','FR','GF','PF','TF','GA','GM','GE','DE','GH','GI','GR','GL','GD','GP','GU','GT','GG','GN','GW','GY','HT','HM','VA','HN','HK','HU','IS','IN','ID','IR','IQ','IE','IM','IL','IT','JM','JP','JE','JO','KZ','KE','KI','KR','KW','KG','LA','LV','LB','LS','LR','LY','LI','LT','LU','MO','MK','MG','MW','MY','MV','ML','MT','MH','MQ','MR','MU','YT','MX','FM','MD','MC','MN','ME','MS','MA','MZ','MM','NA','NR','NP','NL','AN','NC','NZ','NI','NE','NG','NU','NF','MP','NO','OM','PK','PW','PS','PA','PG','PY','PE','PH','PN','PL','PT','PR','QA','RE','RO','RU','RW','BL','SH','KN','LC','MF','PM','VC','WS','SM','ST','SA','SN','RS','SC','SL','SG','SK','SI','SB','SO','ZA','GS','ES','LK','SD','SR','SJ','SZ','SE','CH','SY','TW','TJ','TZ','TH','TL','TG','TK','TO','TT','TN','TR','TM','TC','TV','UG','UA','AE','GB','US','UM','UY','UZ','VU','VE','VN','VG','VI','WF','EH','YE','ZM','ZW'])
+        .personal_form__inputwrap
+          h5.label Postcode:
+          +textinput({type: 'text', name: 'postCode'})
 
       h1
       section.personal_form-section(data-index="1")
@@ -71,8 +72,8 @@ mixin personalDetailsForm(baseUrl)
           h5.label.label--telephone Mobile Telephone:
           span +
           div.personal_form__inputwrap--double.phone-validate
-            +textinput({class: 'short', type: 'text'})
-            +textinput({class: 'medium', type: 'text'})
+            +textinput({classes: 'short', type: 'text'})
+            +textinput({classes: 'medium', type: 'text'})
         .personal_form__inputwrap
           h5.label Account Type Required:
           .personal_form__dropdownwrap
@@ -129,7 +130,7 @@ mixin personalDetailsForm(baseUrl)
             +radiobutton({text: 'Yes'})(name="cfds")
             +radiobutton({text: 'No'})(name="cfds")
         .personal_form__inputwrap
-          h5.label Shsres:
+          h5.label Shares:
           .personal_form__radios
             +radiobutton({text: 'Yes'})(name="shares")
             +radiobutton({text: 'No'})(name="shares")
@@ -141,41 +142,33 @@ mixin personalDetailsForm(baseUrl)
         span.line
 
         h5.personal_form__sub-heading Contracts for Difference Trading Experience
-        .personal_form__inputwrap.long-lable
-          h5.label Average CFDs trades per month?:
-          .personal_form__dropdownwrap
-            +dropdown(baseUrl, ['Mr', 'Mrs', 'Miss'])
-        .personal_form__inputwrap.long-lable
-          h5.label Number of years trading CFDs?:
-          .personal_form__dropdownwrap
-            +dropdown(baseUrl, ['Mr', 'Mrs', 'Miss'])
+        .personal_form__inputwrap.with-tabs
+          h5.label On average how many trades do you make each month
+          +tabs-list('tradesPerMonth', ['Less than 6 trades', 'between 6 & 20 trades', 'More than 20 Trades'])
+        .personal_form__inputwrap.with-tabs
+          h5.label How many years trading experience do you have
+          +tabs-list('yearsTrading', ['Less than 1 year', '1 to 2 years', '2 to 5 years', 'More than 5 years'])
         h5.personal_form__sub-heading Shares
-        .personal_form__inputwrap.long-lable
-          h5.label Average Shares trades per month?:
-          .personal_form__dropdownwrap
-            +dropdown(baseUrl, ['Mr', 'Mrs', 'Miss'])
-        .personal_form__inputwrap.long-lable
-          h5.label Number of years trading Shares?:
-          .personal_form__dropdownwrap
-            +dropdown(baseUrl, ['Mr', 'Mrs', 'Miss'])
+        .personal_form__inputwrap.with-tabs
+          h5.label On average how many trades do you make each month
+          +tabs-list('shareTrades', ['Less than 6 trades', 'between 6 & 20 trades', 'More than 20 Trades'])
+        .personal_form__inputwrap.with-tabs
+          h5.label How many years trading experience do you have
+          +tabs-list('yearsTradingShares', ['Less than 1 year', '1 to 2 years', '2 to 5 years', 'More than 5 years'])
         h5.personal_form__sub-heading Forex Trading
-        .personal_form__inputwrap.long-lable
-          h5.label Average Forex trades per month?:
-          .personal_form__dropdownwrap
-            +dropdown(baseUrl, ['Mr', 'Mrs', 'Miss'])
-        .personal_form__inputwrap.long-lable
-          h5.label Number of years trading Forex?:
-          .personal_form__dropdownwrap
-            +dropdown(baseUrl, ['Mr', 'Mrs', 'Miss'])
+        .personal_form__inputwrap.with-tabs
+          h5.label On average how many trades do you make each month
+          +tabs-list('forexTrades', ['Less than 6 trades', 'between 6 & 20 trades', 'More than 20 Trades'])
+        .personal_form__inputwrap.with-tabs
+          h5.label How many years trading experience do you have
+          +tabs-list('yearsTradingForex', ['Less than 1 year', '1 to 2 years', '2 to 5 years', 'More than 5 years'])
         h5.personal_form__sub-heading Spread Betting
-        .personal_form__inputwrap.long-lable
-          h5.label Average Spread Bets per month?:
-          .personal_form__dropdownwrap
-            +dropdown(baseUrl, ['Mr', 'Mrs', 'Miss'])
-        .personal_form__inputwrap.long-lable
-          h5.label Number of years Spread Betting?:
-          .personal_form__dropdownwrap
-            +dropdown(baseUrl, ['Mr', 'Mrs', 'Miss'])
+        .personal_form__inputwrap.with-tabs
+          h5.label On average how many trades do you make each month
+          +tabs-list('spreadBets', ['Less than 6 trades', 'between 6 & 20 trades', 'More than 20 Trades'])
+        .personal_form__inputwrap.with-tabs
+          h5.label How many years trading experience do you have
+          +tabs-list('yearsSpreadBetting', ['Less than 1 year', '1 to 2 years', '2 to 5 years', 'More than 5 years'])
         span.line
 
         .personal_form__inputwrap.long-heading

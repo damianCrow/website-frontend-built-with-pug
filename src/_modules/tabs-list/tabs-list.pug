@@ -1,0 +1,7 @@
+mixin tabs-list(listId, listItems)
+  ul(class='tabs-list' id!=listId)
+    input.tabs-list__input(type="text" value="" name!=listId)
+    each listItem in listItems
+      li.tabs-list__item(data-value!=listItem)
+        label!= listItem
+

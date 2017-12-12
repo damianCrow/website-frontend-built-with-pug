@@ -1,0 +1,38 @@
+.tabs-list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+
+  &__input {
+    display: none;
+  }
+  
+  &__item {
+    padding: 8px 20px;
+    background-color: palette(gray, input);
+    margin: 1px;
+    list-style: none;
+    text-align: center;
+    border-radius: 5px;
+    color: palette(brown, base);
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid transparent;
+
+    label {
+      cursor: pointer;
+    }
+
+    &:hover {
+      border-color: palette(gold, metalic);
+    }
+
+    &.selected {
+      background-color: palette(gold, metalic);
+      color: palette(gray, white);
+    }
+  }
+}

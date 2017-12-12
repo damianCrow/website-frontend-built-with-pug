@@ -1,6 +1,10 @@
-mixin dropdown(baseUrl, options)
+mixin dropdown(baseUrl, options, values)
   select.dropdown(style!="background-image: url('" + baseUrl + "images/bp-prime-arrow.svg');")&attributes(attributes)
     option(value="" disabled selected) Select...
-    each item, index in options
-      - value = options[index]
-      option(value!=value) #{item}
+    if values
+        each item, index in options
+          option(value!=values[index]) #{item}
+    else
+        each item, index in options
+          - value = options[index]
+          option(value!=value) #{item}

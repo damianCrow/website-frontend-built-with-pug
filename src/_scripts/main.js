@@ -17,6 +17,7 @@ import Contact from '../_modules/contact/contact'
 import Modal from '../_modules/modal/modal'
 import PersonalDetailsForm from '../_modules/personalDetailsForm/personalDetailsForm'
 import ContactUsForm from '../_modules/contactUsForm/contact-form'
+import TabsList from '../_modules/tabs-list/tabs-list'
 
 class Main {
   constructor() {
@@ -33,6 +34,7 @@ class Main {
 
     if (document.getElementById('personalDetailsForm')) {
       this.personalDetailsForm = new PersonalDetailsForm(this.textInput)
+      this.tabsList = new TabsList()
     }
     if (document.getElementsByClassName('contact-form__form')) {
       this.contactUsForm = new ContactUsForm(this.textInput)
