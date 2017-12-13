@@ -33,7 +33,7 @@ class Main {
     this.modal = new Modal()
 
     if (document.getElementById('personalDetailsForm')) {
-      this.personalDetailsForm = new PersonalDetailsForm(this.textInput)
+      this.personalDetailsForm = new PersonalDetailsForm(this.textInput, this.modal)
       this.tabsList = new TabsList()
     }
     if (document.getElementsByClassName('contact-form__form')) {

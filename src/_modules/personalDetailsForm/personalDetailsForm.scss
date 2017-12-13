@@ -5,8 +5,12 @@
   display: flex;
   position: relative;
   flex-direction: column;
-  padding: 40px 0;
+  padding: 60px 0;
   font-weight: 100;
+
+  @media #{$mq-desktop-xsmall-up} {
+    padding: 85px 0;
+  }
 
   &.success {
     & > * {
@@ -25,10 +29,10 @@
   &__radios {
     flex: 1;
     display: flex;
-    transform: translateY(14px);
+    // transform: translateY(14px);
 
     .radiowrap {
-      flex: 2;
+      flex: 1;
       color: palette(brown, base);
     }
   }
@@ -46,13 +50,20 @@
   &__sub-heading {
     @extend %typography-title-v-one;
     color: palette(gray, medium);
-    margin: 0;
+
+    @media #{$mq-mobile-small-up} {
+      margin: 5px 0;
+    }
+
+    @media #{$mq-desktop-small-up} {
+      margin: 0;
+    }
   }
 
   &__dropdownwrap {
     flex: 1;
     display: flex;
-    transform: translateY(14px);
+    // transform: translateY(14px);
 
     .dropdown {
       flex: 0.5;
@@ -63,9 +74,14 @@
     display: flex;
     padding: 10px 0;
     position: relative;
+    align-items: center;
 
     &--double {
       flex: 1;
+    }
+
+    &--leftaline {
+      align-items: left;
     }
 
     &.long-lable {
@@ -79,9 +95,14 @@
 
     &.long-heading {
       flex-direction: column;
+
       .label {
         flex: 1;
         margin: 5px 0;
+      }
+
+      .radiowrap:not(:first-child) {
+        margin-left: 5rem;
       }
     }
 
@@ -90,7 +111,7 @@
         flex-direction: column;
         .label {
           flex: 1;
-          margin: 10px 0;
+          margin: 5px 0;
         }
       }
       @media #{$mq-desktop-small-up} {
@@ -117,9 +138,9 @@
       }
     }
 
-    input:not([type="radio"]):not([type="file"]):not([type="date"]) {
+    input:not([type="radio"]):not([type="file"]) {
       flex: 1;
-      transform: translateY(14px);
+      // transform: translateY(14px);
 
       &.short {
         margin-left: 0;
@@ -135,7 +156,7 @@
       font-size: 25px;
       height: 45px;
       line-height: 47px;
-      transform: translateY(14px);
+      // transform: translateY(14px);
       flex: 0 1 3%;
     }
   }
@@ -151,6 +172,11 @@
   button {
     margin-top: $primary-gutter;
     float: right;
+  }
+
+  .must-view.viewed {
+    text-decoration: none;
+    color: palette(brown, base);
   }
 
 /* overide for jquery steps plugin */

@@ -11,7 +11,10 @@
 .progress-wrap {
   width: 100%;
   display: flex;
+  position: fixed;
+  z-index: 2;
   background-color: palette(brown, base);
+  max-width: $max;
   
   .progress__title {
     opacity: 0;
@@ -54,7 +57,7 @@
   @media #{$mq-desktop-xsmall-up} {
     margin: 1rem calc(8.333333333% + #{$primary-gutter * 2}) 1rem 0;
     padding-left: calc(#{$primary-gutter * 4});
-    padding-top: 40px;
+    padding-top: 85px;
   }
 
   &--inner {

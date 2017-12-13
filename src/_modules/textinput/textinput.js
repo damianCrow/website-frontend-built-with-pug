@@ -38,7 +38,7 @@ export default class TextInput {
       } 
     }
 
-    $(`#${element}`).find('input:not(.error)').each((indx, field) => {
+    $(`#${element}`).find('input:not(.error):not(.tabs-list__input)').each((indx, field) => {
       if($(field).val().length < 1) {
         $(field).parent().append('<b class="error-message">Input Required!</b>');
         $(field).addClass('error').focus((el) => {
@@ -46,21 +46,46 @@ export default class TextInput {
           $(el.target).parent().find('.error-message').remove()
         })
       } else {
-        $(field).removeClass('error')
-        $(field).parent().find('.error-message').remove()
+        $(field).removeClass('error').parent().find('.error-message').remove()
       }
     })
 
     if($(`#${element}`).find('.dropdown')) {
       $('.dropdown').each((indx, select) => {
         if($(select).val() === null) {
-          $(select).addClass('error').change((el) => {
+          $(select).addClass('error').parent().append('<b class="error-message">Selection Required!</b>').change((el) => {
             $(el.target).removeClass('error')
+            $(el.target).parent().find('.error-message').remove()
           })
         } else {
-          $(select).removeClass('error')
+          $(select).removeClass('error').closest('.error-message').remove()
         }
       })
+    }
+
+    if($(`#${element}`).find('.tabs-list')) {
+      $('.tabs-list').each((idx, list) => {
+        if(!$(list).find('.tabs-list__item.selected').length) {
+          $(list).addClass('error').parent().append('<b class="error-message">Selection Required!</b>')
+          $(list).find('.tabs-list__item').click((e) => {
+            console.log()
+            $(e.currentTarget).parent().removeClass('error').siblings('.error-message').remove()
+          })
+        } else {
+          $(list).parent().removeClass('error').siblings('.error-message').remove()
+        }
+      })
+    }
+
+    if($(`#${element}`).find('input[name="password"]') && $(`#${element}`).find('input[name="confirmPassword"]')) {
+      const pass = $(`#${element}`).find('input[name="password"]')
+      const passConf = $(`#${element}`).find('input[name="confirmPassword"]')
+      const bothFields = $(`#${element}`).find('input[type="password"]')
+
+      if($(pass).val() !== $(passConf).val()) {
+        $(passConf).parent().append('<b class="error-message">Passwords Dont Match!</b>')
+        $(bothFields).addClass('error')
+      }
     }
 
     if($(`#${element}`).find('.radiowrap__radio')) {

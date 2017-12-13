@@ -7,10 +7,16 @@
   &__input {
     display: none;
   }
+
+  &.error {
+    margin-bottom: 10px;
+    border: 1px solid palette(red, error);
+    border-radius: 5px;
+  }
   
   &__item {
     padding: 8px 20px;
-    background-color: palette(gray, input);
+    background-color: palette(gray, border);
     margin: 1px;
     list-style: none;
     text-align: center;
