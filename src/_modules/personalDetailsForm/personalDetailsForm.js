@@ -87,9 +87,9 @@ export default class PersonalDetailsForm {
 
     $('#employmentStatus').change((e) => {
       if($(e.currentTarget).val() === 'Unemployed' || $(e.currentTarget).val() === 'Student') {
-        $('.hide-if-irrelevant').css({'display': 'none'})
+        $('.hide-if-irrelevant').css({'display': 'none'}).find('input').val('Na')
       } else {
-        $('.hide-if-irrelevant').css({'display': 'flex'})
+        $('.hide-if-irrelevant').css({'display': 'flex'}).find('input').val('')
       }
     })
   }

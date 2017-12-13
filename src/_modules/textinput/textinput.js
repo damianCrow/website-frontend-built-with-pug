@@ -38,7 +38,7 @@ export default class TextInput {
       } 
     }
 
-    $(`#${element}`).find('input:not(.error):not(.tabs-list__input)').each((indx, field) => {
+    $(`#${element}`).find('input:visible:not(.error):not(.tabs-list__input)').each((indx, field) => {
       if($(field).val().length < 1) {
         $(field).parent().append('<b class="error-message">Input Required!</b>');
         $(field).addClass('error').focus((el) => {
@@ -84,8 +84,11 @@ export default class TextInput {
 
       if($(pass).val() !== $(passConf).val()) {
         $(passConf).parent().append('<b class="error-message">Passwords Dont Match!</b>')
-        $(bothFields).addClass('error')
-      }
+        $(bothFields).addClass('error').change(() => {
+          $(passConf).parent().find('.error-message').remove()
+          $(bothFields).removeClass('error')
+        })
+      } 
     }
 
     if($(`#${element}`).find('.radiowrap__radio')) {
