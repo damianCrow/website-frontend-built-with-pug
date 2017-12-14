@@ -1,35 +1,21 @@
 import $ from 'jquery'
 
 export default class TextInput {
-  constructor() {
-  	this.emailInput = document.querySelector('input[type="email"]')
-
-    if(this.emailInput) {
-    	this.emailInput.addEventListener('focusout', () => {
-    		if(!this.validateEmail(this.emailInput.value)) {
-    			this.emailInput.classList.add('error')
-          this.emailInput.insertAdjacentHTML('afterEnd', '<b class="error-message">Invalid '+this.emailInput.parentNode.childNodes[1].innerHTML.replace(':', '')+'!</b>');
-    		} else {
-    			this.emailInput.classList.remove('error')
-          this.emailInput.parentNode.removeChild(this.emailInput.nextSibling)
-    		}
-    	})
-    }
-  }
+  constructor() {}
 
   validateForm(element, successCallBack, errorCallBack) {
-
+// VALIDATE VISIBLE PHONE NUMBER INPUTS \\
     if($(`#${element}`).find('.phone-validate')) {
       let phoneNumber = ''
 
-      $('.phone-validate').find('input').each((idx, item) => {
+      $('.phone-validate').find('input:visible').each((idx, item) => {
         phoneNumber += $(item).val().replace('+', '')
       })
 
       if(!this.validatePhoneNumber(`+${phoneNumber}`)) {
         $('.phone-validate').append('<b class="error-message">Invalid Phone Number!</b>');
         $('.phone-validate').find('input').addClass('error').focus((ele) => {
-          $(ele.target).removeClass('error')
+          $(ele.currentTarget).removeClass('error')
           $('.phone-validate').find('.error-message').remove()
         })
       } else {
@@ -37,33 +23,49 @@ export default class TextInput {
         $('.phone-validate').find('.error-message').remove()
       } 
     }
-
-    $(`#${element}`).find('input:visible:not(.error):not(.tabs-list__input)').each((indx, field) => {
+// VALIDATE VISIBLE TEXT INPUTS \\
+    $(`#${element}`).find('input:visible:not(.error):not(.tabs-list__input):not([type="email"])').each((indx, field) => {
       if($(field).val().length < 1) {
         $(field).parent().append('<b class="error-message">Input Required!</b>');
         $(field).addClass('error').focus((el) => {
-          $(el.target).removeClass('error')
-          $(el.target).parent().find('.error-message').remove()
+          $(el.currentTarget).removeClass('error')
+          $(el.currentTarget).parent().find('.error-message').remove()
         })
       } else {
         $(field).removeClass('error').parent().find('.error-message').remove()
       }
     })
-
-    if($(`#${element}`).find('.dropdown')) {
+// VALIDATE VISIBLE EMAIL INPUTS \\
+    if($(`#${element}`).find('input[type="email"]:visible')) {
+      $(`#${element}`).find('input[type="email"]').each((idx, ele) => {
+        if(!this.validateEmail($(ele).val())) {
+          $(ele).addClass('error').parent().append('<b class="error-message">Invalid Email!</b>')
+          $(ele).change((el) => {
+            this.validateEmail($(el.currentTarget).val(), () => {
+              $(ele).removeClass('error').parent().find('.error-message').remove()
+            })
+          })
+        } else {
+          $(ele).removeClass('error').parent().find('.error-message').remove()
+        }
+      })
+    }
+// VALIDATE VISIBLE DROPDOWNS INPUTS \\
+    if($(`#${element}`).find('.dropdown:visible')) {
       $('.dropdown').each((indx, select) => {
         if($(select).val() === null) {
-          $(select).addClass('error').parent().append('<b class="error-message">Selection Required!</b>').change((el) => {
-            $(el.target).removeClass('error')
-            $(el.target).parent().find('.error-message').remove()
+          $(select).addClass('error').parent().append('<b class="error-message">Selection Required!</b>')
+          $(select).change((el) => {
+            $(el.currentTarget).removeClass('error')
+            $(el.currentTarget).parent().find('.error-message').remove()
           })
         } else {
           $(select).removeClass('error').closest('.error-message').remove()
         }
       })
     }
-
-    if($(`#${element}`).find('.tabs-list')) {
+// VALIDATE VISIBLE TABS INPUTS \\
+    if($(`#${element}`).find('.tabs-list:visible')) {
       $('.tabs-list').each((idx, list) => {
         if(!$(list).find('.tabs-list__item.selected').length) {
           $(list).addClass('error').parent().append('<b class="error-message">Selection Required!</b>')
@@ -76,8 +78,8 @@ export default class TextInput {
         }
       })
     }
-
-    if($(`#${element}`).find('input[name="password"]') && $(`#${element}`).find('input[name="confirmPassword"]')) {
+// VALIDATE VISIBLE PASSWORD INPUTS AND MATCH PASSWORD CONFIRM \\
+    if($(`#${element}`).find('input[name="password"]:visible') && $(`#${element}`).find('input[name="confirmPassword"]:visible')) {
       const pass = $(`#${element}`).find('input[name="password"]')
       const passConf = $(`#${element}`).find('input[name="confirmPassword"]')
       const bothFields = $(`#${element}`).find('input[type="password"]')
@@ -90,8 +92,8 @@ export default class TextInput {
         })
       } 
     }
-
-    if($(`#${element}`).find('.radiowrap__radio')) {
+// VALIDATE VISIBLE RADIO BUTTONS INPUTS \\
+    if($(`#${element}`).find('.radiowrap__radio:visible')) {
       let radioCategories = []
 
       $('.radiowrap__radio').each((indx, radio) => {
@@ -111,7 +113,7 @@ export default class TextInput {
       }
     }
 
-    if($(`#${element}`).find('input.error').length === 0) {
+    if(!$(`#${element}`).find('input.error').length && !$(`#${element}`).find('.error-message').length) {
       // SUCCESSFULL FORM VALIDATION! CALL SUCCESS FUNCTION HERE \\
       return successCallBack()
 
@@ -121,12 +123,12 @@ export default class TextInput {
     }
   }
 
-  validateEmail(email) {
-    if (email.length < 1) {
-      return true
+  validateEmail(email, callBack) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if(callBack && re.test(email)) {
+      return callBack()
     } else {
-      const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email);
+      return re.test(email)
     }
   }
 
