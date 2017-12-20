@@ -31,7 +31,7 @@ export default class Modal {
     })
   }
 
-  launchModal(configObj) {
+  launchModal(configObj, callBack) {
     configObj.heading.class = configObj.heading.class || ''
     configObj.heading.text = configObj.heading.text || ''
     configObj.modal.class = configObj.modal.class || ''
@@ -54,7 +54,13 @@ export default class Modal {
    
     $('body').append($(modal))
     $('body').addClass('modal-open')
-    $('.modal__close').click(this.closeModal)
+    $('.modal__close').click(() => {
+      
+      if(callBack) {
+        callBack()
+      }
+      this.closeModal()
+    })
   }
 
   closeModal() {

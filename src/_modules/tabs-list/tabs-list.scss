@@ -10,23 +10,23 @@
 
   &.error {
     margin-bottom: 10px;
-    border: 1px solid palette(red, error);
-    border-radius: 5px;
+    border: 2px solid palette(red, error);
+    border-radius: 4px;
   }
   
   &__item {
-    padding: 8px 20px;
+    padding: 10px 20px;
     background-color: palette(gray, border);
     margin: 1px;
     list-style: none;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 4px;
     color: palette(brown, base);
     cursor: pointer;
     position: relative;
     display: flex;
     align-items: center;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
 
     label {
       cursor: pointer;

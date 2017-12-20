@@ -13,12 +13,24 @@
   }
 
   &.success {
+    padding: 100px 0 0 0;
+    
+    @media #{$mq-desktop-xsmall-up} {
+      padding: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
     & > * {
       display: none;
     }
 
     .success-only {
       display: block;
+
+      &.button--medium {
+        max-width: 200px;
+      }
     }
   }
 
@@ -29,7 +41,6 @@
   &__radios {
     flex: 1;
     display: flex;
-    // transform: translateY(14px);
 
     .radiowrap {
       flex: 1;
@@ -50,10 +61,7 @@
   &__sub-heading {
     @extend %typography-title-v-one;
     color: palette(gray, medium);
-
-    @media #{$mq-mobile-small-up} {
-      margin: 5px 0;
-    }
+    margin: 5px 0;
 
     @media #{$mq-desktop-small-up} {
       margin: 0;
@@ -63,10 +71,10 @@
   &__dropdownwrap {
     flex: 1;
     display: flex;
-    // transform: translateY(14px);
 
     .dropdown {
       flex: 1;
+      width: 100%;
     }
   }
 
@@ -107,13 +115,13 @@
     }
 
     &.with-tabs {
-      @media #{$mq-mobile-small-up} {
-        flex-direction: column;
-        .label {
-          flex: 1;
-          margin: 5px 0;
-        }
+      flex-direction: column;
+
+      .label {
+        flex: 1;
+        margin: 5px 0;
       }
+
       @media #{$mq-desktop-small-up} {
         flex-direction: row;
 
@@ -140,7 +148,9 @@
 
     input:not([type="radio"]):not([type="file"]) {
       flex: 1;
-      // transform: translateY(14px);
+      &:not(.short):not(.medium) {
+        width: 100%;
+      }
 
       &.short {
         margin-left: 0;
@@ -151,12 +161,15 @@
       }
     }
 
+    input[type="file"] {
+      max-width: 100%;
+    }
+
     span {
       color: palette(gray, medium);
       font-size: 25px;
       height: 45px;
       line-height: 47px;
-      // transform: translateY(14px);
       flex: 0 1 3%;
     }
   }
@@ -174,6 +187,18 @@
     float: right;
   }
 
+  .disclaimer {
+    @include font-size-small;
+    @extend %typography-body;
+    color: palette(gold, process);
+
+    &__list {
+      font-size: 0.75rem;
+      @extend %typography-body;
+      color: palette(brown, base);
+    }
+  }
+
   .must-view.viewed {
     text-decoration: none;
     color: palette(brown, base);
@@ -183,5 +208,9 @@
 
   .steps {
     display: none;
+  }
+
+  .g-recaptcha {
+    margin-top: 8px;
   }
 }

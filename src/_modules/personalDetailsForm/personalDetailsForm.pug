@@ -6,9 +6,11 @@ include ../tabs-list/tabs-list
 
 mixin personalDetailsForm(baseUrl)
   .personal_form(id="formWrapper")
-    h4.contact-form__header.success-only Success
-    p.personal_form__text.success-only Thank You. You have succussfully submitted the form.
-    form.personal_form__form(id="personalDetailsForm")
+    h4.personal_form__header.success-only Success
+    p.personal_form__text.success-only Thank you very much for applying for a live trading account. We are processing your application and will notify you as soon as the account is approved.
+    +button()(class="button--green button--medium success-only")
+      |Back to Private
+    form.personal_form__form(id="personalDetailsForm" action="some/url/formendpoint")
 
       h1
       section.personal_form-section(data-index="0")
@@ -31,11 +33,13 @@ mixin personalDetailsForm(baseUrl)
         .personal_form__inputwrap
           h5.label Nationality:
           .personal_form__dropdownwrap
-            +dropdown(baseUrl, ["Afghanistan","Aland Islands","Albania","Algeria","American Samoa","Andorra","Angola","Anguilla","Antarctica","Antigua And Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia And Herzegovina","Botswana","Bouvet Island","Brazil","British Indian Ocean Territory","Brunei Darussalam","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central African Republic","Chad","Chile","China","Christmas Island","Cocos (Keeling) Islands","Colombia","Comoros","Congo","Congo, Democratic Republic","Cook Islands","Costa Rica","Cote D'Ivoire","Croatia","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands (Malvinas)","Faroe Islands","Fiji","Finland","France","French Guiana","French Polynesia","French Southern Territories","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guadeloupe","Guam","Guatemala","Guernsey","Guinea","Guinea-Bissau","Guyana","Haiti","Heard Island &amp; Mcdonald Islands","Holy See (Vatican City State)","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran, Islamic Republic Of","Iraq","Ireland","Isle Of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Korea","Kuwait","Kyrgyzstan","Lao People's Democratic Republic","Latvia","Lebanon","Lesotho","Liberia","Libyan Arab Jamahiriya","Liechtenstein","Lithuania","Luxembourg","Macao","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Martinique","Mauritania","Mauritius","Mayotte","Mexico","Micronesia, Federated States Of","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Niue","Norfolk Island","Northern Mariana Islands","Norway","Oman","Pakistan","Palau","Palestinian Territory, Occupied","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Pitcairn","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russian Federation","Rwanda","Saint Barthelemy","Saint Helena","Saint Kitts And Nevis","Saint Lucia","Saint Martin","Saint Pierre And Miquelon","Saint Vincent And Grenadines","Samoa","San Marino","Sao Tome And Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Georgia And Sandwich Isl.","Spain","Sri Lanka","Sudan","Suriname","Svalbard And Jan Mayen","Swaziland","Sweden","Switzerland","Syrian Arab Republic","Taiwan","Tajikistan","Tanzania","Thailand","Timor-Leste","Togo","Tokelau","Tonga","Trinidad And Tobago","Tunisia","Turkey","Turkmenistan","Turks And Caicos Islands","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","United States Outlying Islands","Uruguay","Uzbekistan","Vanuatu","Venezuela","Viet Nam","Virgin Islands, British","Virgin Islands, U.S.","Wallis And Futuna","Western Sahara","Yemen","Zambia","Zimbabwe"], ['AF','AX','AL','DZ','AS','AD','AO','AI','AQ','AG','AR','AM','AW','AU','AT','AZ','BS','BH','BD','BB','BY','BE','BZ','BJ','BM','BT','BO','BA','BW','BV','BR','IO','BN','BG','BF','BI','KH','CM','CA','CV','KY','CF','TD','CL','CN','CX','CC','CO','KM','CG','CD','CK','CR','CI','HR','CU','CY','CZ','DK','DJ','DM','DO','EC','EG','SV','GQ','ER','EE','ET','FK','FO','FJ','FI','FR','GF','PF','TF','GA','GM','GE','DE','GH','GI','GR','GL','GD','GP','GU','GT','GG','GN','GW','GY','HT','HM','VA','HN','HK','HU','IS','IN','ID','IR','IQ','IE','IM','IL','IT','JM','JP','JE','JO','KZ','KE','KI','KR','KW','KG','LA','LV','LB','LS','LR','LY','LI','LT','LU','MO','MK','MG','MW','MY','MV','ML','MT','MH','MQ','MR','MU','YT','MX','FM','MD','MC','MN','ME','MS','MA','MZ','MM','NA','NR','NP','NL','AN','NC','NZ','NI','NE','NG','NU','NF','MP','NO','OM','PK','PW','PS','PA','PG','PY','PE','PH','PN','PL','PT','PR','QA','RE','RO','RU','RW','BL','SH','KN','LC','MF','PM','VC','WS','SM','ST','SA','SN','RS','SC','SL','SG','SK','SI','SB','SO','ZA','GS','ES','LK','SD','SR','SJ','SZ','SE','CH','SY','TW','TJ','TZ','TH','TL','TG','TK','TO','TT','TN','TR','TM','TC','TV','UG','UA','AE','GB','US','UM','UY','UZ','VU','VE','VN','VG','VI','WF','EH','YE','ZM','ZW'])
+            +dropdown(baseUrl, ["Afghanistan","Aland Islands","Albania","Algeria","American Samoa","Andorra","Angola","Anguilla","Antarctica","Antigua And Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia And Herzegovina","Botswana","Bouvet Island","Brazil","British Indian Ocean Territory","Brunei Darussalam","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central African Republic","Chad","Chile","China","Christmas Island","Cocos (Keeling) Islands","Colombia","Comoros","Congo","Congo, Democratic Republic","Cook Islands","Costa Rica","Cote D'Ivoire","Croatia","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands (Malvinas)","Faroe Islands","Fiji","Finland","France","French Guiana","French Polynesia","French Southern Territories","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guadeloupe","Guam","Guatemala","Guernsey","Guinea","Guinea-Bissau","Guyana","Haiti","Heard Island &amp; Mcdonald Islands","Holy See (Vatican City State)","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran, Islamic Republic Of","Iraq","Ireland","Isle Of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Korea","Kuwait","Kyrgyzstan","Lao People's Democratic Republic","Latvia","Lebanon","Lesotho","Liberia","Libyan Arab Jamahiriya","Liechtenstein","Lithuania","Luxembourg","Macao","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Martinique","Mauritania","Mauritius","Mayotte","Mexico","Micronesia, Federated States Of","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Niue","Norfolk Island","Northern Mariana Islands","Norway","Oman","Pakistan","Palau","Palestinian Territory, Occupied","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Pitcairn","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russian Federation","Rwanda","Saint Barthelemy","Saint Helena","Saint Kitts And Nevis","Saint Lucia","Saint Martin","Saint Pierre And Miquelon","Saint Vincent And Grenadines","Samoa","San Marino","Sao Tome And Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Georgia And Sandwich Isl.","Spain","Sri Lanka","Sudan","Suriname","Svalbard And Jan Mayen","Swaziland","Sweden","Switzerland","Syrian Arab Republic","Taiwan","Tajikistan","Tanzania","Thailand","Timor-Leste","Togo","Tokelau","Tonga","Trinidad And Tobago","Tunisia","Turkey","Turkmenistan","Turks And Caicos Islands","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","United States Outlying Islands","Uruguay","Uzbekistan","Vanuatu","Venezuela","Viet Nam","Virgin Islands, British","Virgin Islands, U.S.","Wallis And Futuna","Western Sahara","Yemen","Zambia","Zimbabwe"], ['AF','AX','AL','DZ','AS','AD','AO','AI','AQ','AG','AR','AM','AW','AU','AT','AZ','BS','BH','BD','BB','BY','BE','BZ','BJ','BM','BT','BO','BA','BW','BV','BR','IO','BN','BG','BF','BI','KH','CM','CA','CV','KY','CF','TD','CL','CN','CX','CC','CO','KM','CG','CD','CK','CR','CI','HR','CU','CY','CZ','DK','DJ','DM','DO','EC','EG','SV','GQ','ER','EE','ET','FK','FO','FJ','FI','FR','GF','PF','TF','GA','GM','GE','DE','GH','GI','GR','GL','GD','GP','GU','GT','GG','GN','GW','GY','HT','HM','VA','HN','HK','HU','IS','IN','ID','IR','IQ','IE','IM','IL','IT','JM','JP','JE','JO','KZ','KE','KI','KR','KW','KG','LA','LV','LB','LS','LR','LY','LI','LT','LU','MO','MK','MG','MW','MY','MV','ML','MT','MH','MQ','MR','MU','YT','MX','FM','MD','MC','MN','ME','MS','MA','MZ','MM','NA','NR','NP','NL','AN','NC','NZ','NI','NE','NG','NU','NF','MP','NO','OM','PK','PW','PS','PA','PG','PY','PE','PH','PN','PL','PT','PR','QA','RE','RO','RU','RW','BL','SH','KN','LC','MF','PM','VC','WS','SM','ST','SA','SN','RS','SC','SL','SG','SK','SI','SB','SO','ZA','GS','ES','LK','SD','SR','SJ','SZ','SE','CH','SY','TW','TJ','TZ','TH','TL','TG','TK','TO','TT','TN','TR','TM','TC','TV','UG','UA','AE','GB','US','UM','UY','UZ','VU','VE','VN','VG','VI','WF','EH','YE','ZM','ZW'])(id="nationality")
+        .long-heading
+          p.disclaimer All customers applying from the following countries must upload certified copies of 1 proof of Government issued photo id and one proof of residency (certified by a Notary or a Lawyer): #[p(class="disclaimer__list") Afghanistan, Albania, Algeria, Azerbaijan, Bangladesh, Belarus, Belize, Bhutan, Bolivia, Bosnia And Herzegovina, Cambodia, Ecuador, Indonesia, Kazakhstan, Kenya, Kyrgyzstan, Moldova, Niger, Nigeria, Pakistan, Panama, Russia, Seychelles, Tanzania, Turkmenistan, Uganda, Ukraine, Uzbekistan and Venezuela.]
         .personal_form__inputwrap
           h5.label Language:
           .personal_form__dropdownwrap
-            +dropdown(baseUrl, ['English', 'Spanish', 'Italian', 'Italian', 'Chinese-simplified', 'Chinese-traditional', 'Portuguese'])
+            +dropdown(baseUrl, ['English', 'Spanish', 'Italian', 'Mandarin', 'Cantonese', 'Portuguese'])
         span.line
 
         .personal_form__inputwrap
@@ -45,8 +49,8 @@ mixin personalDetailsForm(baseUrl)
         //-   h5.label Street Name:
         //-   +textinput({type: 'text', name: 'streetName'})
         .personal_form__inputwrap
-          h5.label Country:
-          +textinput({type: 'text', name: 'country'})
+          h5.label City:
+          +textinput({type: 'text', name: 'city'})
         .personal_form__inputwrap
           h5.label Country:
           .personal_form__dropdownwrap
@@ -90,8 +94,8 @@ mixin personalDetailsForm(baseUrl)
         .personal_form__inputwrap
           h5.label Employment Status:
           .personal_form__dropdownwrap
-            +dropdown(baseUrl, ['Employed','Self employed','Military service retired','Home maker','Student','Unemployed'])(id="employmentStatus")
-        .personal_form__inputwrap.hide-if-irrelevant
+            +dropdown(baseUrl, ['Employed','Self employed','House-keeper','Student','Unemployed'])(id="employmentStatus")
+        .personal_form__inputwrap.hide-if-irrelevant.not-self-employed
           h5.label Employer Name:
           +textinput({type: 'text', name: 'employerName'})
         .personal_form__inputwrap.hide-if-irrelevant
@@ -202,7 +206,7 @@ mixin personalDetailsForm(baseUrl)
         h4.personal_form__header FATCA - The Foreign Account Tax Compliance Act
         p.personal_form__text FATCA is US law that means Uk financial institutions must collect information on US tax residents using foreign accounts.
         .personal_form__inputwrap.personal_form__inputwrap--leftaline.long-heading
-          h5.label Are you a citzen of the United States of America:
+          h5.label Are you a citzen of the United States of America or Canada?
           .personal_form__radios
             +radiobutton({text: 'Yes'})(name="USACitizen")
             +radiobutton({text: 'No'})(name="USACitizen")
@@ -219,7 +223,7 @@ mixin personalDetailsForm(baseUrl)
           h5.label Upload File
           input(type="file" accept=".doc, .docx, xls, .xlsx, .pdf, .jpeg, .rtf")
           h5.label .doc, .docx, xls, .xlsx, .pdf, .jpeg, .rtf files only
-        .personal_form__inputwrap.personal_form__inputwrap--leftaline.long-heading
+        .personal_form__inputwrap.personal_form__inputwrap--leftaline.long-heading(id="uploadOptional")
           h5.label Upload File
           input(type="file" accept=".doc, .docx, xls, .xlsx, .pdf, .jpeg, .rtf")
           h5.label .doc, .docx, xls, .xlsx, .pdf, .jpeg, .rtf files only
@@ -229,14 +233,15 @@ mixin personalDetailsForm(baseUrl)
         h4.personal_form__header Declarations
         p.personal_form__text Before proceeding any further you must read through the account application supporting documents listed below. To review the documents, please click on the document names.
         .personal_form__inputwrap.long-heading(id="docksWrapper")
-          h5.label #[a(href="test.pdf" target="_blank" class="must-view") Terms and conditions]
-          h5.label #[a(href="test.pdf" target="_blank" class="must-view") Order execution policy]
-          h5.label #[a(href="test.pdf" target="_blank" class="must-view") Risk warning notice]
-          h5.label #[a(href="test.pdf" target="_blank" class="must-view") Client classification & protection notice]
+          h5.label #[a(href="https://bpprime.com/pdf/Customer%20Terms%20and%20Conditions.pdf" target="_blank" class="must-view") Terms and conditions]
+          h5.label #[a(href="https://bpprime.com/pdf/Best%20Execution%20Policy.pdf" target="_blank" class="must-view") Order execution policy]
+          h5.label #[a(href="https://bpprime.com/pdf/Risk%20Warning%20Notice.pdf" target="_blank" class="must-view") Risk warning notice]
+          h5.label #[a(href="https://bpprime.com/pdf/Client%20Categorisation.pdf" target="_blank" class="must-view") Client classification & protection notice]
         .personal_form__inputwrap.long-heading
           h5.label I hereby confirm and aknowledge that I have read and understood and agree to be bound to the Terms and Conditions, Order execution policy, risk warning notice and Client classification & protection notice provided to me.
           .personal_form__radios
             +radiobutton({text: 'Yes I Agree'})(name="termsAndConditions")
+          .g-recaptcha(data-sitekey="6LfVdj0UAAAAAHrxiU5dIsts5lwcKswzXoQnFr7b")
         span.line
         .personal_form__inputwrap.long-heading
           h4.personal_form__header By submitting this application form I confirm that:

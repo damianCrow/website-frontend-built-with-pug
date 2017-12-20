@@ -11,7 +11,7 @@ block config
 
 block content
   +header(headerType, baseUrl)
-  .wrapper
+  .wrapper(style="width: 100%; overflow: hidden;")
     .progress-wrap(id="personalDetailsFormProgress")
       +progressicon({text: '1', title: 'Personal', class: 'chain'})(data-index="0")
       +progressicon({text: '2', title: 'BP Prime Safe', class: 'chain'})(data-index="1")
@@ -35,6 +35,6 @@ block content
 
           h4 Do you offer corporate accounts?
 
-          p Yes we do, please #[span click here] to download our Corporate Application Form.
+          p Yes we do, please send an email to #[a(href="mailto:sales@bpprime.com" style="color: #a59466; text-decoration: none;") sales@bpprime.com] and a member of our team will get in touch with you.
   +footer(baseUrl)
     
