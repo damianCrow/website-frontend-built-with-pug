@@ -11,7 +11,7 @@ block config
 
 block content
   +header(headerType, baseUrl)
-  .wrapper(style="width: 100%; overflow: hidden;")
+  .wrapper.wrapper--fit
     .progress-wrap(id="personalDetailsFormProgress")
       +progressicon({text: '1', title: 'Personal', class: 'chain'})(data-index="0")
       +progressicon({text: '2', title: 'BP Prime Safe', class: 'chain'})(data-index="1")

@@ -21,8 +21,13 @@ body {
 
 // TODO: Unsure if this should actually be a mixin or not?
 .wrapper {
-  max-width: $max;
   margin: 0 auto;
+  max-width: $max;
+
+  &--fit {
+    overflow: hidden;
+    width: 100%;
+  }
 }
 
 .page-content {
