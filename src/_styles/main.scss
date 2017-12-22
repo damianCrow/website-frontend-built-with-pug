@@ -19,6 +19,12 @@ body {
   }
 }
 
+.locked {
+  &--main-menu {
+    overflow: hidden;
+  }
+}
+
 // TODO: Unsure if this should actually be a mixin or not?
 .wrapper {
   margin: 0 auto;

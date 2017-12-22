@@ -42,6 +42,10 @@
   }
 
   &__bottom {
+    z-index: 1;
     margin-top: auto;
+    margin-bottom: -1rem;
+    padding-bottom: 1rem;
+    background: palette(brown, dark);
   }
 }

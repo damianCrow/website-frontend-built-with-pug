@@ -1,5 +1,6 @@
 export default class Menu {
   constructor(lockBody, team) {
+
     this.menu = document.getElementById('main-menu')
     this.burger = document.getElementById('main-burger')
     // this.menu = document.getElementById('main-menu')
@@ -15,8 +16,10 @@ export default class Menu {
     burger.addEventListener('click', () => {
       if (burger.classList.contains('burger--active')) {
         menu.classList.remove('main-menu--active')
+        document.body.classList.remove('locked--main-menu')
         burger.classList.remove('burger--active')
       } else {
+        document.body.classList.add('locked--main-menu')
         burger.classList.add('burger--active')
         menu.classList.add('main-menu--active')
       }
