@@ -12,7 +12,7 @@
     padding: 85px 0;
   }
 
-  &.success {
+  &.success, &.error {
     padding: 100px 0 0 0;
     
     @media #{$mq-desktop-xsmall-up} {
@@ -24,7 +24,9 @@
     & > * {
       display: none;
     }
-
+  }
+  
+  &.success {
     .success-only {
       display: block;
 
@@ -34,7 +36,17 @@
     }
   }
 
-  .success-only {
+  &.error {
+    .error-only {
+      display: block;
+
+      &.button--medium {
+        max-width: 200px;
+      }
+    }
+  }
+
+  .success-only, .error-only {
     display: none;
   }
 

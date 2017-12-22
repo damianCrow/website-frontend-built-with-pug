@@ -56,17 +56,23 @@ export default class PersonalDetailsForm {
       onFinishing(e, currentIndex) {
 
         if(textInput.validateForm(`personalDetailsForm-p-${currentIndex}`, () => true, () => false) && allDocsViewed()) {
-
+          
           $.ajax({
             type: "POST",
             url: $('#personalDetailsForm').attr('action'),
             data: $(e.currentTarget).serialize(),
             success: (data) => {
-              $(`.progress[data-index="${currentIndex}"]`).removeClass('active').addClass('complete')
-              $('#formWrapper').addClass('success')
+              if(data.status === 'success') {
+                $(`.progress[data-index="${currentIndex}"]`).removeClass('active').addClass('complete')
+                $('#formWrapper').addClass('success')
+              } else {
+                $('#formWrapper').addClass('error')
+                $('#error-details').html(data.error_msg)
+              }
             }, 
             error: (data) => {
-              console.log(data)
+              $('#formWrapper').addClass('error')
+              $('#error-details').html(data.responseText)
             }
           })
         }

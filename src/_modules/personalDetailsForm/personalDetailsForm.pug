@@ -6,9 +6,13 @@ include ../tabs-list/tabs-list
 
 mixin personalDetailsForm(baseUrl)
   .personal_form(id="formWrapper")
+    h4.personal_form__header.error-only Error
+    p.personal_form__text.error-only Unfortunately an error occured! Error details: #[span(id="error-details")]
+    +button(true, 'redirect/url')(class="button--green button--medium error-only")
+      |Back to Form
     h4.personal_form__header.success-only Success
     p.personal_form__text.success-only Thank you very much for applying for a live trading account. We are processing your application and will notify you as soon as the account is approved.
-    +button()(class="button--green button--medium success-only")
+    +button(true, 'redirect/url')(class="button--green button--medium success-only")
       |Back to Private
     form.personal_form__form(id="personalDetailsForm" action="some/url/formendpoint")
 
