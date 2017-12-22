@@ -3,6 +3,7 @@
   z-index: 10;
   top: 0;
 
+
   display: flex;
   flex-direction: column;
 
@@ -27,6 +28,14 @@
     opacity: 1;
   }
 
+  .toggle-nav {
+    height: calc(100% - #{$condensed-header-height + 150});
+    @media #{$mq-desktop-small-up} {
+      height: calc(100% - #{$condensed-header-height + 100});
+    }
+
+  }
+
   &--active {
     transition: transform 500ms $timing-function-fast-out-slow-in, opacity 0s linear 0s;
     transform: translateX(0);
@@ -36,6 +45,11 @@
   }
 
   &--expanded {
+    .toggle-nav {
+      height: calc(100% - #{$expanded-header-height + 70});
+    }    
+    
+
     @media #{$mq-desktop-small-up} {
       padding-top: $expanded-header-height;
     }
