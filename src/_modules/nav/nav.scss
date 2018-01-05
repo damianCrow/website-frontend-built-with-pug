@@ -7,7 +7,7 @@
   width: 100%;
   // padding: 0 $primary-gutter;
   // height: calc(100% - 175px);
-  overflow: scroll;
+  overflow: auto;
   $root: &;
 
   &__list {
