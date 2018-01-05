@@ -33,7 +33,7 @@ mixin personalDetailsForm(baseUrl)
         .personal_form__inputwrap
           h5.label Date Of Birth:
           .personal_form__dropdownwrap
-            input(type="date" date-format="mmmm/dd/yyyy")
+            input(type="date" date-format="mmmm/dd/yyyy" placeholder="dd/mm/yyyy")
         .personal_form__inputwrap
           h5.label Nationality:
           .personal_form__dropdownwrap
@@ -221,16 +221,16 @@ mixin personalDetailsForm(baseUrl)
           h5.label For more specific information about what is required pease #[a( href="") click here]
         .personal_form__inputwrap.personal_form__inputwrap--leftaline.long-heading 
           h5.label Upload File
-          input(type="file" accept=".doc, .docx, xls, .xlsx, .pdf, .jpeg, .rtf")
-          h5.label .doc, .docx, xls, .xlsx, .pdf, .jpeg, .rtf files only
+          input(type="file" accept=".jpg, .doc, .docx, xls, .xlsx, .pdf, .jpeg, .rtf")
+          h5.label .jpg .doc, .docx, xls, .xlsx, .pdf, .jpeg, .rtf files only
         .personal_form__inputwrap.personal_form__inputwrap--leftaline.long-heading
           h5.label Upload File
-          input(type="file" accept=".doc, .docx, xls, .xlsx, .pdf, .jpeg, .rtf")
-          h5.label .doc, .docx, xls, .xlsx, .pdf, .jpeg, .rtf files only
+          input(type="file" accept=".jpg, .doc, .docx, xls, .xlsx, .pdf, .jpeg, .rtf")
+          h5.label .jpg .doc, .docx, xls, .xlsx, .pdf, .jpeg, .rtf files only
         .personal_form__inputwrap.personal_form__inputwrap--leftaline.long-heading(id="uploadOptional")
           h5.label Upload File
-          input(type="file" accept=".doc, .docx, xls, .xlsx, .pdf, .jpeg, .rtf")
-          h5.label .doc, .docx, xls, .xlsx, .pdf, .jpeg, .rtf files only
+          input(type="file" accept=".jpg, .doc, .docx, xls, .xlsx, .pdf, .jpeg, .rtf")
+          h5.label .jpg .doc, .docx, xls, .xlsx, .pdf, .jpeg, .rtf files only
 
       h1
       section.personal_form-section(data-index="4")
@@ -247,7 +247,7 @@ mixin personalDetailsForm(baseUrl)
             +radiobutton({text: 'Yes I Agree'})(name="termsAndConditions")
           .g-recaptcha(data-sitekey="6LfVdj0UAAAAAHrxiU5dIsts5lwcKswzXoQnFr7b")
         span.line
-        .personal_form__inputwrap.long-heading
+        .personal_form__inputwrap.personal_form__inputwrap--leftaline.long-heading
           h4.personal_form__header By submitting this application form I confirm that:
           h5.label 1. I have access to the internet and consent to BP Prime providing me with information about changes to the Client Agreement by posting such information on the Company website www.bpprime.com
           h5.label 2. I understand that CFDs and margined FX are leveraged products and am sure they are suitable for me; I have been advised of my ability to seek independant financial advice

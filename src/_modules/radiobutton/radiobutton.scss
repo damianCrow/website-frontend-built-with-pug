@@ -2,35 +2,41 @@
   display: flex;
   @extend %typography-body;
   height: 45px;
+  position: relative;
 
   &__label {
     line-height: 45px;
   }
 
+  .before  {
+    content: '';
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    transform: rotate(45deg);
+    visibility: visible;
+    border: 1px solid palette(gold, metalic);
+    top: 13px;
+    pointer-events: none;
+    left: 0;
+  }
+
   &__radio {
     margin-right: $primary-gutter;
-    visibility: hidden;
+    opacity: 0;
     position: relative;
-    margin-top: 13.5px;
-
-    &:after {
-      content: '';
-      width: 18px;
-      height: 18px;
-      position: absolute;
-      transform: rotate(45deg);
-      visibility: visible;
-      border: 1px solid palette(gold, metalic);
-    }
+    margin: 10px 15px 0 -2px;
+    width: 23px;
+    height: 23px;
 
     &.error {
-      &:after {
+     + .before {
         border: 2px solid palette(red,error);
       }
     }
 
     &:checked {
-    	&:before {
+      + .before:after {
     		content: '';
     		width: 10px;
     		height: 10px;
@@ -38,9 +44,9 @@
     		border-radius: 10px;
     		background-color: palette(gold, metalic);
     		visibility: visible;
-    		top: 4px;
-    		left: 4px;
-    	}
+    		top: 3px;
+    		left: 3px;
+    	}   
     }
   }
 }

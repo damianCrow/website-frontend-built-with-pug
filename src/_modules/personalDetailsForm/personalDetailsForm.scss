@@ -51,11 +51,11 @@
   }
 
   &__radios {
-    flex: 1;
+    flex: 1 1 auto;
     display: flex;
 
     .radiowrap {
-      flex: 1;
+      flex: 1 1 auto;
       color: palette(brown, base);
     }
   }
@@ -81,11 +81,11 @@
   }
 
   &__dropdownwrap {
-    flex: 1;
+    flex: 1 1 0%;
     display: flex;
 
     .dropdown {
-      flex: 1;
+      flex: 1 1 0%;
       width: 100%;
     }
   }
@@ -97,11 +97,11 @@
     align-items: center;
 
     &--double {
-      flex: 1;
+      flex: 1 1 0%;
     }
 
     &--leftaline {
-      align-items: left;
+      align-items: flex-start;
     }
 
     &.long-lable {
@@ -109,7 +109,7 @@
         flex: 0 1 60%;
       }
       .dropdown {
-        flex: 1;
+        flex: 1 1 0%;
       }
     }
 
@@ -117,7 +117,7 @@
       flex-direction: column;
 
       .label {
-        flex: 1;
+        flex: 1 1 auto;
         margin: 5px 0;
       }
 
@@ -130,7 +130,7 @@
       flex-direction: column;
 
       .label {
-        flex: 1;
+        flex: 1 1 0%;
         margin: 5px 0;
       }
 
@@ -147,6 +147,7 @@
     .label {
       color: palette(gold, metalic);
       flex: 0 1 30%;
+      max-width: 100%;
       @extend %typography-title-v-two;
 
       &--telephone {
@@ -159,7 +160,7 @@
     }
 
     input:not([type="radio"]):not([type="file"]) {
-      flex: 1;
+      flex: 1 1 0%;
       &:not(.short):not(.medium) {
         width: 100%;
       }
@@ -173,8 +174,21 @@
       }
     }
 
+    input[type="date"] {
+      position: relative;
+      cursor: pointer;
+
+      &::-webkit-calendar-picker-indicator {
+        padding: 14px 0 14px calc(100% - 65px);
+        background-color: transparent;
+        position: absolute;
+      }
+    }
+
     input[type="file"] {
       max-width: 100%;
+      overflow: hidden;
+      padding-left: 0;
     }
 
     span {
@@ -219,6 +233,10 @@
 /* overide for jquery steps plugin */
 
   .steps {
+    display: none;
+  }
+
+  .wizard > .actions > ul > li.disabled {
     display: none;
   }
 

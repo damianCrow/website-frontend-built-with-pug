@@ -8,6 +8,7 @@
     "nodep-date-input-polyfill": "^5.2.0",
     "normalize.css": "~7.0.0",
     "object-fit-images": "^3.2.3",
+    "postcss-flexbugs-fixes": "^3.2.0",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {

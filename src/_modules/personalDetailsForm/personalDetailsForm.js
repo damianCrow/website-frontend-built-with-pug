@@ -16,7 +16,8 @@ export default class PersonalDetailsForm {
       bodyTag: 'section',
       transitionEffect: 1,
       saveState: true,
-      onInit() {
+      onInit(test) {
+        console.log(test)
         $('#personalDetailsFormProgress').find('.progress[data-index="0"]').addClass('active')
         $('ul[aria-label="Pagination"]').css({'list-style': 'none', 'height': '25px', 'padding': 0})
         $('ul[aria-label="Pagination"] > li > a').addClass('button--green button--medium button').css({'color': 'white', 'position': 'absolute'})
