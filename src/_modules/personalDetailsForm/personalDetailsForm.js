@@ -63,12 +63,14 @@ export default class PersonalDetailsForm {
             url: $('#personalDetailsForm').attr('action'),
             data: $(e.currentTarget).serialize(),
             success: (data) => {
-              if(data.status === 'success') {
+              const dataObj = JSON.parse(data)
+
+              if(dataObj.status === 'success') {
                 $(`.progress[data-index="${currentIndex}"]`).removeClass('active').addClass('complete')
                 $('#formWrapper').addClass('success')
               } else {
                 $('#formWrapper').addClass('error')
-                $('#error-details').html(data.error_msg)
+                $('#error-details').html(dataObj.error_msg)
               }
             }, 
             error: (data) => {
