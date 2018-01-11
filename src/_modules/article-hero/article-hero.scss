@@ -55,9 +55,9 @@ $article-hero-height-mobile: $article-hero-height / 2;
       top: 0;
     }
 
-    &:after {
+    &[data-content]:after {
       @extend %typography-small-section-text;
-      content: '36 Whitefriars Street';
+      content: attr(data-content);
       position: absolute;
       white-space: nowrap;
       left: 30px;
