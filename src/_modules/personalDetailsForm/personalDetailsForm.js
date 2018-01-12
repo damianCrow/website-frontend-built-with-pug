@@ -16,8 +16,7 @@ export default class PersonalDetailsForm {
       bodyTag: 'section',
       transitionEffect: 1,
       saveState: true,
-      onInit(test) {
-        console.log(test)
+      onInit() {
         $('#personalDetailsFormProgress').find('.progress[data-index="0"]').addClass('active')
         $('ul[aria-label="Pagination"]').css({'list-style': 'none', 'height': '25px', 'padding': 0})
         $('ul[aria-label="Pagination"] > li > a').addClass('button--green button--medium button').css({'color': 'white', 'position': 'absolute'})
@@ -55,32 +54,38 @@ export default class PersonalDetailsForm {
         }
       },
       onFinishing(e, currentIndex) {
-
+ 
         if(textInput.validateForm(`personalDetailsForm-p-${currentIndex}`, () => true, () => false) && allDocsViewed()) {
-          
-          $.ajax({
-            type: "POST",
-            url: $('#personalDetailsForm').attr('action'),
-            data: $(e.currentTarget).serialize(),
-            success: (data) => {
-              const dataObj = JSON.parse(data)
 
-              if(dataObj.status === 'success') {
-                $(`.progress[data-index="${currentIndex}"]`).removeClass('active').addClass('complete')
-                $('#formWrapper').addClass('success')
-              } else {
+          if(!$('a[href="#finish"]').hasClass('disabled')) {
+
+            $.ajax({
+              type: "POST",
+              url: $('#personalDetailsForm').attr('action'),
+              data: $(e.currentTarget).serialize(),
+              success: (data) => {
+                const dataObj = JSON.parse(data)
+
+                if(dataObj.status === 'success') {
+                  $(`.progress[data-index="${currentIndex}"]`).removeClass('active').addClass('complete')
+                  $('#formWrapper').addClass('success')
+                } else {
+                  $('#formWrapper').addClass('error')
+                  $('#error-details').html(dataObj.error)
+                }
+              }, 
+              error: (data) => {
                 $('#formWrapper').addClass('error')
-                $('#error-details').html(dataObj.error_msg)
+                $('#error-details').html(data.responseText)
               }
-            }, 
-            error: (data) => {
-              $('#formWrapper').addClass('error')
-              $('#error-details').html(data.responseText)
-            }
-          })
+            })
+          }
+
+          $('a[href="#finish"]').click((e) => {
+            e.preventDefault();
+          }).addClass('disabled').css({'background-color': '#d6d1cb', 'cursor': 'wait'});
         }
-      },
-      onFinished(event, currentIndex) {}
+      }
     })
 
     $('input[name="USACitizen"]').change((e) => {
