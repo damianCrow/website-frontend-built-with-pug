@@ -13,6 +13,9 @@ export default class TextInput {
       })
 
       if(!this.validatePhoneNumber(`+${phoneNumber}`)) {
+        $('.phone-validate').find('input').removeClass('error')
+        $('.phone-validate').find('.error-message').remove()
+
         $('.phone-validate').append('<b class="error-message">Invalid Phone Number!</b>');
         $('.phone-validate').find('input').addClass('error').focus((ele) => {
           $(ele.currentTarget).removeClass('error')
@@ -28,25 +31,27 @@ export default class TextInput {
       if($(field).val().length < 1) {
         $(field).parent().append('<b class="error-message">Input Required!</b>');
         $(field).addClass('error').focus((el) => {
-          $(el.currentTarget).removeClass('error')
-          $(el.currentTarget).parent().find('.error-message').remove()
+          this.removeError(el.currentTarget)
         })
       } else {
-        $(field).removeClass('error').parent().find('.error-message').remove()
+        this.removeError(field)
       }
     })
 // VALIDATE VISIBLE EMAIL INPUTS \\
     if($(`#${element}`).find('input[type="email"]:visible')) {
       $(`#${element}`).find('input[type="email"]').each((idx, ele) => {
         if(!this.validateEmail($(ele).val())) {
+
+          this.removeError(ele)
           $(ele).addClass('error').parent().append('<b class="error-message">Invalid Email!</b>')
+
           $(ele).change((el) => {
             this.validateEmail($(el.currentTarget).val(), () => {
-              $(ele).removeClass('error').parent().find('.error-message').remove()
+              this.removeError(ele)
             })
           })
         } else {
-          $(ele).removeClass('error').parent().find('.error-message').remove()
+          this.removeError(ele)
         }
       })
     }
@@ -54,13 +59,14 @@ export default class TextInput {
     if($(`#${element}`).find('.dropdown:visible')) {
       $('.dropdown').each((indx, select) => {
         if($(select).val() === null) {
+
+          this.removeError(select)
           $(select).addClass('error').parent().append('<b class="error-message">Selection Required!</b>')
           $(select).change((el) => {
-            $(el.currentTarget).removeClass('error')
-            $(el.currentTarget).parent().find('.error-message').remove()
+            this.removeError(el.currentTarget)
           })
         } else {
-          $(select).removeClass('error').closest('.error-message').remove()
+          this.removeError(select)
         }
       })
     }
@@ -68,9 +74,10 @@ export default class TextInput {
     if($(`#${element}`).find('.tabs-list:visible')) {
       $('.tabs-list').each((idx, list) => {
         if(!$(list).find('.tabs-list__item.selected').length) {
+
+          $(list).parent().find('.error-message').remove()
           $(list).addClass('error').parent().append('<b class="error-message">Selection Required!</b>')
           $(list).find('.tabs-list__item').click((e) => {
-            console.log()
             $(e.currentTarget).parent().removeClass('error').siblings('.error-message').remove()
           })
         } else {
@@ -84,13 +91,23 @@ export default class TextInput {
       const passConf = $(`#${element}`).find('input[name="confirmPassword"]')
       const bothFields = $(`#${element}`).find('input[type="password"]')
 
-      if($(pass).val() !== $(passConf).val()) {
-        $(passConf).parent().append('<b class="error-message">Passwords Dont Match!</b>')
-        $(bothFields).addClass('error').change(() => {
-          $(passConf).parent().find('.error-message').remove()
-          $(bothFields).removeClass('error')
-        })
-      } 
+      if($(pass).length && $(pass).val().length) {
+
+        if(this.validatePassword($(pass).val())) {
+
+          if($(pass).val() !== $(passConf).val()) {
+            this.removeError(passConf)
+            $(passConf).parent().append('<b class="error-message">Passwords Dont Match!</b>')
+            $(bothFields).addClass('error').change(() => {
+              $(passConf).parent().find('.error-message').remove()
+              $(bothFields).removeClass('error')
+            })
+          } 
+        } else {
+          this.removeError(pass)
+          $(pass).addClass('error').parent().append('<b class="error-message">Password must be 8 characters minimum, with at least 1 uppercase character!</b>')
+        }
+      }
     }
 // VALIDATE VISIBLE RADIO BUTTONS INPUTS \\
     if($(`#${element}`).find('.radiowrap__radio:visible')) {
@@ -103,7 +120,8 @@ export default class TextInput {
       const radioArray = Array.from(new Set(radioCategories))
 
       for(let i = 0; i < radioArray.length; i++) {
-        if($(`input[name=${radioArray[i]}]:checked`).length <= 0) {
+        
+        if(!$(`input[name=${radioArray[i]}]:checked`).length) {
           $(`input[name=${radioArray[i]}]`).addClass('error').change(() => {
             $(`input[name=${radioArray[i]}]`).removeClass('error')
           })
@@ -123,6 +141,11 @@ export default class TextInput {
     }
   }
 
+  removeError(ele) {
+    $(ele).removeClass('error')
+    $(ele).parent().find('.error-message').remove()
+  }
+
   validateEmail(email, callBack) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if(callBack && re.test(email)) {
@@ -130,6 +153,11 @@ export default class TextInput {
     } else {
       return re.test(email)
     }
+  }
+
+  validatePassword(password) {
+    const validpassword = /^(?=.*?[A-Z])(?=.*?[a-z]).{8,}$/;
+    return validpassword.test(password)
   }
 
   validatePhoneNumber(phoneNumber) {
