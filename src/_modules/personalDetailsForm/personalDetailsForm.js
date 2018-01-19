@@ -59,10 +59,26 @@ export default class PersonalDetailsForm {
 
           if(!$('a[href="#finish"]').hasClass('disabled')) {
 
+            const formData = new FormData()
+            const form = $(e.currentTarget)
+            const formParams = form.serializeArray()
+
+            $.each(form.find('input[type="file"]'), (i, tag) => {
+              $.each($(tag)[0].files, (i, file) => {
+                formData.append(tag.name, file);
+              });
+            });
+
+            $.each(formParams, (i, val) => {
+              formData.append(val.name, val.value);
+            });
+
             $.ajax({
               type: "POST",
               url: $('#personalDetailsForm').attr('action'),
-              data: $(e.currentTarget).serialize(),
+              data: formData,
+              processData: false,
+              contentType: false,
               success: (data) => {
                 const dataObj = JSON.parse(data)
 
